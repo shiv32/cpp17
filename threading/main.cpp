@@ -1,35 +1,112 @@
-// ATOMIC OPERATIONS LIBRARY
-// g++ main.cpp -o test -latomic
+// Atomic Type Example
+// g++ main.cpp -o test -pthread
 
 #include <iostream>
 #include <atomic>
-#include <experimental/type_traits>
+#include <thread>
+#include <chrono>
+#include <vector>
 
-class Foo
-{
-private:
-    int mArray[123];
-};
+using namespace std;
 
-class Bar
+// example 1
+/*
+void increment(int &counter)
 {
-private:
-    int mInt;
-};
+
+    for (int i = 0; i < 100; ++i)
+    {
+        ++counter;
+        this_thread::sleep_for(1ms);
+    }
+}
 
 int main()
 {
-    using namespace std;
+    int counter = 0;
 
-    atomic<Foo> f;
+    std::vector<std::thread> threads;
 
-    // Outputs: 1 0
-    cout << std::experimental::fundamentals_v1::is_trivially_copyable_v<Foo> << " " << f.is_lock_free() << endl;
+    for (int i = 0; i < 10; ++i)
+    {
+        threads.push_back(thread{increment, ref(counter)});
+    }
 
-    atomic<Bar> b;
+    for (auto &t : threads)
+    {
+        t.join();
+    }
 
-    // Outputs: 1 1
-    cout << std::experimental::fundamentals_v1::is_trivially_copyable_v<Bar> << " " << b.is_lock_free() << endl;
+    cout << "Result = " << counter << endl;
+
+    return 0;
+}
+
+*/
+
+// eaxmple 2
+/*
+void increment(atomic<int> &counter)
+{
+    for (int i = 0; i < 100; ++i)
+    {
+        ++counter;
+        this_thread::sleep_for(1ms);
+    }
+}
+
+int main()
+{
+    atomic<int> counter(0);
+
+    std::vector<std::thread> threads;
+
+    for (int i = 0; i < 10; ++i)
+    {
+        threads.push_back(thread{increment, ref(counter)});
+    }
+
+    for (auto &t : threads)
+    {
+        t.join();
+    }
+
+    cout << "Result = " << counter << endl;
+
+    return 0;
+}
+*/
+
+// example 3
+
+void increment(atomic<int> &counter)
+{
+    int result = 0;
+    for (int i = 0; i < 100; ++i)
+    {
+        ++result;
+        this_thread::sleep_for(1ms);
+    }
+    counter += result;
+}
+
+int main()
+{
+    atomic<int> counter(0);
+
+    std::vector<std::thread> threads;
+
+    for (int i = 0; i < 10; ++i)
+    {
+        threads.push_back(thread{increment, ref(counter)});
+    }
+
+    for (auto &t : threads)
+    {
+        t.join();
+    }
+
+    cout << "Result = " << counter << endl;
 
     return 0;
 }
