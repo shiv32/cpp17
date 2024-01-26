@@ -1,112 +1,22 @@
-// Atomic Type Example
-// g++ main.cpp -o test -pthread
+// Atomic Operations
+// g++ main.cpp -o test
 
 #include <iostream>
 #include <atomic>
-#include <thread>
-#include <chrono>
-#include <vector>
 
 using namespace std;
 
-// example 1
-/*
-void increment(int &counter)
-{
-
-    for (int i = 0; i < 100; ++i)
-    {
-        ++counter;
-        this_thread::sleep_for(1ms);
-    }
-}
-
 int main()
 {
-    int counter = 0;
+    atomic<int> value(10);
 
-    std::vector<std::thread> threads;
+    cout << "Value = " << value << endl;
 
-    for (int i = 0; i < 10; ++i)
-    {
-        threads.push_back(thread{increment, ref(counter)});
-    }
+    int fetched = value.fetch_add(4);
 
-    for (auto &t : threads)
-    {
-        t.join();
-    }
+    cout << "Fetched = " << fetched << endl;
 
-    cout << "Result = " << counter << endl;
-
-    return 0;
-}
-
-*/
-
-// eaxmple 2
-/*
-void increment(atomic<int> &counter)
-{
-    for (int i = 0; i < 100; ++i)
-    {
-        ++counter;
-        this_thread::sleep_for(1ms);
-    }
-}
-
-int main()
-{
-    atomic<int> counter(0);
-
-    std::vector<std::thread> threads;
-
-    for (int i = 0; i < 10; ++i)
-    {
-        threads.push_back(thread{increment, ref(counter)});
-    }
-
-    for (auto &t : threads)
-    {
-        t.join();
-    }
-
-    cout << "Result = " << counter << endl;
-
-    return 0;
-}
-*/
-
-// example 3
-
-void increment(atomic<int> &counter)
-{
-    int result = 0;
-    for (int i = 0; i < 100; ++i)
-    {
-        ++result;
-        this_thread::sleep_for(1ms);
-    }
-    counter += result;
-}
-
-int main()
-{
-    atomic<int> counter(0);
-
-    std::vector<std::thread> threads;
-
-    for (int i = 0; i < 10; ++i)
-    {
-        threads.push_back(thread{increment, ref(counter)});
-    }
-
-    for (auto &t : threads)
-    {
-        t.join();
-    }
-
-    cout << "Result = " << counter << endl;
+    cout << "Value = " << value << endl;
 
     return 0;
 }
