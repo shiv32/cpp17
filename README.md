@@ -1,8 +1,9 @@
 # cpp17
 
 1. S.O.L.I.D. Principles
+   https://github.com/shiv32/SOLID-CPP.git
 
-2. Design Patterns
+3. Design Patterns
 
     1. Behavioral ->  Chain of responsibility, Observer,  Iterator
 
