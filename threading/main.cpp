@@ -1,22 +1,45 @@
-// Atomic Operations
-// g++ main.cpp -o test
+// std::call_once
+// g++ main.cpp -o test -pthread
 
 #include <iostream>
-#include <atomic>
+#include <vector>
+#include <thread>
+#include <mutex>
 
 using namespace std;
 
+once_flag gOnceFlag;
+
+void initializeSharedResources()
+{
+    // ... Initialize shared resources to be used by multiple threads.
+    cout << "Shared resources initialized." << endl;
+}
+
+void processingFunction()
+{
+    // Make sure the shared resources are initialized.
+    call_once(gOnceFlag, initializeSharedResources);
+
+    // ... Do some work, including using the shared resources
+    cout << "Processing" << endl;
+}
+
 int main()
 {
-    atomic<int> value(10);
+    // Launch 3 threads.
+    vector<thread> threads(3);
 
-    cout << "Value = " << value << endl;
+    for (auto &t : threads)
+    {
+        t = thread{processingFunction};
+    }
 
-    int fetched = value.fetch_add(4);
-
-    cout << "Fetched = " << fetched << endl;
-
-    cout << "Value = " << value << endl;
+    // Join on all threads
+    for (auto &t : threads)
+    {
+        t.join();
+    }
 
     return 0;
 }
