@@ -10,3 +10,14 @@
     2. Structural -> Adaptor,  Proxy,  Decorator
 
     3. Creational ->  Singleton,  Abstract factory
+  
+
+4. Books
+   
+    1. Professional C++, 4th Edition
+       
+       https://www.wiley.com/en-us/Professional+C%2B%2B%2C+4th+Edition-p-9781119421306
+  
+    2. Financial Instrument Pricing Using C++, 2nd Edition
+
+       https://www.wiley.com/en-us/Financial+Instrument+Pricing+Using+C%2B%2B%2C+2nd+Edition-p-9781119170488
