@@ -1,9 +1,9 @@
 // Using Timed Locks
 // g++ --std=c++17 main.cpp -o test -pthread
 
-#include <iostream> // std::cout
-#include <thread>   // std::thread
-#include <mutex>    // std::mutex, std::lock_guard
+#include <iostream> 
+#include <thread>   
+#include <mutex>    
 
 using namespace std;
 
