@@ -1,9 +1,9 @@
-// Thread-Safe Writing to Streams
+// Using Timed Locks
 // g++ --std=c++17 main.cpp -o test -pthread
 
-#include <iostream>       // std::cout
-#include <thread>         // std::thread
-#include <mutex>          // std::mutex, std::lock_guard
+#include <iostream> // std::cout
+#include <thread>   // std::thread
+#include <mutex>    // std::mutex, std::lock_guard
 
 using namespace std;
 
@@ -18,19 +18,26 @@ public:
     {
         for (int i = 0; i < mNumIterations; ++i)
         {
-             std::lock_guard lock(sMutex);  //c++ 17 
-            //std::lock_guard<mutex> lck(sMutex); 
-            cout << "Counter " << mId << " has value " << i << endl;
+            unique_lock lock(sTimedMutex, 200ms); //c++ 17
+
+            if (lock)
+            {
+                cout << "Counter " << mId << " has value " << i << endl;
+            }
+            else
+            {
+                // Lock not acquired in 200ms, skip output.
+            }
         }
     }
 
 private:
     int mId;
     int mNumIterations;
-    static mutex sMutex;
+    static timed_mutex sTimedMutex;
 };
 
-mutex Counter::sMutex{};
+timed_mutex Counter::sTimedMutex;
 
 int main()
 {
