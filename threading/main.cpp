@@ -1,45 +1,42 @@
-// std::call_once
-// g++ main.cpp -o test -pthread
+// Thread-Safe Writing to Streams
+// g++ --std=c++17 main.cpp -o test -pthread
 
-#include <iostream>
-#include <vector>
-#include <thread>
-#include <mutex>
+#include <iostream>       // std::cout
+#include <thread>         // std::thread
+#include <mutex>          // std::mutex, std::lock_guard
 
 using namespace std;
 
-once_flag gOnceFlag;
-
-void initializeSharedResources()
+class Counter
 {
-    // ... Initialize shared resources to be used by multiple threads.
-    cout << "Shared resources initialized." << endl;
-}
+public:
+    Counter(int id, int numIterations)
+        : mId(id), mNumIterations(numIterations)
+    {
+    }
+    void operator()() const
+    {
+        for (int i = 0; i < mNumIterations; ++i)
+        {
+             std::lock_guard lock(sMutex);  //c++ 17 
+            //std::lock_guard<mutex> lck(sMutex); 
+            cout << "Counter " << mId << " has value " << i << endl;
+        }
+    }
 
-void processingFunction()
-{
-    // Make sure the shared resources are initialized.
-    call_once(gOnceFlag, initializeSharedResources);
+private:
+    int mId;
+    int mNumIterations;
+    static mutex sMutex;
+};
 
-    // ... Do some work, including using the shared resources
-    cout << "Processing" << endl;
-}
+mutex Counter::sMutex{};
 
 int main()
 {
-    // Launch 3 threads.
-    vector<thread> threads(3);
+    std::thread t1(Counter(3, 10));
 
-    for (auto &t : threads)
-    {
-        t = thread{processingFunction};
-    }
-
-    // Join on all threads
-    for (auto &t : threads)
-    {
-        t.join();
-    }
+    t1.join();
 
     return 0;
 }
