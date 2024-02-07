@@ -1,49 +1,51 @@
-// Using Timed Locks
+// Double-Checked Locking
 // g++ --std=c++17 main.cpp -o test -pthread
 
-#include <iostream> 
-#include <thread>   
-#include <mutex>    
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <vector>
+#include <atomic>
 
 using namespace std;
 
-class Counter
+void initializeSharedResources()
 {
-public:
-    Counter(int id, int numIterations)
-        : mId(id), mNumIterations(numIterations)
-    {
-    }
-    void operator()() const
-    {
-        for (int i = 0; i < mNumIterations; ++i)
-        {
-            unique_lock lock(sTimedMutex, 200ms); //c++ 17
+    // ... Initialize shared resources to be used by multiple threads.
+    cout << "Shared resources initialized." << endl;
+}
 
-            if (lock)
-            {
-                cout << "Counter " << mId << " has value " << i << endl;
-            }
-            else
-            {
-                // Lock not acquired in 200ms, skip output.
-            }
+atomic<bool> gInitialized(false);
+mutex gMutex;
+
+void processingFunction()
+{
+    if (!gInitialized)
+    {
+        unique_lock lock(gMutex);
+
+        if (!gInitialized)
+        {
+            initializeSharedResources();
+            gInitialized = true;
         }
     }
-
-private:
-    int mId;
-    int mNumIterations;
-    static timed_mutex sTimedMutex;
-};
-
-timed_mutex Counter::sTimedMutex;
+    cout << "OK" << endl;
+}
 
 int main()
 {
-    std::thread t1(Counter(3, 10));
+    vector<thread> threads;
 
-    t1.join();
+    for (int i = 0; i < 5; ++i)
+    {
+        threads.push_back(thread{processingFunction});
+    }
+
+    for (auto &t : threads)
+    {
+        t.join();
+    }
 
     return 0;
 }
