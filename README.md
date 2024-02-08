@@ -22,3 +22,7 @@
     3. Financial Instrument Pricing Using C++, 2nd Edition
        
        https://www.wiley.com/en-us/Financial+Instrument+Pricing+Using+C%2B%2B%2C+2nd+Edition-p-9781119170488
+
+5. Download Any Book
+      
+      http://libgen.rs/search.php?req=Hands-On+Embedded+Programming+with+Qt&open=0&res=25&view=simple&phrase=1&column=def
