@@ -10,7 +10,6 @@ std::mutex mtx;
 std::condition_variable cv;
 bool ready = false;
 
-
 void ThreadF_1() {
 
     std::unique_lock lock(mtx);
@@ -24,7 +23,7 @@ void ThreadF_1() {
     std::cout << "Thread 1: Received notification" << std::endl;
 }
 
-// Function for thread 2
+
 void ThreadF_2() {
     
     std::lock_guard lock(mtx);
@@ -41,6 +40,7 @@ void ThreadF_2() {
 }
 
 int main() {
+
     // Create threads
     std::thread t1(ThreadF_1);
     std::thread t2(ThreadF_2);
