@@ -26,3 +26,7 @@
 5. Download Any Book
       
       http://libgen.rs/search.php
+
+6. C++ Udemy Course
+
+   https://www.udemy.com/user/umar-lone/
