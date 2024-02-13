@@ -1,41 +1,31 @@
-// std::promise, std::future, wait_for
+// std::packaged_task
 // g++ --std=c++17 main.cpp -o test -pthread
 
 #include <iostream>
 #include <thread>
 #include <future>
-#include <chrono>
 
-void DoWork(std::promise<int> thePromise)
+int CalculateSum(int a, int b)
 {
-    // ... Do some work ...
-    // And ultimately store the result in the promise.
-    thePromise.set_value(42);
+    return a + b;
 }
+
 int main()
 {
-    // Create a promise to pass to the thread.
-    std::promise<int> myPromise;
+    // Create a packaged task to run CalculateSum.
+    std::packaged_task<int(int, int)> task(CalculateSum);
 
-    // Get the future of the promise.
-    auto theFuture = myPromise.get_future();
+    // Get the future for the result of the packaged task.
+    auto theFuture = task.get_future();
 
-    // Create a thread and move the promise into it.
-    std::thread theThread{DoWork, std::move(myPromise)};
+    // Create a thread, move the packaged task into it, and
+    // execute the packaged task with the given arguments.
+    std::thread theThread{std::move(task), 39, 3};
 
-    std::future_status status = theFuture.wait_for(std::chrono::seconds(1));
-
-    if (status == std::future_status::ready)
-    {
-        // Get the result.
-        int result = theFuture.get();
-        std::cout << "Result: " << result << std::endl;
-    }
-    else
-    {
-        // Value is not yet available
-         std::cout << "status failed !"<< std::endl;
-    }
+    // Do some more work...
+    // Get the result.
+    int result = theFuture.get();
+    std::cout << result << std::endl;
 
     // Make sure to join the thread.
     theThread.join();
