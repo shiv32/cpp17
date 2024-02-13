@@ -1,10 +1,9 @@
-// std::promise, std::future, wait_for
+// std::promise and std::future
 // g++ --std=c++17 main.cpp -o test -pthread
 
 #include <iostream>
 #include <thread>
 #include <future>
-#include <chrono>
 
 void DoWork(std::promise<int> thePromise)
 {
@@ -23,19 +22,10 @@ int main()
     // Create a thread and move the promise into it.
     std::thread theThread{DoWork, std::move(myPromise)};
 
-    std::future_status status = theFuture.wait_for(std::chrono::seconds(1));
-
-    if (status == std::future_status::ready)
-    {
-        // Get the result.
-        int result = theFuture.get();
-        std::cout << "Result: " << result << std::endl;
-    }
-    else
-    {
-        // Value is not yet available
-         std::cout << "status failed !"<< std::endl;
-    }
+    // Do some more work...
+    // Get the result.
+    int result = theFuture.get();
+    std::cout << "Result: " << result << std::endl;
 
     // Make sure to join the thread.
     theThread.join();
