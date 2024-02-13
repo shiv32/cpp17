@@ -1,55 +1,32 @@
-// CONDITION VARIABLES
+// std::promise and std::future
 // g++ --std=c++17 main.cpp -o test -pthread
 
 #include <iostream>
 #include <thread>
-#include <mutex>
-#include <condition_variable>
+#include <future>
 
-std::mutex mtx;
-std::condition_variable cv;
-bool ready = false;
-
-void ThreadF_1() {
-
-    std::unique_lock lock(mtx);
-
-    std::cout << "Thread 1: Acquired lock" << std::endl;
-    
-    // Wait until ready is true
-    cv.wait(lock, []{ return ready; });
-    
-    // Do something
-    std::cout << "Thread 1: Received notification" << std::endl;
+void DoWork(std::promise<int> thePromise)
+{
+    // ... Do some work ...
+    // And ultimately store the result in the promise.
+    thePromise.set_value(42);
 }
+int main()
+{
+    // Create a promise to pass to the thread.
+    std::promise<int> myPromise;
 
-
-void ThreadF_2() {
+    // Get the future of the promise.
+    auto theFuture = myPromise.get_future();
     
-    std::lock_guard lock(mtx);
+    // Create a thread and move the promise into it.
+    std::thread theThread{DoWork, std::move(myPromise)};
     
-    std::cout << "Thread 2: Acquired lock" << std::endl;
+    // Do some more work...
+    // Get the result.
+    int result = theFuture.get();
+    std::cout << "Result: " << result << std::endl;
     
-    // Modify ready
-    ready = true;
-    
-    // Notify waiting threads
-    cv.notify_one();
-    
-    std::cout << "Thread 2: Released lock and notified" << std::endl;
-}
-
-int main() {
-
-    // Create threads
-    std::thread t1(ThreadF_1);
-    std::thread t2(ThreadF_2);
-
-    // Join threads
-    t1.join();
-    t2.join();
-
-    std::cout << "All threads finished" << std::endl;
-
-    return 0;
+    // Make sure to join the thread.
+    theThread.join();
 }
