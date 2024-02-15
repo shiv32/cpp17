@@ -1,32 +1,23 @@
-// std::packaged_task
+// std::async
 // g++ --std=c++17 main.cpp -o test -pthread
 
 #include <iostream>
-#include <thread>
 #include <future>
 
-int CalculateSum(int a, int b)
+int calculate()
 {
-    return a + b;
+    return 123;
 }
 
 int main()
 {
-    // Create a packaged task to run CalculateSum.
-    std::packaged_task<int(int, int)> task(CalculateSum);
+    // auto myFuture = std::async(calculate);
+    // auto myFuture = std::async(std::launch::async, calculate);
+    auto myFuture = std::async(std::launch::deferred, calculate);
 
-    // Get the future for the result of the packaged task.
-    auto theFuture = task.get_future();
+    //  Do some more work...
+    //  Get the result.
 
-    // Create a thread, move the packaged task into it, and
-    // execute the packaged task with the given arguments.
-    std::thread theThread{std::move(task), 39, 3};
-
-    // Do some more work...
-    // Get the result.
-    int result = theFuture.get();
+    int result = myFuture.get();
     std::cout << result << std::endl;
-
-    // Make sure to join the thread.
-    theThread.join();
 }
