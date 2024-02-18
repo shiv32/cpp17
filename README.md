@@ -33,4 +33,4 @@
 
 7. Upload and read book from any where
    
-   https://reader.bookfusion.com
+   https://www.bookfusion.com/
