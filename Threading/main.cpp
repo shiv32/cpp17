@@ -20,8 +20,10 @@ int main()
         int result = myFuture.get();
         std::cout << result << std::endl;
     }
-    catch (const std::exception & ex)
+    catch (const std::exception &ex)
     {
         std::cout << "Caught exception: " << ex.what() << std::endl;
     }
+
+    return 0;
 }
