@@ -10,6 +10,7 @@ void Logger::log(std::string_view entry)
     // Lock mutex and add entry to the queue.
     std::unique_lock lock(mMutex);
     mQueue.push(std::string(entry));
+    
     // Notify condition variable to wake up thread.
     mCondVar.notify_all();
 }
@@ -24,14 +25,18 @@ void Logger::processEntries()
         std::cerr << "Failed to open logfile." << std::endl;
         return;
     }
+    
     // Start processing loop.
     std::unique_lock lock(mMutex);
+    
     while (true)
     {
         // Wait for a notification.
         mCondVar.wait(lock);
+    
         // Condition variable notified, something might be in the queue.
         lock.unlock();
+    
         while (true)
         {
             lock.lock();

@@ -26,11 +26,13 @@ int main()
 {
     Logger logger;
     std::vector<std::thread> threads;
+    
     // Create a few threads all working with the same Logger instance.
     for (int i = 0; i < 10; ++i)
     {
         threads.emplace_back(logSomeMessages, i, std::ref(logger));
     }
+    
     // Wait for all threads to finish.
     for (auto &t : threads)
     {
