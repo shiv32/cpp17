@@ -6,11 +6,13 @@ Logger::Logger()
     // Start background thread.
     mThread = std::thread{&Logger::processEntries, this};
 }
+
 void Logger::log(std::string_view entry)
 {
     // Lock mutex and add entry to the queue.
     std::unique_lock lock(mMutex);
     mQueue.push(std::string(entry));
+
     // Notify condition variable to wake up thread.
     mCondVar.notify_all();
 }
@@ -39,7 +41,8 @@ void Logger::processEntries()
         // std::this_thread::sleep_for(1000ms);
 
         if (!mExit)
-        { // Only wait for notifications if we don't have to exit.
+        { 
+            // Only wait for notifications if we don't have to exit.
             // Wait for a notification.
             mCondVar.wait(lock);
         }
@@ -50,6 +53,7 @@ void Logger::processEntries()
         while (true)
         {
             lock.lock();
+
             if (mQueue.empty())
             {
                 break;
@@ -59,6 +63,7 @@ void Logger::processEntries()
                 logFile << mQueue.front() << std::endl;
                 mQueue.pop();
             }
+
             lock.unlock();
         }
         if (mExit)
@@ -82,6 +87,7 @@ Logger::~Logger()
         // Notify condition variable to wake up thread.
         mCondVar.notify_all();
     }
+    
     // Wait until thread is shut down. This should be outside the above code
     // block because the lock must be released before calling join()!
     mThread.join();
