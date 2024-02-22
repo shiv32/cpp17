@@ -5,6 +5,7 @@ Logger::Logger()
     // Start background thread.
     mThread = std::thread{&Logger::processEntries, this};
 }
+
 void Logger::log(std::string_view entry)
 {
     // Lock mutex and add entry to the queue.
@@ -40,6 +41,7 @@ void Logger::processEntries()
         while (true)
         {
             lock.lock();
+
             if (mQueue.empty())
             {
                 break;
@@ -49,6 +51,7 @@ void Logger::processEntries()
                 logFile << mQueue.front() << std::endl;
                 mQueue.pop();
             }
+            
             lock.unlock();
         }
     }
