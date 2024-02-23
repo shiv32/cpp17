@@ -48,6 +48,10 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "cstring": "cpp",
+        "condition_variable": "cpp",
+        "mutex": "cpp",
+        "cinttypes": "cpp"
     }
 }
