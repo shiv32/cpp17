@@ -34,3 +34,12 @@
 7. Upload and read book from any where
    
    https://www.bookfusion.com/
+
+8. Google C++ Style Guide
+
+   https://google.github.io/styleguide/cppguide.html
+
+9. Google's C++ Class
+
+    https://developers.google.com/edu/c++
+
