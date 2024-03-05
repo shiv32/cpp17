@@ -1,6 +1,4 @@
 #include "grid.hpp"
-#include <utility>
-
 
 template <typename T>
 Grid<T>::~Grid()
