@@ -1,7 +1,7 @@
 /*
 Limit Class Template Instantiations
 
-g++ -std=c++17 main.cpp -o test
+g++ -std=c++17 *.cpp -o test
 */
 
 #include <iostream>
