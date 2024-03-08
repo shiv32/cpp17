@@ -31,6 +31,11 @@ template <typename T, size_t WIDTH, size_t HEIGHT>
 template <typename E, size_t WIDTH2, size_t HEIGHT2>
 Grid<T, WIDTH, HEIGHT>::Grid(const Grid<E, WIDTH2, HEIGHT2> &src)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    std::cout << "Template type : " << typeid(T).name() << std::endl;
+    std::cout << "WIDTH2 : " << WIDTH2 << std::endl;
+    std::cout << "HEIGHT2 : " << HEIGHT2 << std::endl;
+
     for (size_t i = 0; i < WIDTH; i++)
     {
         for (size_t j = 0; j < HEIGHT; j++)
@@ -56,9 +61,13 @@ void Grid<T, WIDTH, HEIGHT>::swap(Grid<T, WIDTH, HEIGHT> &other) noexcept
 
 template <typename T, size_t WIDTH, size_t HEIGHT>
 template <typename E, size_t WIDTH2, size_t HEIGHT2>
-Grid<T, WIDTH, HEIGHT> &Grid<T, WIDTH, HEIGHT>::operator=(
-    const Grid<E, WIDTH2, HEIGHT2> &rhs)
+Grid<T, WIDTH, HEIGHT> &Grid<T, WIDTH, HEIGHT>::operator=(const Grid<E, WIDTH2, HEIGHT2> &rhs)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    std::cout << "Template type : " << typeid(T).name() << std::endl;
+    std::cout << "WIDTH2 : " << WIDTH2 << std::endl;
+    std::cout << "HEIGHT2 : " << HEIGHT2 << std::endl;
+
     // no need to check for self-assignment because this version of
     // assignment is never called when T and E are the same
     // Copy-and-swap idiom
