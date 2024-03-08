@@ -32,7 +32,7 @@ template <typename E, size_t WIDTH2, size_t HEIGHT2>
 Grid<T, WIDTH, HEIGHT>::Grid(const Grid<E, WIDTH2, HEIGHT2> &src)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
-    std::cout << "Template type : " << typeid(T).name() << std::endl;
+    std::cout << "Template type : " << typeid(E).name() << std::endl;
     std::cout << "WIDTH2 : " << WIDTH2 << std::endl;
     std::cout << "HEIGHT2 : " << HEIGHT2 << std::endl;
 
@@ -64,7 +64,7 @@ template <typename E, size_t WIDTH2, size_t HEIGHT2>
 Grid<T, WIDTH, HEIGHT> &Grid<T, WIDTH, HEIGHT>::operator=(const Grid<E, WIDTH2, HEIGHT2> &rhs)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
-    std::cout << "Template type : " << typeid(T).name() << std::endl;
+    std::cout << "Template type : " << typeid(E).name() << std::endl;
     std::cout << "WIDTH2 : " << WIDTH2 << std::endl;
     std::cout << "HEIGHT2 : " << HEIGHT2 << std::endl;
 
