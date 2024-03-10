@@ -6,11 +6,11 @@
 
 3. Design Patterns
 
-    1. Behavioral ->  Chain of responsibility, Observer,  Iterator
+    1. Behavioral (how objects send messages to each other) ->  Chain of responsibility, Observer,  Iterator
 
-    2. Structural -> Adaptor,  Proxy,  Decorator
+    2. Structural (defining relationships between objects) -> Adaptor,  Proxy,  Decorator
 
-    3. Creational ->  Singleton,  Abstract factory
+    3. Creational (flexible ways to create objects) ->  Singleton,  Abstract factory
   
 
 4. Books
