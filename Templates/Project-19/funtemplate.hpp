@@ -1,7 +1,5 @@
 #pragma once
 
-#include <optional>
-
 static const size_t NOT_FOUND = static_cast<size_t>(-1);
 
 template <typename T>
