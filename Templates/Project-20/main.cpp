@@ -20,7 +20,7 @@ int main()
 
     const size_t sizeIntArray = std::size(intArray);
 
-     std::optional<size_t> res;
+    std::optional<size_t> res;
 
     res = Find(myInt, intArray, sizeIntArray); // calls Find<int> by deduction
 
@@ -71,10 +71,10 @@ int main()
         cout << "Not found" << endl;
 
     //----------------> 5
-     cout << "//-----------> 5" << endl;
+    cout << "//-----------> 5" << endl;
     int myInt2 = 3, intArray2[] = {1, 2, 3, 4};
     res = Find(myInt2, intArray2);
-    
+
     if (res.has_value())
         cout << "index : " << res.value() << endl;
     else
