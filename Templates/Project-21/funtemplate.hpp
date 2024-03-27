@@ -22,7 +22,7 @@ std::optional<size_t> Find(const T &value, const T (&arr)[N])
     return Find(value, arr, N);
 }
 
-//------------------------------
+//------------------------------ Function Template Specialization -------------------------------------
 
 template <>
 std::optional<size_t> Find<const char *>(const char *const &value, const char *const *arr, size_t size)
