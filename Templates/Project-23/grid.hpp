@@ -4,6 +4,9 @@
 #include <iostream>
 #include <optional>
 
+/*
+//when operator+ is friend
+
 // Forward declare Grid template
 template <typename T>
 class Grid;
@@ -11,6 +14,8 @@ class Grid;
 // Prototype for templatized operator+
 template <typename T>
 Grid<T> operator+(const Grid<T> &lhs, const Grid<T> &rhs);
+
+*/
 
 template <typename T>
 class Grid
