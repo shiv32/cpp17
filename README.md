@@ -12,9 +12,7 @@
 
     3. Creational (flexible ways to create objects) ->  Singleton,  Abstract factory
   
-    ref:
-
-    https://refactoring.guru/design-patterns/cpp
+       https://refactoring.guru/design-patterns/cpp
        
   
 
