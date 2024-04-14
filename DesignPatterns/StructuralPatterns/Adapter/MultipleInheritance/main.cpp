@@ -1,3 +1,8 @@
+/*
+Adapter using Multiple inheritance
+g++ *.cpp -o test
+*/
+
 #include <iostream>
 #include "Adapter.hpp"
 
