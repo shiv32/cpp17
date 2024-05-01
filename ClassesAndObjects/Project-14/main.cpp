@@ -7,7 +7,6 @@ g++ -std=c++17 *.cpp -o test
 */
 
 #include <iostream>
-#include <memory>
 #include "SpreadsheetCell.hpp"
 
 int main()
