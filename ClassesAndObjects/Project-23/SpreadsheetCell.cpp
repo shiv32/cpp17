@@ -10,6 +10,7 @@ SpreadsheetCell::SpreadsheetCell(double initialValue)
     mValue = initialValue;
 }
 
+// Delegating Constructor
 SpreadsheetCell::SpreadsheetCell(string_view initialValue) : SpreadsheetCell(stringToDouble(initialValue))
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
