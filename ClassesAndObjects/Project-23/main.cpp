@@ -1,8 +1,15 @@
 /*
-Delegating Constructors
-Delegating constructors allow constructors to call another constructor from the same class.
+    Delegating Constructors
+    Delegating constructors allow constructors to call another constructor from the same class.
 
-g++ -std=c++17 *.cpp -o test
+    //Make sure you avoid constructor recursion while using delegate constructors.
+    class MyClass
+    {
+    MyClass(char c) : MyClass(1.2) { }
+    MyClass(double d) : MyClass('m') { }
+    };
+
+    g++ -std=c++17 *.cpp -o test
 */
 
 #include <iostream>
