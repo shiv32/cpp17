@@ -6,7 +6,7 @@
 
 3. Design Patterns
 
-    1. Behavioral (how objects send messages to each other) ->  Chain of responsibility, Observer,  Iterator
+    1. Behavioral (how objects send messages to each other) ->  Chain of responsibility, Observer,  Iterator, State
 
     2. Structural (defining relationships between objects) -> Adaptor,  Proxy,  Decorator
 
