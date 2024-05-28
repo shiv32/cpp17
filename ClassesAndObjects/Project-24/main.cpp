@@ -45,4 +45,4 @@ int main()
     cellPtr1 = nullptr;
 
     return 0;
-} // cellPtr2 is NOT destroyed because delete was not called on it.
+} // cellPtr2 is NOT destroyed because delete was not called on it.(Solution: Use smart pointers)
