@@ -1,6 +1,6 @@
 /*
-   Copy Constructors and Object Members
-   
+    Copy Constructors and Object Members
+
     g++ -std=c++17 *.cpp -o test
 */
 
