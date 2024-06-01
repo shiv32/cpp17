@@ -43,7 +43,6 @@ public:
      * into the static field. On subsequent runs, it returns the client existing
      * object stored in the static field.
      */
-
     static Singleton *GetInstance(const std::string &value);
 
     /**

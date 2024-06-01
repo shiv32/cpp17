@@ -3,7 +3,6 @@
 /**
  * Static methods should be defined outside the class.
  */
-
 Singleton *Singleton::pinstance_{nullptr};
 std::mutex Singleton::mutex_;
 
