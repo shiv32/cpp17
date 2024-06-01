@@ -17,7 +17,9 @@ void ClientCode(Handler &handler)
     for (const std::string &f : food)
     {
         std::cout << "Client: Who wants a " << f << "?\n";
+
         const std::string result = handler.Handle(f);
+
         if (!result.empty())
         {
             std::cout << "  " << result;
@@ -28,6 +30,7 @@ void ClientCode(Handler &handler)
         }
     }
 }
+
 /**
  * The other part of the client code constructs the actual chain.
  */
