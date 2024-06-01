@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/NaiveSingleton/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/singleton.dir/Singleton.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/NaiveSingleton/Singleton.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/NaiveSingleton/Singleton.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/NaiveSingleton/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/singleton.dir/main.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/NaiveSingleton/main.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/NaiveSingleton/main.cpp"
+}
+]
