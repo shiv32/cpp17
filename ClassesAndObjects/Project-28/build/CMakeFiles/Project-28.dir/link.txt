@@ -1,1 +1,0 @@
-/usr/bin/g++  -g   CMakeFiles/Project-28.dir/SpreadsheetCell.cpp.o CMakeFiles/Project-28.dir/main.cpp.o  -o Project-28 

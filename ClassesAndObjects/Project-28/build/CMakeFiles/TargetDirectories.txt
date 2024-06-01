@@ -1,3 +1,0 @@
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/build/CMakeFiles/rebuild_cache.dir
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/build/CMakeFiles/Project-28.dir
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/build/CMakeFiles/edit_cache.dir
