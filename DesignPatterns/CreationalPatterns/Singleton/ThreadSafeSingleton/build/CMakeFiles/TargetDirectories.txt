@@ -1,0 +1,3 @@
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/build/CMakeFiles/rebuild_cache.dir
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/build/CMakeFiles/singleton.dir
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/build/CMakeFiles/edit_cache.dir

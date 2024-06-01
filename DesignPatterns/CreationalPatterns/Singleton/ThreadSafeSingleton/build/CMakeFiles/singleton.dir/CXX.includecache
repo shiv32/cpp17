@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/Singleton.cpp
+Singleton.hpp
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/Singleton.hpp
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/Singleton.hpp
+iostream
+-
+thread
+-
+string
+-
+mutex
+-
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/main.cpp
+Singleton.hpp
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/Singleton.hpp
+

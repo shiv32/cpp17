@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/build",
+  "command": "/usr/bin/c++    -pthread -g   -std=gnu++1z -o CMakeFiles/singleton.dir/Singleton.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/Singleton.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/Singleton.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/build",
+  "command": "/usr/bin/c++    -pthread -g   -std=gnu++1z -o CMakeFiles/singleton.dir/main.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/main.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/Singleton/ThreadSafeSingleton/main.cpp"
+}
+]
