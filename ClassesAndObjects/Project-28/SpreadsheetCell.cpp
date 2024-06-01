@@ -27,22 +27,22 @@ SpreadsheetCell::SpreadsheetCell(string_view initialValue) : SpreadsheetCell(str
 /*
     mValue is initialized using the copy constructor
 */
-// SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &src) : mValue(src.mValue)
-// {
-//     std::cout << __PRETTY_FUNCTION__ << std::endl;
-// }
+SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &src) : mValue(src.mValue)
+{
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+}
 
 /*
     when you assign values to data members in the body of the copy constructor, you are
     using the assignment operator on them, not the copy constructor, because they have already been
     initialized.
 */
-SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &src)
-{
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+// SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &src)
+// {
+//     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-    mValue = src.mValue;
-}
+//     mValue = src.mValue;
+// }
 //----------------------------------------------------------------------------------
 
 SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)

@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/build",
+  "command": "/usr/bin/g++    -g   -std=gnu++1z -o CMakeFiles/Project-28.dir/SpreadsheetCell.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/SpreadsheetCell.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/SpreadsheetCell.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/build",
+  "command": "/usr/bin/g++    -g   -std=gnu++1z -o CMakeFiles/Project-28.dir/main.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/main.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/ClassesAndObjects/Project-28/main.cpp"
+}
+]
