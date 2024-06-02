@@ -1,3 +1,0 @@
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/ChainofResponsibility/build/CMakeFiles/rebuild_cache.dir
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/ChainofResponsibility/build/CMakeFiles/ChainOfResponsibility.dir
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/ChainofResponsibility/build/CMakeFiles/edit_cache.dir
