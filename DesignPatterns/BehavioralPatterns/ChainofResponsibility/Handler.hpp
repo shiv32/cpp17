@@ -9,6 +9,7 @@
 class Handler
 {
 public:
+  virtual void HandlerName() = 0;
   virtual Handler *SetNext(Handler *handler) = 0;
   virtual std::string Handle(std::string request) = 0;
 };

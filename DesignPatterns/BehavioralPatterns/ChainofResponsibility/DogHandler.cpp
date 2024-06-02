@@ -1,5 +1,10 @@
 #include "DogHandler.hpp"
 
+void DogHandler::HandlerName()
+{
+    std::cout<<"DogHandler called !"<<std::endl;
+}
+
 std::string DogHandler::Handle(std::string request)
 {
     if (request == "MeatBall")

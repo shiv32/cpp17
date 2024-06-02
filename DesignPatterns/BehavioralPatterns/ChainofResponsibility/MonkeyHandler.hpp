@@ -9,5 +9,6 @@
 class MonkeyHandler : public AbstractHandler
 {
 public:
+    void HandlerName() override;
     std::string Handle(std::string request) override;
 };
