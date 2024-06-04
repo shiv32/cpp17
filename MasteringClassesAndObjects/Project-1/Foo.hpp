@@ -1,14 +1,8 @@
 #pragma once
+
+#include <iostream>
 #include <string>
-#include "Bar.hpp"
-
-class Foo;
-
-class Bar2
-{
-public:
-    void ProcessFoo(Foo &fo);
-};
+#include "Bar2.hpp"
 
 class Foo
 {
@@ -21,7 +15,9 @@ public:
 
     std::string get_name();
 
-    friend class Bar;
+    friend class Bar; // Bar class is a friend of Foo class
 
     friend void Bar2::ProcessFoo(Foo &fo);
+
+    friend void dumpFoo(Foo &fo);
 };

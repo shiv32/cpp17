@@ -6,16 +6,19 @@
 
 #include "Bar.hpp"
 #include "Foo.hpp"
+#include "Bar2.hpp"
 
 int main()
 {
-    Bar br;
     Foo fo{"shiv kumar"};
+    Bar br;
     Bar2 br2;
 
-    br.displayClassFooData(fo);
+    br.displayClassFooData(fo); // Bar class is a friend of Foo class.
 
-    br2.ProcessFoo(fo);
+    br2.ProcessFoo(fo); // Bar class method make friend of Foo class.
+
+    dumpFoo(fo); // Standalone function make friend of Foo class.
 
     return 0;
 }

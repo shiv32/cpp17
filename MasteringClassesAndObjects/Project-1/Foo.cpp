@@ -15,5 +15,10 @@ std::string Foo::get_name()
 
 void Bar2::ProcessFoo(Foo &fo)
 {
-    std::cout << "Foo Class data name in Bar2 class : " << fo.name << std::endl;
+    std::cout << "Bar class method make friend of Foo class, name : " << fo.name << std::endl;
+}
+
+void dumpFoo(Foo &fo)
+{
+    std::cout << "Standalone function make friend of Foo class, name : " << fo.name << std::endl;
 }

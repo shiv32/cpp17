@@ -10,5 +10,5 @@ Bar::~Bar()
 
 void Bar::displayClassFooData(Foo &fo)
 {
-    std::cout << "Foo Class data name in Bar class : " << fo.name << std::endl;
+    std::cout << "Bar class is a friend of Foo class, name : " << fo.name << std::endl;
 }
