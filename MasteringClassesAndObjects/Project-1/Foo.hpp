@@ -17,7 +17,7 @@ public:
 
     friend class Bar; // Bar class is a friend of Foo class
 
-    friend void Bar2::ProcessFoo(Foo &fo); // Bar class method make friend of Foo class.
+    friend void Bar2::ProcessFoo(Foo &fo); // Bar2 class method make friend of Foo class.
 
     friend void dumpFoo(Foo &fo); // Standalone function make friend of Foo class.
 
