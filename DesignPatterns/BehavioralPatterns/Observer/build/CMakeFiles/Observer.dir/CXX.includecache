@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/IObserver.hpp
+string
+-
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/ISubject.hpp
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Observer.cpp
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Subject.cpp
+Subject.hpp
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Subject.hpp
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Subject.hpp
+iostream
+-
+list
+-
+IObserver.hpp
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/IObserver.hpp
+ISubject.hpp
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/ISubject.hpp
+
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/main.cpp
+

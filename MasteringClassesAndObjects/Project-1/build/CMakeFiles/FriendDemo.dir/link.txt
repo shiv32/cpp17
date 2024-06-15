@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/FriendDemo.dir/Foo.cpp.o CMakeFiles/FriendDemo.dir/Bar.cpp.o CMakeFiles/FriendDemo.dir/main.cpp.o  -o FriendDemo 
