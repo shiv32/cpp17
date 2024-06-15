@@ -6,11 +6,11 @@
 
 3. Design Patterns
 
-    1. Behavioral (how objects send messages to each other) ->  Chain of responsibility, Observer,  Iterator, State
+    1. Behavioral (how objects send messages to each other) ->  Chain of responsibility, Observer, Iterator, State
 
-    2. Structural (defining relationships between objects) -> Adaptor,  Proxy,  Decorator
+    2. Structural (defining relationships between objects) -> Adaptor, Proxy, Decorator
 
-    3. Creational (flexible ways to create objects) ->  Singleton,  Abstract factory
+    3. Creational (flexible ways to create objects) ->  Singleton, Factory, Abstract factory
   
        https://refactoring.guru/design-patterns/cpp
        
