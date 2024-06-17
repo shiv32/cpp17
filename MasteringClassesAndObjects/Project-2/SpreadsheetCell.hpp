@@ -3,7 +3,8 @@
 #include <string>
 #include <string_view>
 
-class SpreadsheetCell {
+class SpreadsheetCell
+{
 public:
   SpreadsheetCell();
   SpreadsheetCell(double initialValue);

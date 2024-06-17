@@ -18,6 +18,3 @@ set(SOURCES
 
 # Add an executable with the above sources
 add_executable(Observer ${SOURCES})
-
-
-
