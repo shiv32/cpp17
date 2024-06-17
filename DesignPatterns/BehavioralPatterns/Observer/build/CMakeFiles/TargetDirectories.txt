@@ -1,3 +1,0 @@
-/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/edit_cache.dir
-/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/rebuild_cache.dir
-/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir
