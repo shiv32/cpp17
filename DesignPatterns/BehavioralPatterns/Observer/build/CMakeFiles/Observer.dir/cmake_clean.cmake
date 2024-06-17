@@ -2,8 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Observer.dir/Observer.cpp.o"
   "CMakeFiles/Observer.dir/Subject.cpp.o"
   "CMakeFiles/Observer.dir/main.cpp.o"
-  "Observer.pdb"
   "Observer"
+  "Observer.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

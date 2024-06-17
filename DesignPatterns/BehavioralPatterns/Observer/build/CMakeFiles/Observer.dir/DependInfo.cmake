@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Observer.cpp" "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir/Observer.cpp.o"
-  "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Subject.cpp" "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir/Subject.cpp.o"
-  "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/main.cpp" "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir/main.cpp.o"
+  "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/Observer.cpp" "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir/Observer.cpp.o"
+  "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/Subject.cpp" "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir/Subject.cpp.o"
+  "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/main.cpp" "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

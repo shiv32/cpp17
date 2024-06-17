@@ -1,17 +1,17 @@
 [
 {
-  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build",
-  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/Observer.dir/Observer.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Observer.cpp",
-  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Observer.cpp"
+  "directory": "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/Observer.dir/Observer.cpp.o -c /home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/Observer.cpp",
+  "file": "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/Observer.cpp"
 },
 {
-  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build",
-  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/Observer.dir/Subject.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Subject.cpp",
-  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/Subject.cpp"
+  "directory": "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/Observer.dir/Subject.cpp.o -c /home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/Subject.cpp",
+  "file": "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/Subject.cpp"
 },
 {
-  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build",
-  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/Observer.dir/main.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/main.cpp",
-  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/main.cpp"
+  "directory": "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/Observer.dir/main.cpp.o -c /home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/main.cpp",
+  "file": "/home/shiv/shiv_work/thread/DesignPatterns/BehavioralPatterns/Observer/main.cpp"
 }
 ]
