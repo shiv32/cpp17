@@ -54,3 +54,13 @@ void Spreadsheet::verifyCoordinate(size_t x, size_t y) const
         throw std::out_of_range("");
     }
 }
+
+bool Spreadsheet::inRange(size_t value, size_t upper) const
+{
+    if (value >= upper)
+    {
+        return false;
+    }
+
+    return true;
+}

@@ -5,7 +5,7 @@ using namespace std;
 
 SpreadsheetCell::SpreadsheetCell()
 {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  //std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 SpreadsheetCell::SpreadsheetCell(double initialValue)
@@ -13,14 +13,14 @@ SpreadsheetCell::SpreadsheetCell(double initialValue)
 
   mValue = initialValue;
 
-  std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
+  //std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
 }
 
 // Delegating Constructor
 SpreadsheetCell::SpreadsheetCell(string_view initialValue)
     : SpreadsheetCell(stringToDouble(initialValue))
 {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  //std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 //--------------------------- Copy constructor ----------------------------------------
@@ -31,7 +31,7 @@ SpreadsheetCell::SpreadsheetCell(string_view initialValue)
 SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &src)
     : mValue(src.mValue)
 {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  //std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 /*
@@ -58,14 +58,14 @@ SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
 
   mValue = rhs.mValue;
 
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  //std::cout << __PRETTY_FUNCTION__ << std::endl;
 
   return *this;
 }
 
 SpreadsheetCell::~SpreadsheetCell()
 {
-  std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
+  //std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
 }
 
 void SpreadsheetCell::setValue(double mValue) { this->mValue = mValue; }
