@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-2/Spreadsheet.cpp
+Spreadsheet.hpp
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-2/Spreadsheet.hpp
+
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-2/Spreadsheet.hpp
+stdexcept
+-
+SpreadsheetCell.hpp
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-2/SpreadsheetCell.hpp
+
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-2/SpreadsheetCell.hpp
+string
+-
+string_view
+-
+

@@ -3,7 +3,7 @@
 Spreadsheet::Spreadsheet(size_t width, size_t height)
     : mWidth(width), mHeight(height)
 {
-    mCells = new SpreadsheetCell*[mWidth];
+    mCells = new SpreadsheetCell *[mWidth];
 
     for (size_t i = 0; i < mWidth; i++)
     {
