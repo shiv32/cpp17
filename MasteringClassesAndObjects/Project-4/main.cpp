@@ -20,6 +20,18 @@ void handleMessage(std::string &&message)
     std::cout << "handleMessage with rvalue reference: " << message << std::endl;
 }
 
+void helper(std::string &&message)
+{
+    std::cout << "helper with rvalue reference: " << message << std::endl;
+}
+
+// rvalue reference parameter
+void handleMessage2(std::string &&message)
+{
+    //helper(message); //message, which has a name, so it’s an lvalue, causing a compilation error.
+    helper(std::move(message));
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -48,6 +60,8 @@ int main()
     handleMessage("Hello World"); // Calls handleMessage(string&& value)
 
     handleMessage(std::move(b)); // Calls handleMessage(string&& value)
+
+    handleMessage2("Hello World 2"); // Calls handleMessage2(string&& value)
 
     return 0;
 }
