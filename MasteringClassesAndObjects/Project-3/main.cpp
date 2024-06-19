@@ -8,14 +8,18 @@
 
 void printSpreadsheet(Spreadsheet s)
 {
+    std::cout << "s Width : " << s.getWidth() << std::endl;
+    std::cout << "s Height : " << s.getHeight() << std::endl;
 }
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    // Spreadsheet s1(4, 3);
-    // printSpreadsheet(s1); // s1 has a pointer that no longer points to valid memory. This is called a dangling pointer.
+    Spreadsheet s3(4, 3);
+    printSpreadsheet(s3); // s1 has a pointer that no longer points to valid memory. This is called a dangling pointer.
+
+    std::cout << "--------------------------------------------------" << std::endl;
 
     Spreadsheet s1(2, 2), s2(4, 3);
 
