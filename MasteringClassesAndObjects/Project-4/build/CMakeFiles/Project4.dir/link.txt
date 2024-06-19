@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/Project4.dir/main.cpp.o  -o Project4 

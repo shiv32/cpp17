@@ -43,5 +43,11 @@ int main()
 
     handleMessage(b); // Calls handleMessage(string& value)
 
+    handleMessage(b + c); // Calls handleMessage(string&& value)
+
+    handleMessage("Hello World"); // Calls handleMessage(string&& value)
+
+    handleMessage(std::move(b)); // Calls handleMessage(string&& value)
+
     return 0;
 }
