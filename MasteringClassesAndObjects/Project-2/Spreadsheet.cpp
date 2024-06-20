@@ -64,3 +64,7 @@ bool Spreadsheet::inRange(size_t value, size_t upper) const
 
     return true;
 }
+
+Spreadsheet::Spreadsheet(Spreadsheet &&src) noexcept
+{
+}
