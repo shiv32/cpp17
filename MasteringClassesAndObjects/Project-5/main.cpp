@@ -16,7 +16,7 @@ int main()
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     Spreadsheet s3(4, 3);
-    printSpreadsheet(std::move(s3)); // s1 has a pointer that no longer points to valid memory. This is called a dangling pointer.
+    printSpreadsheet(std::move(s3));
 
     std::cout << "--------------------------------------------------" << std::endl;
 
@@ -25,17 +25,7 @@ int main()
     std::cout << "s1 Width : " << s1.getWidth() << std::endl;
     std::cout << "s1 Height : " << s1.getHeight() << std::endl;
 
-    /*
-    not only do the mCells pointers in s1 and s2 point to the same memory, but you have also
-    orphaned the memory to which mCells in s1 previously pointed. This is called a memory leak.
-    */
     s1 = std::move(s2);
-
-    /*
-        Whenever you have dynamically allocated memory in a class,
-        you should write your own copy constructor and assignment operator
-        to provide a deep copy of the memory.
-    */
 
     std::cout << "--------------------------------------------------" << std::endl;
 
