@@ -28,7 +28,7 @@ void helper(std::string &&message)
 // rvalue reference parameter
 void handleMessage2(std::string &&message)
 {
-    //helper(message); //message, which has a name, so it’s an lvalue, causing a compilation error.
+    // helper(message); //message, which has a name, so it’s an lvalue, causing a compilation error.
     helper(std::move(message));
 }
 
@@ -62,6 +62,17 @@ int main()
     handleMessage(std::move(b)); // Calls handleMessage(string&& value)
 
     handleMessage2("Hello World 2"); // Calls handleMessage2(string&& value)
+
+        /*
+        int &i = 2; // Invalid: reference to a constant
+        int a1 = 2, b1 = 3;
+        int &j = a + b; // Invalid: reference to a temporary
+        */
+
+    // Using rvalue references, the following is perfectly legal
+    int&& i = 2;
+    int a1 = 2, b1 = 3;
+    int&& j = a1 + b1;
 
     return 0;
 }
