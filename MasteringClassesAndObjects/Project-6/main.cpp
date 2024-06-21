@@ -33,7 +33,7 @@ int main()
 
     std::cout << "s1 Width after assignment : " << s1.getWidth() << std::endl;
     std::cout << "s1 Height after assignment : " << s1.getHeight() << std::endl;
-    std::cout << "s1 Sheetname : " << s1.getSheetname() << std::endl;
+    std::cout << "s1 Sheetname after assignment : " << s1.getSheetname() << std::endl;
 
     std::cout << "--------------------------------------------------" << std::endl;
 
