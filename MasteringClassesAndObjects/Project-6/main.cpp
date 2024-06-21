@@ -1,5 +1,8 @@
 /*
    Moving Object Data Members
+   --> If your object has other objects as data members, then you should move these objects
+   using std::move()
+   --> Let Spreadsheet class has an std::string data member called sheetName
 */
 
 #include <iostream>
