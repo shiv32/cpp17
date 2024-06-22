@@ -1,3 +1,7 @@
+/*
+  Factory
+*/
+
 #include <iostream>
 #include "ConcreteCreator1.hpp"
 #include "ConcreteCreator2.hpp"
