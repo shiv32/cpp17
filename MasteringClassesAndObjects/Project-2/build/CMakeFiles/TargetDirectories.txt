@@ -1,0 +1,3 @@
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/MasteringClassesAndObjects/Project-2/build/CMakeFiles/rebuild_cache.dir
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/MasteringClassesAndObjects/Project-2/build/CMakeFiles/Project2.dir
+/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/MasteringClassesAndObjects/Project-2/build/CMakeFiles/edit_cache.dir

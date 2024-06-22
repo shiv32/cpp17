@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/Observer.dir/Observer.cpp.o CMakeFiles/Observer.dir/Subject.cpp.o CMakeFiles/Observer.dir/main.cpp.o  -o Observer 
