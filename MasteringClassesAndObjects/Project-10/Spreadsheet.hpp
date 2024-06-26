@@ -17,11 +17,11 @@ public:
     copy assignment operator, and move assignment operator.
     --> This is called the Rule of Five.
     */
-    Spreadsheet(const Spreadsheet &src);                // Copy constructor
-    Spreadsheet &operator=(const Spreadsheet &rhs);     // Copy assign
-    Spreadsheet(Spreadsheet &&src) noexcept;            // Move constructor
-    Spreadsheet &operator=(Spreadsheet &&rhs) noexcept; // Move assign
-    ~Spreadsheet();                                     // Destructor
+    // Spreadsheet(const Spreadsheet &src);                // Copy constructor
+    // Spreadsheet &operator=(const Spreadsheet &rhs);     // Copy assign
+    // Spreadsheet(Spreadsheet &&src) noexcept;            // Move constructor
+    // Spreadsheet &operator=(Spreadsheet &&rhs) noexcept; // Move assign
+    // ~Spreadsheet();                                     // Destructor
 
     // Disallowing Assignment and Pass-By-Value
     /*
@@ -58,9 +58,9 @@ private:
     std::vector<std::vector<SpreadsheetCell>> mCells;
 
     std::string sheetName{};
-
     void cleanup() noexcept;
     void moveFrom(Spreadsheet &src) noexcept;
+    
     Spreadsheet() = default;
 };
 

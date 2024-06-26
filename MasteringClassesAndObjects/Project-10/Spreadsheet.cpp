@@ -13,19 +13,19 @@ Spreadsheet::Spreadsheet(size_t width, size_t height, std::string sheetname)
     // }
 }
 
-Spreadsheet::Spreadsheet(const Spreadsheet &src)
-    : Spreadsheet(src.mWidth, src.mHeight, src.sheetName)
-{
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+// Spreadsheet::Spreadsheet(const Spreadsheet &src)
+//     : Spreadsheet(src.mWidth, src.mHeight, src.sheetName)
+// {
+//     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-    for (size_t i = 0; i < mWidth; i++)
-    {
-        for (size_t j = 0; j < mHeight; j++)
-        {
-            mCells[i][j] = src.mCells[i][j];
-        }
-    }
-}
+//     for (size_t i = 0; i < mWidth; i++)
+//     {
+//         for (size_t j = 0; j < mHeight; j++)
+//         {
+//             mCells[i][j] = src.mCells[i][j];
+//         }
+//     }
+// }
 
 /*
 naive implementation
@@ -71,60 +71,60 @@ This code is not exception safe!
 exception-safe assignment operator.
 the copy-and-swap idiom is recommended
 */
-Spreadsheet &Spreadsheet::operator=(const Spreadsheet &rhs)
-{
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-    // Check for self-assignment
-    if (this == &rhs)
-    {
-        return *this;
-    }
-    Spreadsheet temp(rhs); // Do all the work in a temporary instance
-    swap(*this, temp);     // Commit the work with only non-throwing operations
-    return *this;
-}
+// Spreadsheet &Spreadsheet::operator=(const Spreadsheet &rhs)
+// {
+//     std::cout << __PRETTY_FUNCTION__ << std::endl;
+//     // Check for self-assignment
+//     if (this == &rhs)
+//     {
+//         return *this;
+//     }
+//     Spreadsheet temp(rhs); // Do all the work in a temporary instance
+//     swap(*this, temp);     // Commit the work with only non-throwing operations
+//     return *this;
+// }
 
-Spreadsheet::Spreadsheet(Spreadsheet &&src) noexcept
-{
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+// Spreadsheet::Spreadsheet(Spreadsheet &&src) noexcept
+// {
+//     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-    // moveFrom(src);
+//     // moveFrom(src);
 
-    swap(*this, src);
-}
+//     swap(*this, src);
+// }
 
-Spreadsheet &Spreadsheet::operator=(Spreadsheet &&rhs) noexcept
-{
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+// Spreadsheet &Spreadsheet::operator=(Spreadsheet &&rhs) noexcept
+// {
+//     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-    // check for self-assignment
-    /*
-     if (this == &rhs)
-      {
-          return *this;
-      }
+//     // check for self-assignment
+//     /*
+//      if (this == &rhs)
+//       {
+//           return *this;
+//       }
 
-      // free the old memory
-      cleanup();
-      moveFrom(rhs);
-     */
+//       // free the old memory
+//       cleanup();
+//       moveFrom(rhs);
+//      */
 
-    Spreadsheet temp(std::move(rhs));
-    swap(*this, temp);
+//     Spreadsheet temp(std::move(rhs));
+//     swap(*this, temp);
 
-    return *this;
-}
+//     return *this;
+// }
 
-Spreadsheet::~Spreadsheet()
-{
-    // for (size_t i = 0; i < mWidth; i++)
-    // {
-    //     delete[] mCells[i];
-    // }
-    // delete[] mCells;
-    // mCells = nullptr;
-     mWidth = mHeight = 0;
-}
+// Spreadsheet::~Spreadsheet()
+// {
+//     // for (size_t i = 0; i < mWidth; i++)
+//     // {
+//     //     delete[] mCells[i];
+//     // }
+//     // delete[] mCells;
+//     // mCells = nullptr;
+//     // mWidth = mHeight = 0;
+// }
 
 void Spreadsheet::setCellAt(size_t x, size_t y, const SpreadsheetCell &cell)
 {
