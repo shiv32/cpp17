@@ -13,14 +13,14 @@ public:
   // Destructor
   //~SpreadsheetCell() = default;
 
-  //SpreadsheetCell(const SpreadsheetCell &src); // Copy Constructor
-   //SpreadsheetCell(const SpreadsheetCell &src) = default; //
+  // SpreadsheetCell(const SpreadsheetCell &src); // Copy Constructor
+  // SpreadsheetCell(const SpreadsheetCell &src) = default; //
   // compiler-generated copy constructor
   //  SpreadsheetCell(const SpreadsheetCell &src) = delete;
 
   // Assignment Operator
-  //SpreadsheetCell &operator=(const SpreadsheetCell &rhs); // user defined
-   //SpreadsheetCell& operator=(const SpreadsheetCell& rhs) = default;
+  // SpreadsheetCell &operator=(const SpreadsheetCell &rhs); // user defined
+  // SpreadsheetCell& operator=(const SpreadsheetCell& rhs) = default;
   // //compiler-generated copy assignment operator SpreadsheetCell&
   // operator=(const SpreadsheetCell& rhs) = delete;
 

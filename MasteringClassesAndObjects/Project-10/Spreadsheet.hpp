@@ -42,8 +42,12 @@ public:
 
     friend void swap(Spreadsheet &first, Spreadsheet &second) noexcept;
 
-    void setCellAt(size_t x, size_t y, const SpreadsheetCell &cell);
-    SpreadsheetCell &getCellAt(size_t x, size_t y);
+    // void setCellAt(size_t x, size_t y, const SpreadsheetCell &cell);
+    void setCellAt(size_t x, size_t y, const std::shared_ptr<SpreadsheetCell> &cell);
+
+    // SpreadsheetCell &getCellAt(size_t x, size_t y);
+    std::shared_ptr<SpreadsheetCell> &getCellAt(size_t x, size_t y);
+
     size_t getWidth() const;
     size_t getHeight() const;
     std::string getSheetname() const;
@@ -54,20 +58,20 @@ private:
     size_t mWidth = 0;
     size_t mHeight = 0;
 
-    //SpreadsheetCell **mCells = nullptr;
-    std::vector<std::vector<SpreadsheetCell>> mCells;
+    // SpreadsheetCell **mCells = nullptr;
+    std::vector<std::vector<std::shared_ptr<SpreadsheetCell>>> mCells;
 
     std::string sheetName{};
     void cleanup() noexcept;
     void moveFrom(Spreadsheet &src) noexcept;
-    
+
     Spreadsheet() = default;
 };
 
 template <typename T>
 inline void Spreadsheet::swapCopy(T &a, T &b)
 {
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     T temp(a);
     a = b;
     b = temp;
@@ -76,7 +80,7 @@ inline void Spreadsheet::swapCopy(T &a, T &b)
 template <typename T>
 inline void Spreadsheet::swapMove(T &a, T &b)
 {
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     T temp(std::move(a));
     a = std::move(b);
     b = std::move(temp);

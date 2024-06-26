@@ -1,7 +1,7 @@
 #include "Spreadsheet.hpp"
 
 Spreadsheet::Spreadsheet(size_t width, size_t height, std::string sheetname)
-    : mWidth(width), mHeight(height), sheetName(sheetname), mCells(width, std::vector<SpreadsheetCell>(height))
+    : mWidth(width), mHeight(height), sheetName(sheetname), mCells(width, std::vector<std::shared_ptr<SpreadsheetCell>>(height))
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
@@ -126,7 +126,8 @@ the copy-and-swap idiom is recommended
 //     // mWidth = mHeight = 0;
 // }
 
-void Spreadsheet::setCellAt(size_t x, size_t y, const SpreadsheetCell &cell)
+// void Spreadsheet::setCellAt(size_t x, size_t y, const SpreadsheetCell &cell)
+void Spreadsheet::setCellAt(size_t x, size_t y, const std::shared_ptr<SpreadsheetCell> &cell)
 {
     /*
     if (!inRange(x, mWidth) || !inRange(y, mHeight))
@@ -139,7 +140,7 @@ void Spreadsheet::setCellAt(size_t x, size_t y, const SpreadsheetCell &cell)
     mCells[x][y] = cell;
 }
 
-SpreadsheetCell &Spreadsheet::getCellAt(size_t x, size_t y)
+std::shared_ptr<SpreadsheetCell> &Spreadsheet::getCellAt(size_t x, size_t y)
 {
     /*
     if (!inRange(x, mWidth) || !inRange(y, mHeight))
@@ -178,7 +179,7 @@ void Spreadsheet::cleanup() noexcept
 
     // delete[] mCells;
     // mCells = nullptr;
-     mWidth = mHeight = 0;
+    mWidth = mHeight = 0;
 }
 
 void Spreadsheet::moveFrom(Spreadsheet &src) noexcept
@@ -194,7 +195,7 @@ void Spreadsheet::moveFrom(Spreadsheet &src) noexcept
     // Reset the source object, because ownership has been moved!
     src.mWidth = 0;
     src.mHeight = 0;
-    //src.mCells = nullptr;
+    // src.mCells = nullptr;
 }
 
 bool Spreadsheet::inRange(size_t value, size_t upper) const
@@ -214,7 +215,7 @@ void swap(Spreadsheet &first, Spreadsheet &second) noexcept
     // swap(first.mHeight, second.mHeight);
     // swap(first.mCells, second.mCells);
 
-    auto ss = std::make_unique<Spreadsheet>(0,0);
+    auto ss = std::make_unique<Spreadsheet>(0, 0);
     ss->swapMove(first.mWidth, second.mWidth);
     ss->swapMove(first.mHeight, second.mHeight);
     ss->swapMove(first.mCells, second.mCells);

@@ -79,16 +79,20 @@ int main()
     std::cout << "s3 Height after assignment : " << s3->getHeight() << std::endl;
     std::cout << "s3 Sheetname after assignment : " << s3->getSheetname() << std::endl;
 
-    Spreadsheet s1(4, 3);
+    // Spreadsheet s1(4, 3);
+    auto s1 = std::make_shared<Spreadsheet>(4, 3);
 
-    SpreadsheetCell sc1(5.66);
-    SpreadsheetCell sc2(8.98);
+    // SpreadsheetCell sc1(5.66);
+    auto sc1 = std::make_shared<SpreadsheetCell>(5.66);
 
-    s1.setCellAt(2, 1, sc1);
-    s1.setCellAt(2, 0, sc2);
+    // SpreadsheetCell sc2(8.98);
+    auto sc2 = std::make_shared<SpreadsheetCell>(8.98);
 
-    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl;
-    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl;
+    s1->setCellAt(2, 1, sc1);
+    s1->setCellAt(2, 0, sc2);
+
+    std::cout << "Cell value at (2,1): " << s1->getCellAt(2, 1)->getValue() << std::endl;
+    std::cout << "Cell value at (2,0): " << s1->getCellAt(2, 0)->getValue() << std::endl;
 
     return 0;
 }
