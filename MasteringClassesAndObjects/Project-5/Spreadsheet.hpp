@@ -19,7 +19,7 @@ public:
     Spreadsheet &operator=(const Spreadsheet &rhs);     // Copy assign
     Spreadsheet(Spreadsheet &&src) noexcept;            // Move constructor
     Spreadsheet &operator=(Spreadsheet &&rhs) noexcept; // Move assign
-    ~Spreadsheet();
+    ~Spreadsheet();                                     // Destructor
 
     // Disallowing Assignment and Pass-By-Value
     /*
