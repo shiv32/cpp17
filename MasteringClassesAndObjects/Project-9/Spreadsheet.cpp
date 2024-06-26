@@ -90,7 +90,6 @@ Spreadsheet::Spreadsheet(Spreadsheet &&src) noexcept
     // moveFrom(src);
 
     swap(*this, src);
-    // swapMove(*this, src);
 }
 
 Spreadsheet &Spreadsheet::operator=(Spreadsheet &&rhs) noexcept
@@ -111,7 +110,6 @@ Spreadsheet &Spreadsheet::operator=(Spreadsheet &&rhs) noexcept
 
     Spreadsheet temp(std::move(rhs));
     swap(*this, temp);
-    // swapMove(*this, temp);
 
     return *this;
 }
@@ -210,10 +208,10 @@ bool Spreadsheet::inRange(size_t value, size_t upper) const
 
 void swap(Spreadsheet &first, Spreadsheet &second) noexcept
 {
-    using std::swap;
-    swap(first.mWidth, second.mWidth);
-    swap(first.mHeight, second.mHeight);
-    swap(first.mCells, second.mCells);
+    // using std::swap;
+    // swap(first.mWidth, second.mWidth);
+    // swap(first.mHeight, second.mHeight);
+    // swap(first.mCells, second.mCells);
 
     auto ss = std::make_unique<Spreadsheet>(0,0);
     ss->swapMove(first.mWidth, second.mWidth);

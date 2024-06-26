@@ -63,6 +63,7 @@ private:
 template <typename T>
 inline void Spreadsheet::swapCopy(T &a, T &b)
 {
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
     T temp(a);
     a = b;
     b = temp;
@@ -71,6 +72,7 @@ inline void Spreadsheet::swapCopy(T &a, T &b)
 template <typename T>
 inline void Spreadsheet::swapMove(T &a, T &b)
 {
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
     T temp(std::move(a));
     a = std::move(b);
     b = std::move(temp);
