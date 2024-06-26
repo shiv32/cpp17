@@ -1,5 +1,10 @@
 /*
    Implementing Move Semantics
+   
+   Rule of Five
+    --> If you have dynamically allocated memory in your class.
+    --> Implement a destructor, copy constructor, move constructor,
+    copy assignment operator, and move assignment operator.
 */
 
 #include <iostream>
