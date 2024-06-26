@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/AbstractFactory.dir/ConcreteFactory1.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteFactory1.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteFactory1.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/AbstractFactory.dir/ConcreteFactory2.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteFactory2.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteFactory2.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/AbstractFactory.dir/ConcreteProductA1.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductA1.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductA1.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/AbstractFactory.dir/ConcreteProductA2.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductA2.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductA2.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/AbstractFactory.dir/ConcreteProductB1.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductB1.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductB1.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/AbstractFactory.dir/ConcreteProductB2.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductB2.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/ConcreteProductB2.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/AbstractFactory.dir/main.cpp.o -c /home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/main.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/CreationalPatterns/AbstractFactory/main.cpp"
+}
+]
