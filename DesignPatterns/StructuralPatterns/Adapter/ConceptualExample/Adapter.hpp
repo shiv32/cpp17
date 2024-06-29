@@ -14,6 +14,6 @@ private:
     Adaptee *adaptee_;
 
 public:
-    Adapter(Adaptee *adaptee) : adaptee_(adaptee) {}
+    Adapter(Adaptee *adaptee);
     std::string Request() const override;
 };
