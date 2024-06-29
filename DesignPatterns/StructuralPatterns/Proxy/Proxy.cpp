@@ -1,5 +1,14 @@
 #include "Proxy.hpp"
 
+Proxy::Proxy(RealSubject *real_subject) : real_subject_(new RealSubject(*real_subject))
+{
+}
+
+Proxy::~Proxy()
+{
+    delete real_subject_;
+}
+
 bool Proxy::CheckAccess() const
 {
     // Some real checks should go here.
