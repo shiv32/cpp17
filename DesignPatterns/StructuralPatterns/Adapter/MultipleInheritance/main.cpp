@@ -1,6 +1,6 @@
 /*
-Adapter using Multiple inheritance
-g++ *.cpp -o test
+    Adapter using Multiple inheritance
+    g++ *.cpp -o test
 */
 
 #include <iostream>
