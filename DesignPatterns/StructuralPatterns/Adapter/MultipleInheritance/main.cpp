@@ -16,6 +16,8 @@ void ClientCode(const Target *target)
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     std::cout << "Client: I can work just fine with the Target objects:\n";
 
     Target *target = new Target;

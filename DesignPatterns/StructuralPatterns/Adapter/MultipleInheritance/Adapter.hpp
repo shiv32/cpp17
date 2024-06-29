@@ -11,6 +11,6 @@
 class Adapter : public Target, public Adaptee
 {
 public:
-    Adapter() {}
+    Adapter();
     std::string Request() const override;
 };

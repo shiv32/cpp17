@@ -1,5 +1,7 @@
 #include "Adapter.hpp"
 
+Adapter::Adapter() {}
+
 std::string Adapter::Request() const
 {
     std::string to_reverse = SpecificRequest();
