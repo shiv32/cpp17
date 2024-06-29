@@ -1,3 +1,0 @@
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/rebuild_cache.dir
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/Observer.dir
-/home/shiv/Desktop/desktop_files/projects/c++17/thread/cpp17/DesignPatterns/BehavioralPatterns/Observer/build/CMakeFiles/edit_cache.dir
