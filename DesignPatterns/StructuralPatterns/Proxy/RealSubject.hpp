@@ -9,7 +9,8 @@
  * e.g. correcting input data. A Proxy can solve these issues without any
  * changes to the RealSubject's code.
  */
-class RealSubject : public Subject {
- public:
+class RealSubject : public Subject
+{
+public:
   void Request() const override;
 };

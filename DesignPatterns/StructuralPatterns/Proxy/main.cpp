@@ -1,6 +1,6 @@
 /*
-Proxy
-g++ *.cpp -o test
+    Proxy
+    g++ *.cpp -o test
 */
 
 #include "RealSubject.hpp"
@@ -21,6 +21,8 @@ void ClientCode(const Subject &subject)
 
 int main()
 {
+
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     std::cout << "Client: Executing the client code with a real subject:\n";
     RealSubject *real_subject = new RealSubject;
