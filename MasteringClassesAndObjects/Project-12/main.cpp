@@ -14,6 +14,10 @@
     mutable Data Members
         Sometimes you write a method that is “logically” const but happens to change a data member
         of the object.
+
+        eg. The SpreadsheetCell class with mutable data member.
+
+            mutable size_t mNumAccesses = 0;
 */
 
 #include <iostream>
