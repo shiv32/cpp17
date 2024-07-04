@@ -5,7 +5,7 @@ using namespace std;
 
 SpreadsheetCell::SpreadsheetCell()
 {
-  // std::cout << __PRETTY_FUNCTION__ << std::endl;
+  std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 SpreadsheetCell::SpreadsheetCell(double initialValue)

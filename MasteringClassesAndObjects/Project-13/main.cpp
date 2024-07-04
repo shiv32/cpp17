@@ -28,6 +28,7 @@ int main()
 
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+    //----------------------------- Method Overloading demo ----------------------------------
     SpreadsheetCell myCell(5);
 
     std::cout << myCell.getValue() << std::endl; // OK
@@ -47,16 +48,26 @@ int main()
 
     std::cout << "getTotalNumOfAccess : " << myCellConstRef.getTotalNumOfAccess() << std::endl; // OK
 
-    //-------------------------------------------------------------
+    //------------------------ Overloading Based on const demo -------------------------------------
 
-    //Spreadsheet sheet1(5, 6);
-     auto sheet1 = std::make_shared<Spreadsheet>(5,6);
-      //auto s1 = std::make_shared<Spreadsheet>(4, 3);
+    // Spreadsheet sheet1(5, 6);
+    auto sheet1 = std::make_shared<Spreadsheet>(5, 6);
 
-     std::shared_ptr<Spreadsheet> &cell1 = sheet1;
+    auto sc1 = std::make_shared<SpreadsheetCell>(5.66);
+    sheet1->setCellAt(1, 1, sc1);
 
-    //const Spreadsheet sheet2(5, 6);
-    //const SpreadsheetCell &cell2 = sheet2.getCellAt(1, 1);
+    // SpreadsheetCell& cell1 = sheet1.getCellAt(1, 1);
+    auto &cell1 = sheet1->getCellAt(1, 1);
+
+    std::cout << "Cell1 value at (1,1): " << cell1->getValue() << std::endl;
+
+    // const Spreadsheet sheet2(5, 6);
+    auto sheet2 = std::make_shared<const Spreadsheet>(5, 6);
+
+    // const SpreadsheetCell& cell2 = sheet2.getCellAt(1, 1);
+    const auto &cell2 = sheet2->getCellAt(1, 1);
+
+    std::cout << "Cell2 value at (1,1): " << cell2->getValue() << std::endl;
 
     return 0;
 }

@@ -5,6 +5,11 @@ Spreadsheet::Spreadsheet(size_t width, size_t height, std::string sheetname)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
+    //----------------- default value at cell (1,1) ----------------------
+    auto sc1 = std::make_shared<SpreadsheetCell>(8.98);
+    this->setCellAt(1, 1, sc1);
+    //---------------------------------------------------------------------
+
     // mCells = new SpreadsheetCell *[mWidth];
 
     // for (size_t i = 0; i < mWidth; i++)
@@ -142,6 +147,8 @@ void Spreadsheet::setCellAt(size_t x, size_t y, const std::shared_ptr<Spreadshee
 
 std::shared_ptr<SpreadsheetCell> &Spreadsheet::getCellAt(size_t x, size_t y)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     /*
     if (!inRange(x, mWidth) || !inRange(y, mHeight))
     {
@@ -152,14 +159,16 @@ std::shared_ptr<SpreadsheetCell> &Spreadsheet::getCellAt(size_t x, size_t y)
     // verifyCoordinate(x, y);
     // return mCells[x][y];
 
-     //The std::as_const() function is available since C++17.
-    return const_cast<std::shared_ptr<SpreadsheetCell>&>(std::as_const(*this).getCellAt(x, y));
-           //or
-    //return const_cast<std::shared_ptr<SpreadsheetCell>&>(static_cast<const Spreadsheet&>(*this).getCellAt(x, y));
+    // The std::as_const() function is available since C++17.
+    return const_cast<std::shared_ptr<SpreadsheetCell> &>(std::as_const(*this).getCellAt(x, y));
+    // or
+    // return const_cast<std::shared_ptr<SpreadsheetCell>&>(static_cast<const Spreadsheet&>(*this).getCellAt(x, y));
 }
 
 const std::shared_ptr<SpreadsheetCell> &Spreadsheet::getCellAt(size_t x, size_t y) const
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     verifyCoordinate(x, y);
     return mCells[x][y];
 }
