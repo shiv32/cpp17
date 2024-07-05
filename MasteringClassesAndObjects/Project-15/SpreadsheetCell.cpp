@@ -74,11 +74,11 @@ void SpreadsheetCell::set(double mValue)
   this->mValue = mValue;
 }
 
-double SpreadsheetCell::getValue() const
-{
-  mNumAccesses++;
-  return mValue;
-}
+// double SpreadsheetCell::getValue() const
+// {
+//   mNumAccesses++;
+//   return mValue;
+// }
 
 void SpreadsheetCell::set(string_view inString)
 {
@@ -86,11 +86,11 @@ void SpreadsheetCell::set(string_view inString)
   mValue = stringToDouble(inString);
 }
 
-string SpreadsheetCell::getString() const
-{
-  mNumAccesses++;
-  return doubleToString(mValue);
-}
+// std::string SpreadsheetCell::getString() const
+// {
+//   mNumAccesses++;
+//   return doubleToString(mValue);
+// }
 
 size_t SpreadsheetCell::getTotalNumOfAccess() const
 {

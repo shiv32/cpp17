@@ -26,11 +26,21 @@ public:
 
   void set(double mValue);
 
-  double getValue() const;
-
+  // inline Method
+  double getValue() const
+  {
+    mNumAccesses++;
+    return mValue;
+  }
   void set(std::string_view inString);
 
-  std::string getString() const;
+  // inline Method
+  std::string getString() const
+  {
+    mNumAccesses++;
+    return doubleToString(mValue);
+  }
+
   size_t getTotalNumOfAccess() const;
 
   static std::string doubleToString(double inValue);

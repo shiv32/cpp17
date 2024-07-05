@@ -1,11 +1,11 @@
 /*
     Inline Methods
-        The compiler should insert the method’s body directly into the code where the method is called. 
-        This process is called inlining, and methods that want this behavior are called inline methods. 
+        The compiler should insert the method’s body directly into the code where the method is called.
+        This process is called inlining, and methods that want this behavior are called inline methods.
         Inlining is safer than using #define macros.
 
         Specify an inline method by placing the inline keyword in front of its name in
-        the method definition. 
+        the method definition.
 
 
         eg. Make the accessor methods of the SpreadsheetCell class inline.
@@ -18,7 +18,7 @@
                 {
                 }
 
-        C++ provides an alternate syntax for declaring inline methods that doesn’t use the inline keyword at all. 
+        C++ provides an alternate syntax for declaring inline methods that doesn’t use the inline keyword at all.
         You place the method definition directly in the class definition.
 
         eg.
@@ -26,8 +26,8 @@
             class SpreadsheetCell
             {
             public:
-                double SpreadsheetCell::getValue() const  { }
-                std::string SpreadsheetCell::getString() const{}
+                double SpreadsheetCell::getValue() const  {}
+                std::string SpreadsheetCell::getString() const {}
             }
 */
 
@@ -52,8 +52,8 @@ int main()
 
     const SpreadsheetCell &myCellConstRef = myCell;
 
-    std::cout << myCellConstRef.getValue() << std::endl;  // OK
-    std::cout << myCellConstRef.getString() << std::endl; // OK
+    std::cout << myCellConstRef.getValue() << std::endl;                 // OK
+    std::cout << "string : " << myCellConstRef.getString() << std::endl; // OK
 
     // myCellConstRef.set("6");                      // Compilation Error!
 
@@ -71,6 +71,7 @@ int main()
     auto &cell1 = sheet1->getCellAt(1, 1);
 
     std::cout << "Cell1 value at (1,1): " << cell1->getValue() << std::endl;
+    std::cout << "Cell2 value at (1,1) string : " << cell1->getString() << std::endl;
 
     // const Spreadsheet sheet2(5, 6);
     auto sheet2 = std::make_shared<const Spreadsheet>(5, 6);
@@ -79,6 +80,7 @@ int main()
     const auto &cell2 = sheet2->getCellAt(1, 1);
 
     std::cout << "Cell2 value at (1,1): " << cell2->getValue() << std::endl;
+    std::cout << "Cell2 value at (1,1) string : " << cell2->getString() << std::endl;
 
     return 0;
 }
