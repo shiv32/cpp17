@@ -1,0 +1,3 @@
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-13/build/CMakeFiles/rebuild_cache.dir
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-13/build/CMakeFiles/edit_cache.dir
+/home/shiv/shiv_work/thread/MasteringClassesAndObjects/Project-13/build/CMakeFiles/Project13.dir

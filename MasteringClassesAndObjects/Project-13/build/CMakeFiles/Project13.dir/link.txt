@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/Project13.dir/Spreadsheet.cpp.o CMakeFiles/Project13.dir/SpreadsheetCell.cpp.o CMakeFiles/Project13.dir/main.cpp.o  -o Project13 
