@@ -80,12 +80,12 @@ Integer &Integer::operator=(Integer &&a)
 	return *this;
 }
 
-Integer Integer::operator+(const Integer &a) const
+Integer Integer::operator+(const Integer &b) const
 {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
 
 	Integer temp;
-	*temp.m_pInt = *m_pInt + *a.m_pInt;
+	*temp.m_pInt = *m_pInt + *b.m_pInt;
 	return temp;
 }
 
@@ -94,17 +94,19 @@ void Integer::operator()()
 	std::cout << *m_pInt << std::endl;
 }
 
-// Integer operator+(const Integer &x, const Integer &y)
+// Integer operator+(const Integer &a, const Integer &b)
 // {
 // 	std::cout << __PRETTY_FUNCTION__ << std::endl;
 
 // 	Integer temp;
-// 	temp.SetValue(x.GetValue() + y.GetValue());
+// 	temp.SetValue(a.GetValue() + b.GetValue());
 // 	return temp;
 // }
 
 Integer operator+(int x, const Integer &y)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	Integer temp;
 	temp.SetValue(x + y.GetValue());
 	return temp;

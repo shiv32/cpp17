@@ -40,13 +40,13 @@ public:
 	Integer &operator=(Integer &&a);
 
 	// overlaod +
-	Integer operator+(const Integer &a) const;
+	Integer operator+(const Integer &b) const;
 
 	void operator()();
 };
 
 // overlaod + global
-// Integer operator +(const Integer &x, const Integer &y);
+// Integer operator +(const Integer &a, const Integer &b);
 
 // overlaod + global with premitive type
 Integer operator+(int x, const Integer &y);

@@ -6,7 +6,11 @@ int main()
 
 	Integer a(1), b(3);
 
-	Integer sum = a + b;
+	// Integer sum = a + b;
+
+	// or
+
+	Integer sum = a.operator+(b);
 
 	std::cout << sum.GetValue() << std::endl;
 
