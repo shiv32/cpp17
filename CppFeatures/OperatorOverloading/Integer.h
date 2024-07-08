@@ -21,7 +21,7 @@ public:
 	int GetValue() const;
 	void SetValue(int value);
 
-    //Destructor
+	// Destructor
 	~Integer();
 
 	// pre increment overload ++
@@ -30,7 +30,7 @@ public:
 	// post increment overload ++
 	Integer operator++(int);
 
-     //comparison
+	// comparison
 	bool operator==(const Integer &a) const;
 
 	// Copy assignment
@@ -39,18 +39,18 @@ public:
 	// Move assignment
 	Integer &operator=(Integer &&a);
 
-    //overlaod +
+	// overlaod +
 	Integer operator+(const Integer &a) const;
 
 	void operator()();
 };
 
-//overlaod + global
-//Integer operator +(const Integer &x, const Integer &y);
+// overlaod + global
+// Integer operator +(const Integer &x, const Integer &y);
 
-//overlaod + global with premitive type
-Integer operator +(int x, const Integer &y);
+// overlaod + global with premitive type
+Integer operator+(int x, const Integer &y);
 
-std::ostream & operator <<(std::ostream & out, const Integer &a);
+std::ostream &operator<<(std::ostream &out, const Integer &a);
 
-std::istream & operator >> (std::istream &input, Integer &a);
+std::istream &operator>>(std::istream &input, Integer &a);
