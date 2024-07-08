@@ -4,6 +4,9 @@
 */
 
 #include <iostream>
+
+// To disable assert, you can define NDEBUG
+#define NDEBUG
 #include <cassert>
 
 int main()
