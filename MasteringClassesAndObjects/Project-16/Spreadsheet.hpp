@@ -66,7 +66,7 @@ private:
     void cleanup() noexcept;
     void moveFrom(Spreadsheet &src) noexcept;
 
-    Spreadsheet() = default;
+    //Spreadsheet() = default;
 };
 
 template <typename T>

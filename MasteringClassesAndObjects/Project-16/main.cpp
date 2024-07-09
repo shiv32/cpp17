@@ -23,11 +23,20 @@ int main()
 
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    auto sheet1 = std::make_shared<Spreadsheet>();
-    //auto sheet2 = std::make_shared<Spreadsheet>(5);
-    //auto sheet3 = std::make_shared<Spreadsheet>(5, 6);
+    auto sheet1 = std::make_unique<Spreadsheet>();
 
-    // std::cout << "Cell2 value at (1,1) string : " << cell2->getString() << std::endl;
+    std::cout << "sheet1->getWidth() : " << sheet1->getWidth() << std::endl;
+    std::cout << "sheet1->getHeight() : " << sheet1->getHeight() << std::endl;
+
+    auto sheet2 = std::make_unique<Spreadsheet>(5);
+
+    std::cout << "sheet2->getWidth() : " << sheet2->getWidth() << std::endl;
+    std::cout << "sheet2->getHeight() : " << sheet2->getHeight() << std::endl;
+
+    auto sheet3 = std::make_unique<Spreadsheet>(5, 6);
+
+    std::cout << "sheet3->getWidth() : " << sheet3->getWidth() << std::endl;
+    std::cout << "sheet3->getHeight() : " << sheet3->getHeight() << std::endl;
 
     return 0;
 }
