@@ -6,13 +6,28 @@ int main()
 
 	Integer a(1), b(3);
 
-	// Integer sum = a + b;
+	Integer sum = a + b;
 
 	// or
 
-	Integer sum = a.operator+(b);
+	// Integer sum = a.operator+(b);
+
+	//++sum;
+
+	// std::cout << sum.GetValue() << std::endl;
+
+	std::cout << (sum++).GetValue() << std::endl;
 
 	std::cout << sum.GetValue() << std::endl;
+
+	if (a == b) // if (a.operator==(b))
+	{
+		std::cout << "same" << std::endl;
+	}
+	else
+	{
+		std::cout << "not same" << std::endl;
+	}
 
 	return 0;
 }

@@ -43,12 +43,16 @@ Integer::~Integer()
 
 Integer &Integer::operator++()
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	++(*m_pInt);
 	return *this;
 }
 
 Integer Integer::operator++(int)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	Integer temp(*this);
 	++(*m_pInt);
 	return temp;

@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/assertTest.dir/main.cpp.o  -o assertTest 
