@@ -13,6 +13,11 @@
 
         Specify the default arguments only in the method declaration, but not in the definition.
 
+        Anything you can do with default arguments you can do with method overloading. 
+                Write three different constructors, each of which takes a different number of parameters.
+        
+        Default arguments allow you to write just one constructor that can take three different number of arguments. 
+
 */
 
 #include <iostream>
