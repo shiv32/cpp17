@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the project name
-project(Project15)
+project(Project16)
 
 set(CMAKE_CXX_FLAGS -pthread)
 
@@ -17,4 +17,4 @@ set(SOURCES
 )
 
 # Add an executable with the above sources
-add_executable(Project15 ${SOURCES})
+add_executable(Project16 ${SOURCES})
