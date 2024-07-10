@@ -35,6 +35,17 @@
 
                 }
 
+    Accessing static Data Members Outside Methods
+                Access control specifiers apply to static data members.
+                   sCounter is private, so it cannot be accessed from outside class methods. 
+                   If sCounter was public, you could access it from outside class methods.
+                
+                eg. sCounter variable is part of the Spreadsheet class with the :: scope resolution operator.
+
+                        int c = Spreadsheet::sCounter;
+
+                 It’s not recommended to have public data members
+                 Grant access to a static data member, implement static get/set methods.
 
 */
 
