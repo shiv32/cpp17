@@ -4,6 +4,7 @@ int main()
 {
 	system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+	//-------------------------------------------------------------------------------
 	Integer a(1), b(3);
 
 	Integer sum = a + b;
@@ -28,6 +29,23 @@ int main()
 	{
 		std::cout << "not same" << std::endl;
 	}
+	//-------------------------------------------------------------------------------
+
+	Integer c;
+
+	// c = a;
+	// or
+	c.operator=(a); // call copy assignment operator
+
+	std::cout << "c.GetValue() : " << c.GetValue() << std::endl;
+
+	Integer d;
+
+	//d = std::move(c);
+	// or
+	d.operator=(std::move(c)); // call move assignment operator
+
+	std::cout << "d.GetValue() : " << d.GetValue() << std::endl;
 
 	return 0;
 }

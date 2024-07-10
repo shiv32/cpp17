@@ -14,12 +14,16 @@ Integer::Integer(int value)
 
 Integer::Integer(const Integer &obj)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	std::cout << "Integer(const Integer&)" << std::endl;
 	m_pInt = new int(*obj.m_pInt);
 }
 
 Integer::Integer(Integer &&obj)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	std::cout << "Integer(int&&)" << std::endl;
 	m_pInt = obj.m_pInt;
 	obj.m_pInt = nullptr;
@@ -65,6 +69,8 @@ bool Integer::operator==(const Integer &a) const
 
 Integer &Integer::operator=(const Integer &a)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	if (this != &a)
 	{
 		delete m_pInt;
@@ -75,6 +81,8 @@ Integer &Integer::operator=(const Integer &a)
 
 Integer &Integer::operator=(Integer &&a)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	if (this != &a)
 	{
 		delete m_pInt;
