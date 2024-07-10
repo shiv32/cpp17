@@ -44,7 +44,7 @@
 
                         int c = Spreadsheet::sCounter;
 
-                 It’s not recommended to have public data members
+                 It’s not recommended to have public data members.
                  Grant access to a static data member, implement static get/set methods.
 
 */
