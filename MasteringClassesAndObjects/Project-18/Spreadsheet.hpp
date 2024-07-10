@@ -56,11 +56,8 @@ public:
 
     size_t getId() const;
 
-    // static inline const size_t kMaxHeight = 100;
-    // static inline const size_t kMaxWidth = 100;
-
-    static const size_t kMaxHeight = 100;
-    static const size_t kMaxWidth = 100;
+    static inline const size_t kMaxHeight = 100;
+    static inline const size_t kMaxWidth = 100;
 
 private:
     bool inRange(size_t value, size_t upper) const;
