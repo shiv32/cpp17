@@ -6,17 +6,21 @@
 #include <memory>
 #include <vector>
 #include <algorithm>
-#include "SpreadsheetApplication.hpp"
+// #include "SpreadsheetApplication.hpp"
 
-class SpreadsheetApplication; // forward declaration
+// Forward declaration of SpreadsheetApplication
+class SpreadsheetApplication;
+
+// Function to get a reference to the default SpreadsheetApplication instance
+SpreadsheetApplication& getDefaultApp();
 
 class Spreadsheet
 {
 public:
-    Spreadsheet(size_t width = kMaxWidth, 
+    Spreadsheet(size_t width = kMaxWidth,
                 size_t height = kMaxHeight,
                 std::string sheetname = "",
-                const SpreadsheetApplication &theApp = SpreadsheetApplication());
+                SpreadsheetApplication &theApp = getDefaultApp());
 
     /*
     --> If you have dynamically allocated memory in your class.
@@ -59,6 +63,7 @@ public:
     size_t getWidth() const;
     size_t getHeight() const;
     std::string getSheetname() const;
+    std::string getAppSheetname() const;
 
     size_t getId() const;
 
@@ -83,8 +88,8 @@ private:
     static inline size_t sCounter;
     const size_t mId = 0;
 
-    //std::shared_ptr<SpreadsheetApplication> & mTheApp;
-    const SpreadsheetApplication& mTheApp;
+    // std::shared_ptr<SpreadsheetApplication> & mTheApp;
+    SpreadsheetApplication &mTheApp;
 };
 
 template <typename T>

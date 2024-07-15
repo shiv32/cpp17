@@ -1,8 +1,18 @@
 #include "Spreadsheet.hpp"
+#include "SpreadsheetApplication.hpp"
 
 // size_t Spreadsheet::sCounter;
 
-Spreadsheet::Spreadsheet(size_t width, size_t height, std::string sheetname,const SpreadsheetApplication& theApp)
+// Define the default instance
+SpreadsheetApplication defaultApp;
+
+// Function to return a reference to the default instance
+SpreadsheetApplication& getDefaultApp() 
+{
+    return defaultApp;
+}
+
+Spreadsheet::Spreadsheet(size_t width, size_t height, std::string sheetname, SpreadsheetApplication& theApp)
     : mId(sCounter++)
     , mWidth(std::min(width, kMaxWidth)) // std::min() requires <algorithm>
     , mHeight(std::min(height, kMaxHeight))
@@ -187,6 +197,11 @@ size_t Spreadsheet::getHeight() const { return mHeight; }
 std::string Spreadsheet::getSheetname() const
 {
     return sheetName;
+}
+
+std::string Spreadsheet::getAppSheetname() const
+{
+    return mTheApp.sheetName();
 }
 
 size_t Spreadsheet::getId() const
