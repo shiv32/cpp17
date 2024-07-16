@@ -126,12 +126,16 @@ Integer operator+(int x, const Integer &y)
 
 std::ostream &operator<<(std::ostream &out, const Integer &a)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	out << a.GetValue();
 	return out;
 }
 
 std::istream &operator>>(std::istream &input, Integer &a)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	int x;
 	input >> x;
 	a.SetValue(x);
