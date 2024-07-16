@@ -199,9 +199,9 @@ std::string Spreadsheet::getSheetname() const
     return sheetName;
 }
 
-std::string Spreadsheet::getAppSheetname() const
+std::string Spreadsheet::GetDefaultAppSheetName() const
 {
-    return mTheApp.sheetName();
+    return mTheApp.DefaultSheetName();
 }
 
 size_t Spreadsheet::getId() const

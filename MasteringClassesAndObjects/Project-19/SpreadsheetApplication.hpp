@@ -7,5 +7,5 @@ class SpreadsheetApplication
 
 public:
     SpreadsheetApplication() = default;
-    std::string sheetName();
+    std::string DefaultSheetName();
 };

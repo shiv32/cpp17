@@ -12,7 +12,7 @@
 class SpreadsheetApplication;
 
 // Function to get a reference to the default SpreadsheetApplication instance
-SpreadsheetApplication& getDefaultApp();
+SpreadsheetApplication &getDefaultApp();
 
 class Spreadsheet
 {
@@ -63,7 +63,7 @@ public:
     size_t getWidth() const;
     size_t getHeight() const;
     std::string getSheetname() const;
-    std::string getAppSheetname() const;
+    std::string GetDefaultAppSheetName() const;
 
     size_t getId() const;
 
