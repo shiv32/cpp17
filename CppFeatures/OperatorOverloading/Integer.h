@@ -44,6 +44,12 @@ public:
 
     //function call operator
 	void operator()();
+
+    //Friend function
+	friend void PrintInteger(Integer &a);
+
+	//Friend class
+	friend class Printer;
 };
 
 // overlaod + global
@@ -55,3 +61,11 @@ Integer operator+(int x, const Integer &y);
 std::ostream &operator<<(std::ostream &out, const Integer &a);
 
 std::istream &operator>>(std::istream &input, Integer &a);
+
+class Printer
+{
+ public:
+    Printer() = default;
+    ~Printer() = default;
+    void displayClassIntegerData(Integer &intObj);
+};

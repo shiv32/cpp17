@@ -77,7 +77,13 @@ int main()
 	std::cout << "function call operator() : ";
 	a();
 
-	//--------------------------------------------------------------------
+	//-----------------------------------(Friend Keyword)---------------------------------
+	PrintInteger(a); // frined function of Integer class
+
+	Printer pr; // frined class of Integer class
+	pr.displayClassIntegerData(a);
+
+	//-----------------------------------------------------------------------------------
 
 	return 0;
 }

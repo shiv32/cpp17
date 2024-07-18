@@ -141,3 +141,15 @@ std::istream &operator>>(std::istream &input, Integer &a)
 	a.SetValue(x);
 	return input;
 }
+
+void PrintInteger(Integer &a)
+{
+	//*a.m_pInt = 5;
+	std::cout<<"Frined PrintInteger() value : "<<*a.m_pInt<<std::endl;
+}
+
+void Printer::displayClassIntegerData(Integer &intObj)
+{
+	*intObj.m_pInt = 59;
+	std::cout << "Printer class is a friend of Integer class, m_pInt : " << *intObj.m_pInt << std::endl;
+}
