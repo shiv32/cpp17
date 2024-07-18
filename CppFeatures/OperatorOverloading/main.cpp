@@ -78,9 +78,9 @@ int main()
 	a();
 
 	//-----------------------------------(Friend Keyword)---------------------------------
-	PrintInteger(a); // frined function of Integer class
+	PrintInteger(a); // Friend function of Integer class
 
-	Printer pr; // frined class of Integer class
+	Printer pr; // Friend class of Integer class
 	pr.displayClassIntegerData(a);
 
 	//-----------------------------------------------------------------------------------
