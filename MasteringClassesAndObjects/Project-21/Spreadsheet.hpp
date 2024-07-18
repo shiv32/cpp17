@@ -32,6 +32,7 @@ public:
             mNumAccesses++;
             return mValue;
         }
+        
         void set(std::string_view inString);
 
         // inline Method
@@ -42,7 +43,6 @@ public:
         }
 
         size_t getTotalNumOfAccess() const;
-
         static std::string doubleToString(double inValue);
         static double stringToDouble(std::string_view inString);
 

@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the project name
-project(Project19)
+project(Project21)
 
 set(CMAKE_CXX_FLAGS -pthread)
 
@@ -13,9 +13,8 @@ set(CMAKE_CXX_FLAGS -pthread)
 set(SOURCES
     SpreadsheetApplication.cpp
     Spreadsheet.cpp
-    SpreadsheetCell.cpp
     main.cpp
 )
 
 # Add an executable with the above sources
-add_executable(Project19 ${SOURCES})
+add_executable(Project21 ${SOURCES})

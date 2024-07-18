@@ -11,18 +11,19 @@ SpreadsheetApplication &getDefaultApp()
 {
     return defaultApp;
 }
+
 //-------------------------- cell class -------------------------------
 Spreadsheet::Cell::Cell(double initialValue)
 : mValue(initialValue)
 {
-
+   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 // Delegating Constructor
 Spreadsheet::Cell::Cell(std::string_view initialValue)
     : Spreadsheet::Cell(stringToDouble(initialValue))
 {
-  // std::cout << __PRETTY_FUNCTION__ << std::endl;
+   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 void Spreadsheet::Cell::set(double mValue)
@@ -45,7 +46,6 @@ std::string Spreadsheet::Cell::doubleToString(double inValue)
 {
   return std::to_string(inValue);
 }
-
 //---------------------------------------------------------------------
 
 Spreadsheet::Spreadsheet(size_t width, size_t height, std::string sheetname, const SpreadsheetApplication &theApp)
@@ -212,7 +212,7 @@ std::shared_ptr<Spreadsheet::Cell> &Spreadsheet::getCellAt(size_t x, size_t y)
     // The std::as_const() function is available since C++17.
     return const_cast<std::shared_ptr<Spreadsheet::Cell> &>(std::as_const(*this).getCellAt(x, y));
     // or
-    // return const_cast<std::shared_ptr<SpreadsheetCell>&>(static_cast<const Spreadsheet&>(*this).getCellAt(x, y));
+    // return const_cast<std::shared_ptr<Spreadsheet::Cell>&>(static_cast<const Spreadsheet&>(*this).getCellAt(x, y));
 }
 
 const std::shared_ptr<Spreadsheet::Cell> &Spreadsheet::getCellAt(size_t x, size_t y) const
