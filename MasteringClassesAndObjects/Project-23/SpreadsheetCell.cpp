@@ -110,27 +110,20 @@ void SpreadsheetCell::setColor(Color color) { mColor = color; }
 
 std::string SpreadsheetCell::getColor() const
 {
-  // return mColor;
-
   switch (mColor)
   {
   case SpreadsheetCell::Color::Red:
-    // std::cout << "Cell2 color at (1,1) : Red" << std::endl;
     return "Red";
 
   case SpreadsheetCell::Color::Green:
-    // std::cout << "Cell2 color at (1,1) : Green" << std::endl;
     return "Green";
 
   case SpreadsheetCell::Color::Blue:
-    // std::cout << "Cell2 color at (1,1) : Blue" << std::endl;
     return "Blue";
   case SpreadsheetCell::Color::Yellow:
-    // std::cout << "Cell2 color at (1,1) : Yellow" << std::endl;
     return "Yellow";
 
   default:
-    // std::cout << "Cell2 color at (1,1) : Unknown" << std::endl;
     return "Unknown";
   }
 
