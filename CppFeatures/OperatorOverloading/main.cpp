@@ -1,5 +1,50 @@
 #include "Integer.h"
 
+class IntPtr // smart pointer class
+{
+	Integer *m_p;
+
+public:
+	IntPtr(Integer *p) : m_p(p)
+	{
+	}
+
+	~IntPtr()
+	{
+		delete m_p;
+	}
+
+	Integer *operator->()
+	{
+		return m_p;
+	}
+
+	Integer &operator*()
+	{
+		return *m_p;
+	}
+};
+
+void CreateInteger()
+{
+	Integer *p = new Integer;
+	p->SetValue(3);
+	std::cout << p->GetValue() << std::endl;
+	delete p;
+}
+
+void CreateInteger2()
+{
+	IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
+							// here p is like smart pointer
+
+	// p->SetValue(4);   //operator-> called
+
+	(*p).SetValue(4); // operator* called
+
+	std::cout << p->GetValue() << std::endl;
+}
+
 int main()
 {
 	system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -69,7 +114,7 @@ int main()
 
 	// std::cin>>a;
 	// or
-	operator>>(std::cin, a);
+	// operator>>(std::cin, a);
 
 	std::cout << "overload >>  : " << std::endl
 			  << a << std::endl;
@@ -77,7 +122,17 @@ int main()
 	std::cout << "function call operator() : ";
 	a();
 
-	//--------------------------------------------------------------------
+	//-----------------------------------(Friend Keyword)---------------------------------
+	PrintInteger(a); // Friend function of Integer class
+
+	Printer pr; // Friend class of Integer class
+	pr.displayClassIntegerData(a);
+
+	//------------------------------------(Smart Pointer Basics)-----------------------------
+	std::cout << "----------------------(start Smart Pointer Basics)-----------------------------" << std::endl;
+	// CreateInteger();
+	CreateInteger2();
+	std::cout << "----------------------(end Smart Pointer Basics)-----------------------------" << std::endl;
 
 	return 0;
 }
