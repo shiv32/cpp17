@@ -1,5 +1,8 @@
 /*
- class should have only one reason to change
+    Single Responsibility Principle
+        Class should have only one reason to change.
+
+        g++ srp.cpp -o test
 */
 
 #include <iostream>

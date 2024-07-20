@@ -1,5 +1,9 @@
 /*
- Software Components (such as classes, modules, function, etc) should be open for extension but close for modifications.
+    Open-Closed Principle
+        Software Components (such as classes, modules, function, etc) should be open for extension but 
+        close for modifications.
+
+        g++ ocp.cpp -o test
 */
 
 #include <iostream>

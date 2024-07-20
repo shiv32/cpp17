@@ -1,6 +1,9 @@
 /*
-High-level modules should not depend on low-level modules. Both should depend on abstractions.
-Abstractions should not depend on details. Details should depend on abstractions.
+    Dependency Inversion/Injection
+        High-level modules should not depend on low-level modules. Both should depend on abstractions.
+        Abstractions should not depend on details. Details should depend on abstractions.
+
+        g++ dip.cpp -o test
 */
 
 #include <iostream>

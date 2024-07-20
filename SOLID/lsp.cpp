@@ -1,5 +1,9 @@
 /*
-Objects of superclass can be should be replaceable with objects of subclass without altering the correctness of program
+    Liskov Substitution Principle
+        Objects of superclass can be should be replaceable with objects of subclass without 
+        altering the correctness of program.
+
+        g++ lsp.cpp -o test
 */
 
 #include <iostream>
