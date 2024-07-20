@@ -2,17 +2,7 @@
 
 1. S.O.L.I.D. Principles
    
-         S = Single Responsibility Principle
-         
-         O = Open-Closed Principle
-         
-         L = Liskov Substitution Principle
-         
-         I = Interface Segregation Principle
-         
-         D = Dependency Inversion/Injection
-
-         https://github.com/shiv32/SOLID-CPP.git
+       
 
 3. Design Patterns
 
