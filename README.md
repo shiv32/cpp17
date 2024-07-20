@@ -11,8 +11,6 @@
          I = Interface Segregation Principle
          
          D = Dependency Inversion/Injection
-
-         https://github.com/shiv32/SOLID-CPP.git
       
 3. Design Patterns
 
@@ -24,8 +22,6 @@
   
        https://refactoring.guru/design-patterns/cpp
        
-  
-
 4. Books
    
     1. Professional C++, 4th Edition
