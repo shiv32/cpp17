@@ -12,7 +12,7 @@
          
          D = Dependency Inversion/Injection
 
-    https://cpp-design-patterns.readthedocs.io/en/latest/index.html
+    https://cpp-design-patterns.readthedocs.io/en/latest/principles.html#solid
       
 3. Design Patterns
 
