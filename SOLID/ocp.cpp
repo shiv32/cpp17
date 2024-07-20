@@ -48,7 +48,9 @@ int main()
 {
     std::unique_ptr<Notes> np = std::make_unique<Notes>();
     std::unique_ptr<AddContact> ap = std::make_unique<AddContact>();
+
     np->Add();
     ap->Add();
+    
     return 0;
 }
