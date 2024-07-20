@@ -12,7 +12,7 @@
          
          D = Dependency Inversion/Injection
 
-    https://github.com/shiv32/SOLID-CPP.git
+    https://cpp-design-patterns.readthedocs.io/en/latest/index.html
       
 3. Design Patterns
 
