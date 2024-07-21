@@ -1,6 +1,6 @@
 /*
     Open-Closed Principle
-        Software Components (such as classes, modules, function, etc) should be open for extension but 
+        Software Components (such as classes, modules, function, etc) should be open for extension but
         close for modifications.
 
         g++ ocp.cpp -o test
@@ -10,7 +10,7 @@
 #include <memory>
 
 /*
-//violate OCP
+//Violate OCP
 
 class Notes
 {
@@ -46,11 +46,13 @@ void AddContact::Add()
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     std::unique_ptr<Notes> np = std::make_unique<Notes>();
     std::unique_ptr<AddContact> ap = std::make_unique<AddContact>();
 
     np->Add();
     ap->Add();
-    
+
     return 0;
 }

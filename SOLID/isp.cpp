@@ -51,7 +51,7 @@ class FileWrite final : public WriteInterface
 {
 public:
     void Write() override;
-     ~FileWrite() = default;
+    ~FileWrite() = default;
 };
 
 void FileWrite::Write()
@@ -79,6 +79,8 @@ void FileReadWrite::Write()
 
 main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     std::unique_ptr<FileRead> fr = std::make_unique<FileRead>();
     std::unique_ptr<FileWrite> fw = std::make_unique<FileWrite>();
     std::unique_ptr<FileReadWrite> frw = std::make_unique<FileReadWrite>();

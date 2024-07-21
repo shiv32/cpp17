@@ -9,7 +9,7 @@
 #include <memory>
 
 /*
-//violate SRP
+//Violate SRP
 
 class Notes
 {
@@ -70,6 +70,8 @@ void View::Display(std::unique_ptr<Notes> myNp)
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     std::unique_ptr<AddContact> ac = std::make_unique<AddContact>();
     std::unique_ptr<View> vw = std::make_unique<View>();
 

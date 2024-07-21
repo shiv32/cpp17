@@ -3,12 +3,26 @@
         High-level modules should not depend on low-level modules. Both should depend on abstractions.
         Abstractions should not depend on details. Details should depend on abstractions.
 
+        High-level modules
+            It uses an abstraction to interact with different methods without 
+            knowing their specific implementations.
+         
+        Abstractions
+            An abstract class.
+
+        Details/low-level modules
+            Concrete implementations of the abstract class.
+           
+
         g++ dip.cpp -o test
 */
 
 #include <iostream>
 
 /*
+
+//Violate dip
+
 class LightBulb {
  public:
   void TurnOn() {
@@ -41,6 +55,7 @@ class ElectricPowerSwitch {
 };
 */
 
+//Abstractions
 class Switchable
 {
 public:
@@ -49,6 +64,7 @@ public:
     virtual ~Switchable() = default;
 };
 
+//Details/low-level modules
 class LightBulb final : public Switchable
 {
     void TurnOn() override
@@ -62,6 +78,7 @@ class LightBulb final : public Switchable
     }
 };
 
+//Details/low-level modules
 class Fan final : public Switchable
 {
     void TurnOn() override
@@ -75,10 +92,12 @@ class Fan final : public Switchable
     }
 };
 
+// High-level module(ElectricPowerSwitch class) depending on abstraction(Switchable class)
 class ElectricPowerSwitch
 {
 public:
     ElectricPowerSwitch(Switchable &switchable) : switchable_{switchable}, on_{false} {}
+    
     void press()
     {
         if (on_)
@@ -100,6 +119,8 @@ private:
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     LightBulb light_bulb{};
 
     ElectricPowerSwitch power_switch{light_bulb};

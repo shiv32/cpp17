@@ -1,6 +1,6 @@
 /*
     Liskov Substitution Principle
-        Objects of superclass can be should be replaceable with objects of subclass without 
+        Objects of superclass can be should be replaceable with objects of subclass without
         altering the correctness of program.
 
         g++ lsp.cpp -o test
@@ -10,7 +10,8 @@
 #include <exception>
 
 /*
-// breakng lsp
+// Violate lsp
+
 class Bird {
     public:
         virtual void fly() = 0;
@@ -78,6 +79,8 @@ void makeBirdFly(FlyingBird &bird)
 
 int main()
 {
+
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     Crow cr;
     makeBirdFly(cr);
