@@ -7,10 +7,10 @@
             It uses an abstraction to interact with different methods without 
             knowing their specific implementations.
          
-        Abstractions
+        Abstraction
             An abstract class.
 
-        Details/low-level modules
+        Details/Low-level modules
             Concrete implementations of the abstract class.
            
 
@@ -97,7 +97,7 @@ class ElectricPowerSwitch
 {
 public:
     ElectricPowerSwitch(Switchable &switchable) : switchable_{switchable}, on_{false} {}
-    
+
     void press()
     {
         if (on_)
