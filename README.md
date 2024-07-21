@@ -40,21 +40,23 @@
 
 6. C++ Udemy Course
 
+   https://www.udemy.com/share/101Wd43@iR27PX46bn-wqMG7ftLqtCTNC4eq2wD7JMISdeuXgE0PtXGpk_VOpaqq6cLbtk33/
+
    https://www.udemy.com/user/umar-lone/
 
-7. Upload and read book from any where
+8. Upload and read book from any where
    
    https://www.bookfusion.com/
 
-8. Google C++ Style Guide
+9. Google C++ Style Guide
 
    https://google.github.io/styleguide/cppguide.html
 
-9. Google's C++ Class
+10. Google's C++ Class
 
     https://developers.google.com/edu/c++
 
-10. C++ online compiler
+11. C++ online compiler
 
     https://onecompiler.com/cpp
 
