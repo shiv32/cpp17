@@ -40,9 +40,9 @@
 
 6. C++ Udemy Course
 
-   https://www.udemy.com/share/101Wd43@iR27PX46bn-wqMG7ftLqtCTNC4eq2wD7JMISdeuXgE0PtXGpk_VOpaqq6cLbtk33/
+   1. https://www.udemy.com/share/101Wd43@iR27PX46bn-wqMG7ftLqtCTNC4eq2wD7JMISdeuXgE0PtXGpk_VOpaqq6cLbtk33/
 
-   https://www.udemy.com/user/umar-lone/
+   2. https://www.udemy.com/user/umar-lone/
 
 8. Upload and read book from any where
    
