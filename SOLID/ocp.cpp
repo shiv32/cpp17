@@ -1,5 +1,5 @@
 /*
-    Open-Closed Principle
+    Open-Closed Principle (make all public member function of class virtual)
         Software Components (such as classes, modules, function, etc) should be open for extension but
         close for modifications.
 

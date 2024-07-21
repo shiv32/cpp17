@@ -4,15 +4,15 @@
         Abstractions should not depend on details. Details should depend on abstractions.
 
         High-level modules
-            It uses an abstraction to interact with different methods without 
+            It uses an abstraction to interact with different methods without
             knowing their specific implementations.
-         
+
         Abstraction
             An abstract class.
 
         Details/Low-level modules
             Concrete implementations of the abstract class.
-           
+
 
         g++ dip.cpp -o test
 */
@@ -21,41 +21,51 @@
 
 /*
 
-//Violate dip
+    //Violate dip
 
-class LightBulb {
- public:
-  void TurnOn() {
-    std::cout << "Light bulb on..." << std::endl;
-  }
+    //Low-level module
+    class LightBulb
+    {
+    public:
+    void TurnOn()
+        {
+        std::cout << "Light bulb on..." << std::endl;
+        }
 
-  void TurnOff() {
-    std::cout << "Light bulb off..." << std::endl;
-  }
+    void TurnOff()
+        {
+        std::cout << "Light bulb off..." << std::endl;
+        }
+    };
 
-};
+    //High-level module(ElectricPowerSwitch class) depend on low-level module(LightBulb class)
+    class ElectricPowerSwitch 
+    {
+    public:
+    ElectricPowerSwitch(LightBulb light_bulb) : light_bulb_{light_bulb}, on_{ false} {}
 
-class ElectricPowerSwitch {
- public:
-  ElectricPowerSwitch(LightBulb light_bulb) : light_bulb_{light_bulb}, on_{ false} {}
-
-  void press() {
-    if (on_) {
-      light_bulb_.TurnOff();
-      on_ = false;
-    } else {
-      light_bulb_.TurnOn();
-      on_ = true;
+    void press() 
+    {
+        if (on_) 
+        {
+        light_bulb_.TurnOff();
+        on_ = false;
+        } 
+        else 
+        {
+        light_bulb_.TurnOn();
+        on_ = true;
+        }
     }
-  }
 
- private:
-  LightBulb light_bulb_;
-  bool on_;
-};
+    private:
+    LightBulb light_bulb_;
+    bool on_;
+    };
+
 */
 
-//Abstractions
+// Abstractions
 class Switchable
 {
 public:
@@ -64,7 +74,7 @@ public:
     virtual ~Switchable() = default;
 };
 
-//Details/low-level modules
+// Details/low-level modules
 class LightBulb final : public Switchable
 {
     void TurnOn() override
@@ -78,7 +88,7 @@ class LightBulb final : public Switchable
     }
 };
 
-//Details/low-level modules
+// Details/low-level modules
 class Fan final : public Switchable
 {
     void TurnOn() override
@@ -123,14 +133,14 @@ int main()
 
     LightBulb light_bulb{};
 
-    ElectricPowerSwitch power_switch{light_bulb};
-    power_switch.press();
-    power_switch.press();
+    ElectricPowerSwitch power_switch_bulb{light_bulb};
+    power_switch_bulb.press();
+    power_switch_bulb.press();
 
     Fan fan{};
-    ElectricPowerSwitch power_switch2{fan};
-    power_switch2.press();
-    power_switch2.press();
+    ElectricPowerSwitch power_switch_fan{fan};
+    power_switch_fan.press();
+    power_switch_fan.press();
 
     return 0;
 }

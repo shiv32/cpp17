@@ -9,17 +9,17 @@
 #include <memory>
 
 /*
-//Violate SRP
+    //Violate SRP
 
-class Notes
-{
-public:
-    virtual void Add() = 0;
-    virtual void Remove() = 0;
-    virtual void Edit() = 0;
-    virtual void Display() = 0;
-    virtual ~Notes() = default;
-};
+    class Notes
+    {
+    public:
+        virtual void Add() = 0;
+        virtual void Remove() = 0;
+        virtual void Edit() = 0;
+        virtual void Display() = 0;  //Violate SRP
+        virtual ~Notes() = default;
+    };
 
 */
 
