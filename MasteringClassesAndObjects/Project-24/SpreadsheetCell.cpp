@@ -132,5 +132,5 @@ std::string SpreadsheetCell::getColor() const
 
 std::shared_ptr<SpreadsheetCell> SpreadsheetCell::add(const std::shared_ptr<SpreadsheetCell> &cell) const
 {
-    return std::make_shared<SpreadsheetCell>(getValue() + cell->getValue());
+  return std::make_shared<SpreadsheetCell>(getValue() + cell->getValue());
 }

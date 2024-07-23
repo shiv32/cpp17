@@ -58,7 +58,7 @@ public:
   void setColor(Color color);
   std::string getColor() const;
 
-  std::shared_ptr<SpreadsheetCell> add(const std::shared_ptr<SpreadsheetCell>& cell) const;
+  std::shared_ptr<SpreadsheetCell> add(const std::shared_ptr<SpreadsheetCell> &cell) const;
 
 private:
   double mValue{};

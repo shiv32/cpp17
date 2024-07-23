@@ -1,8 +1,8 @@
 #include "SpreadsheetApplication.hpp"
 
-std::string SpreadsheetApplication::DefaultSheetName() 
+std::string SpreadsheetApplication::DefaultSheetName()
 {
-     return "default sheet !";
+    return "default sheet !";
 }
 
 std::string SpreadsheetApplication::ConstDefaultSheetName() const
