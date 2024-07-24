@@ -63,5 +63,5 @@ public:
 private:
   double mValue{};
   mutable size_t mNumAccesses = 0;
-  Color mColor = Color::Red;
+  Color mColor = Color::Red;  //default value
 };

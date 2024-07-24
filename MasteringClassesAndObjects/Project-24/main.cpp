@@ -27,8 +27,8 @@ int main()
         auto sc1 = std::make_shared<SpreadsheetCell>(50);
         auto sc2 = std::make_shared<SpreadsheetCell>(20);
         auto sc3 = sc1->add(sc2);
-
-        sc1->setColor(SpreadsheetCell::Color::Yellow);
+        sc3->setColor(SpreadsheetCell::Color::Yellow);
+        
         sheet1->setCellAt(1, 1, sc3);
 
         auto &cell1 = sheet1->getCellAt(1, 1);
