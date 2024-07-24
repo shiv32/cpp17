@@ -58,34 +58,29 @@ void Process2(std::shared_ptr<Integer> ptr)
 
 void CreateInteger3()
 {
-	 std::unique_ptr<Integer> p(new Integer);
+	std::unique_ptr<Integer> p(new Integer);
 
 	// auto p2(p); //compiler error copy constructor
 
-	
-
-	//IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
-							// here p is like smart pointer
-
-	
+	// IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
+	//  here p is like smart pointer
 
 	// p->SetValue(4);   //operator-> called
 
 	(*p).SetValue(4); // operator* called
 
-	 Process(std::move(p));
+	Process(std::move(p));
 
-	//std::cout << p->GetValue() << std::endl;
+	// std::cout << p->GetValue() << std::endl;
 }
 
 void CreateInteger4()
 {
 	std::shared_ptr<Integer> p(new Integer);
 
-	//IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
-							// here p is like smart pointer
+	// IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
+	//  here p is like smart pointer
 
-	
 	// p->SetValue(4);   //operator-> called
 
 	(*p).SetValue(4); // operator* called
@@ -189,6 +184,44 @@ int main()
 	// CreateInteger3();
 	CreateInteger4();
 	std::cout << "----------------------(end Smart Pointer  C++ 11)-----------------------------" << std::endl;
+
+	//------------------------------------(Type conversions Basics)-----------------------------
+	// c++ casting operator work at compile time
+
+	int a1 = 5, b1 = 2;
+
+	float f = a1 / b1;
+
+	std::cout << f << std::endl;
+
+	f = (float)a1 / b1; // c style cast
+
+	std::cout << f << std::endl;
+
+	f = static_cast<float>(a1) / b1; // c++ style cast
+									 // static_cast -> check cast is valid or not
+
+	std::cout << f << std::endl;
+
+	// char *p = &a; //compiler error
+
+	char *p = (char *)&a; // c style cast
+
+	// char *p2 = static_cast<char *>(&a);  //compiler error
+
+	char *p2 = reinterpret_cast<char *>(&a); // reinterpret_cast -> allow casting between different types
+
+	const int x = 1;
+
+	// int *p3 = &x;  //compiler error
+
+	int *p3 = (int *)&x; // c style cast discard qualifiers (eg. const)
+
+	// int *p4 = reinterpret_cast<int *>(&x);  //c++ style cast dosnt discard qualifiers (eg. const)
+
+	int *p4 = const_cast<int *>(&x); // c++ style cast
+
+	//-------------------------------------------------------------------------------------
 
 	return 0;
 }
