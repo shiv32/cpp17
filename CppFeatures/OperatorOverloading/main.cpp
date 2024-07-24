@@ -1,4 +1,5 @@
 #include "Integer.h"
+#include <memory>
 
 class IntPtr // smart pointer class
 {
@@ -41,6 +42,55 @@ void CreateInteger2()
 	// p->SetValue(4);   //operator-> called
 
 	(*p).SetValue(4); // operator* called
+
+	std::cout << p->GetValue() << std::endl;
+}
+
+void Process(std::unique_ptr<Integer> ptr)
+{
+	std::cout << ptr->GetValue() << std::endl;
+}
+
+void Process2(std::shared_ptr<Integer> ptr)
+{
+	std::cout << ptr->GetValue() << std::endl;
+}
+
+void CreateInteger3()
+{
+	 std::unique_ptr<Integer> p(new Integer);
+
+	// auto p2(p); //compiler error copy constructor
+
+	
+
+	//IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
+							// here p is like smart pointer
+
+	
+
+	// p->SetValue(4);   //operator-> called
+
+	(*p).SetValue(4); // operator* called
+
+	 Process(std::move(p));
+
+	//std::cout << p->GetValue() << std::endl;
+}
+
+void CreateInteger4()
+{
+	std::shared_ptr<Integer> p(new Integer);
+
+	//IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
+							// here p is like smart pointer
+
+	
+	// p->SetValue(4);   //operator-> called
+
+	(*p).SetValue(4); // operator* called
+
+	Process2(p);
 
 	std::cout << p->GetValue() << std::endl;
 }
@@ -133,6 +183,12 @@ int main()
 	// CreateInteger();
 	CreateInteger2();
 	std::cout << "----------------------(end Smart Pointer Basics)-----------------------------" << std::endl;
+
+	//------------------------------------(Smart Pointer in C++ 11)-----------------------------
+	std::cout << "----------------------(start Smart Pointer  C++ 11)-----------------------------" << std::endl;
+	// CreateInteger3();
+	CreateInteger4();
+	std::cout << "----------------------(end Smart Pointer  C++ 11)-----------------------------" << std::endl;
 
 	return 0;
 }
