@@ -140,7 +140,12 @@ std::string SpreadsheetCell::getColor() const
 //   return std::make_shared<SpreadsheetCell>(getValue() + cell->getValue());
 // }
 
-std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& lhs,const std::shared_ptr<SpreadsheetCell>& rhs)
+// std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& lhs,const std::shared_ptr<SpreadsheetCell>& rhs)
+// {
+//   return std::make_shared<SpreadsheetCell>(lhs->getValue() + rhs->getValue());
+// }
+
+SpreadsheetCell SpreadsheetCell::operator+(const SpreadsheetCell &cell) const
 {
-  return std::make_shared<SpreadsheetCell>(lhs->getValue() + rhs->getValue());
+  return SpreadsheetCell(getValue() + cell.getValue());
 }

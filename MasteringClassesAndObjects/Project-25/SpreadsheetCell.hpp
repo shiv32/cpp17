@@ -60,7 +60,8 @@ public:
 
  // std::shared_ptr<SpreadsheetCell> add(const std::shared_ptr<SpreadsheetCell> &cell) const;
 
-  //std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& cell) const;
+  // std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& cell) const;
+SpreadsheetCell operator+(const SpreadsheetCell &cell) const;
 
 private:
   double mValue{};
@@ -68,4 +69,5 @@ private:
   Color mColor = Color::Red;  //default value
 };
 
-std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& lhs,const std::shared_ptr<SpreadsheetCell>& rhs);
+std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& lhs,
+                                           const std::shared_ptr<SpreadsheetCell>& rhs);
