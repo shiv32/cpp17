@@ -10,8 +10,8 @@ public:
 	Integer();
 
 	// Parameterized constructor
-     Integer(int value);
-  //explicit Integer(int value);
+	Integer(int value);
+	// explicit Integer(int value);
 
 	// Copy constructor
 	Integer(const Integer &obj);
@@ -43,13 +43,13 @@ public:
 	// overlaod +
 	Integer operator+(const Integer &b) const;
 
-    //function call operator
+	// function call operator
 	void operator()();
 
-    //Friend function
+	// Friend function
 	friend void PrintInteger(Integer &a);
 
-	//Friend class
+	// Friend class
 	friend class Printer;
 };
 
@@ -65,8 +65,8 @@ std::istream &operator>>(std::istream &input, Integer &a);
 
 class Printer
 {
- public:
-    Printer() = default;
-    ~Printer() = default;
-    void displayClassIntegerData(Integer &intObj);
+public:
+	Printer() = default;
+	~Printer() = default;
+	void displayClassIntegerData(Integer &intObj);
 };
