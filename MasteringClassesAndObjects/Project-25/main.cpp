@@ -15,8 +15,7 @@
 
 int main() {
 
-  system(
-      "clear && printf '\e[3J'"); // clean the terminal before output in linux
+  system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
   auto sheet1 = std::make_shared<Spreadsheet>(5, 6);
 
@@ -43,8 +42,8 @@ int main() {
 
   //   SpreadsheetCell aThirdCell = myCell + anotherCell;
 
-                     //or 
-                     
+  // or
+
   auto aThirdCell = myCell.operator+(anotherCell);
 
   std::cout << "Cell value at aThirdCell : " << aThirdCell.getValue()
