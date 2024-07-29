@@ -40,11 +40,11 @@ int main() {
   //---------------------------------------------------------
   SpreadsheetCell myCell(4), anotherCell(5);
 
-  //   SpreadsheetCell aThirdCell = myCell + anotherCell;
+     SpreadsheetCell aThirdCell = myCell + anotherCell;
 
   // or
 
-  auto aThirdCell = myCell.operator+(anotherCell);
+  //auto aThirdCell = myCell.operator+(anotherCell);
 
   std::cout << "Cell value at aThirdCell : " << aThirdCell.getValue()
             << std::endl;
