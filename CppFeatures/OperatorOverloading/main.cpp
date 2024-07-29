@@ -90,6 +90,16 @@ void CreateInteger4()
 	std::cout << p->GetValue() << std::endl;
 }
 
+// void print(Integer a)
+// {
+
+// }
+
+void print(const Integer &a)
+{
+
+}
+
 int main()
 {
 	system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -221,7 +231,25 @@ int main()
 
 	int *p4 = const_cast<int *>(&x); // c++ style cast
 
-	//-------------------------------------------------------------------------------------
+	//----------------------------------(Type conversions primitive to user type)------------------------
+	/*
+	 Constructors are used by compiler implicitly to convert one type (primitive) into another (user type).
+	 If you want to prevent compiler to use constructors implicitly, make constructor with "explicit" keyword.
+	*/
+	 
+	Integer a2{5};
+
+	//Initialization
+	Integer a3 = 5;
+
+	//Integer a4 = "abc";
+
+	print(5);
+
+    //Assignment
+	a2 = 7;
+
+	//----------------------------------(Type conversions user to primitive type)------------------------
 
 	return 0;
 }

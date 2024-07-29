@@ -10,7 +10,8 @@ public:
 	Integer();
 
 	// Parameterized constructor
-	Integer(int value);
+     Integer(int value);
+  //explicit Integer(int value);
 
 	// Copy constructor
 	Integer(const Integer &obj);
