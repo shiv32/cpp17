@@ -5,18 +5,19 @@
              Implicit Conversions
                 You can also add a cell to a string_view, a double, or an int.
 
-                You can prevent the implicit construction of a SpreadsheetCell from a string_view by
-                marking that constructor with the explicit keyword.
+                You can prevent the implicit construction of a SpreadsheetCell
+                from a string_view by marking that constructor with the explicit keyword.
 
                 eg . explicit SpreadsheetCell(std::string_view initialValue);
 
-                The explicit keyword goes only in the class definition. 
-                explicit keyword applied to constructors that can be called with one argument or multiparameter 
-                constructors with default values for parameters.
+                The explicit keyword goes only in the class definition.
+                explicit keyword applied to constructors that can be called with
+                one argument or multiparameter constructors with default values for
+                parameters.
 
-                The selection of an implicit constructor might be inefficient, because temporary 
-                objects must be created. 
-                To avoid implicit construction for adding a double, you could write a second operator+.
+                The selection of an implicit constructor might be inefficient,
+                because temporary objects must be created. To avoid implicit construction for
+                adding a double, you could write a second operator+.
 
                 eg. SpreadsheetCell SpreadsheetCell::operator+(double rhs) const
                       {
@@ -66,19 +67,29 @@ int main() {
   std::cout << "Cell value at aThirdCell : " << aThirdCell.getValue()
             << std::endl;
 
-//---------------------------(Implicit Conversions)--------------------------
+  //---------------------------(Implicit Conversions)--------------------------
+
   SpreadsheetCell myCell2(4), aThirdCell2;
 
   std::string str = "6";
 
+  /*
+ when the compiler sees the line trying to add a SpreadsheetCell to a
+ string_view, it calls the string_view SpreadsheetCell constructor to create a
+ temporary SpreadsheetCell to pass to operator+.
+ */
   aThirdCell2 = myCell2 + std::string_view(str);
-     //or
-  //aThirdCell2 = myCell2.operator+(std::string_view(str));
-
+  // or
+  // aThirdCell2 = myCell2.operator+(std::string_view(str));
 
   std::cout << "Cell value at aThirdCell2 : " << aThirdCell2.getValue()
             << std::endl;
 
+  /*
+  when the compiler sees a SpreadsheetCell trying to add itself to double, it
+  finds the SpreadsheetCell constructor that takes a double and constructs a
+  temporary SpreadsheetCell object to pass to operator+.
+  */
   aThirdCell2 = myCell2 + 5.6;
 
   std::cout << "Cell value at aThirdCell2 : " << aThirdCell2.getValue()
