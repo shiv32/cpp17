@@ -10,6 +10,7 @@ public:
   SpreadsheetCell();
   SpreadsheetCell(double initialValue);
   SpreadsheetCell(std::string_view initialValue);
+  // explicit SpreadsheetCell(std::string_view initialValue);
 
   // Destructor
   //~SpreadsheetCell() = default;
@@ -62,6 +63,7 @@ public:
 
   // std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& cell) const;
 SpreadsheetCell operator+(const SpreadsheetCell &cell) const;
+SpreadsheetCell operator+(double rhs) const;
 
 private:
   double mValue{};

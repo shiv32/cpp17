@@ -3,13 +3,11 @@
 
 using namespace std;
 
-SpreadsheetCell::SpreadsheetCell()
-{
+SpreadsheetCell::SpreadsheetCell() {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-SpreadsheetCell::SpreadsheetCell(double initialValue)
-{
+SpreadsheetCell::SpreadsheetCell(double initialValue) {
 
   mValue = initialValue;
 
@@ -18,12 +16,12 @@ SpreadsheetCell::SpreadsheetCell(double initialValue)
 
 // // Delegating Constructor
 SpreadsheetCell::SpreadsheetCell(string_view initialValue)
-    : SpreadsheetCell(stringToDouble(initialValue))
-{
+    : SpreadsheetCell(stringToDouble(initialValue)) {
   // std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-//--------------------------- Copy constructor ----------------------------------------
+//--------------------------- Copy constructor
+//----------------------------------------
 
 /*
     mValue is initialized using the copy constructor
@@ -68,8 +66,7 @@ SpreadsheetCell::SpreadsheetCell(string_view initialValue)
 //   // std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
 // }
 
-void SpreadsheetCell::set(double mValue)
-{
+void SpreadsheetCell::set(double mValue) {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
   this->mValue = mValue;
 }
@@ -80,8 +77,7 @@ void SpreadsheetCell::set(double mValue)
 //   return mValue;
 // }
 
-void SpreadsheetCell::set(string_view inString)
-{
+void SpreadsheetCell::set(string_view inString) {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
   mValue = stringToDouble(inString);
 }
@@ -92,26 +88,19 @@ void SpreadsheetCell::set(string_view inString)
 //   return doubleToString(mValue);
 // }
 
-size_t SpreadsheetCell::getTotalNumOfAccess() const
-{
-  return mNumAccesses;
-}
+size_t SpreadsheetCell::getTotalNumOfAccess() const { return mNumAccesses; }
 
-string SpreadsheetCell::doubleToString(double inValue)
-{
+string SpreadsheetCell::doubleToString(double inValue) {
   return to_string(inValue);
 }
-double SpreadsheetCell::stringToDouble(string_view inString)
-{
+double SpreadsheetCell::stringToDouble(string_view inString) {
   return strtod(inString.data(), nullptr);
 }
 
 void SpreadsheetCell::setColor(Color color) { mColor = color; }
 
-std::string SpreadsheetCell::getColor() const
-{
-  switch (mColor)
-  {
+std::string SpreadsheetCell::getColor() const {
+  switch (mColor) {
   case SpreadsheetCell::Color::Red:
     return "Red";
 
@@ -130,22 +119,36 @@ std::string SpreadsheetCell::getColor() const
   return "Unknown";
 }
 
-// std::shared_ptr<SpreadsheetCell> SpreadsheetCell::add(const std::shared_ptr<SpreadsheetCell> &cell) const
+// std::shared_ptr<SpreadsheetCell> SpreadsheetCell::add(const
+// std::shared_ptr<SpreadsheetCell> &cell) const
 // {
 //   return std::make_shared<SpreadsheetCell>(getValue() + cell->getValue());
 // }
 
-// std::shared_ptr<SpreadsheetCell> SpreadsheetCell::operator+(const std::shared_ptr<SpreadsheetCell>& cell) const
+// std::shared_ptr<SpreadsheetCell> SpreadsheetCell::operator+(const
+// std::shared_ptr<SpreadsheetCell>& cell) const
 // {
 //   return std::make_shared<SpreadsheetCell>(getValue() + cell->getValue());
 // }
 
-// std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& lhs,const std::shared_ptr<SpreadsheetCell>& rhs)
+// std::shared_ptr<SpreadsheetCell> operator+(const
+// std::shared_ptr<SpreadsheetCell>& lhs,const std::shared_ptr<SpreadsheetCell>&
+// rhs)
 // {
-//   return std::make_shared<SpreadsheetCell>(lhs->getValue() + rhs->getValue());
+//   return std::make_shared<SpreadsheetCell>(lhs->getValue() +
+//   rhs->getValue());
 // }
 
-SpreadsheetCell SpreadsheetCell::operator+(const SpreadsheetCell &cell) const
+SpreadsheetCell SpreadsheetCell::operator+(const SpreadsheetCell &cell) const 
 {
+  std::cout << __PRETTY_FUNCTION__ << std::endl;
+
   return SpreadsheetCell(getValue() + cell.getValue());
+}
+
+SpreadsheetCell SpreadsheetCell::operator+(double rhs) const 
+{
+  std::cout << __PRETTY_FUNCTION__ << std::endl;
+
+  return SpreadsheetCell(getValue() + rhs);
 }
