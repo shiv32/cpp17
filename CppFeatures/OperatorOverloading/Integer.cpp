@@ -106,6 +106,11 @@ void Integer::operator()()
 	std::cout << *m_pInt << std::endl;
 }
 
+Integer::operator int()
+{
+	return *m_pInt;
+}
+
 // Integer operator+(const Integer &a, const Integer &b)
 // {
 // 	std::cout << __PRETTY_FUNCTION__ << std::endl;

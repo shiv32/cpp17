@@ -26,6 +26,32 @@ public:
 	}
 };
 
+class Product
+{
+	Integer m_Id;
+
+public:
+	Product(const Integer &id) : m_Id{id}
+	{
+		std::cout << __PRETTY_FUNCTION__ << std::endl;
+	}
+
+	~Product()
+	{
+		std::cout << __PRETTY_FUNCTION__ << std::endl;
+	}
+
+	const Integer &GetInteger() const
+	{
+		return m_Id;
+	}
+
+	operator Integer() // type conversion operator
+	{
+		return m_Id;
+	}
+};
+
 void CreateInteger()
 {
 	Integer *p = new Integer;
@@ -239,10 +265,10 @@ int main()
 	 If you want to prevent compiler to use constructors implicitly, make constructor with "explicit" keyword.
 	*/
 
-	Integer a2{5};
+	Integer a2{5}; // explicit call parameterize ctor
 
 	// Initialization
-	// Integer a3 = 5;
+	// Integer a3 = 5;  //implicit call parameterize ctor
 
 	// Integer a4 = "abc";
 
@@ -252,6 +278,36 @@ int main()
 	// a2 = 7;
 
 	//----------------------------------(Type conversions user to primitive type)------------------------
+
+	// int x2 = a2; //implicitly call type conversion operator funtion {operator int();}
+
+	int x3 = static_cast<int>(a2); // explicitly call type conversion operator funtion {explicit operator int();}
+
+	//----------------------------------(Type conversions user defined to user defined)------------------------
+	Product p1{5};
+
+	// Integer id = p1; //without type conversion operator {operator Integer()} not working
+
+	// Integer id = p1.GetInteger();
+
+	Integer id = p1; // with type conversion operator {operator Integer()}, implicitly call
+
+	// id = p1; //with type conversion operator {operator Integer()}, implicitly call
+	// or
+	id = p1.operator Integer();
+
+	Product pr1{10};
+	Integer id2{10};
+
+	if (id2 == pr1.GetInteger())
+	{
+		std::cout << "########## Id matches with the product" << std::endl;
+	}
+
+	if (id2 == pr1) // with type conversion operator {operator Integer()}, implicitly call
+	{
+		std::cout << "@@@@@@@@@@ Id matches with the product" << std::endl;
+	}
 
 	return 0;
 }

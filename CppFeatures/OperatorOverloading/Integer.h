@@ -46,6 +46,10 @@ public:
 	// function call operator
 	void operator()();
 
+	//type conversion operator funtion
+	//operator int();
+	explicit operator int();
+
 	// Friend function
 	friend void PrintInteger(Integer &a);
 
