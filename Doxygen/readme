@@ -16,7 +16,7 @@ sudo apt install graphviz
 dot -V  # shows the version
 
 ------------------------------------------------------------------------------
-install the doxygen plugin in vs code
+install the doxygen extension in vs code
 
 https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen
 
