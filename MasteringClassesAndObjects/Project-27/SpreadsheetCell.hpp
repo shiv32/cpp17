@@ -13,15 +13,15 @@ public:
   // explicit SpreadsheetCell(std::string_view initialValue);
 
   // Destructor
-  //~SpreadsheetCell() = default;
+  ~SpreadsheetCell();
 
-  // SpreadsheetCell(const SpreadsheetCell &src); // Copy Constructor
+   SpreadsheetCell(const SpreadsheetCell &src); // Copy Constructor
   // SpreadsheetCell(const SpreadsheetCell &src) = default; //
   // compiler-generated copy constructor
   //  SpreadsheetCell(const SpreadsheetCell &src) = delete;
 
   // Assignment Operator
-  // SpreadsheetCell &operator=(const SpreadsheetCell &rhs); // user defined
+   SpreadsheetCell &operator=(const SpreadsheetCell &rhs); // user defined
   // SpreadsheetCell& operator=(const SpreadsheetCell& rhs) = default;
   // //compiler-generated copy assignment operator SpreadsheetCell&
   // operator=(const SpreadsheetCell& rhs) = delete;
@@ -59,17 +59,19 @@ public:
   void setColor(Color color);
   std::string getColor() const;
 
- // std::shared_ptr<SpreadsheetCell> add(const std::shared_ptr<SpreadsheetCell> &cell) const;
+  // std::shared_ptr<SpreadsheetCell> add(const std::shared_ptr<SpreadsheetCell> &cell) const;
 
   // std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& cell) const;
-SpreadsheetCell operator+(const SpreadsheetCell &cell) const;
-SpreadsheetCell operator+(double rhs) const;
+  SpreadsheetCell operator+(const SpreadsheetCell &cell) const;
+  SpreadsheetCell operator+(double rhs) const;
 
 private:
   double mValue{};
   mutable size_t mNumAccesses = 0;
-  Color mColor = Color::Red;  //default value
+  Color mColor = Color::Red; // default value
 };
 
-std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& lhs,
-                                           const std::shared_ptr<SpreadsheetCell>& rhs);
+// std::shared_ptr<SpreadsheetCell> operator+(const std::shared_ptr<SpreadsheetCell>& lhs,
+//                                            const std::shared_ptr<SpreadsheetCell>& rhs);
+
+SpreadsheetCell operator+(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);

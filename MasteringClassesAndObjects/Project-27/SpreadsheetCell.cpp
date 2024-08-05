@@ -20,17 +20,16 @@ SpreadsheetCell::SpreadsheetCell(string_view initialValue)
   // std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-//--------------------------- Copy constructor
-//----------------------------------------
+//--------------------------- Copy constructor----------------------------------------
 
 /*
     mValue is initialized using the copy constructor
 */
-// SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &src)
-//     : mValue(src.mValue)
-// {
-//   // std::cout << __PRETTY_FUNCTION__ << std::endl;
-// }
+SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell &src)
+    : mValue(src.mValue)
+{
+  // std::cout << __PRETTY_FUNCTION__ << std::endl;
+}
 
 /*
     when you assign values to data members in the body of the copy constructor,
@@ -45,26 +44,26 @@ SpreadsheetCell::SpreadsheetCell(string_view initialValue)
 // }
 //----------------------------------------------------------------------------------
 
-// SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
-// {
-//   if (this == &rhs)
-//   {
-//     std::cout << "Self assignment : " << __PRETTY_FUNCTION__ << std::endl;
+SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
+{
+  if (this == &rhs)
+  {
+    std::cout << "Self assignment : " << __PRETTY_FUNCTION__ << std::endl;
 
-//     return *this;
-//   }
+    return *this;
+  }
 
-//   mValue = rhs.mValue;
+  mValue = rhs.mValue;
 
-//   // std::cout << __PRETTY_FUNCTION__ << std::endl;
+  // std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-//   return *this;
-// }
+  return *this;
+}
 
-// SpreadsheetCell::~SpreadsheetCell()
-// {
-//   // std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
-// }
+SpreadsheetCell::~SpreadsheetCell()
+{
+   std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
+}
 
 void SpreadsheetCell::set(double mValue) {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -132,23 +131,29 @@ std::string SpreadsheetCell::getColor() const {
 // }
 
 // std::shared_ptr<SpreadsheetCell> operator+(const
-// std::shared_ptr<SpreadsheetCell>& lhs,const std::shared_ptr<SpreadsheetCell>&
-// rhs)
+// std::shared_ptr<SpreadsheetCell>& lhs,
+//                                           const
+//                                           std::shared_ptr<SpreadsheetCell>&
+//                                           rhs)
 // {
 //   return std::make_shared<SpreadsheetCell>(lhs->getValue() +
 //   rhs->getValue());
 // }
 
-SpreadsheetCell SpreadsheetCell::operator+(const SpreadsheetCell &cell) const 
-{
+SpreadsheetCell SpreadsheetCell::operator+(const SpreadsheetCell &cell) const {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 
   return SpreadsheetCell(getValue() + cell.getValue());
 }
 
-SpreadsheetCell SpreadsheetCell::operator+(double rhs) const 
-{
+SpreadsheetCell SpreadsheetCell::operator+(double rhs) const {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 
   return SpreadsheetCell(getValue() + rhs);
+}
+
+SpreadsheetCell operator+(const SpreadsheetCell &lhs,
+                          const SpreadsheetCell &rhs) 
+{
+  return SpreadsheetCell(lhs.getValue() + rhs.getValue());
 }
