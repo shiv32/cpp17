@@ -1,0 +1,47 @@
+
+----------------------------------------------------------------------------
+Install Doxygen on Ubuntu
+
+sudo apt-get update
+sudo apt-get install doxygen
+
+Install GraphViz
+
+doxygen requires GraphViz to generate call graphs and class diagrams via the dot utility. So install GraphViz, and the dot utility, like this:
+
+sudo apt update
+sudo apt install graphviz
+
+# Ensure it is now installed
+dot -V  # shows the version
+------------------------------------------------------------------------------
+Usage
+
+Once installed, all you need is a project with Doxygen-compatible comments and a Doxyfile, a configuration file that controls the behavior of Doxygen.
+
+If there is no Doxyfile yet, you can simply let Doxygen generate a standard template. To do so, navigate to the root of your project and run:
+
+doxygen -g
+
+The -g stands for generate. You should now notice a newly created file called Doxyfile.
+
+set the attribute in Doxyfile files like 
+
+INPUT = ../
+FILE_PATTERNS = *.hpp \
+                *.cpp 
+
+You can invoke Doxygen by simply running:
+
+doxygen
+
+You should now notice two newly created folders:
+
+    html/
+    latex/
+-----------------------------------------------------------------------
+
+Ref:
+https://askubuntu.com/questions/1291874/how-to-install-doxygen-on-ubuntu
+https://opensource.com/article/22/5/document-source-code-doxygen-linux
+https://stackoverflow.com/questions/12041274/doxygen-not-documenting-main-function-in-main-cpp

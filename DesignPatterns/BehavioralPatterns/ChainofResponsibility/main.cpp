@@ -1,3 +1,13 @@
+/**
+ * @file main.cpp
+ * @author Shiv Kumar (info.shivcpp@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-08-05
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
 #include "MonkeyHandler.hpp"
 #include "SquirrelHandler.hpp"
@@ -9,6 +19,12 @@
 /**
  * The client code is usually suited to work with a single handler. In most
  * cases, it is not even aware that the handler is part of a chain.
+ */
+
+/**
+ * @brief This is clientCode function
+ * 
+ * @param handler 
  */
 void ClientCode(Handler &handler)
 {
@@ -34,8 +50,16 @@ void ClientCode(Handler &handler)
 /**
  * The other part of the client code constructs the actual chain.
  */
+
+/**
+ * @brief This is entry point of C++.
+ * 
+ * @return int 
+ */
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     MonkeyHandler *monkey = new MonkeyHandler;
     SquirrelHandler *squirrel = new SquirrelHandler;
     DogHandler *dog = new DogHandler;
