@@ -14,7 +14,17 @@ sudo apt install graphviz
 
 # Ensure it is now installed
 dot -V  # shows the version
+
 ------------------------------------------------------------------------------
+install the doxygen plugin in vs code
+
+https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen
+
+after plugin install restart vs code 
+now type /** in .cpp, .hpp files and press enter button 
+it will automatically generate the description.
+
+-----------------------------------------------------------------------------
 Usage
 
 Once installed, all you need is a project with Doxygen-compatible comments and a Doxyfile, a configuration file that controls the behavior of Doxygen.
