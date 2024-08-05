@@ -20,7 +20,7 @@ install the doxygen extension in vs code
 
 https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen
 
-after plugin install restart vs code 
+after extension install restart vs code 
 now type /** in .cpp, .hpp files and press enter button 
 it will automatically generate the description.
 
