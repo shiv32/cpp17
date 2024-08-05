@@ -25,7 +25,7 @@ doxygen -g
 
 The -g stands for generate. You should now notice a newly created file called Doxyfile.
 
-set the attribute in Doxyfile files like 
+set the attribute in Doxyfile file like 
 
 INPUT = ../
 FILE_PATTERNS = *.hpp \
