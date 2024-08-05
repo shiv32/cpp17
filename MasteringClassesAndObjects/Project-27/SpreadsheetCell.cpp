@@ -60,10 +60,10 @@ SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
   return *this;
 }
 
-SpreadsheetCell::~SpreadsheetCell()
-{
-   std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
-}
+// SpreadsheetCell::~SpreadsheetCell()
+// {
+//    std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
+// }
 
 void SpreadsheetCell::set(double mValue) {
   std::cout << __PRETTY_FUNCTION__ << std::endl;

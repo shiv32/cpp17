@@ -13,7 +13,7 @@ public:
   // explicit SpreadsheetCell(std::string_view initialValue);
 
   // Destructor
-  ~SpreadsheetCell();
+  ~SpreadsheetCell() = default;
 
    SpreadsheetCell(const SpreadsheetCell &src); // Copy Constructor
   // SpreadsheetCell(const SpreadsheetCell &src) = default; //
