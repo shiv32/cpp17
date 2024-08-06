@@ -131,7 +131,7 @@ Integer operator+(int x, const Integer &y)
 
 std::ostream &operator<<(std::ostream &out, const Integer &a)
 {
-	std::cout << __PRETTY_FUNCTION__ << std::endl;
+	//std::cout << __PRETTY_FUNCTION__ << std::endl;
 
 	out << a.GetValue();
 	return out;
