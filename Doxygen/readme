@@ -49,6 +49,12 @@ You should now notice two newly created folders:
 
     html/
     latex/
+
+now go to html directory and type
+
+firefox index.html
+
+page will open in firefox browser
 -----------------------------------------------------------------------
 
 Ref:
