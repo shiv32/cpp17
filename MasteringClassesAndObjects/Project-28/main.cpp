@@ -6,18 +6,18 @@
             SpreadsheetCell operator<op>(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
            
             You can also overload %, but it doesn’t make sense for the double values stored in SpreadsheetCells.
+          
+            For operator/, the only tricky aspect is remembering to check for division by zero.
+            This implementation throws an exception if division by zero is detected.
 
-            eg.
-                For operator/, the only tricky aspect is remembering to check for division by zero.
-                This implementation throws an exception if division by zero is detected.
-
-                SpreadsheetCell operator/(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
-                    {
-                    if (rhs.getValue() == 0) {
-                    throw invalid_argument("Divide by zero.");
-                    }
-                    return SpreadsheetCell(lhs.getValue() / rhs.getValue());
-                    }
+                eg.
+                    SpreadsheetCell operator/(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+                        {
+                            if (rhs.getValue() == 0) {
+                            throw invalid_argument("Divide by zero.");
+                        }
+                            return SpreadsheetCell(lhs.getValue() / rhs.getValue());
+                        }
 
     */
 
