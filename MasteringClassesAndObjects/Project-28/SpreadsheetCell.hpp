@@ -75,3 +75,4 @@ private:
 //                                            const std::shared_ptr<SpreadsheetCell>& rhs);
 
 SpreadsheetCell operator+(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
+SpreadsheetCell operator/(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
