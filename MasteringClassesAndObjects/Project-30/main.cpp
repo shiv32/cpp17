@@ -45,6 +45,10 @@
         Note->  Most of the time, performing equality or inequality tests on floating point values 
                 is not a good idea. You should use an epsilon test.
 
+        
+        Building Types with Operator Overloading
+                 Provide operator overloading as a service to clients of your class.
+
 */
 
 #include "Spreadsheet.hpp"
