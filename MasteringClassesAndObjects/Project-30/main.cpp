@@ -42,6 +42,9 @@
                     cout << myCell.getValue() << endl;
                  }
 
+        Note->  Most of the time, performing equality or inequality tests on floating point values 
+                is not a good idea. You should use an epsilon test.
+
 */
 
 #include "Spreadsheet.hpp"
