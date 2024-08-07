@@ -31,11 +31,11 @@ class Product
 	Integer m_Id;
 	int x;
 
-public:                           // memeber initializer list
-	 Product(const Integer &id) : m_Id(id), x(id.GetValue())
+public: // memeber initializer list
+	Product(const Integer &id) : m_Id(id), x(id.GetValue())
 	{
 		std::cout << __PRETTY_FUNCTION__ << std::endl;
-		//m_Id = id;  //call Integer& Integer::operator=(const Integer&)
+		// m_Id = id;  //call Integer& Integer::operator=(const Integer&)
 	}
 
 	~Product()
@@ -130,161 +130,173 @@ void print(const Integer &a)
 int main()
 {
 	system("clear && printf '\e[3J'"); // clean the terminal before output in linux
-									   /*
-										   //------------------------------- (Basic) ------------------------------------------------
-										   Integer a(1), b(3);
-								   
-										   Integer sum = a + b;
-								   
-										   // or
-								   
-										   // Integer sum = a.operator+(b);
-								   
-										   //++sum;
-								   
-										   // std::cout << sum.GetValue() << std::endl;
-								   
-										   std::cout << (sum++).GetValue() << std::endl;
-								   
-										   std::cout << sum.GetValue() << std::endl;
-								   
-										   if (a == b) // if (a.operator==(b))
-										   {
-											   std::cout << "same" << std::endl;
-										   }
-										   else
-										   {
-											   std::cout << "not same" << std::endl;
-										   }
-								   
-										   //---------------------------------- (Assignment operator) ---------------------------------------------
-								   
-										   Integer c;
-								   
-										   // c = a;
-										   // or
-										   c.operator=(a); // call copy assignment operator
-								   
-										   std::cout << "c.GetValue() : " << c.GetValue() << std::endl;
-								   
-										   Integer d;
-								   
-										   // d = std::move(c);
-										   //  or
-										   d.operator=(std::move(c)); // call move assignment operator
-								   
-										   std::cout << "d.GetValue() : " << d.GetValue() << std::endl;
-								   
-										   //----------------------------------- (Global overloads) -----------------------------------------------
-								   
-										   Integer sum1 = a + 5;
-										   // or
-										   // Integer sum1 = a.operator+(5);
-								   
-										   std::cout << "sum1.GetValue() : " << sum1.GetValue() << std::endl;
-								   
-										   Integer sum2 = 5 + a; // overlaod + global with premitive type will call
-										   std::cout << "sum2.GetValue() : " << sum2.GetValue() << std::endl;
-								   
-										   // std::cout<<"1. sum1.GetValue() << call : "<< sum1<< std::endl;
-										   // or
-										   operator<<(std::cout, "2. sum1.GetValue() << call : ").operator<<(std::endl);
-										   ;
-										   operator<<(std::cout, sum1).operator<<(std::endl);
-								   
-										   // std::cout<<"1. sum2.GetValue() << call : "<< sum2<< std::endl;
-										   // or
-										   operator<<(std::cout, "2. sum2.GetValue() << call : ").operator<<(std::endl);
-										   operator<<(std::cout, sum2).operator<<(std::endl);
-								   
-										   // std::cin>>a;
-										   // or
-										   // operator>>(std::cin, a);
-								   
-										   std::cout << "overload >>  : " << std::endl
-													 << a << std::endl;
-								   
-										   std::cout << "function call operator() : ";
-										   a();
-								   
-										   //-----------------------------------(Friend Keyword)---------------------------------
-										   PrintInteger(a); // Friend function of Integer class
-								   
-										   Printer pr; // Friend class of Integer class
-										   pr.displayClassIntegerData(a);
-								   
-										   //------------------------------------(Smart Pointer Basics)-----------------------------
-										   std::cout << "----------------------(start Smart Pointer Basics)-----------------------------" << std::endl;
-										   // CreateInteger();
-										   CreateInteger2();
-										   std::cout << "----------------------(end Smart Pointer Basics)-----------------------------" << std::endl;
-								   
-										   //------------------------------------(Smart Pointer in C++ 11)-----------------------------
-										   std::cout << "----------------------(start Smart Pointer  C++ 11)-----------------------------" << std::endl;
-										   // CreateInteger3();
-										   CreateInteger4();
-										   std::cout << "----------------------(end Smart Pointer  C++ 11)-----------------------------" << std::endl;
-											*/
+
+	//------------------------------- (Basic) ------------------------------------------------
+		/*	
+		Integer a(1), b(3);
+
+		Integer sum = a + b;
+
+		// or
+
+		// Integer sum = a.operator+(b);
+
+		//++sum;
+
+		// std::cout << sum.GetValue() << std::endl;
+
+		//std::cout << (sum++).GetValue() << std::endl;
+
+		//std::cout << sum.GetValue() << std::endl;
+
+		if (a == b) // if (a.operator==(b))
+		{
+			std::cout << "same" << std::endl;
+		}
+		else
+		{
+			std::cout << "not same" << std::endl;
+		}
+		*/
+
+	//---------------------------------- (Assignment operator) ---------------------------------------------
+	
+	/*
+	Integer a(1);
+	Integer c;
+
+	 c = a;
+	// or
+	//c.operator=(a); // call copy assignment operator
+
+	std::cout << "c.GetValue() : " << c.GetValue() << std::endl;
+
+	Integer d;
+
+	 d = std::move(c);
+	//  or
+	//d.operator=(std::move(c)); // call move assignment operator
+
+	std::cout << "d.GetValue() : " << d.GetValue() << std::endl;
+     */
+
+	//----------------------------------- (Global overloads) -----------------------------------------------
+	/*
+   Integer sum1 = a + 5;
+   // or
+   // Integer sum1 = a.operator+(5);
+
+   std::cout << "sum1.GetValue() : " << sum1.GetValue() << std::endl;
+
+   Integer sum2 = 5 + a; // overlaod + global with premitive type will call
+   std::cout << "sum2.GetValue() : " << sum2.GetValue() << std::endl;
+
+   // std::cout<<"1. sum1.GetValue() << call : "<< sum1<< std::endl;
+   // or
+   operator<<(std::cout, "2. sum1.GetValue() << call : ").operator<<(std::endl);
+   ;
+   operator<<(std::cout, sum1).operator<<(std::endl);
+
+   // std::cout<<"1. sum2.GetValue() << call : "<< sum2<< std::endl;
+   // or
+   operator<<(std::cout, "2. sum2.GetValue() << call : ").operator<<(std::endl);
+   operator<<(std::cout, sum2).operator<<(std::endl);
+
+   // std::cin>>a;
+   // or
+   // operator>>(std::cin, a);
+
+   std::cout << "overload >>  : " << std::endl
+			   << a << std::endl;
+
+   std::cout << "function call operator() : ";
+   a();
+	*/
+
+	//-----------------------------------(Friend Keyword)---------------------------------
+	/*
+	PrintInteger(a); // Friend function of Integer class
+
+	Printer pr; // Friend class of Integer class
+	pr.displayClassIntegerData(a);
+    */
+
+	//------------------------------------(Smart Pointer Basics)-----------------------------
+	/*
+	std::cout << "----------------------(start Smart Pointer Basics)-----------------------------" << std::endl;
+	// CreateInteger();
+	CreateInteger2();
+	std::cout << "----------------------(end Smart Pointer Basics)-----------------------------" << std::endl;
+
+	//------------------------------------(Smart Pointer in C++ 11)-----------------------------
+	std::cout << "----------------------(start Smart Pointer  C++ 11)-----------------------------" << std::endl;
+	// CreateInteger3();
+	CreateInteger4();
+	std::cout << "----------------------(end Smart Pointer  C++ 11)-----------------------------" << std::endl;
+	*/
+
 	//------------------------------------(Type conversions Basics)-----------------------------
 	// c++ casting operator work at compile time
 	/*
-	 int a1 = 5, b1 = 2;
+	int a1 = 5, b1 = 2;
 
-	 float f = a1 / b1;
+	float f = a1 / b1;
 
-	 std::cout << f << std::endl;
+	std::cout << f << std::endl;
 
-	 f = (float)a1 / b1; // c style cast
+	f = (float)a1 / b1; // c style cast
 
-	 std::cout << f << std::endl;
+	std::cout << f << std::endl;
 
-	 f = static_cast<float>(a1) / b1; // c++ style cast
-									  // static_cast -> check cast is valid or not
+	f = static_cast<float>(a1) / b1; // c++ style cast
+										// static_cast -> check cast is valid or not
 
-	 std::cout << f << std::endl;
+	std::cout << f << std::endl;
 
-	 // char *p = &a; //compiler error
+	// char *p = &a; //compiler error
 
-	 char *p = (char *)&a; // c style cast
+	char *p = (char *)&a; // c style cast
 
-	 // char *p2 = static_cast<char *>(&a);  //compiler error
+	// char *p2 = static_cast<char *>(&a);  //compiler error
 
-	 char *p2 = reinterpret_cast<char *>(&a); // reinterpret_cast -> allow casting between different types
+	char *p2 = reinterpret_cast<char *>(&a); // reinterpret_cast -> allow casting between different types
 
-	 const int x = 1;
+	const int x = 1;
 
-	 // int *p3 = &x;  //compiler error
+	// int *p3 = &x;  //compiler error
 
-	 int *p3 = (int *)&x; // c style cast discard qualifiers (eg. const)
+	int *p3 = (int *)&x; // c style cast discard qualifiers (eg. const)
 
-	 // int *p4 = reinterpret_cast<int *>(&x);  //c++ style cast dosnt discard qualifiers (eg. const)
+	// int *p4 = reinterpret_cast<int *>(&x);  //c++ style cast dosnt discard qualifiers (eg. const)
 
-	 int *p4 = const_cast<int *>(&x); // c++ style cast
-	 */
+	int *p4 = const_cast<int *>(&x); // c++ style cast
+	*/
+
 	//----------------------------------(Type conversions primitive to user type)------------------------
 	/*
-	 Constructors are used by compiler implicitly to convert one type (primitive) into another (user type).
-	 If you want to prevent compiler to use constructors implicitly, make constructor with "explicit" keyword.
+	Constructors are used by compiler implicitly to convert one type (primitive) into another (user type).
+	If you want to prevent compiler to use constructors implicitly, make constructor with "explicit" keyword.
 	*/
 	/*
-	 Integer a2{5}; // explicit call parameterize ctor
+	Integer a2{5}; // explicit call parameterize ctor
 
-	 // Initialization
-	 // Integer a3 = 5;  //implicit call parameterize ctor
+	// Initialization
+	// Integer a3 = 5;  //implicit call parameterize ctor
 
-	 // Integer a4 = "abc";
+	// Integer a4 = "abc";
 
-	 // print(5);
+	// print(5);
 
-	 // Assignment
-	 // a2 = 7;
-   */
+	// Assignment
+	// a2 = 7;
+	*/
 	//----------------------------------(Type conversions user to primitive type)------------------------
 	/*
-	 // int x2 = a2; //implicitly call type conversion operator funtion {operator int();}
+	// int x2 = a2; //implicitly call type conversion operator funtion {operator int();}
 
-	 int x3 = static_cast<int>(a2); // explicitly call type conversion operator funtion {explicit operator int();}
+	int x3 = static_cast<int>(a2); // explicitly call type conversion operator funtion {explicit operator int();}
 	*/
+
 	//----------------------------------(Type conversions user defined to user defined)------------------------
 	/*
 	Product p1{5};
@@ -312,27 +324,30 @@ int main()
 		std::cout << "@@@@@@@@@@ Id matches with the product" << std::endl;
 	}
 	*/
+
 	//--------------(Initialization vs Assignment & Member Initialization list)--------------------
 	/*
-   // Initialization
-   Integer a4{5};
+	/*
+	// Initialization
+	Integer a4{5};
 
-   // Assignment
-   //a4 = 6; // a4 = Integer(6)
+	// Assignment
+	//a4 = 6; // a4 = Integer(6)
 
-   std::cout<<"a4 : "<<a4<<std::endl;
+	std::cout<<"a4 : "<<a4<<std::endl;
 	*/
 
 	/*
 	Integer a5;
 
-    // Assignment
+	// Assignment
 	a5 = 6;  //a5 = Integer(6)
 
 	std::cout<<"a5 : "<<a5<<std::endl;
 	*/
 
-    Product pr1(5);
+	//Product pr1(5);
+   
 
 	return 0;
 }

@@ -26,10 +26,10 @@ public:
 	~Integer();
 
 	// pre increment overload ++
-	Integer &operator++();
+	Integer &operator++();   //++a
 
 	// post increment overload ++
-	Integer operator++(int);
+	Integer operator++(int);  //a++
 
 	// comparison
 	bool operator==(const Integer &a) const;
