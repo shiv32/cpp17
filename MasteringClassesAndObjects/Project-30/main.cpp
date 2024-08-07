@@ -4,13 +4,18 @@
 
         They should be global functions so that you can use implicit conversion
         on both the left-hand side and the right-hand side of the operator.
-        
+
         The comparison operators all return a bool.
 
         You have to replace <op> with ==, <, >, !=, <=, and >=, resulting in six functions.
 
+            class SpreadsheetCell
+                {
+
+                };
+
             bool operator<op>(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
-        
+
         Here is the definition of operator==
 
                 bool operator==(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
@@ -31,12 +36,12 @@
         You can use these operators to compare SpreadsheetCells to other SpreadsheetCells, and also to
         doubles and ints.
 
-            eg. 
-                 if (myCell > aThirdCell || myCell < 10) 
+            eg.
+                 if (myCell > aThirdCell || myCell < 10)
                  {
                     cout << myCell.getValue() << endl;
                  }
-               
+
 */
 
 #include "Spreadsheet.hpp"
@@ -49,13 +54,21 @@ int main()
 
     SpreadsheetCell myCell(4), aThirdCell(2);
 
-    aThirdCell += 5.4;
+    if (myCell > aThirdCell || myCell < 10)
+    {
+        std::cout << myCell.getValue() << std::endl;
+    }
 
-    std::cout << "Cell value at aThirdCell : " << aThirdCell.getValue() << std::endl;
+    aThirdCell = 20;
 
-    aThirdCell = myCell + 4;
-    
-    std::cout << "Cell value at aThirdCell : " << aThirdCell.getValue() << std::endl;
+    if (myCell > aThirdCell && myCell < 10)
+    {
+        std::cout << myCell.getValue() << std::endl;
+    }
+    else
+    {
+        std::cout << "Condition failed !" << std::endl;
+    }
 
     return 0;
 }

@@ -191,3 +191,24 @@ SpreadsheetCell operator/(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs
   }
   return SpreadsheetCell(lhs.getValue() / rhs.getValue());
 }
+
+bool operator==(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs)
+{
+   return (lhs.getValue() == rhs.getValue());
+}
+
+bool operator<(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs)
+{
+   return (lhs.getValue() < rhs.getValue());
+}
+
+bool operator>=(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs)
+{
+    return !(lhs < rhs);
+}
+
+bool operator>(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs)
+{
+   return (!(lhs.getValue() < rhs.getValue()) && !(lhs.getValue() == rhs.getValue()));
+}
+    

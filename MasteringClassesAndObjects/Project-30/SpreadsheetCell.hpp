@@ -15,13 +15,13 @@ public:
   // Destructor
   ~SpreadsheetCell() = default;
 
-   SpreadsheetCell(const SpreadsheetCell &src); // Copy Constructor
-  // SpreadsheetCell(const SpreadsheetCell &src) = default; //
-  // compiler-generated copy constructor
-  //  SpreadsheetCell(const SpreadsheetCell &src) = delete;
+  SpreadsheetCell(const SpreadsheetCell &src); // Copy Constructor
+                                               // SpreadsheetCell(const SpreadsheetCell &src) = default; //
+                                               // compiler-generated copy constructor
+                                               //  SpreadsheetCell(const SpreadsheetCell &src) = delete;
 
   // Assignment Operator
-   SpreadsheetCell &operator=(const SpreadsheetCell &rhs); // user defined
+  SpreadsheetCell &operator=(const SpreadsheetCell &rhs); // user defined
   // SpreadsheetCell& operator=(const SpreadsheetCell& rhs) = default;
   // //compiler-generated copy assignment operator SpreadsheetCell&
   // operator=(const SpreadsheetCell& rhs) = delete;
@@ -65,7 +65,7 @@ public:
   // SpreadsheetCell operator+(const SpreadsheetCell &cell) const;
   // SpreadsheetCell operator+(double rhs) const;
 
-  SpreadsheetCell& operator+=(const SpreadsheetCell& rhs);
+  SpreadsheetCell &operator+=(const SpreadsheetCell &rhs);
 
 private:
   double mValue{};
@@ -78,3 +78,9 @@ private:
 
 SpreadsheetCell operator+(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
 SpreadsheetCell operator/(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
+
+bool operator==(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
+bool operator<(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
+
+bool operator>=(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
+bool operator>(const SpreadsheetCell &lhs, const SpreadsheetCell &rhs);
