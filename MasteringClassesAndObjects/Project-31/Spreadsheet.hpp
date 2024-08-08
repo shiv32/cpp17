@@ -45,7 +45,6 @@ private:
     size_t mHeight = 0;
     std::vector<std::vector<std::shared_ptr<SpreadsheetCell>>> mCells;
     std::string sheetName{};
-
     static inline size_t sCounter;
     const size_t mId = 0;
     const SpreadsheetApplication &mTheApp;
@@ -65,6 +64,7 @@ class Spreadsheet::Impl
    
      Impl(const Impl &src);                // Copy constructor
      Impl &operator=(const Impl &rhs);     // Copy assign
+      ~Impl();   
 
     // swapCopy() implementation does not use move semantics.
     template <typename T>
@@ -99,10 +99,8 @@ private:
     size_t mHeight = 0;
     std::vector<std::vector<std::shared_ptr<SpreadsheetCell>>> mCells;
     std::string sheetName{};
-
     static inline size_t sCounter;
     const size_t mId = 0;
-
     const SpreadsheetApplication &mTheApp;
 };
 

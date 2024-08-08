@@ -26,6 +26,7 @@ Spreadsheet::Spreadsheet(const Spreadsheet &src)
     : Spreadsheet(src.mWidth, src.mHeight, src.sheetName)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     mImpl = std::make_unique<Impl>(*src.mImpl);
 }
 
@@ -61,10 +62,15 @@ std::shared_ptr<SpreadsheetCell> &Spreadsheet::getCellAt(size_t x, size_t y)
     return mImpl->getCellAt(x, y);
 }
 
-size_t Spreadsheet::getWidth() const { return mImpl->getWidth();}
+size_t Spreadsheet::getWidth() const
+{
+    return mImpl->getWidth();
+}
 
-size_t Spreadsheet::getHeight() const { return mImpl->getHeight(); }
-
+size_t Spreadsheet::getHeight() const
+{
+    return mImpl->getHeight();
+}
 
 void swap(Spreadsheet &first, Spreadsheet &second) noexcept
 {
@@ -86,7 +92,7 @@ Spreadsheet::Impl::Impl(size_t width, size_t height, std::string sheetname, cons
 
 Spreadsheet::Impl::Impl(const Impl &src) : Impl(src.mWidth, src.mHeight, src.sheetName)
 {
-     std::cout << __PRETTY_FUNCTION__ << std::endl;
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     for (size_t i = 0; i < mWidth; i++)
     {
@@ -99,8 +105,8 @@ Spreadsheet::Impl::Impl(const Impl &src) : Impl(src.mWidth, src.mHeight, src.she
 
 Spreadsheet::Impl &Spreadsheet::Impl::operator=(const Impl &rhs)
 {
-     std::cout << __PRETTY_FUNCTION__ << std::endl;
-     
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     // Check for self-assignment
     if (this == &rhs)
     {
@@ -110,8 +116,9 @@ Spreadsheet::Impl &Spreadsheet::Impl::operator=(const Impl &rhs)
     Impl temp(rhs); // Do all the work in a temporary instance
     swap(temp);     // Commit the work with only non-throwing operations
     return *this;
-
 }
+
+Spreadsheet::Impl::~Impl() = default;
 
 void Spreadsheet::Impl::swap(Impl &other) noexcept
 {
