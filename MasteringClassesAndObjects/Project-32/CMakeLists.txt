@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the project name
-project(Project24)
+project(InterfaceImplementation)
 
 set(CMAKE_CXX_FLAGS -pthread)
 
@@ -18,4 +18,4 @@ set(SOURCES
 )
 
 # Add an executable with the above sources
-add_executable(Project24 ${SOURCES})
+add_executable(InterfaceImplementation ${SOURCES})
