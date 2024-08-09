@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -g   CMakeFiles/InterfaceImplementation.dir/SpreadsheetApplication.cpp.o CMakeFiles/InterfaceImplementation.dir/Spreadsheet.cpp.o CMakeFiles/InterfaceImplementation.dir/SpreadsheetCell.cpp.o CMakeFiles/InterfaceImplementation.dir/main.cpp.o  -o InterfaceImplementation 

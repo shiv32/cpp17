@@ -26,7 +26,9 @@
         class object.
         The result of this is that no matter how the implementation changes, it has no impact on the public
         interface class.
+
         This reduces the need for recompilation.
+
         None of the clients that use the interface class need to be recompiled if the
         implementation (and only the implementation) changes.
 
@@ -34,6 +36,18 @@
                 This idiom only works if the single data member is a pointer to the implementation class.
                 If it were a by-value data member, the clients would have to be recompiled when the definition
                 of the implementation class changes.
+
+                With stable interface classes, build times can be reduced.
+                    Note -> In vs code click on build and see the below line in CMake output window
+
+                            [driver] Build completed: 00:00:05.947
+
+                            Build Time: The time shown (00:00:05.947)
+
+                            Hours:          The first 00 indicates the hours.
+                            Minutes:        The second 00 indicates the minutes.
+                            Seconds:        The third 05 indicates the seconds.
+                            Milliseconds:   The 947 indicates milliseconds (i.e. 183 ms).
 */
 
 #include "Spreadsheet.hpp"
