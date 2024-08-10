@@ -1,0 +1,4 @@
+<map id="Adapter" name="Adapter">
+<area shape="rect" id="node2" href="$classTarget.html" title="Target" alt="" coords="5,5,64,32"/>
+<area shape="rect" id="node3" href="$classAdaptee.html" title="Adaptee" alt="" coords="89,5,159,32"/>
+</map>
