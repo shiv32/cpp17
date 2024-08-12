@@ -12,4 +12,5 @@
 
 void Derived2::someOtherMethod()
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
 }

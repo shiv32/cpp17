@@ -10,14 +10,17 @@
  */
 
 #pragma once
+
+#include <iostream>
+
 class Base
 {
 public:
     void someMethod();
 
 protected:
-    int mProtectedInt;
+    int mProtectedInt{};
 
 private:
-    int mPrivateInt;
+    int mPrivateInt{};
 };

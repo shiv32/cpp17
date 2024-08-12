@@ -13,4 +13,9 @@
 
 void Derived::someOtherMethod()
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
+    std::cout << "I can access base class data member mProtectedInt." << std::endl;
+    std::cout << "Its value is " << mProtectedInt << std::endl;
+    //std::cout << "The value of mPrivateInt is " << mPrivateInt << std::endl; // Error!
 }
