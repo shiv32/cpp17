@@ -182,45 +182,43 @@ int main()
 
 	//----------------------------------- (Global overloads) -----------------------------------------------
 
-	Integer a(1);
+	// Integer a(17);
 
-	Integer sum1 = a + 5;
-	// or
-	// Integer sum1 = a.operator+(5);
-
-	std::cout << "sum1.GetValue() : " << sum1.GetValue() << std::endl;
-
-	Integer sum2 = 5 + a; // overlaod + global with premitive type will call
-	std::cout << "sum2.GetValue() : " << sum2.GetValue() << std::endl;
-
-    // std::cout<<"1. sum1.GetValue() << call : "<< sum1<< std::endl;
+	// Integer sum1 = a + 5;
 	// // or
-	 operator<<(std::cout, "2. sum1.GetValue() << call : ").operator<<(std::endl);
+	// // Integer sum1 = a.operator+(5);
 
-	 operator<<(std::cout, sum1).operator<<(std::endl);
+	// std::cout << "sum1.GetValue() : " << sum1.GetValue() << std::endl;
 
-	// // std::cout<<"1. sum2.GetValue() << call : "<< sum2<< std::endl;
-	// // or
-	// operator<<(std::cout, "2. sum2.GetValue() << call : ").operator<<(std::endl);
+	// Integer sum2 = 5 + a; // overlaod + global with premitive type will call
+	// std::cout << "sum2.GetValue() : " << sum2.GetValue() << std::endl;
+
+	// // std::cout<<"1. sum1.GetValue() << call : "<< sum1<< std::endl;
+	// // // or
+	// operator<<(std::cout, "2. sum1.GetValue() << call : ");
+	// operator<<(std::cout, sum1).operator<<(std::endl);
+
+	// // // std::cout<<"1. sum2.GetValue() << call : "<< sum2<< std::endl;
+	// // // or
+	// operator<<(std::cout, "2. sum2.GetValue() << call : ");
 	// operator<<(std::cout, sum2).operator<<(std::endl);
 
-	// // std::cin>>a;
-	// // or
+	// //  // std::cin>>a;
+	// //  // or
 	// // operator>>(std::cin, a);
 
-	// std::cout << "overload >>  : " << std::endl
-	// 		  << a << std::endl;
+	// // std::cout << "overload >>  : " << a << std::endl;
 
-	// std::cout << "function call operator() : ";
-	// a();
+	//  std::cout << "function call operator() : "<< std::endl;
+	//  a();
 
 	//-----------------------------------(Friend Keyword)---------------------------------
-	/*
-	PrintInteger(a); // Friend function of Integer class
+	// Integer a(17);
 
-	Printer pr; // Friend class of Integer class
-	pr.displayClassIntegerData(a);
-	*/
+	// PrintInteger(a); // Friend function of Integer class
+
+	// Printer pr; // Friend class of Integer class
+	// pr.displayClassIntegerData(a);
 
 	//------------------------------------(Smart Pointer Basics)-----------------------------
 	/*

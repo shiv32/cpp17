@@ -103,6 +103,8 @@ Integer Integer::operator+(const Integer &b) const
 
 void Integer::operator()()
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	std::cout << *m_pInt << std::endl;
 }
 
@@ -131,7 +133,7 @@ Integer operator+(int x, const Integer &y)
 
 std::ostream &operator<<(std::ostream &out, const Integer &a)
 {
-	//std::cout << __PRETTY_FUNCTION__ << std::endl;
+	// std::cout << __PRETTY_FUNCTION__ << std::endl;
 
 	out << a.GetValue();
 	return out;
@@ -150,7 +152,7 @@ std::istream &operator>>(std::istream &input, Integer &a)
 void PrintInteger(Integer &a)
 {
 	//*a.m_pInt = 5;
-	std::cout<<"Frined PrintInteger() value : "<<*a.m_pInt<<std::endl;
+	std::cout << "Friend PrintInteger() value : " << *a.m_pInt << std::endl;
 }
 
 void Printer::displayClassIntegerData(Integer &intObj)

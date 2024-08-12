@@ -1,3 +1,0 @@
-/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/OperatorOverloading/build/CMakeFiles/rebuild_cache.dir
-/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/OperatorOverloading/build/CMakeFiles/operatoroverload.dir
-/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/OperatorOverloading/build/CMakeFiles/edit_cache.dir
