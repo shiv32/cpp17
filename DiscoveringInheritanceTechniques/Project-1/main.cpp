@@ -15,6 +15,20 @@
 
                 To show the syntax for inheritance, two classes are used, called Base and Derived.
 
+                Simple relationship between Derived and Base :
+
+                    Base <- Derived
+
+                You could even define a third class that inherits from Derived, forming a chain of classes :
+
+                    Base <- Derived <- DerivedDerived
+                
+                Derived doesn’t have to be the only derived class of Base. 
+                Additional classes can also inherit from Base, effectively becoming siblings to Derived.
+
+                    Base <- Derived1
+                    Base <- Derived2
+
  
  * @version 0.1
  * @date 2024-08-09
