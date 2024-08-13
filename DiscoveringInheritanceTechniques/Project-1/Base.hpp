@@ -24,3 +24,15 @@ protected:
 private:
     int mPrivateInt{};
 };
+
+// class Base final
+// {
+// public:
+//     void someMethod();
+
+// protected:
+//     int mProtectedInt{};
+
+// private:
+//     int mPrivateInt{};
+// };

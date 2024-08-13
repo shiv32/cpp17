@@ -42,10 +42,20 @@
 
                     Note: From the perspective of other code, an object belongs to its defined class
                           as well as to any base classes.
+
+                A Derived Class’s View of Inheritance
+                    Derived class augments the Base class by adding an additional method.
+                    A derived class can access public and protected methods and data members declared in its base class.
+
+                Preventing Inheritance
+                    C++ allows you to mark a class as final, which means trying to inherit from it will result in a
+                    compilation error.
+
+                    eg. class Base final
+                        {
+                        
+                        };
                     
-
-
-
 
  * @version 0.1
  * @date 2024-08-09
@@ -62,9 +72,7 @@ int main()
 {
 
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
-
-   //A Client’s View of Inheritance
-
+    
     Derived myDerived;
     myDerived.someMethod();
     myDerived.someOtherMethod();
@@ -76,8 +84,7 @@ int main()
 
    //Base* base = new Derived(); // Create Derived, store it in Base pointer.
    //base->someOtherMethod(); // Error! 
-
-   //A Derived Class’s View of Inheritance
+   //base->someMethod();
 
     return 0;
 }
