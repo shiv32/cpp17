@@ -38,7 +38,9 @@
       
       http://libgen.rs/search.php
 
-6. C++ Udemy Course
+      https://fliphtml5.com/learning-center/download-online-book-pdf-for-free/
+
+7. C++ Udemy Course
 
    1. https://www.udemy.com/share/101Wd43@iR27PX46bn-wqMG7ftLqtCTNC4eq2wD7JMISdeuXgE0PtXGpk_VOpaqq6cLbtk33/
 
