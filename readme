@@ -26,3 +26,7 @@
     Visual Studio Code C++ Disassembly View extension -->
 
     https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide
+
+    Configure Git to ignore files -->
+   
+    https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
