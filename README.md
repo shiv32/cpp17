@@ -30,9 +30,13 @@
        
        https://www.wiley.com/en-us/Professional+C%2B%2B%2C+4th+Edition-p-9781119421306
   
-    3. Financial Instrument Pricing Using C++, 2nd Edition
+    2. Financial Instrument Pricing Using C++, 2nd Edition
        
        https://www.wiley.com/en-us/Financial+Instrument+Pricing+Using+C%2B%2B%2C+2nd+Edition-p-9781119170488
+
+    3. Building Low Latency Applications with C++: Develop a complete low latency trading ecosystem from scratch using modern C++, 1st Edition
+  
+       https://www.packtpub.com/en-in/product/building-low-latency-applications-with-c-9781837639359 
 
 5. Download Any Book
       
