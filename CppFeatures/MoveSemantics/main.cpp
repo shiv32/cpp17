@@ -1,4 +1,14 @@
 #include <iostream>
+#include "Integer.h"
+
+Integer Add(const Integer &a, const Integer &b)
+{
+	Integer temp;
+
+	temp.SetValue(a.GetValue() + b.GetValue());
+
+	return temp;
+}
 
 /*
 return r-value
@@ -36,7 +46,7 @@ int main()
 {
 	system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-	//---------------------------------------------------------------------------------
+	//----------------------------------(L-valu, R-value, R-value reference)-----------------------------------------------
 
 	// /*
 	// x,y,z --> l-values
@@ -73,10 +83,20 @@ int main()
 	// const int &ref3 = 3;
 
 	//--------------------------------------------------------
-	int x = 5;
-	print(x);
+	// int x = 5;
 
-	print(30);
+	// print(x);
+
+	// print(30);
+
+	//----------------------------(move semantics)-------------------------
+	/*
+		Disable Copy Elision -->
+	 	g++ -fno-elide-constructors *.cpp -o test
+	*/
+	Integer a(1), b(3);
+
+	a.SetValue(Add(a,b).GetValue());
 
 	return 0;
 }

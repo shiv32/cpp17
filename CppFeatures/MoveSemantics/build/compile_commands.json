@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/MoveSemantics/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/moveSemantics.dir/Integer.cpp.o -c /home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/MoveSemantics/Integer.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/MoveSemantics/Integer.cpp"
+},
+{
+  "directory": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/MoveSemantics/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/moveSemantics.dir/main.cpp.o -c /home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/MoveSemantics/main.cpp",
+  "file": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/CppFeatures/MoveSemantics/main.cpp"
+}
+]
