@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/ExtendingClasses.dir/Base.cpp.o CMakeFiles/ExtendingClasses.dir/Derived.cpp.o CMakeFiles/ExtendingClasses.dir/Derived1.cpp.o CMakeFiles/ExtendingClasses.dir/Derived2.cpp.o CMakeFiles/ExtendingClasses.dir/DerivedDerived.cpp.o CMakeFiles/ExtendingClasses.dir/main.cpp.o  -o ExtendingClasses 
