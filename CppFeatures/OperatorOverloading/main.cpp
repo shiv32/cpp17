@@ -67,9 +67,9 @@ void CreateInteger2()
 	IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
 							// here p is like smart pointer
 
-	// p->SetValue(4);   //operator-> called
+	p->SetValue(4); // operator-> called
 
-	(*p).SetValue(4); // operator* called
+	//(*p).SetValue(4); // operator* called
 
 	std::cout << p->GetValue() << std::endl;
 }
@@ -86,16 +86,17 @@ void Process2(std::shared_ptr<Integer> ptr)
 
 void CreateInteger3()
 {
-	std::unique_ptr<Integer> p(new Integer);
+	// std::unique_ptr<Integer> p(new Integer);
+	std::unique_ptr<Integer> p = std::make_unique<Integer>(); // prefrred
 
 	// auto p2(p); //compiler error copy constructor
 
-	// IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
+	// IntPtr p = new Integer; 	 // RAII Concept, bind Interger class to local object of class IntPtr
 	//  here p is like smart pointer
 
-	// p->SetValue(4);   //operator-> called
+	p->SetValue(4); // operator-> called
 
-	(*p).SetValue(4); // operator* called
+	//(*p).SetValue(4); // operator* called
 
 	Process(std::move(p));
 
@@ -104,18 +105,19 @@ void CreateInteger3()
 
 void CreateInteger4()
 {
-	std::shared_ptr<Integer> p(new Integer);
+	// std::shared_ptr<Integer> p(new Integer);
+	std::shared_ptr<Integer> p = std::make_shared<Integer>(); // prefrred
 
-	// IntPtr p = new Integer; // RAII Concept, bind Interger class to local object of class IntPtr
+	// IntPtr p = new Integer;   // RAII Concept, bind Interger class to local object of class IntPtr
 	//  here p is like smart pointer
 
-	// p->SetValue(4);   //operator-> called
+	p->SetValue(4); // operator-> called
 
-	(*p).SetValue(4); // operator* called
+	//(*p).SetValue(4); // operator* called
 
 	Process2(p);
 
-	std::cout << p->GetValue() << std::endl;
+	// std::cout << p->GetValue() << std::endl;
 }
 
 // void print(Integer a)
@@ -221,18 +223,13 @@ int main()
 	// pr.displayClassIntegerData(a);
 
 	//------------------------------------(Smart Pointer Basics)-----------------------------
-	/*
-	std::cout << "----------------------(start Smart Pointer Basics)-----------------------------" << std::endl;
+
 	// CreateInteger();
-	CreateInteger2();
-	std::cout << "----------------------(end Smart Pointer Basics)-----------------------------" << std::endl;
+	// CreateInteger2();
 
 	//------------------------------------(Smart Pointer in C++ 11)-----------------------------
-	std::cout << "----------------------(start Smart Pointer  C++ 11)-----------------------------" << std::endl;
 	// CreateInteger3();
 	CreateInteger4();
-	std::cout << "----------------------(end Smart Pointer  C++ 11)-----------------------------" << std::endl;
-	*/
 
 	//------------------------------------(Type conversions Basics)-----------------------------
 	// c++ casting operator work at compile time
