@@ -36,7 +36,11 @@
 
     3. Building Low Latency Applications with C++: Develop a complete low latency trading ecosystem from scratch using modern C++, 1st Edition
   
-       https://www.packtpub.com/en-in/product/building-low-latency-applications-with-c-9781837639359 
+       https://www.packtpub.com/en-in/product/building-low-latency-applications-with-c-9781837639359
+
+    4. Real-Time C++: Efficient Object-Oriented and Template Microcontroller Programming 3rd Edition
+
+       https://www.amazon.com/exec/obidos/ASIN/3662567172/acmorg-20
 
 5. Download Any Book
       
