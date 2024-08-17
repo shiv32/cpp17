@@ -32,3 +32,5 @@
     https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
     https://www.bmc.com/blogs/gitignore/
+
+    [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
