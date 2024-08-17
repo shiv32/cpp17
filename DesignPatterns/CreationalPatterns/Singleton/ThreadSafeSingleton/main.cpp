@@ -1,3 +1,14 @@
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-08-18
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "Singleton.hpp"
 
 void ThreadFoo()
@@ -18,6 +29,8 @@ void ThreadBar()
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     std::cout << "If you see the same value, then singleton was reused (yay!\n"
               << "If you see different values, then 2 singletons were created (booo!!)\n\n"
               << "RESULT:\n";
