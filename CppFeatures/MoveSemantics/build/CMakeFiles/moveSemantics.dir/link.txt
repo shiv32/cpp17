@@ -1,1 +1,0 @@
-/usr/bin/g++  -pthread -g   CMakeFiles/moveSemantics.dir/Integer.cpp.o CMakeFiles/moveSemantics.dir/main.cpp.o  -o moveSemantics 
