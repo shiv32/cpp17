@@ -74,4 +74,4 @@
 
     https://onecompiler.com/cpp
 
-    [![Youtube](https://static.vecteezy.com/system/resources/thumbnails/018/930/572/small/youtube-logo-youtube-icon-transparent-free-png.png)](https://www.youtube.com/@ShivMLinux)
+    [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
