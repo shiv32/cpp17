@@ -23,6 +23,7 @@
     3. Creational (flexible ways to create objects) ->  Singleton, Factory, Abstract factory
   
        https://refactoring.guru/design-patterns/cpp
+       https://sourcemaking.com/design_patterns
        
 4. Books
    
