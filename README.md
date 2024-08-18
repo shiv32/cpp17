@@ -1,8 +1,8 @@
-git init
-git add .
-git commit -m "my commit"
-git remote add origin <remote repository URL>
-git push origin master
+git init\
+git add .\
+git commit -m "my commit"\
+git remote add origin <remote repository URL>\
+git push origin master\
 
 VS Code CMake setup on Linux
 [cmake-linux](https://code.visualstudio.com/docs/cpp/cmake-linux)
