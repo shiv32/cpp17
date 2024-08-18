@@ -6,7 +6,7 @@
 
     VS Code CMake setup on Linux -->
 
-    [a link] https://code.visualstudio.com/docs/cpp/cmake-linux
+    [cmake-linux](https://code.visualstudio.com/docs/cpp/cmake-linux)
 
     VS Code C++ Create Definitions and Declarations -->
 
