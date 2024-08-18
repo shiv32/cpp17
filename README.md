@@ -3,11 +3,10 @@
     git commit -m "my commit"
     git remote add origin <remote repository URL>
     git push origin master
-    ---------------------------------------------------------------------
 
     VS Code CMake setup on Linux -->
 
-    https://code.visualstudio.com/docs/cpp/cmake-linux
+    [a link] https://code.visualstudio.com/docs/cpp/cmake-linux
 
     VS Code C++ Create Definitions and Declarations -->
 
