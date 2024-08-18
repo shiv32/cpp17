@@ -23,7 +23,7 @@ Visual Studio Code C++ Disassembly View extension
 
 Configure Git to ignore files
 [ignore files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)
-          [ignore files](https://www.bmc.com/blogs/gitignore/)
+or [ignore files](https://www.bmc.com/blogs/gitignore/)
 
 
 [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
