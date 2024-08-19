@@ -1,12 +1,59 @@
 #include <iostream>
 #include "Integer.h"
 
+/*
+
+Table -->
+
+cc : copy ctor
+ca : copy assignment
+mc : move ctor
+ma : move assigmnet
+dtor : destructor
+
+custom		cc 			ca			mc			ma			dtor
+
+cc         custom      default     delete 	    delete  	default
+
+ca         default     custom      delete 	    delete  	default
+
+mc         delete 	   delete      custom       delete  	default
+
+ma         delete 	   delete      delete       custom      default
+
+dtor       default     default     delete 	    delete      custom
+
+none       default     default     default      default     default
+
+*/
+
 class Number
 {
 	Integer m_Value{};
 
 public:
-	Number(int value) : m_Value{value} {};
+	Number() = default;
+	Number(int value) : m_Value{value}
+	{
+	}
+
+	// Number(const Number &n) : m_Value{n.m_Value}  //due to copy ctor move operation will be deleted
+	// {
+	// }
+
+	// ~Number() //due to dtor move operation will be deleted
+	// {
+	// }
+
+	// Number(Number &&n):m_Value{std::move(n.m_Value)}  //due to move ctor copy operation/move assignment will be deleted
+	// {
+	// }
+
+	// custom implementations
+	Number(Number &&n) = default;
+	Number(const Number &n) = default;
+	Number &operator=(Number &&) = default;
+	Number &operator=(const Number &) = default;
 };
 
 Number CreateNumber(int num)
@@ -114,7 +161,8 @@ int main()
 	// a.SetValue(Add(a,b).GetValue());
 
 	//-------------------------(rule of 5 & 0)----------------------
-	Number n1{1};
+	// Number n1{1};
+	Number n1;
 
 	auto n2{n1};
 
