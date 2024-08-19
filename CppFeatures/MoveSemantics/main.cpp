@@ -1,6 +1,23 @@
 #include <iostream>
 #include "Integer.h"
 
+class Number
+{
+	Integer m_Value{};
+
+public:
+	Number(int value) : m_Value{value} {
+
+						};
+};
+
+Number CreateNumber(int num)
+{
+	Number n{num};
+
+	return n;
+}
+
 Integer Add(const Integer &a, const Integer &b)
 {
 	Integer temp;
@@ -89,14 +106,25 @@ int main()
 
 	// print(30);
 
-	//----------------------------(move semantics)-------------------------
+	//----------------------------(move semantics basic and implementation)-------------------------
 	/*
 		Disable Copy Elision -->
-	 	g++ -fno-elide-constructors *.cpp -o test
+		g++ -fno-elide-constructors *.cpp -o test
 	*/
-	Integer a(1), b(3);
+	// Integer a(1), b(3);
 
-	a.SetValue(Add(a,b).GetValue());
+	// a.SetValue(Add(a,b).GetValue());
+
+	//-------------------------(rule of 5 & 0)----------------------
+	Number n1{1};
+
+	auto n2{n1};
+
+	n2 = n1;
+
+	auto n3{CreateNumber(3)};
+
+	n3 = CreateNumber(3);
 
 	return 0;
 }

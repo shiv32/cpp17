@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 
 # Add flag to disable copy elision
-#add_compile_options(-fno-elide-constructors)
+add_compile_options(-fno-elide-constructors)
 
 # Set the project name
 project(moveSemantics)

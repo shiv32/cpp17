@@ -16,14 +16,13 @@ Integer::Integer(const Integer &obj)
 {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-	std::cout << "Integer(const Integer&)" << std::endl;
 	m_pInt = new int(*obj.m_pInt);
 }
 
 Integer::Integer(Integer &&obj)
 {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
-	
+
 	m_pInt = obj.m_pInt;
 	obj.m_pInt = nullptr;
 }
@@ -40,7 +39,8 @@ void Integer::SetValue(int value)
 
 Integer::~Integer()
 {
-	std::cout << "~Integer()" << std::endl;
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
 	delete m_pInt;
 }
 
