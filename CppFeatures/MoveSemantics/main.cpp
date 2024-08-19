@@ -11,19 +11,19 @@ mc : move ctor
 ma : move assigmnet
 dtor : destructor
 
-custom		cc 			ca			mc			ma			dtor
+custom			cc			ca			mc			ma			dtor
 
-cc         custom      default     delete 	    delete  	default
+cc			custom			default		delete		delete		default
 
-ca         default     custom      delete 	    delete  	default
+ca			default			custom		delete		delete		default
 
-mc         delete 	   delete      custom       delete  	default
+mc			delete			delete		custom		delete		default
 
-ma         delete 	   delete      delete       custom      default
+ma			delete			delete		delete		custom		default
 
-dtor       default     default     delete 	    delete      custom
+dtor		default			default		delete		delete		custom
 
-none       default     default     default      default     default
+none		default			default		default		default		default
 
 */
 
