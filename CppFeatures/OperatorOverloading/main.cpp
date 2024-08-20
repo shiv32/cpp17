@@ -229,44 +229,43 @@ int main()
 
 	//------------------------------------(Smart Pointer in C++ 11)-----------------------------
 	// CreateInteger3();
-	CreateInteger4();
+	// CreateInteger4();
 
 	//------------------------------------(Type conversions Basics)-----------------------------
-	// c++ casting operator work at compile time
-	/*
-	int a1 = 5, b1 = 2;
+	// C++ casting operator work at compile time
 
-	float f = a1 / b1;
+	// int a1 = 5, b1 = 2;
 
-	std::cout << f << std::endl;
+	// float f = a1 / b1;
 
-	f = (float)a1 / b1; // c style cast
+	// std::cout << f << std::endl;
 
-	std::cout << f << std::endl;
+	// f = (float)a1 / b1; // c style cast
 
-	f = static_cast<float>(a1) / b1; // c++ style cast
-										// static_cast -> check cast is valid or not
+	// std::cout << f << std::endl;
 
-	std::cout << f << std::endl;
+	// f = static_cast<float>(a1) / b1; // c++ style cast
+	// 								 // static_cast -> check cast is valid or not
 
-	// char *p = &a; //compiler error
+	// std::cout << f << std::endl;
 
-	char *p = (char *)&a; // c style cast
+	// char *p = &a1; //compiler error
 
-	// char *p2 = static_cast<char *>(&a);  //compiler error
+	// char *p = (char *)&a1; // c style cast
 
-	char *p2 = reinterpret_cast<char *>(&a); // reinterpret_cast -> allow casting between different types
+	// char *p2 = static_cast<char *>(&a1);  //compiler error
+
+	// char *p2 = reinterpret_cast<char *>(&a1); // reinterpret_cast -> allow casting between different types
 
 	const int x = 1;
 
 	// int *p3 = &x;  //compiler error
 
-	int *p3 = (int *)&x; // c style cast discard qualifiers (eg. const)
+	// int *p3 = (int *)&x; // c style cast discard qualifiers (eg. const)
 
 	// int *p4 = reinterpret_cast<int *>(&x);  //c++ style cast dosnt discard qualifiers (eg. const)
 
 	int *p4 = const_cast<int *>(&x); // c++ style cast
-	*/
 
 	//----------------------------------(Type conversions primitive to user type)------------------------
 	/*
