@@ -19,6 +19,30 @@
                 of the method is executed based on the actual type of the object at run time.
                 This is called dynamic binding, also known as late binding.
 
+                eg. 
+
+                class Base
+                {
+                public:
+                    virtual void func1() {}
+                    virtual void func2() {}
+                    void nonVirtualFunc() {}
+                };
+
+                class Derived : public Base
+                {
+                public:
+                    virtual void func2() override {}
+                    void nonVirtualFunc() {}
+                };
+
+
+                Two instances ->
+
+                Base myBase;
+                Derived myDerived;
+
+                High-level view of how the vtables for both instances look ->
 
                 myBase
                 vtable -->    func1 --> Base::func1()
@@ -34,7 +58,21 @@
                               func2 --> Derived::func2()
                                         Implementation
 
-            
+
+
+                The myBase object contains a pointer to its vtable. This vtable has two entries, one for func1() and 
+                one for func2().
+                Those entries point to the implementations of Base::func1() and Base::func2().
+                
+                myDerived also contains a pointer to its vtable, which also has two entries, one for func1() and
+                one for func2(). 
+                Its func1() entry points to Base::func1() because Derived does not override func1(). 
+                On the other hand, its func2() entry points to Derived::func2().
+
+                Note that both vtables do not contain any entry for the nonVirtualFunc() method because that
+                method is not virtual.
+
+          The Justification for virtual
 
 
  * @version 0.1
