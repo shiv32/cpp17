@@ -19,6 +19,21 @@
                 of the method is executed based on the actual type of the object at run time.
                 This is called dynamic binding, also known as late binding.
 
+
+                myBase
+                vtable -->    func1 --> Base::func1()
+                                        Implementation
+                              
+                              func2 --> Base::func2()
+                                        Implementation
+
+                myDerived
+                vtable -->    func1 --> Base::func1()
+                                        Implementation
+                              
+                              func2 --> Derived::func2()
+                                        Implementation
+
             
 
 
