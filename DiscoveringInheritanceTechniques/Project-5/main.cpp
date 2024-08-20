@@ -73,6 +73,24 @@
                 method is not virtual.
 
           The Justification for virtual
+                To call a virtual method, the program needs to perform an extra operation by dereferencing the pointer 
+                to the appropriate code to execute.
+
+                This is a miniscule performance hit in most cases.
+
+                If the method was never going to be overridden, there was no need to make it virtual and
+                take the performance hit.
+
+                In most applications, you will not have a measurable performance difference between using virtual methods 
+                and avoiding them.
+                So you should still follow the advice of making all methods, especially destructors, virtual.
+
+                In certain cases, the performance overhead might be too costly.
+                    eg. 
+                        suppose you have a Point class that has a virtual method.
+                        If you have another data structure that stores millions or even billions of Points, calling a virtual
+                        method on each point creates a significant overhead. In that case, it’s probably wise to avoid any
+                        virtual methods in your Point class.
 
 
  * @version 0.1
