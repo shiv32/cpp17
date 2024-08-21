@@ -16,15 +16,15 @@
 class Base
 {
 public:
-    // void someMethod();
-     virtual void someMethod(double d);
-     void go();
+    virtual void func1();
+    virtual void func2();
+    void nonVirtualFunc();
 
- protected:
-     int mProtectedInt{};
+protected:
+    int mProtectedInt{};
 
- private:
-     int mPrivateInt{};
+private:
+    int mPrivateInt{};
 };
 
 // class Base final

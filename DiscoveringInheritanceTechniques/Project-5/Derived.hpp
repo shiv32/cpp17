@@ -15,13 +15,6 @@
 class Derived : public Base
 {
 public:
-     virtual void someMethod(double d);
-
-     void go();
-
-     // virtual void someMethod(int i);
-
-     // virtual void someMethod(int i) override;
-
-     virtual void someOtherMethod();
+     virtual void func2() override;
+     void nonVirtualFunc();
 };

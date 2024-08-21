@@ -11,13 +11,8 @@
 
 #include "Base.hpp"
 
-void Base::someMethod(double d)
-{
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+void Base::func1() {std::cout << __PRETTY_FUNCTION__ << std::endl;}
 
+void Base::func2() {std::cout << __PRETTY_FUNCTION__ << std::endl;}
 
-void Base::go()
-{
-     std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+void Base::nonVirtualFunc() {std::cout << __PRETTY_FUNCTION__ << std::endl;}

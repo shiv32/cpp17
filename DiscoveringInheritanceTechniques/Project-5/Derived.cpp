@@ -11,21 +11,6 @@
 
 #include "Derived.hpp"
 
- void Derived::someMethod(double d) 
-//void Derived::someMethod(int i) 
-{
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+void Derived::func2() {std::cout << __PRETTY_FUNCTION__ << std::endl;}
 
-void Derived::go() {  std::cout << __PRETTY_FUNCTION__ << std::endl; }
-
-void Derived::someOtherMethod() 
-{
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
-
-  std::cout << "I can access base class data member mProtectedInt."
-            << std::endl;
-  std::cout << "Its value is " << mProtectedInt << std::endl;
-  // std::cout << "The value of mPrivateInt is " << mPrivateInt << std::endl; //
-  // Error!
-}
+void Derived::nonVirtualFunc() {std::cout << __PRETTY_FUNCTION__ << std::endl;}
