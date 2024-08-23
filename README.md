@@ -32,7 +32,7 @@
     
     https://www.wiley.com/en-us/Professional+C%2B%2B%2C+4th+Edition-p-9781119421306
 
-    2. C++ Data Structures and Algorithm Design Principles: Leverage the power of modern C++ to build robust and scalable applications
+    2. C++ Data Structures and Algorithm Design Principles: Leverage the power of modern C++ to build robust and scalable applications, 1st Edition
   
     https://www.packtpub.com/en-in/product/c-data-structures-and-algorithm-design-principles-9781838828844
     
