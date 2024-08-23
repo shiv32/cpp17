@@ -31,20 +31,24 @@
     1. Professional C++, 4th Edition
     
     https://www.wiley.com/en-us/Professional+C%2B%2B%2C+4th+Edition-p-9781119421306
+
+    2. C++ Data Structures and Algorithm Design Principles: Leverage the power of modern C++ to build robust and scalable applications
+  
+    https://www.packtpub.com/en-in/product/c-data-structures-and-algorithm-design-principles-9781838828844
     
-    2. Financial Instrument Pricing Using C++, 2nd Edition
+    3. Financial Instrument Pricing Using C++, 2nd Edition
     
     https://www.wiley.com/en-us/Financial+Instrument+Pricing+Using+C%2B%2B%2C+2nd+Edition-p-9781119170488
     
-    3. Building Low Latency Applications with C++: Develop a complete low latency trading ecosystem from scratch using modern C++, 1st Edition
+    4. Building Low Latency Applications with C++: Develop a complete low latency trading ecosystem from scratch using modern C++, 1st Edition
     
     https://www.packtpub.com/en-in/product/building-low-latency-applications-with-c-9781837639359
     
-    4. Real-Time C++: Efficient Object-Oriented and Template Microcontroller Programming 3rd Edition
+    5. Real-Time C++: Efficient Object-Oriented and Template Microcontroller Programming 3rd Edition
     
     https://www.amazon.com/exec/obidos/ASIN/3662567172/acmorg-20
 
-4. Download Any Book
+5. Download Any Book
 
     http://libgen.rs/search.php
 
@@ -52,7 +56,7 @@
 
     https://fliphtml5.com/learning-center/download-online-book-pdf-for-free/
 
-5. C++ Udemy Course
+6. C++ Udemy Course
 
     1. https://www.udemy.com/share/101Wd43@iR27PX46bn-wqMG7ftLqtCTNC4eq2wD7JMISdeuXgE0PtXGpk_VOpaqq6cLbtk33/
     
