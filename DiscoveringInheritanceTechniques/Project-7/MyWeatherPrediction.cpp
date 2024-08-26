@@ -13,27 +13,30 @@
 
 void MyWeatherPrediction::setCurrentTempCelsius(int temp)
 {
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
     int fahrenheitTemp = convertCelsiusToFahrenheit(temp);
     setCurrentTempFahrenheit(fahrenheitTemp);
 }
 
 int MyWeatherPrediction::getTomorrowTempCelsius() const
 {
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
     int fahrenheitTemp = getTomorrowTempFahrenheit();
     return convertFahrenheitToCelsius(fahrenheitTemp);
 }
 
 void MyWeatherPrediction::showResult() const
 {
-    std::cout << "Tomorrow's temperature will be " 
-              << getTomorrowTempCelsius() 
-              << " degrees Celsius (" 
-              << getTomorrowTempFahrenheit() 
-              << " degrees Fahrenheit)" 
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    std::cout << "Tomorrow's temperature will be "
+              << getTomorrowTempCelsius()
+              << " degrees Celsius ("
+              << getTomorrowTempFahrenheit()
+              << " degrees Fahrenheit)"
               << std::endl;
 
-    std::cout << "Chance of rain is " 
-              << (getChanceOfRain() * 100) 
+    std::cout << "Chance of rain is "
+              << (getChanceOfRain() * 100)
               << " percent"
               << std::endl;
 
@@ -45,10 +48,12 @@ void MyWeatherPrediction::showResult() const
 
 int MyWeatherPrediction::convertCelsiusToFahrenheit(int celsius)
 {
-   return static_cast<int>(celsius * 9.0 / 5 + 32);
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    return static_cast<int>(celsius * 9.0 / 5 + 32);
 }
 
 int MyWeatherPrediction::convertFahrenheitToCelsius(int fahrenheit)
 {
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
     return static_cast<int>((fahrenheit - 32) * 5.0 / 9);
 }
