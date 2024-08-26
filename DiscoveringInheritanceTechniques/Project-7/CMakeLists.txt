@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the project name
-project(PreventingOverriding)
+project(MyWeatherPrediction)
 
 set(CMAKE_CXX_FLAGS -pthread)
 
@@ -16,4 +16,4 @@ set(SOURCES
 )
 
 # Add an executable with the above sources
-add_executable(PreventingOverriding ${SOURCES})
+add_executable(MyWeatherPrediction ${SOURCES})
