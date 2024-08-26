@@ -1,1 +1,0 @@
-/usr/bin/g++  -pthread -g   CMakeFiles/MyWeatherPrediction.dir/WeatherPrediction.cpp.o CMakeFiles/MyWeatherPrediction.dir/MyWeatherPrediction.cpp.o CMakeFiles/MyWeatherPrediction.dir/main.cpp.o  -o MyWeatherPrediction 
