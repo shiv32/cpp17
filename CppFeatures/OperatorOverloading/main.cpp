@@ -257,7 +257,7 @@ int main()
 
 	// char *p2 = reinterpret_cast<char *>(&a1); // reinterpret_cast -> allow casting between different types
 
-	const int x = 1;
+	// const int x = 1;
 
 	// int *p3 = &x;  //compiler error
 
@@ -265,15 +265,15 @@ int main()
 
 	// int *p4 = reinterpret_cast<int *>(&x);  //c++ style cast dosnt discard qualifiers (eg. const)
 
-	int *p4 = const_cast<int *>(&x); // c++ style cast
+	// int *p4 = const_cast<int *>(&x); // c++ style cast
 
 	//----------------------------------(Type conversions primitive to user type)------------------------
 	/*
 	Constructors are used by compiler implicitly to convert one type (primitive) into another (user type).
 	If you want to prevent compiler to use constructors implicitly, make constructor with "explicit" keyword.
 	*/
-	/*
-	Integer a2{5}; // explicit call parameterize ctor
+
+	// Integer a2{5}; // explicit call parameterize ctor
 
 	// Initialization
 	// Integer a3 = 5;  //implicit call parameterize ctor
@@ -284,13 +284,15 @@ int main()
 
 	// Assignment
 	// a2 = 7;
-	*/
-	//----------------------------------(Type conversions user to primitive type)------------------------
-	/*
-	// int x2 = a2; //implicitly call type conversion operator funtion {operator int();}
 
-	int x3 = static_cast<int>(a2); // explicitly call type conversion operator funtion {explicit operator int();}
-	*/
+	//----------------------------------(Type conversions user to primitive type)------------------------
+	Integer a2{5}; // explicit call parameterize ctor
+
+	//int x2 = a2; // implicitly call type conversion operator funtion {operator int();}
+	//std::cout << "x2 : " << x2 << std::endl;
+
+	 int x3 = static_cast<int>(a2); // explicitly call type conversion operator funtion {explicit operator int();}
+	 std::cout<<"x3 : "<<x3<<std::endl;
 
 	//----------------------------------(Type conversions user defined to user defined)------------------------
 	/*
