@@ -14,7 +14,7 @@
                 They must be constructed along with their parents and any
                 objects that are contained within them. 
 
-                C++ defines the creation order as follows:
+                C++ defines the objects creation order as follows:
 
                 1.  If the class has a base class, the default constructor of the base class is executed, unless there
                     is a call to a base class constructor in the ctor-initializer, in which case that constructor is
