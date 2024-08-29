@@ -26,8 +26,8 @@
                 WARNING:    Just as with constructors, virtual methods behave differently when
                             called from a destructor. If your derived class has overridden a virtual method
                             from the base class, calling that method from the base class destructor calls the
-                            base class implementation of that virtual method and not your overridden ver-
-                            sion in the derived class.
+                            base class implementation of that virtual method and not your overridden version in
+                            the derived class.
 
  * @version 0.1
  * @date 2024-08-28
