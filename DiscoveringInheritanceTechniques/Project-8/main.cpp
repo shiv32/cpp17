@@ -58,8 +58,13 @@
  */
 
 #include <iostream>
+#include "Derived.hpp"
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
+    Derived myDerived;
+
+    return 0;
 }
