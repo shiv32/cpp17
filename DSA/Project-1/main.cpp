@@ -46,7 +46,7 @@ void Print(std::initializer_list<int> list)
     //     std::cout << x << ' ';
     // }
 
-    for (const auto &x : list) // refrence
+    for (const auto &x : list) // reference
     {
         std::cout << x << ' ';
     }
