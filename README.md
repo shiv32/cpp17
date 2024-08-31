@@ -15,13 +15,13 @@ VS Code extension for cmake format
 
 Note:Restart VS Code after extensions install.
 
-Visual Studio Code C++ Disassembly View
+VS Code C++ Disassembly View
 [Disassembly View](https://devblogs.microsoft.com/cppblog/visual-studio-code-c-july-2021-update-disassembly-view-macro-expansion-and-windows-arm64-debugging/)
 
-Visual Studio Code C++ Disassembly View extension
+VS Code C++ Disassembly View extension
 [Disassembly View extension](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide)
 
-Visual Studio Code C++ show memory window
+VS Code C++ show memory window
 [Hex Editor extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)\
 In the variables view there is a binary icon. Select that and it will open the hex viewer at that address.
 
