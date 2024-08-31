@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/Pointers.dir/main.cpp.o  -o Pointers 

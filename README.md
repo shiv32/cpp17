@@ -21,6 +21,9 @@ Visual Studio Code C++ Disassembly View
 Visual Studio Code C++ Disassembly View extension
 [Disassembly View extension](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide)
 
+Visual Studio Code C++ show memory window
+[Hex Editor extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+
 Configure Git to ignore files
 [ignore files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)
 or [ignore files](https://www.bmc.com/blogs/gitignore/)
