@@ -23,6 +23,7 @@ Visual Studio Code C++ Disassembly View extension
 
 Visual Studio Code C++ show memory window
 [Hex Editor extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+In the variables view there is a binary icon. Select that and it will open the hex viewer at that address.
 
 Configure Git to ignore files
 [ignore files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)
