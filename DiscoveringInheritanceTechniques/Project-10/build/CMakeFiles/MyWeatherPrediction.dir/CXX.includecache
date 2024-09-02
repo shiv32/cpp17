@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/MyWeatherPrediction.cpp
+MyWeatherPrediction.hpp
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/MyWeatherPrediction.hpp
+
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/MyWeatherPrediction.hpp
+WeatherPrediction.hpp
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/WeatherPrediction.hpp
+
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/WeatherPrediction.cpp
+WeatherPrediction.hpp
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/WeatherPrediction.hpp
+
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/WeatherPrediction.hpp
+iostream
+-
+string
+-
+
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/main.cpp
+iostream
+-
+memory
+-
+MyWeatherPrediction.hpp
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/MyWeatherPrediction.hpp
+

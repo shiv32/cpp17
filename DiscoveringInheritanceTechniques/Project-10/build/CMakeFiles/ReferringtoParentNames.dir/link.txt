@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/ReferringtoParentNames.dir/WeatherPrediction.cpp.o CMakeFiles/ReferringtoParentNames.dir/MyWeatherPrediction.cpp.o CMakeFiles/ReferringtoParentNames.dir/main.cpp.o  -o ReferringtoParentNames 

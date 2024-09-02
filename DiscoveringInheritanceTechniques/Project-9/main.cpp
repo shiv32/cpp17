@@ -18,6 +18,13 @@
                 The lowest member of the chain is always destructed first. 
 
                 The destructors are all declared virtual!
+                        if you remove the virtual keyword from all destructors in code, then a problem 
+                        arises when a Derived object is accessed as a pointer to a Base and deleted, 
+                        as shown here:
+
+                                Base* ptr = new Derived();
+                                delete ptr;
+
 
                 WARNING:    Always make your destructors virtual! The compiler-generated
                             default destructor is not virtual, so you should define (or explicitly default) a

@@ -1,0 +1,3 @@
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/build/CMakeFiles/rebuild_cache.dir
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/build/CMakeFiles/edit_cache.dir
+/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-10/build/CMakeFiles/ReferringtoParentNames.dir
