@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/DSA/DataStructures&AlgorithmDesignPrinciples/Project-2/build",
-  "command": "/usr/bin/g++    -pthread -fsanitize=address,undefined -g   -std=gnu++1z -o CMakeFiles/StdArray.dir/main3.cpp.o -c \"/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/DSA/DataStructures&AlgorithmDesignPrinciples/Project-2/main3.cpp\"",
-  "file": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/DSA/DataStructures&AlgorithmDesignPrinciples/Project-2/main3.cpp"
-}
-]
