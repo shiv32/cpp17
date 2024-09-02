@@ -13,21 +13,21 @@
 
 void MyWeatherPrediction::setCurrentTempCelsius(int temp)
 {
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     int fahrenheitTemp = convertCelsiusToFahrenheit(temp);
     setCurrentTempFahrenheit(fahrenheitTemp);
 }
 
 int MyWeatherPrediction::getTomorrowTempCelsius() const
 {
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     int fahrenheitTemp = getTomorrowTempFahrenheit();
     return convertFahrenheitToCelsius(fahrenheitTemp);
 }
 
 void MyWeatherPrediction::showResult() const
 {
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     std::cout << "Tomorrow's temperature will be "
               << getTomorrowTempCelsius()
               << " degrees Celsius ("
@@ -46,14 +46,22 @@ void MyWeatherPrediction::showResult() const
     }
 }
 
+std::string MyWeatherPrediction::getTemperature() const
+{
+    // Note: \u00B0 is the ISO/IEC 10646 representation of the degree symbol.
+    //return getTemperature() + "\u00B0F";  //bug
+
+    return WeatherPrediction::getTemperature()+ "\u00B0F";  //bug
+}
+
 int MyWeatherPrediction::convertCelsiusToFahrenheit(int celsius)
 {
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     return static_cast<int>(celsius * 9.0 / 5 + 32);
 }
 
 int MyWeatherPrediction::convertFahrenheitToCelsius(int fahrenheit)
 {
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     return static_cast<int>((fahrenheit - 32) * 5.0 / 9);
 }

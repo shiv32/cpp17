@@ -17,6 +17,7 @@ public:
     virtual void setCurrentTempCelsius(int temp);
     virtual int getTomorrowTempCelsius() const;
     virtual void showResult() const override;
+    virtual std::string getTemperature() const override;
 
 private:
     static int convertCelsiusToFahrenheit(int celsius);

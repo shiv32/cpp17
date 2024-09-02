@@ -43,5 +43,5 @@ void WeatherPrediction::showResult() const
 std::string WeatherPrediction::getTemperature() const
 {
     //std::cout << __PRETTY_FUNCTION__ << std::endl;
-    return std::string();
+    return std::string("25");
 }
