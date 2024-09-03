@@ -34,5 +34,4 @@ VS Code setting for integrated terminal to stop give input bin path to C++ std::
 go to "Settings" -> type "terminal" in search box -> CMake Tools ->Cmake:Launch Behavior ->select "breakAndResueTerminal"
 
 
-
 [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
