@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief   Referring to Parent Names
+ * @brief   Referring to Parent Names part 1
                 When you override a method in a derived class, you are effectively replacing 
                 the original as far as other code is concerned.
                 However, that parent version of the method still exists and you may want
@@ -29,6 +29,14 @@
 
                     This results in an infinite recursion until you run out of stack space
                     (some compilers detect this error and report it at compile time).
+
+                    To make this work, you need to use the scope resolution operator.
+
+                    return WeatherPrediction::getTemperature() + "\u00B0F";
+
+                    NOTE:   Microsoft Visual C++ supports the __super keyword (with two underscores). 
+                            This allows you to write the following:
+                            return __super::getTemperature() + "\u00B0F";
 
                 
    
