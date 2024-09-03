@@ -29,5 +29,9 @@ Configure Git to ignore files
 [ignore files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)
 or [ignore files](https://www.bmc.com/blogs/gitignore/)
 
+VS Code setting for integrated terminal to stop give input bin path to C++ std::cin, when launch the selected target --> 
+
+go to "Settings" -> type "terminal" in search box -> CMake Tools ->Cmake:Launch Behavior ->select "breakAndResueTerminal"
+
 
 [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
