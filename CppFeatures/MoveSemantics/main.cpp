@@ -72,6 +72,14 @@ Integer Add(const Integer &a, const Integer &b)
 	return temp;
 }
 
+Integer Add2(int a, int b)
+{
+	// Integer temp(a + b);
+	// return temp; //Named return value optimization
+
+	return Integer(a + b); // Return value optimization
+}
+
 /*
 return r-value
 */
@@ -155,6 +163,10 @@ int main()
 	/*
 		Disable Copy Elision -->
 		g++ -fno-elide-constructors *.cpp -o test
+		g++ -fno-elide-constructors *.cpp -o test && ./test && rm test
+
+		Note: cmake may behave differently for same flag "-fno-elide-constructors".
+			  Chekc CMakeLists.txt file.
 	*/
 	// Integer a(1), b(3);
 
@@ -162,15 +174,36 @@ int main()
 
 	//-------------------------(rule of 5 & 0)----------------------
 	// Number n1{1};
-	Number n1;
+	// Number n1;
 
-	auto n2{n1};
+	// auto n2{n1};
 
-	n2 = n1;
+	// n2 = n1;
 
-	auto n3{CreateNumber(3)};
+	// auto n3{CreateNumber(3)};
 
-	n3 = CreateNumber(3);
+	// n3 = CreateNumber(3);
+
+	//--------------------------(copy elision)------------------------
+	/*
+		Disable Copy Elision -->
+		g++ -fno-elide-constructors *.cpp -o test
+		g++ -fno-elide-constructors *.cpp -o test && ./test && rm test
+
+		Note: cmake may behave differently for same flag "-fno-elide-constructors".
+			  Check CMakeLists.txt file.
+	*/
+
+	/*
+		Here user defined object a is initialized with primitive type literal 3 using
+		assignment operator.
+		compiler may expand it as: Integer a = Integer(3);
+	*/
+	// Integer a = 3;
+
+	Integer a = Add2(3, 5);
+
+	//-----------------------------()----------------------------------
 
 	return 0;
 }
