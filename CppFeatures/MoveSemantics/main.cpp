@@ -77,7 +77,7 @@ Integer Add2(int a, int b)
 	// Integer temp(a + b);
 	// return temp; //Named return value optimization
 
-	return Integer(a + b); // Return value optimization
+	return Integer(a + b); // Return value optimization (always preffer this)
 }
 
 /*
