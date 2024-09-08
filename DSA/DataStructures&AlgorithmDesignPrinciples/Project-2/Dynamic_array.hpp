@@ -13,12 +13,16 @@ class dynamic_array
 public:
     dynamic_array(int n)
     {
+        std::cout << "=====> ctor : " << __PRETTY_FUNCTION__ << std::endl;
+
         this->n = n;
         data = new T[n];
     }
 
     dynamic_array(const dynamic_array<T> &other)
     {
+        std::cout << "=====> ctor : " << __PRETTY_FUNCTION__ << std::endl;
+
         n = other.n;
 
         data = new T[n];
@@ -52,6 +56,7 @@ public:
 
     ~dynamic_array()
     {
+        std::cout << "=====> dtor : " << __PRETTY_FUNCTION__ << std::endl;
 
         delete[] data; // A destructor to prevent memory leak
     }

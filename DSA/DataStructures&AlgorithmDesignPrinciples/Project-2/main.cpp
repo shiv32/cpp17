@@ -10,7 +10,7 @@
  */
 
 #include <iostream>
-#include "dynamic_array.hpp"
+#include "Dynamic_array.hpp"
 #include "Student.hpp"
 
 int main()
@@ -35,8 +35,8 @@ int main()
     // Now, let’s try to access the student out of range in the array
     try
     {
-        //class1 student set out of range without exception
-        //class1[nStudents] = student{"John", 8}; // No exception, undefined behavior
+        // class1 student set out of range without exception
+        // class1[nStudents] = student{"John", 8}; // No exception, undefined behavior
 
         class1.at(nStudents) = student{"John", 8}; // Will throw exception
     }
