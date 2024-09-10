@@ -286,41 +286,40 @@ int main()
 	// a2 = 7;
 
 	//----------------------------------(Type conversions user to primitive type)------------------------
-	Integer a2{5}; // explicit call parameterize ctor
+	// Integer a2{5}; // explicit call parameterize ctor
 
-	//int x2 = a2; // implicitly call type conversion operator funtion {operator int();}
-	//std::cout << "x2 : " << x2 << std::endl;
+	// int x2 = a2; // implicitly call type conversion operator funtion {operator int();}
+	// std::cout << "x2 : " << x2 << std::endl;
 
-	 int x3 = static_cast<int>(a2); // explicitly call type conversion operator funtion {explicit operator int();}
-	 std::cout<<"x3 : "<<x3<<std::endl;
+	// int x3 = static_cast<int>(a2); // explicitly call type conversion operator funtion {explicit operator int();}
+	// std::cout<<"x3 : "<<x3<<std::endl;
 
 	//----------------------------------(Type conversions user defined to user defined)------------------------
-	/*
-	Product p1{5};
 
-	// Integer id = p1; //without type conversion operator {operator Integer()} not working
+	// Product p1{5};
+
+	// Integer id = p1; // without type conversion operator {operator Integer()} not working
 
 	// Integer id = p1.GetInteger();
 
-	Integer id = p1; // with type conversion operator {operator Integer()}, implicitly call
+	// Integer id = p1; // with type conversion operator {operator Integer()}, implicitly call
 
 	// id = p1; //with type conversion operator {operator Integer()}, implicitly call
 	// or
-	id = p1.operator Integer();
+	// id = p1.operator Integer();
 
 	Product pr1{10};
 	Integer id2{10};
 
-	if (id2 == pr1.GetInteger())
-	{
-		std::cout << "########## Id matches with the product" << std::endl;
-	}
+	// if (id2 == pr1.GetInteger())
+	// {
+	// 	std::cout << "########## Id matches with the product" << std::endl;
+	// }
 
 	if (id2 == pr1) // with type conversion operator {operator Integer()}, implicitly call
 	{
 		std::cout << "@@@@@@@@@@ Id matches with the product" << std::endl;
 	}
-	*/
 
 	//--------------(Initialization vs Assignment & Member Initialization list)--------------------
 	/*
