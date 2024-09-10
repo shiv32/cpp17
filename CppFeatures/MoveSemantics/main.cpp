@@ -97,6 +97,16 @@ int &Transform(int &x)
 	return x;
 }
 
+void print1(Integer val)
+{
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+}
+
+void print2(int a)
+{
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+}
+
 void print(int &x)
 {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -201,9 +211,32 @@ int main()
 	*/
 	// Integer a = 3;
 
-	Integer a = Add2(3, 5);
+	// Integer a = Add2(3, 5);
 
 	//-----------------------------(std::move fun)----------------------------------
+	Integer a(1);
+	// auto b{a};  //call copy ctor bcoz a is L-value
+
+	a.SetValue(3);
+
+	// auto b{static_cast<Integer&&>(a)};  //call move ctor for L-value; type cast L-value(a) to R-value
+	// or
+	// auto b{std::move(a)}; // call move ctor for L-value; it type cast L-value(a) to R-value
+
+	// print1(a);  //copy the resource and resoure will be released when main fun complete
+	//print1(std::move(a)); // move the resource and resoure will be released when print1 fun complete
+
+	// std::cout<<a.GetValue()<<std::endl; //program will crash bcoz a resource has been moved & now its conain null
+
+	//a.SetValue(5);
+
+	//std::cout << a.GetValue() << std::endl; // program will crash bcoz a resource has been moved & now its conain null
+
+	// print1(a); //if we remove copy ctor then it will not work;eg. file stream class object we cant copy
+
+	//std::move uses with primitive type is redunded.
+	//std::move with primitive type will call copy not move fun
+	print2(std::move(2));
 
 	return 0;
 }

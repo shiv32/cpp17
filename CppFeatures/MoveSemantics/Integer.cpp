@@ -34,6 +34,11 @@ int Integer::GetValue() const
 
 void Integer::SetValue(int value)
 {
+	if (m_pInt == nullptr)
+	{
+		m_pInt = new int{};
+	}
+	
 	*m_pInt = value;
 }
 
