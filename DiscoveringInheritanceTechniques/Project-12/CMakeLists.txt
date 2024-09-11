@@ -10,6 +10,11 @@ set(CMAKE_CXX_FLAGS -pthread)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
+    Base.cpp
+    Derived.cpp
+    Derived1.cpp
+    Derived2.cpp
+    DerivedDerived.cpp
     main.cpp
 )
 
