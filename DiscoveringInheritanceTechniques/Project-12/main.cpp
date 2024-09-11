@@ -84,6 +84,7 @@
 
 #include <iostream>
 #include "Derived.hpp"
+#include "Derived1.hpp"
 
 void presumptuous(Base *base)
 {
@@ -101,7 +102,7 @@ void lessPresumptuous(Base *base)
     }
     else
     {
-      std::cout<<"its not derived class."<<std::endl;
+        std::cout << "its not derived class." << std::endl;
     }
 }
 
@@ -109,8 +110,8 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-   //-----------------------------(up casting)----------------------------------
-    Derived myDerived;
+    //-----------------------------(up casting)----------------------------------
+    // Derived myDerived;
 
     // Base myBase = myDerived; // Slicing!
     // // myBase.nonVirtualFunc();
@@ -121,13 +122,13 @@ int main()
     // myBase2.func2();
 
     //-------------------------(down casting)-------------------------------------
-    //presumptuous(&myDerived);
-    //lessPresumptuous(&myDerived);
+    // Derived myDerived;
+    // presumptuous(&myDerived);
+    // lessPresumptuous(&myDerived);
 
-   Base myBase;
-   //presumptuous(&myBase);
-
-   lessPresumptuous(&myBase);
+    Derived1 myDerived1;
+    presumptuous(&myDerived1);
+    lessPresumptuous(&myDerived1);
 
     return 0;
 }
