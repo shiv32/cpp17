@@ -26,10 +26,10 @@ public:
 	~Integer();
 
 	// pre increment overload ++
-	Integer &operator++();   //++a
+	Integer &operator++(); //++a
 
 	// post increment overload ++
-	Integer operator++(int);  //a++
+	Integer operator++(int); // a++
 
 	// comparison
 	bool operator==(const Integer &a) const;
@@ -46,9 +46,9 @@ public:
 	// function call operator
 	void operator()();
 
-	//type conversion operator funtion
+	// type conversion operator funtion
 	operator int();
-	//explicit operator int();
+	// explicit operator int();
 
 	// Friend function
 	friend void PrintInteger(Integer &a);

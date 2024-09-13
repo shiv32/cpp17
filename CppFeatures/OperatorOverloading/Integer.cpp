@@ -2,46 +2,44 @@
 
 Integer::Integer()
 {
-	std::cout << "Integer()" << std::endl;
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 	m_pInt = new int(0);
 }
 
 Integer::Integer(int value)
 {
-	std::cout << "Integer(int)" << std::endl;
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 	m_pInt = new int(value);
 }
 
 Integer::Integer(const Integer &obj)
 {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
-
-	std::cout << "Integer(const Integer&)" << std::endl;
 	m_pInt = new int(*obj.m_pInt);
 }
 
 Integer::Integer(Integer &&obj)
 {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
-
-	std::cout << "Integer(int&&)" << std::endl;
 	m_pInt = obj.m_pInt;
 	obj.m_pInt = nullptr;
 }
 
 int Integer::GetValue() const
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 	return *m_pInt;
 }
 
 void Integer::SetValue(int value)
 {
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 	*m_pInt = value;
 }
 
 Integer::~Integer()
 {
-	std::cout << "~Integer()" << std::endl;
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 	delete m_pInt;
 }
 

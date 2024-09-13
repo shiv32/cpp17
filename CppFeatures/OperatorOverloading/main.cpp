@@ -31,7 +31,7 @@ class Product
 	Integer m_Id;
 	int x;
 
-public: // memeber initializer list
+public:                         // memeber initializer list
 	Product(const Integer &id) : m_Id(id), x(id.GetValue())
 	{
 		std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -308,27 +308,27 @@ int main()
 	// or
 	// id = p1.operator Integer();
 
-	Product pr1{10};
-	Integer id2{10};
+	// Product pr1{10};
+	// Integer id2{10};
 
 	// if (id2 == pr1.GetInteger())
 	// {
 	// 	std::cout << "########## Id matches with the product" << std::endl;
 	// }
 
-	if (id2 == pr1) // with type conversion operator {operator Integer()}, implicitly call
-	{
-		std::cout << "@@@@@@@@@@ Id matches with the product" << std::endl;
-	}
+	// if (id2 == pr1) // with type conversion operator {operator Integer()}, implicitly call
+	// {
+	// 	std::cout << "@@@@@@@@@@ Id matches with the product" << std::endl;
+	// }
 
 	//--------------(Initialization vs Assignment & Member Initialization list)--------------------
-	/*
+
 	/*
 	// Initialization
 	Integer a4{5};
 
 	// Assignment
-	//a4 = 6; // a4 = Integer(6)
+	a4 = 6; // a4 = Integer(6)
 
 	std::cout<<"a4 : "<<a4<<std::endl;
 	*/
@@ -342,7 +342,7 @@ int main()
 	std::cout<<"a5 : "<<a5<<std::endl;
 	*/
 
-	// Product pr1(5);
+	Product pr1(5);
 
 	return 0;
 }
