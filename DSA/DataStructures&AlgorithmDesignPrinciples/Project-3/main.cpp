@@ -4,9 +4,9 @@
  * @brief  A General-Purpose and Fast Data Storage Container Builder
  * @version 0.1
  * @date 2024-09-08
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
 
 #include <iostream>
@@ -23,9 +23,12 @@ int main()
 
     for (auto i : data)
         std::cout << i << " ";
-
     std::cout << std::endl;
 
     // auto data2 = ba->build_array(1, "Packt", 2.0);  //error
     auto data2 = ba->build_array(1, 'P', 2.0); // working
+
+    for (auto i : data2)
+        std::cout << i << " ";
+    std::cout << std::endl;
 }
