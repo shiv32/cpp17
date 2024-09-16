@@ -15,3 +15,8 @@ set(SOURCES
 
 # Add an executable with the above sources
 add_executable(operatoroverload ${SOURCES})
+
+# Link filesystem library if needed
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9.0)
+    target_link_libraries(operatoroverload stdc++fs)
+endif()
