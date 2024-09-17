@@ -128,46 +128,46 @@ int main()
 
 	//----------------------------------(L-valu, R-value, R-value reference)-----------------------------------------------
 
-	// /*
-	// x,y,z --> l-values
-	// 5,10,8 --> r-values
-	// */
+	/*
+	x,y,z --> l-values
+	5,10,8 --> r-values
+	*/
 	// int x = 5;
 	// int y = 10;
 	// int z = 8;
 
-	// /*
-	//  expression returns r-value
-	// */
+	/*
+	 expression returns r-value
+	*/
 	// int result = (x + y) * z;
 
-	// /*
-	//  expression reteun l-value
-	// */
+	/*
+	 expression reteun l-value
+	*/
 	// ++x = 6;
 
-	// /*
-	// r-value refernces
-	// */
+	/*
+	r-value refernces
+	*/
 	// int &&r1 = 20;		  // r-value reference
 	// int &&r2 = Add(6, 7); // Add retuen by value(temporary)
 	// int &&r3 = 8 + 2;	  // expression return a temporary
 
-	// // int &&r4 = x  //error
+	// int &&r4 = x  //error
 
-	// /*
-	// l-value reference
-	// */
+	/*
+	l-value reference
+	*/
 	// int &ref = x;
 	// int &ref2 = Transform(x);
 	// const int &ref3 = 3;
 
 	//--------------------------------------------------------
-	// int x = 5;
+	int x = 5;
 
-	// print(x);
+	print(x);
 
-	// print(30);
+	print(30);
 
 	//----------------------------(move semantics basic and implementation)-------------------------
 	/*
@@ -214,29 +214,29 @@ int main()
 	// Integer a = Add2(3, 5);
 
 	//-----------------------------(std::move fun)----------------------------------
-	Integer a(1);
+	// Integer a(1);
 	// auto b{a};  //call copy ctor bcoz a is L-value
 
-	a.SetValue(3);
+	// a.SetValue(3);
 
 	// auto b{static_cast<Integer&&>(a)};  //call move ctor for L-value; type cast L-value(a) to R-value
 	// or
 	// auto b{std::move(a)}; // call move ctor for L-value; it type cast L-value(a) to R-value
 
 	// print1(a);  //copy the resource and resoure will be released when main fun complete
-	//print1(std::move(a)); // move the resource and resoure will be released when print1 fun complete
+	// print1(std::move(a)); // move the resource and resoure will be released when print1 fun complete
 
 	// std::cout<<a.GetValue()<<std::endl; //program will crash bcoz a resource has been moved & now its conain null
 
-	//a.SetValue(5);
+	// a.SetValue(5);
 
-	//std::cout << a.GetValue() << std::endl; // program will crash bcoz a resource has been moved & now its conain null
+	// std::cout << a.GetValue() << std::endl; // program will crash bcoz a resource has been moved & now its conain null
 
 	// print1(a); //if we remove copy ctor then it will not work;eg. file stream class object we cant copy
 
-	//std::move uses with primitive type is redunded.
-	//std::move with primitive type will call copy not move fun
-	print2(std::move(2));
+	// std::move uses with primitive type is redunded.
+	// std::move with primitive type will call copy not move fun
+	// print2(std::move(2));
 
 	return 0;
 }
