@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief Pointers
+ * @brief Introduction to Pointers & Examples of Pointers
  * 
                 (Process)
 
