@@ -17,4 +17,5 @@ class Derived : public Base
 public:
      virtual void func2() override;
      void nonVirtualFunc();
+     void nonVirtualFunc2();
 };

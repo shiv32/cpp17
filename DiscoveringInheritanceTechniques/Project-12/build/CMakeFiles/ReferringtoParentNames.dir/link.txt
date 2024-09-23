@@ -1,0 +1,1 @@
+/usr/bin/g++  -pthread -g   CMakeFiles/ReferringtoParentNames.dir/Base.cpp.o CMakeFiles/ReferringtoParentNames.dir/Derived.cpp.o CMakeFiles/ReferringtoParentNames.dir/Derived1.cpp.o CMakeFiles/ReferringtoParentNames.dir/Derived2.cpp.o CMakeFiles/ReferringtoParentNames.dir/DerivedDerived.cpp.o CMakeFiles/ReferringtoParentNames.dir/main.cpp.o  -o ReferringtoParentNames 

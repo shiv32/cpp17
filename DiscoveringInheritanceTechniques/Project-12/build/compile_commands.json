@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/ReferringtoParentNames.dir/Base.cpp.o -c /home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Base.cpp",
+  "file": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Base.cpp"
+},
+{
+  "directory": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/ReferringtoParentNames.dir/Derived.cpp.o -c /home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Derived.cpp",
+  "file": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Derived.cpp"
+},
+{
+  "directory": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/ReferringtoParentNames.dir/Derived1.cpp.o -c /home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Derived1.cpp",
+  "file": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Derived1.cpp"
+},
+{
+  "directory": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/ReferringtoParentNames.dir/Derived2.cpp.o -c /home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Derived2.cpp",
+  "file": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/Derived2.cpp"
+},
+{
+  "directory": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/ReferringtoParentNames.dir/DerivedDerived.cpp.o -c /home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/DerivedDerived.cpp",
+  "file": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/DerivedDerived.cpp"
+},
+{
+  "directory": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/build",
+  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/ReferringtoParentNames.dir/main.cpp.o -c /home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/main.cpp",
+  "file": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-12/main.cpp"
+}
+]

@@ -90,6 +90,7 @@ void presumptuous(Base *base)
 {
     Derived *myDerived = static_cast<Derived *>(base);
     myDerived->func2();
+    myDerived->nonVirtualFunc();
 }
 
 void lessPresumptuous(Base *base)
@@ -99,6 +100,7 @@ void lessPresumptuous(Base *base)
     if (myDerived != nullptr)
     {
         myDerived->func2();
+        myDerived->nonVirtualFunc();
     }
     else
     {
@@ -114,21 +116,27 @@ int main()
     // Derived myDerived;
 
     // Base myBase = myDerived; // Slicing!
-    // // myBase.nonVirtualFunc();
-    // myBase.func2();
+    // myBase.nonVirtualFunc();
+    // //myBase.nonVirtualFunc2(); //error
+    // myBase.func2();   // Slicing!
 
     // Base &myBase2 = myDerived; // No slicing!
-    // // myBase2.nonVirtualFunc();
-    // myBase2.func2();
+    // myBase2.nonVirtualFunc();
+    // // myBase2.nonVirtualFunc2();  //error
+    // myBase2.func2();  // No slicing!
 
     //-------------------------(down casting)-------------------------------------
     // Derived myDerived;
     // presumptuous(&myDerived);
     // lessPresumptuous(&myDerived);
 
-    Derived1 myDerived1;
-    presumptuous(&myDerived1);
-    lessPresumptuous(&myDerived1);
+    Base myBase;
+    presumptuous(&myBase);
+    lessPresumptuous(&myBase);
+
+    // Derived1 myDerived1;
+    // presumptuous(&myDerived1);
+    // lessPresumptuous(&myDerived1);
 
     return 0;
 }

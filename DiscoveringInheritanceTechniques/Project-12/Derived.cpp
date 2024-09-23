@@ -14,3 +14,5 @@
 void Derived::func2() {std::cout << __PRETTY_FUNCTION__ << std::endl;}
 
 void Derived::nonVirtualFunc() {std::cout << __PRETTY_FUNCTION__ << std::endl;}
+
+void Derived::nonVirtualFunc2()  {std::cout << __PRETTY_FUNCTION__ << std::endl;}
