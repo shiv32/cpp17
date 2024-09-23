@@ -1,7 +1,8 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief Example of static Arrays
+ * @brief  Static Arrays
+ *              Arrays basics & Example of static Arrays
  *
  * @version 0.1
  * @date 2024-08-31
