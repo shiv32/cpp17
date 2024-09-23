@@ -2,13 +2,13 @@
 
 Integer::Integer()
 {
-	std::cout << "Integer()" << std::endl;
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 	m_pInt = new int(0);
 }
 
 Integer::Integer(int value)
 {
-	std::cout << "Integer(int)" << std::endl;
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
 	m_pInt = new int(value);
 }
 
@@ -38,7 +38,7 @@ void Integer::SetValue(int value)
 	{
 		m_pInt = new int{};
 	}
-	
+
 	*m_pInt = value;
 }
 

@@ -163,11 +163,11 @@ int main()
 	// const int &ref3 = 3;
 
 	//--------------------------------------------------------
-	int x = 5;
+	// int x = 5;
 
-	print(x);
+	// print(x);
 
-	print(30);
+	// print(30);
 
 	//----------------------------(move semantics basic and implementation)-------------------------
 	/*
@@ -178,9 +178,9 @@ int main()
 		Note: cmake may behave differently for same flag "-fno-elide-constructors".
 			  Chekc CMakeLists.txt file.
 	*/
-	// Integer a(1), b(3);
+	Integer a(1), b(3);
 
-	// a.SetValue(Add(a,b).GetValue());
+	a.SetValue(Add(a, b).GetValue());
 
 	//-------------------------(rule of 5 & 0)----------------------
 	// Number n1{1};
