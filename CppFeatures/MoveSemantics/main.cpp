@@ -54,6 +54,7 @@ public:
 	Number(const Number &n) = default;
 	Number &operator=(Number &&) = default;
 	Number &operator=(const Number &) = default;
+	~Number() = default;
 };
 
 Number CreateNumber(int num)
@@ -178,21 +179,21 @@ int main()
 		Note: cmake may behave differently for same flag "-fno-elide-constructors".
 			  Chekc CMakeLists.txt file.
 	*/
-	Integer a(1), b(3);
+	// Integer a(1), b(3);
 
-	a.SetValue(Add(a, b).GetValue());
+	// a.SetValue(Add(a, b).GetValue());
 
 	//-------------------------(rule of 5 & 0)----------------------
-	// Number n1{1};
-	// Number n1;
+	//Number n1{1};
+	//Number n1;
 
-	// auto n2{n1};
+	// auto n2{n1}; //copy
 
 	// n2 = n1;
 
-	// auto n3{CreateNumber(3)};
+	auto n3{CreateNumber(3)};
 
-	// n3 = CreateNumber(3);
+	//n3 = CreateNumber(3);
 
 	//--------------------------(copy elision)------------------------
 	/*

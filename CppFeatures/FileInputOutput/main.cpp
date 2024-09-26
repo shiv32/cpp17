@@ -21,10 +21,10 @@
 
 void Write()
 {
-    //std::ofstream out{"data.txt"}; //open file using ctor
-    //or
+    // std::ofstream out{"data.txt"}; //open file using ctor
+    // or
     std::ofstream out;
-    out.open("data.txt");  //open file using open fun
+    out.open("data.txt"); // open file using open fun
 
     out << "Hello world" << std::endl;
     out << 20 << std::endl;
@@ -34,14 +34,94 @@ void Write()
 void Read()
 {
     // std::ifstream input{"data.txt"}; //open file using ctor
-    //or
+    // or
     std::ifstream input;
-    input.open("data.txt"); //open file using open fun
+    input.open("data.txt"); // open file using open fun
 
     std::string message;
     std::getline(input, message);
     int value{};
     input >> value;
+    input.close();
+    std::cout << message << " : " << value << std::endl;
+}
+
+void Write2()
+{
+    // std::ofstream out{"data.txt"}; //open file using ctor
+    // or
+    std::ofstream out;
+    out.open("data.txt"); // open file using open fun
+
+    out << "Hello world" << std::endl;
+    out << 20 << std::endl;
+    out.close();
+}
+
+void Read2()
+{
+    // std::ifstream input{"data.txt"}; //open file using ctor
+    // or
+    std::ifstream input;
+    input.open("data.txt"); // open file using open fun
+    // input.open("dat.txt"); // wrong file name
+
+    // if (!input.is_open())
+    // {
+    //     std::cout << "Could not open the file" << std::endl;
+    //     return;
+    // }
+
+    if (input.fail())
+    {
+        std::cout << "Could not open the file" << std::endl;
+        return;
+    }
+
+    std::string message;
+    std::getline(input, message);
+    int value{};
+    input >> value;
+    input >> value; // test input.fail(), input.eof()
+
+    // if (input.fail())
+    // {
+    //     std::cout << "Could not read" << std::endl;
+    //     return;
+    // }
+
+    if (input.eof())
+    {
+        std::cout << "End of file encountered" << std::endl;
+    }
+
+    if (input.good())
+    {
+        std::cout << "IO operations are successfull" << std::endl;
+    }
+    else
+    {
+        std::cout << "Some IO operations are failed" << std::endl;
+    }
+
+    input.setstate(std::ios::failbit);
+
+    if (input.fail())
+    {
+        std::cout << "fail bit set" << std::endl;
+    }
+
+    input.clear(); // it clear all states and set good bit
+
+    if (input.fail())
+    {
+        std::cout << "fail bit set" << std::endl;
+    }
+    else
+    {
+        std::cout << "fail bit clear" << std::endl;
+    }
+
     input.close();
     std::cout << message << " : " << value << std::endl;
 }
@@ -92,9 +172,16 @@ int main()
     //     std::cout << *beg << std::endl;
     //     ++beg;
     // }
+
     //---------------------------------------(File IO part-1 basics)---------------------------------------------------
-    Write();
-    Read();
+    // Write();
+    // Read();
+
+    //---------------------------------------(File IO part-2 error handling)--------------------------------------------
+    Write2();
+    Read2();
+
+    //------------------------------()----------------------------------------------------
 
     return 0;
 }

@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the project name
-project(operatoroverload)
+project(fileio)
 
 set(CMAKE_CXX_FLAGS -pthread)
 
@@ -14,9 +14,9 @@ set(SOURCES
 )
 
 # Add an executable with the above sources
-add_executable(operatoroverload ${SOURCES})
+add_executable(fileio ${SOURCES})
 
 # Link filesystem library if needed
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9.0)
-    target_link_libraries(operatoroverload stdc++fs)
+    target_link_libraries(fileio stdc++fs)
 endif()
