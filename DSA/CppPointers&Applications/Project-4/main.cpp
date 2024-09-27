@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author your name (you@domain.com)
  * @brief Static Arrays
- *         Arrays as function argument
+ *         Array as function argument
  *
  * @version 0.1
  * @date 2024-08-31
