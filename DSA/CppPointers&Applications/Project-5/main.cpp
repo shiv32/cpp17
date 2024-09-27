@@ -63,7 +63,7 @@ int main()
 
     arr3[0] = 100;
 
-    int(&ref)[5] = arr3;
+    int(&ref)[5] = arr3; //array referene is ref
 
     // int *p = arr3;
     // int *end = arr3 + 5;
