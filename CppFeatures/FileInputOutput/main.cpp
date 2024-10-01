@@ -178,10 +178,45 @@ int main()
     // Read();
 
     //---------------------------------------(File IO part-2 error handling)--------------------------------------------
-    Write2();
-    Read2();
+    // Write2();
+    // Read2();
 
-    //------------------------------()----------------------------------------------------
+    //------------------------------(File IO part-3 copy utlility)----------------------------------------------------
+    using namespace std::experimental::filesystem;
+
+    // std::cout << "current_path() : " << current_path() << std::endl;
+    // std::cout << "current_path().parent_path (): " << current_path().parent_path() << std::endl;
+
+    path source{R"(/tmp/)"};
+
+    source /= "test.txt";
+
+    path dest{R"(/tmp/)"};
+
+    dest /= "copy.txt";
+
+    std::ifstream input{source};
+
+    if (!input)
+    {
+        std::cout << "Source file not found !" << std::endl;
+        return -1;
+    }
+
+    std::ofstream output{dest};
+
+    std::string line;
+
+    while (!std::getline(input, line).eof())
+    {
+        output << line << std::endl;
+    }
+
+    input.close();
+    output.close();
+    
+    std::cout << "Copied." << std::endl;
+    //-------------------------()-----------------------------
 
     return 0;
 }
