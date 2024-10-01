@@ -4,10 +4,13 @@
         altering the correctness of program.
 
         g++ lsp.cpp -o test
+
+        g++ lsp.cpp -o test && ./test && rm test
 */
 
 #include <iostream>
 #include <exception>
+#include <memory>
 
 /*
 // Violate lsp
@@ -72,9 +75,14 @@ public:
     }
 };
 
-void makeBirdFly(FlyingBird &bird)
+// void makeBirdFly(FlyingBird &bird)
+// {
+//     bird.fly();
+// }
+
+void makeBirdFly(std::unique_ptr<FlyingBird> bird)
 {
-    bird.fly();
+    bird->fly();
 }
 
 int main()
@@ -82,11 +90,18 @@ int main()
 
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    Crow cr;
-    makeBirdFly(cr);
+    // Crow cr;
+    // makeBirdFly(cr);
 
-    Penguin pn;
+    // using smart pointer
+    auto cr = std::make_unique<Crow>();
+    makeBirdFly(std::move(cr));
+
+    // Penguin pn;
     // makeBirdFly(pn);  //compile time error
+
+    // auto pn = std::make_unique<Penguin>();
+    // makeBirdFly(std::move(pn)); // compile time error
 
     return 0;
 }

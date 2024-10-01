@@ -3,6 +3,8 @@
         Class should have only one reason to change.
 
         g++ srp.cpp -o test
+        
+        g++ srp.cpp -o test && ./test && rm test
 */
 
 #include <iostream>
@@ -72,8 +74,11 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    std::unique_ptr<AddContact> ac = std::make_unique<AddContact>();
-    std::unique_ptr<View> vw = std::make_unique<View>();
+    // std::unique_ptr<AddContact> ac = std::make_unique<AddContact>();
+    // std::unique_ptr<View> vw = std::make_unique<View>();
+    // or
+    auto ac = std::make_unique<AddContact>();
+    auto vw = std::make_unique<View>();
 
     vw->Display(std::move(ac));
 

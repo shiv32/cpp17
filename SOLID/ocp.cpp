@@ -4,6 +4,8 @@
         close for modifications.
 
         g++ ocp.cpp -o test
+
+        g++ ocp.cpp -o test && ./test && rm test
 */
 
 #include <iostream>
@@ -48,8 +50,11 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    std::unique_ptr<Notes> np = std::make_unique<Notes>();
-    std::unique_ptr<AddContact> ap = std::make_unique<AddContact>();
+    // std::unique_ptr<Notes> np = std::make_unique<Notes>();
+    // std::unique_ptr<AddContact> ap = std::make_unique<AddContact>();
+    // or
+    auto np = std::make_unique<Notes>();
+    auto ap = std::make_unique<AddContact>();
 
     np->Add();
     ap->Add();
