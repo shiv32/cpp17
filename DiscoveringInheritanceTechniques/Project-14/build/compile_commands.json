@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-14/build",
-  "command": "/usr/bin/g++    -pthread -g   -std=gnu++17 -o CMakeFiles/POLYMORPHISM.dir/main.cpp.o -c /home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-14/main.cpp",
-  "file": "/home/shiv/shiv_work/thread/DiscoveringInheritanceTechniques/Project-14/main.cpp"
-}
-]

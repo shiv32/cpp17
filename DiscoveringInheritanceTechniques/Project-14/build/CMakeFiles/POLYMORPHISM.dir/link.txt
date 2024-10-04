@@ -1,1 +1,0 @@
-/usr/bin/g++  -pthread -g   CMakeFiles/POLYMORPHISM.dir/main.cpp.o  -o POLYMORPHISM 
