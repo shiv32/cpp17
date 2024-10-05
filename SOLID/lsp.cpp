@@ -80,6 +80,7 @@ public:
 //     bird.fly();
 // }
 
+// smart pointer
 void makeBirdFly(std::unique_ptr<FlyingBird> bird)
 {
     bird->fly();
@@ -93,12 +94,12 @@ int main()
     // Crow cr;
     // makeBirdFly(cr);
 
-    // using smart pointer
-    auto cr = std::make_unique<Crow>();
-    makeBirdFly(std::move(cr));
-
     // Penguin pn;
     // makeBirdFly(pn);  //compile time error
+
+    //-------------(smart pointer)--------------------------------
+    auto cr = std::make_unique<Crow>();
+    makeBirdFly(std::move(cr));
 
     // auto pn = std::make_unique<Penguin>();
     // makeBirdFly(std::move(pn)); // compile time error

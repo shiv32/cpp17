@@ -15,9 +15,12 @@
 
 
         g++ dip.cpp -o test
+
+        g++ dip.cpp -o test && ./test && rm test
 */
 
 #include <iostream>
+#include <memory>
 
 /*
 
@@ -39,19 +42,19 @@
     };
 
     //High-level module(ElectricPowerSwitch class) depend on low-level module(LightBulb class)
-    class ElectricPowerSwitch 
+    class ElectricPowerSwitch
     {
     public:
     ElectricPowerSwitch(LightBulb light_bulb) : light_bulb_{light_bulb}, on_{ false} {}
 
-    void press() 
+    void press()
     {
-        if (on_) 
+        if (on_)
         {
         light_bulb_.TurnOff();
         on_ = false;
-        } 
-        else 
+        }
+        else
         {
         light_bulb_.TurnOn();
         on_ = true;
@@ -102,45 +105,82 @@ class Fan final : public Switchable
     }
 };
 
+// // High-level module(ElectricPowerSwitch class) depending on abstraction(Switchable class)
+// class ElectricPowerSwitch
+// {
+// public:
+//     ElectricPowerSwitch(Switchable &switchable) : switchable_{switchable}, on_{false} {}
+
+//     void press()
+//     {
+//         if (on_)
+//         {
+//             switchable_.TurnOff();
+//             on_ = false;
+//         }
+//         else
+//         {
+//             switchable_.TurnOn();
+//             on_ = true;
+//         }
+//     }
+
+// private:
+//     bool on_;
+//     Switchable &switchable_;
+// };
+
+// using smart pointer
 // High-level module(ElectricPowerSwitch class) depending on abstraction(Switchable class)
 class ElectricPowerSwitch
 {
 public:
-    ElectricPowerSwitch(Switchable &switchable) : switchable_{switchable}, on_{false} {}
+    ElectricPowerSwitch(std::unique_ptr<Switchable> switchable) : switchable_{std::move(switchable)}, on_{false} {}
 
     void press()
     {
         if (on_)
         {
-            switchable_.TurnOff();
+            switchable_->TurnOff();
             on_ = false;
         }
         else
         {
-            switchable_.TurnOn();
+            switchable_->TurnOn();
             on_ = true;
         }
     }
 
 private:
     bool on_;
-    Switchable &switchable_;
+    std::unique_ptr<Switchable> switchable_{nullptr};
 };
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    LightBulb light_bulb{};
+    // LightBulb light_bulb{};
+    // ElectricPowerSwitch power_switch_bulb{light_bulb};
+    // power_switch_bulb.press();
+    // power_switch_bulb.press();
 
-    ElectricPowerSwitch power_switch_bulb{light_bulb};
-    power_switch_bulb.press();
-    power_switch_bulb.press();
+    // Fan fan{};
+    // ElectricPowerSwitch power_switch_fan{fan};
+    // power_switch_fan.press();
+    // power_switch_fan.press();
 
-    Fan fan{};
-    ElectricPowerSwitch power_switch_fan{fan};
-    power_switch_fan.press();
-    power_switch_fan.press();
+    //------------(smart pointer)---------------------------------------
+
+    auto light_bulb = std::make_unique<LightBulb>();
+    auto power_switch_bulb = std::make_unique<ElectricPowerSwitch>(std::move(light_bulb));
+    power_switch_bulb->press();
+    power_switch_bulb->press();
+
+    auto fan = std::make_unique<Fan>();
+    auto power_switch_fan = std::make_unique<ElectricPowerSwitch>(std::move(fan));
+    power_switch_fan->press();
+    power_switch_fan->press();
 
     return 0;
 }

@@ -10,11 +10,11 @@ set(CMAKE_CXX_FLAGS -pthread)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
-    #dip.cpp
-    isp.cpp
-    #lsp.cpp
-    #ocp.cpp
-    #srp.cpp
+    dip.cpp
+    # isp.cpp
+    # lsp.cpp
+    # ocp.cpp
+    # srp.cpp
 )
 
 # Add an executable with the above sources
