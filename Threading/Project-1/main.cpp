@@ -1,41 +1,41 @@
-/*
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+  
+    Thread with Function Pointer
+    
+    g++ main.cpp -o test -pthread && ./test && rm test
 
-MULTITHREADED LOGGER CLASS V-1.0.0
+ * @version 0.1
+ * @date 2024-10-05
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
-g++ -std=c++17  *.cpp -o test -pthread
 
-Output: Application is terminated abruptly. 
 
-*/
+#include <iostream>
+#include <thread>
 
-#include "logger.h"
-#include <sstream>
-#include <vector>
-
-void logSomeMessages(int id, Logger &logger)
+void counter(int id, int numIterations)
 {
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < numIterations; ++i)
     {
-        std::stringstream ss;
-        ss << "Log entry " << i << " from thread " << id;
-        logger.log(ss.str());
+        std::cout << "Counter " << id << " has value " << i << std::endl;
     }
 }
 
-int main()
+int main() // thread
 {
-    Logger logger;
-    std::vector<std::thread> threads;
-    
-    // Create a few threads all working with the same Logger instance.
-    for (int i = 0; i < 10; ++i)
-    {
-        threads.emplace_back(logSomeMessages, i, std::ref(logger));
-    }
-    
-    // Wait for all threads to finish.
-    for (auto &t : threads)
-    {
-        t.join();
-    }
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
+    std::thread t1(counter, 1, 6);
+    std::thread t2(counter, 2, 4);
+
+    t1.join();
+    t2.join();
+
+    return 1;
 }
