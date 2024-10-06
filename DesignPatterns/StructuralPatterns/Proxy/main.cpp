@@ -1,22 +1,21 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2024-08-10
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
-
 
 /*
     Proxy
     g++ *.cpp -o test
 */
 
+#include <memory>
 #include "RealSubject.hpp"
-#include "Subject.hpp"
 #include "Proxy.hpp"
 
 /**
@@ -26,28 +25,45 @@
  * directly. In this case, to implement the pattern more easily, you can extend
  * your proxy from the real subject's class.
  */
-void ClientCode(const Subject &subject)
+// void ClientCode(const Subject &subject)
+// {
+//     subject.Request();
+// }
+
+// smart pointer
+void ClientCode(std::shared_ptr<Subject> subject)
 {
-    subject.Request();
+    subject->Request();
 }
 
-int main()  //client
+int main() // client
 {
 
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+    // std::cout << "Client: Executing the client code with a real subject:\n";
+    // RealSubject *real_subject = new RealSubject;
+    // ClientCode(*real_subject);
+
+    // std::cout << "\n";
+
+    // std::cout << "Client: Executing the same client code with a proxy:\n";
+    // Proxy *proxy = new Proxy(real_subject);
+    // ClientCode(*proxy);
+
+    // delete real_subject;
+    // delete proxy;
+
+    //--------------------(smart pointer)-----------------------------------
     std::cout << "Client: Executing the client code with a real subject:\n";
-    RealSubject *real_subject = new RealSubject;
-    ClientCode(*real_subject);
+    auto real_subject = std::make_shared<RealSubject>();
+    ClientCode(real_subject);
 
     std::cout << "\n";
 
     std::cout << "Client: Executing the same client code with a proxy:\n";
-    Proxy *proxy = new Proxy(real_subject);
-    ClientCode(*proxy);
-
-    delete real_subject;
-    delete proxy;
+    auto proxy = std::make_shared<Proxy>(real_subject);
+    ClientCode(proxy);
 
     return 0;
 }

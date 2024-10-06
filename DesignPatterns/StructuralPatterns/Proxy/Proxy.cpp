@@ -10,13 +10,18 @@
  */
 #include "Proxy.hpp"
 
-Proxy::Proxy(RealSubject *real_subject) : real_subject_(new RealSubject(*real_subject))
+// Proxy::Proxy(RealSubject *real_subject) : real_subject_(new RealSubject(*real_subject))
+// {
+// }
+
+// smart pointer
+Proxy::Proxy(std::shared_ptr<RealSubject> real_subject) : real_subject_(real_subject)
 {
 }
 
 Proxy::~Proxy()
 {
-    delete real_subject_;
+    // delete real_subject_;
 }
 
 bool Proxy::CheckAccess() const
