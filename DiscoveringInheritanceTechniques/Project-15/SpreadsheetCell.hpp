@@ -9,7 +9,7 @@
  * 
  */
 
-#pragma Once
+#pragma once
 
 #include <string>
 
