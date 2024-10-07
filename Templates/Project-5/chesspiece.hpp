@@ -3,6 +3,5 @@
 class ChessPiece
 {
 public:
-ChessPiece()=default;
-
+    ChessPiece() = default;
 };
