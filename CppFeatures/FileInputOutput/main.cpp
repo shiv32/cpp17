@@ -5,6 +5,11 @@
  *
         compile and run -->
         g++ -std=c++17 main.cpp -o test -lstdc++fs && ./test && rm test
+
+        Note: dont delete the build directory for this project.
+              otherwise current_path() will be set to wrong.
+              you can empty it by command
+              $rm -rf *
  *
  * @version 0.1
  * @date 2024-09-13
@@ -126,6 +131,84 @@ void Read2()
     std::cout << message << " : " << value << std::endl;
 }
 
+void Write3()
+{
+    std::ofstream out{"data.txt"}; // open file using ctor
+
+    if (!out)
+    {
+        std::cout << "Could not open file for writing" << std::endl;
+        return;
+    }
+
+    std::string message{"C++ was invented by Bjarne"};
+
+    for (char ch : message)
+    {
+        out.put(ch);
+    }
+
+    out.seekp(5);
+    out.put('#');
+
+    out.close();
+}
+
+void Read3()
+{
+    std::ifstream input{"data.txt"}; // open file using ctor
+
+    if (!input)
+    {
+        std::cout << "Source file not found" << std::endl;
+        return;
+    }
+
+    std::cout << "Current position is : " << input.tellg() << std::endl;
+
+    // input.seekg(5);
+
+    // std::cout << "Current position is : " << input.tellg() << std::endl;
+
+    // input.seekg(5,std::ios::beg);
+    // input.seekg(5,std::ios::cur);
+    // input.seekg(5,std::ios::end);
+    // input.seekg(-5, std::ios::end);
+    // std::cout << "Current position is : " << input.tellg() << std::endl;
+
+    // input.seekg(10, std::ios::beg);
+    // std::cout << "Current position is : " << input.tellg() << std::endl;
+
+    char ch{};
+
+    while (input.get(ch))
+    {
+        std::cout << ch;
+    }
+
+    input.close();
+}
+
+void UsingFstream()
+{
+    std::fstream stream{"file.txt"};
+
+    if (!stream)
+    {
+        std::cout << "File not found. Creating one..." << std::endl;
+        std::ofstream out{"file.txt"};
+        out.close();
+        stream.open("file.txt");
+    }
+
+    stream << "Hello shiv !" << std::endl;
+
+    stream.seekg(0);
+    std::string line;
+    std::getline(stream, line);
+    std::cout << line << std::endl;
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -183,48 +266,54 @@ int main()
 
     //------------------------------(File IO part-3 copy utlility)----------------------------------------------------
     /*
+
      Note: dont delete the cmake build directory otherwise current_path() will be set to wrong.
 
     */
 
-    using namespace std::experimental::filesystem;
+    // using namespace std::experimental::filesystem;
 
-    // std::cout << "current_path() : " << current_path() << std::endl;
-    std::cout << "current_path().parent_path (): " << current_path().parent_path() << std::endl;
+    // // std::cout << "current_path() : " << current_path() << std::endl;
+    // std::cout << "current_path().parent_path (): " << current_path().parent_path() << std::endl;
 
-    // path source{R"(/tmp/)"};
-    path source{current_path().parent_path()};
+    // // path source{R"(/tmp/)"};
+    // path source{current_path().parent_path()};
 
-    // source /= "test.txt";
-    source /= "main.cpp";
+    // // source /= "test.txt";
+    // source /= "main.cpp";
 
-    // path dest{R"(/tmp/)"};
-    path dest{current_path().parent_path()};
+    // // path dest{R"(/tmp/)"};
+    // path dest{current_path().parent_path()};
 
-    // dest /= "copy.txt";
-    dest /= "copy.cpp";
+    // // dest /= "copy.txt";
+    // dest /= "copy.cpp";
 
-    std::ifstream input{source};
+    // std::ifstream input{source};
 
-    if (!input)
-    {
-        std::cout << "Source file not found !" << std::endl;
-        return -1;
-    }
+    // if (!input)
+    // {
+    //     std::cout << "Source file not found !" << std::endl;
+    //     return -1;
+    // }
 
-    std::ofstream output{dest};
+    // std::ofstream output{dest};
 
-    std::string line;
+    // std::string line;
 
-    while (!std::getline(input, line).eof())
-    {
-        output << line << std::endl;
-    }
+    // while (!std::getline(input, line).eof())
+    // {
+    //     output << line << std::endl;
+    // }
 
-    input.close();
-    output.close();
+    // input.close();
+    // output.close();
 
-    std::cout << "Copied." << std::endl;
+    // std::cout << "Copied." << std::endl;
+
+    //-------------------------(File IO part-4 character IO & seeking)-----------------------------
+    // Write3();
+    // Read3();
+    UsingFstream();
 
     //-------------------------()-----------------------------
 
