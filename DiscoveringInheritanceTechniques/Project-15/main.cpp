@@ -106,5 +106,14 @@ int main()
     std::cout << "result: "
               << result.getString() << std::endl;
 
+    DoubleSpreadsheetCell myDbl1;
+    DoubleSpreadsheetCell myDbl2;
+    myDbl1.set(8.4);
+    myDbl2.set(9.4);
+    result = myDbl1 + myDbl2;
+
+    std::cout << "result: "
+              << result.getString() << std::endl;
+
     return 0;
 }
