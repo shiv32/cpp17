@@ -93,11 +93,18 @@ int main()
     cellArray[1]->set("10");
     cellArray[2]->set("18");
 
-    std::cout << "Vector values are [" 
-    << cellArray[0]->getString() << "," 
-    << cellArray[1]->getString() << "," 
-    << cellArray[2]->getString() << "]" 
-    << std::endl;
+    std::cout << "Vector values are ["
+              << cellArray[0]->getString() << ","
+              << cellArray[1]->getString() << ","
+              << cellArray[2]->getString() << "]"
+              << std::endl;
+
+    DoubleSpreadsheetCell myDbl;
+    myDbl.set(8.4);
+    StringSpreadsheetCell result = myDbl + myDbl;
+
+    std::cout << "result: "
+              << result.getString() << std::endl;
 
     return 0;
 }
