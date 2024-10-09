@@ -1,5 +1,20 @@
-// Copying and Rethrowing Exceptions
-// g++ main.cpp -o test -pthread
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief
+ *
+    Copying and Rethrowing Exceptions
+
+    g++ main.cpp -o test -pthread && ./test && rm test
+
+ *
+ *
+ * @version 0.1
+ * @date 2024-10-10
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 
 #include <iostream>
 #include <thread>
@@ -10,7 +25,7 @@ void doSomeWork()
     {
         std::cout << i << std::endl;
     }
-    
+
     std::cout << "Thread throwing a runtime_error exception..." << std::endl;
 
     throw std::runtime_error("Exception from thread");
@@ -32,13 +47,13 @@ void threadFunc(std::exception_ptr &err)
 void doWorkInThread()
 {
     std::exception_ptr error;
-    
+
     // Launch thread
     std::thread t{threadFunc, std::ref(error)};
-    
+
     // Wait for thread to finish
     t.join();
-    
+
     // See if thread has thrown any exception
     if (error)
     {
@@ -53,6 +68,8 @@ void doWorkInThread()
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     try
     {
         doWorkInThread();
