@@ -10,8 +10,8 @@ set(CMAKE_CXX_FLAGS -pthread)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
-    DoubleSpreadsheetCell.cpp
-    StringSpreadsheetCell.cpp
+    Dog.cpp
+    Bird.cpp
     main.cpp
 )
 
