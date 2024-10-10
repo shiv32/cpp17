@@ -12,6 +12,7 @@ set(CMAKE_CXX_FLAGS -pthread)
 set(SOURCES
     Dog.cpp
     Bird.cpp
+    DogBird.cpp
     main.cpp
 )
 
