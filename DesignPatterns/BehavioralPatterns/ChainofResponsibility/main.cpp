@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author Shiv Kumar (info.shivcpp@gmail.com)
+ * @author 
  * @brief 
  * @version 0.1
  * @date 2024-08-05
