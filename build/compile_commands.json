@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/build",
-  "command": "/usr/bin/g++    -pthread -g   -std=gnu++1z -o CMakeFiles/Proxy.dir/main.cpp.o -c /home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/Doxygen/main.cpp",
-  "file": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/Doxygen/main.cpp"
-}
-]

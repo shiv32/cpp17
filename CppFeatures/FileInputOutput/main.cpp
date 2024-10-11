@@ -23,6 +23,7 @@
 #include <experimental/filesystem>
 #include <fstream>
 #include <string>
+#include <cstring>
 
 void Write()
 {
@@ -209,6 +210,26 @@ void UsingFstream()
     std::cout << line << std::endl;
 }
 
+struct Record
+{
+   int id;
+   char name[10];
+};
+
+void WriteRecord(Record *p)
+{
+     std::ofstream binstream{"records", std::ios::binary | std::ios::out};
+     binstream.write((const char*)p, sizeof(Record));
+}
+
+Record GetRecord()
+{
+     std::ifstream input{"records", std::ios::binary | std::ios::in};
+     Record r;
+     input.read((char*)&r, sizeof(Record));
+     return r;
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -322,6 +343,21 @@ int main()
     std::ofstream binstream{"binary", std::ios::binary | std::ios::out};
     int num{12345678};
     binstream.write((const char *)&num, sizeof(num));
+    binstream.close();
+
+    num = 0;
+    std::ifstream input{"binary", std::ios::binary | std::ios::in};
+    input.read((char*)&num,sizeof(num));
+
+    std::cout<<num<<std::endl;
+
+    Record r;
+    r.id = 1002;
+    strcpy(r.name,"shiv");
+    WriteRecord(&r);
+
+    Record r2 = GetRecord();
+    std::cout<<r2.id<<" : "<<r2.name<<std::endl;
 
     return 0;
 }
