@@ -313,9 +313,15 @@ int main()
     //-------------------------(File IO part-4 character IO & seeking)-----------------------------
     // Write3();
     // Read3();
-    UsingFstream();
+    //UsingFstream();
 
-    //-------------------------()-----------------------------
+    //-------------------------(File IO part-5 binary IO)-----------------------------
+    std::ofstream textstream{"data"};
+    textstream << 12345678;
+
+    std::ofstream binstream{"binary", std::ios::binary | std::ios::out};
+    int num{12345678};
+    binstream.write((const char *)&num, sizeof(num));
 
     return 0;
 }

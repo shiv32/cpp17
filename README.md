@@ -33,6 +33,8 @@ VS Code setting for integrated terminal to stop give input bin path to C++ std::
 
 go to "Settings" -> type "terminal" in search box -> CMake Tools ->Cmake:Launch Behavior ->select "breakAndResueTerminal"
 
+See a bin file in a hex editor in Visual Studio Code [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor) or [hexdump for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.vscode-hexdump) 
+
 5 of the Most Useful Graphical Git Clients for Linux
 [Graphical Git Clients for Linux](https://www.maketecheasier.com/6-useful-graphical-git-client-for-linux/)
 
