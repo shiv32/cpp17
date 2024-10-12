@@ -5,6 +5,8 @@
  * @version 0.1
  * @date 2024-08-10
  * 
+        The Target defines the domain-specific interface used by the client code.
+ * 
  * @copyright Copyright (c) 2024
  * 
  */
@@ -12,9 +14,6 @@
 
 #include <string>
 
-/**
- * The Target defines the domain-specific interface used by the client code.
- */
 class Target
 {
 public:
