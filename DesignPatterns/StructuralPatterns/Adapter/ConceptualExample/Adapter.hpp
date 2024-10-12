@@ -2,6 +2,12 @@
  * @file Adapter.hpp
  * @author your name (you@domain.com)
  * @brief 
+ * 
+ * 
+ * The Adapter makes the Adaptee's interface compatible with the Target's
+ * interface.
+ * 
+ * 
  * @version 0.1
  * @date 2024-08-10
  * 
@@ -15,11 +21,6 @@
 #include "Target.hpp"
 #include "Adaptee.hpp"
 
-
-/**
- * The Adapter makes the Adaptee's interface compatible with the Target's
- * interface.
- */
 class Adapter : public Target
 {
 private:
