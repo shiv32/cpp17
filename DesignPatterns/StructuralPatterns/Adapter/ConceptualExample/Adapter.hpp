@@ -4,8 +4,8 @@
  * @brief 
  * 
  * 
- * The Adapter makes the Adaptee's interface compatible with the Target's
- * interface.
+        The Adapter makes the Adaptee's interface compatible with the Target's
+        interface.
  * 
  * 
  * @version 0.1

@@ -2,13 +2,10 @@
  * @file main.cpp
  * @author your name (you@domain.com)
  * @brief
- *
- *
+ 
         Adapter Conceptual example
         g++ *.cpp -o test
- *
- *
- *
+
  * @version 0.1
  * @date 2024-08-10
  *
