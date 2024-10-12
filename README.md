@@ -4,11 +4,33 @@ git commit -m "my commit"\
 git remote add origin \<remote repository URL>\
 git push origin master
 
+----------------------------------------------------------------------------------
+
+Install VS Code in Ubuntu
+
+Download VS Code deb file from [VS Code](https://code.visualstudio.com/download)
+
+after download deb file run below command to install
+
+$sudo chmod +x packagename.deb
+
+$sudo dpkg -i packagename.deb
+
+To remove a Debian (Ubuntu) package (.deb)
+
+sudo dpkg -r packagename
+
+To Reconfigure/Repair an installed Debian (Ubuntu) package (.deb)
+
+sudo dpkg-reconfigure packagename
+
+---------------------------------------------------------------------------------
+
 VS Code CMake setup on Linux
 [cmake-linux](https://code.visualstudio.com/docs/cpp/cmake-linux)
 
 VS Code C++ Create Definitions and Declarations
-[ Definitions and Declarations](https://devblogs.microsoft.com/cppblog/vs-code-c-extension-january-update-create-definitions-and-declarations/)
+[Definitions and Declarations](https://devblogs.microsoft.com/cppblog/vs-code-c-extension-january-update-create-definitions-and-declarations/)
 
 VS Code extension for cmake format
 [cmake format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
