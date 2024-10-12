@@ -3,8 +3,6 @@
         Software Components (such as classes, modules, function, etc) should be open for extension but
         close for modifications.
 
-        g++ ocp.cpp -o test
-
         g++ ocp.cpp -o test && ./test && rm test
 */
 

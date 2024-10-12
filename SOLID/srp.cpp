@@ -1,8 +1,6 @@
 /*
     Single Responsibility Principle
         Class should have only one reason to change.
-
-        g++ srp.cpp -o test
         
         g++ srp.cpp -o test && ./test && rm test
 */

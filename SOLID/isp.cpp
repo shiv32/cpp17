@@ -2,8 +2,6 @@
     Interface Segregation Principle
         Clients should not be forced to depend on methods that they don’t need.
 
-        g++ isp.cpp -o test
-
         g++ isp.cpp -o test && ./test && rm test
 */
 

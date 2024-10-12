@@ -13,9 +13,6 @@
         Details/Low-level modules
             Concrete implementations of the abstract class.
 
-
-        g++ dip.cpp -o test
-
         g++ dip.cpp -o test && ./test && rm test
 */
 
