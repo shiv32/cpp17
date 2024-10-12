@@ -18,11 +18,11 @@ $sudo dpkg -i packagename.deb
 
 To remove a Debian (Ubuntu) package (.deb)
 
-sudo dpkg -r packagename
+$sudo dpkg -r packagename
 
 To Reconfigure/Repair an installed Debian (Ubuntu) package (.deb)
 
-sudo dpkg-reconfigure packagename
+$sudo dpkg-reconfigure packagename
 
 ---------------------------------------------------------------------------------
 
