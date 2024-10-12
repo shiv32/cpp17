@@ -10,7 +10,8 @@
  */
 #include "Adapter.hpp"
 
- Adapter::Adapter(Adaptee *adaptee) : adaptee_(adaptee) {}
+//  Adapter::Adapter(Adaptee *adaptee) : adaptee_(adaptee) {}
+Adapter::Adapter(std::shared_ptr<Adaptee> adaptee) : adaptee_(adaptee) {}
 
 std::string Adapter::Request() const
 {

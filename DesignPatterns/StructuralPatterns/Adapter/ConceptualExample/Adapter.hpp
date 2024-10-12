@@ -11,8 +11,10 @@
 #pragma once
 
 #include <algorithm> // for std::reverse
+#include <memory>
 #include "Target.hpp"
 #include "Adaptee.hpp"
+
 
 /**
  * The Adapter makes the Adaptee's interface compatible with the Target's
@@ -21,9 +23,12 @@
 class Adapter : public Target
 {
 private:
-    Adaptee *adaptee_;
+    //Adaptee *adaptee_;
+    std::shared_ptr<Adaptee> adaptee_;
 
 public:
-    Adapter(Adaptee *adaptee);
+    // Adapter(Adaptee *adaptee);
+    Adapter(std::shared_ptr<Adaptee> adaptee);
+
     std::string Request() const override;
 };
