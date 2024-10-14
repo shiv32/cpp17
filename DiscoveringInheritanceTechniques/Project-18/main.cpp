@@ -25,20 +25,20 @@
 
                 Multiple parents themselves have common parents. 
                 
-                eg. 
-                    Perhaps both Bird and Dog are inheriting from an
-                    Animal class.
+                        eg. 
+                            Perhaps both Bird and Dog are inheriting from an
+                            Animal class.
 
-                           Dog <-- DogBird
-                         /
-                    Animal
-                          \
-                           Bird <-- DogBird
-                    
-                    Name ambiguity:
-                    If the Animal class has a public method called sleep(), that method cannot be called
-                    on a DogBird object because the compiler does not know whether to call the version 
-                    inherited by Dog or by Bird.
+                                Dog <-- DogBird
+                                /
+                            Animal
+                                \
+                                Bird <-- DogBird
+                            
+                            Name ambiguity:
+                            If the Animal class has a public method called sleep(), that method cannot be called
+                            on a DogBird object because the compiler does not know whether to call the version 
+                            inherited by Dog or by Bird.
 
 
  * @version 0.1
