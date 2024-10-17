@@ -47,6 +47,35 @@
                             there are no methods in the base class to call and thus there are no
                             ambiguities at that level.
 
+                            A diamond-shaped class hierarchy in which the Animal abstract base class has 
+                            a pure virtual eat() method that must be defined by each derived class. 
+                            The DogBird class still needs to be explicit about which parent’s eat()
+                            method it uses, but any ambiguity is caused by Dog and Bird having the same method,
+                            not because they inherit from the same class.
+
+            Uses for Multiple Inheritance
+                The most straightforward use case for multiple inheritance is to define a class
+                of objects that is-a something and also is-a something else.
+
+                One of the most compelling and simple uses of multiple inheritance is for the implementation of
+                mixin classes.       
+
+                Another reason that people sometimes use multiple inheritance is to model a component-based class.
+
+                 eg. an airplane simulator
+                            The Airplane class has an engine, a fuselage, controls, and other components.
+
+                            While the typical implementation of an Airplane class would make each of these 
+                            components a separate data member, you could use multiple inheritance.
+                             
+                            The airplane class would inherit from engine, fuselage, and controls, in effect 
+                            getting the behaviors and properties of all of its components.  
+
+                            I recommend you to stay away from this type of code because it confuses a clear 
+                            has-a relationship with inheritance, which should be used for is-a relationships. 
+                            The recommended solution is to have an Airplane class that contains data members 
+                            of type Engine, Fuselage, and Controls.             
+
 
  * @version 0.1
  * @date 2024-09-23
