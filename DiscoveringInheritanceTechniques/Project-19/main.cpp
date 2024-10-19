@@ -21,7 +21,7 @@
                 a pointer or reference to a class, and the new return type is a pointer or reference to a 
                 descendent class. 
                 Such types are called covariant return types. 
-                
+
                 This feature sometimes comes in handy when the base class and derived class work with objects in 
                 a parallel hierarchy—that is, another group of classes that is tangential, but related, 
                 to the first class hierarchy.
@@ -122,13 +122,10 @@
                                     };
 
                             The reason is that std::unique_ptr is a class template. 
-
                             Two instantiations of the unique_ptr class template are created,
                             unique_ptr<Cherry> and unique_ptr<BingCherry>. 
-
                             Both these instantiations are completely different types and are in
                             no way related to each other.
-
                             You cannot change the return type of an overridden method to return
                             a completely different type.
 
