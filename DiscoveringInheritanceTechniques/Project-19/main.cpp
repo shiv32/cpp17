@@ -25,6 +25,39 @@
                 a parallel hierarchy—that is, another group of classes that is tangential, but related, 
                 to the first class hierarchy.
 
+                    eg. cherry orchard simulator
+
+                            You might have two hierarchies of classes that model different real-world objects
+                            but are obviously related. 
+                            The first is the Cherry chain. The base class, Cherry, has a derived class called BingCherry. 
+                            Similarly, there is another chain of classes with a base class called CherryTree
+                            and a derived class called BingCherryTree.
+
+                                Cherry <-- BingCherry
+                            
+                            CherryTree <-- BingCherryTree
+
+                            Now assume that the CherryTree class has a virtual method called pick() 
+                            that retrieves a single cherry from the tree:
+
+                                    Cherry* CherryTree::pick()
+                                    {
+                                        return new Cherry();
+                                    }
+ 
+                            In the BingCherryTree-derived class, you may want to override this method.
+                            Because a BingCherry is a Cherry, you could leave the method prototype as is 
+                            and override the method.
+                            The BingCherry pointer is automatically cast to a Cherry pointer. 
+
+                                    Cherry* BingCherryTree::pick()
+                                    {
+                                        auto theCherry = std::make_unique<BingCherry>();
+                                        theCherry->polish();
+                                        return theCherry.release();
+                                    }
+
+
 
 
 
