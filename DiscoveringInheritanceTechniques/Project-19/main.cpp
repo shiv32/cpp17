@@ -146,7 +146,9 @@ int main()
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     BingCherryTree theTree;
-    std::unique_ptr<Cherry> theCherry(theTree.pick());
+
+    std::unique_ptr<Cherry> theCherry(theTree.pick()); //will move BingCherry from pick to Cherry
+    
     theCherry->printType();
 
     return 0;
