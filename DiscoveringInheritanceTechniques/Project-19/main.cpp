@@ -147,8 +147,8 @@ int main()
 
     BingCherryTree theTree;
 
-    std::unique_ptr<Cherry> theCherry(theTree.pick()); //will move BingCherry from pick to Cherry
-    
+    std::unique_ptr<Cherry> theCherry(theTree.pick()); // will move BingCherry from pick to Cherry
+
     theCherry->printType();
 
     return 0;
