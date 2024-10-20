@@ -10,6 +10,10 @@ set(CMAKE_CXX_FLAGS -pthread)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
+    Cherry.cpp
+    BingCherry.cpp
+    CherryTree.cpp
+    BingCherryTree.cpp
     main.cpp
 )
 
