@@ -54,9 +54,13 @@ or [ignore files](https://www.bmc.com/blogs/gitignore/)
 Adding a license to a repository
 [license](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)
 
+------------------------------------------------------------------------------------------------------------------------
+
 VS Code setting for integrated terminal to stop give input bin path to C++ std::cin, when launch the selected target --> 
 
 go to "Settings" -> type "terminal" in search box -> CMake Tools ->Cmake:Launch Behavior ->select "breakAndResueTerminal"
+
+-------------------------------------------------------------------------------------------------------------------------
 
 See a bin file in a hex editor in Visual Studio Code [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor) or [hexdump for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.vscode-hexdump) 
 
