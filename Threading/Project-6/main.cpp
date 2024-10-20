@@ -1,9 +1,23 @@
-// ATOMIC OPERATIONS LIBRARY
-// g++ main.cpp -o test -latomic
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief
+
+        ATOMIC OPERATIONS LIBRARY
+        g++ main.cpp -o test -latomic && ./test && rm test
+
+ * @version 0.1
+ * @date 2024-10-20
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 
 #include <iostream>
 #include <atomic>
 #include <experimental/type_traits>
+
+using namespace std;
 
 class Foo
 {
@@ -19,7 +33,7 @@ private:
 
 int main()
 {
-    using namespace std;
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     atomic<Foo> f;
 
