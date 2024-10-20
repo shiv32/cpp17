@@ -1,5 +1,18 @@
-// std::call_once
-// g++ main.cpp -o test -pthread
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ 
+        std::call_once
+        g++ main.cpp -o test -pthread && ./test && rm test
+
+
+ * @version 0.1
+ * @date 2024-10-21
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
 #include <iostream>
 #include <vector>
@@ -27,6 +40,8 @@ void processingFunction()
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     // Launch 3 threads.
     vector<thread> threads(3);
 
