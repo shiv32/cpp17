@@ -8,7 +8,7 @@
  * state of the Context.
  */
 
-//class State;
+class State;
 
 class Context
 {

@@ -11,12 +11,11 @@ set(CMAKE_CXX_FLAGS -pthread)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
-    # State.cpp
-    # Context.cpp
-    # ConcreteStateA.cpp
-    # ConcreteStateB.cpp
-    #main.cpp
-    test_main.cpp
+    State.cpp
+    Context.cpp
+    ConcreteStateA.cpp
+    ConcreteStateB.cpp
+    main.cpp
 )
 
 # Add an executable with the above sources

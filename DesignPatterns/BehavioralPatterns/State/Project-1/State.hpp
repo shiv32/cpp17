@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <typeinfo>
+#include "Context.hpp"
 
 /**
  * The base State class declares methods that all Concrete State should
