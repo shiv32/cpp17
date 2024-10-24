@@ -1,3 +1,14 @@
+/**
+ * @file Context.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-10-23
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "Context.hpp"
 
 Context::Context(State *state) : state_(nullptr)

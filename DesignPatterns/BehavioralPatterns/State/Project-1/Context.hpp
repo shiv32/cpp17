@@ -1,3 +1,14 @@
+/**
+ * @file Context.hpp
+ * @author your name (you@domain.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-10-23
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #pragma once
 
 #include "State.hpp"
@@ -19,7 +30,6 @@ private:
     State *state_;
 
 public:
-    Context() = default;
     Context(State *state);
     ~Context();
 
