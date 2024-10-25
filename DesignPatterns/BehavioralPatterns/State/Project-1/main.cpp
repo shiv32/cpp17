@@ -17,7 +17,7 @@ void ClientCode()
 {
       Context *context = new Context(new ConcreteStateA);
       context->Request1();
-      context->Request2();
+      //context->Request2();
       delete context;
 }
 
