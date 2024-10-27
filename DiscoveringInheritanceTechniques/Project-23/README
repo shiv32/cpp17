@@ -1,3 +1,4 @@
+/*
 Inherited Constructors
             Use of the using keyword to explicitly include the base class
             definition of a method within a derived class.
@@ -188,3 +189,4 @@ Inherited Constructors
                                 private:
                                 int mInt = 0;
                             };
+*/

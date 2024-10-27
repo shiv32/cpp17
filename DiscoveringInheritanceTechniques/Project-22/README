@@ -1,3 +1,4 @@
+/*
 Inherited Constructors
             Use of the using keyword to explicitly include the base class
             definition of a method within a derived class.
@@ -135,7 +136,6 @@ Inherited Constructors
 
                     When using inherited constructors, make sure that all member variables are properly initialized. 
 
-
                      eg. 
                         This example does not properly initialize the mInt data member in all cases, which is a serious error.
 
@@ -189,3 +189,4 @@ Inherited Constructors
                                 private:
                                 int mInt = 0;
                             };
+*/
