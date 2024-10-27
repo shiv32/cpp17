@@ -21,5 +21,5 @@ class OFF : public State
 public:
     OFF();
     ~OFF();
-    void on(Machine *m);
+    void on(Machine *m) override;
 };
