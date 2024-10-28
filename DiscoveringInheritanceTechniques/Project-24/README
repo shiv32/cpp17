@@ -1,0 +1,66 @@
+/*
+
+Special Cases in Overriding Methods
+    Several special cases require attention when overriding a method. 
+
+The Base Class Method Is static
+    In C++, you cannot override a static method. 
+
+    First of all, a method cannot be both static and virtual.
+    If you have a static method in your derived class with the same name 
+    as a static method in your base class, you actually have two separate methods.
+
+        eg. 
+            class BaseStatic
+            {
+                public:
+                static void beStatic() {
+                cout << "BaseStatic being static." << endl; 
+                }
+            };
+
+            class DerivedStatic : public BaseStatic
+            {
+                public:
+                static void beStatic() {
+                cout << "DerivedStatic keepin' it static." << endl; 
+                }
+            };
+
+            a static method belongs to its class
+
+            BaseStatic::beStatic();
+            DerivedStatic::beStatic();
+
+            This outputs the following:
+
+            BaseStatic being static.
+            DerivedStatic keepin' it static.
+
+    In C++, you can call a static method using an object,
+    but because the method is static, it has no this pointer and no access to the object itself,
+    so it is equivalent to calling it by classname::method().
+
+        eg.
+
+            DerivedStatic myDerivedStatic;
+            BaseStatic& ref = myDerivedStatic;
+            myDerivedStatic.beStatic();
+            ref.beStatic();
+
+            C++ doesn’t care what the object actually is when calling a static method.
+            It only cares about the compile-time type.
+            In this case, the type is a reference to a BaseStatic.
+
+            The output of the previous example is as follows:
+
+            DerivedStatic keepin' it static.
+            BaseStatic being static.
+
+        NOTE:   static methods are scoped by the name of the class in which they are
+                defined, but they are not methods that apply to a specific object. 
+                When you call a static method, the version determined by normal name resolution is called.
+                When the method is called syntactically by using an object, the object is not
+                actually involved in the call, except to determine the type at compile time.
+
+*/
