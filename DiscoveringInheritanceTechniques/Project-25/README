@@ -1,0 +1,79 @@
+/*
+
+The Base Class Method Is Overloaded
+    When you override a method by specifying a name and a set of parameters, the compiler implicitly
+    hides all other instances of the name in the base class.
+    Consider the following Derived class, which overrides a method without overriding its associated overloaded siblings:
+
+        class Base
+        {
+            public:
+            virtual ~Base() = default;
+            virtual void overload() { cout << "Base's overload()" << endl; }
+            virtual void overload(int i) {
+            cout << "Base's overload(int i)" << endl; }
+        };
+
+        class Derived : public Base
+        {
+            public:
+            virtual void overload() override {
+            cout << "Derived's overload()" << endl; }
+        };
+
+    If you attempt to call the version of overload() that takes an int parameter on a Derived object,
+    your code will not compile because it was not explicitly overridden.
+
+        Derived myDerived;
+        myDerived.overload(2); // Error! No matching method for overload(int).
+
+    To access this version of the method from a Derived object. 
+    All you need is a pointer or a reference to a Base object:
+
+        Derived myDerived;
+        Base& ref = myDerived; //a simple cast to the base class brings them right back
+        ref.overload(7);
+
+    The using keyword can be employed to save you the trouble of overloading all the versions when
+    you really only want to change one.
+    In the following code, the Derived class definition uses one version of overload() from Base and
+    explicitly overloads the other:
+
+        class Base
+        {
+            public:
+            virtual ~Base() = default;
+            virtual void overload() { cout << "Base's overload()" << endl; }
+            virtual void overload(int i) {
+            cout << "Base's overload(int i)" << endl; }
+        };
+
+        class Derived : public Base
+        {
+            public:
+            using Base::overload;
+            virtual void overload() override {
+            cout << "Derived's overload()" << endl; }
+        };
+
+    Risks with using
+        While using is convenient, it can introduce risks:
+
+        ->  If there are overloads in the base class that the derived class doesn’t intend to expose,
+            the using directive will still make them accessible, potentially leading to unwanted behavior or exposure.
+
+        ->  Future changes in the base class (e.g., adding new overloads) can unexpectedly affect derived classes that
+            use using, leading to maintenance challenges.
+
+    Best Practice
+        Consider these guidelines:
+
+        ->  Use explicit overrides when you only need a subset of overloads or when you need specific behavior in the
+            derived class.
+        ->  Use using to bring in all overloads, especially if the derived class does not need to modify any behavior
+            but needs to expose all base class functionality.
+
+    WARNING: To avoid obscure bugs, you should override all versions of an overloaded method,
+             either explicitly or with the using keyword, but keep the risks of the using clause in mind.
+
+*/
