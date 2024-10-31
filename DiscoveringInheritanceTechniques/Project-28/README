@@ -1,0 +1,117 @@
+/*
+
+The Base Class Method Has a Different Access Level
+    There are two ways you may want to change the access level of a method: you could try to make it
+    more restrictive or less restrictive. 
+
+    To enforce tighter restrictions on a method (or on a data member for that matter), there are two
+    approaches you can take. 
+    One way is to change the access specifier for the entire base class.
+    The other approach is simply to redefine the access in the derived class.
+
+        eg.
+
+            class Gregarious
+            {
+                public:
+                virtual void talk() {
+                cout << "Gregarious says hi!" << endl; }
+            };
+
+            class Shy : public Gregarious
+            {
+                protected:
+                virtual void talk() override {
+                cout << "Shy reluctantly says hello." << endl; }
+            };
+
+    The protected version of talk() in the Shy class properly overrides the Gregarious::talk()
+    method. 
+    Any client code that attempts to call talk() on a Shy object gets a compilation error:
+
+        Shy myShy;
+        myShy.talk(); // Error! Attempt to access protected method.
+
+    However, the method is not fully protected.
+    One only has to obtain a Gregarious reference or pointer to access the method that you thought was protected:
+
+        Shy myShy;
+        Gregarious& ref = myShy;
+        ref.talk();
+
+        Output:
+
+        Shy reluctantly says hello.
+
+    This proves that making the method protected in the derived class actually overrode the method
+    (because the derived class version is correctly called),
+    but it also proves that the protected access can’t be fully enforced if the base class makes it public.
+
+    NOTE:   There is no reasonable way (or good reason) to restrict access to a public base class method.
+
+    NOTE:   The previous example redefined the method in the derived class because
+            it wants to display a different message.
+            If you don’t want to change the implementation, but instead only want to change the access level
+            of a method, the preferred way is to simply add a using statement in the derived class definition
+            with the desired access level.
+
+    The simplest way is to provide a public method that calls a protected method from the base class, as shown here:
+
+        class Secret
+        {
+            protected:
+            virtual void dontTell() { cout << "I'll never tell." << endl; }
+        };
+
+        class Blabber : public Secret
+        {
+            public:
+            virtual void tell() { dontTell(); }
+        };
+
+    A client calling the public tell() method of a Blabber object effectively accesses the protected
+    method of the Secret class. It just provides a public way of accessing dontTell().
+
+    You can also override dontTell() explicitly in Blabber and give it new behavior with public
+    access. 
+    This makes a lot more sense than reducing the level of access because it is entirely clear what
+    happens with a reference or pointer to the base class.
+
+            class Blabber : public Secret
+            {
+                public:
+                virtual void dontTell() override { cout << "I'll tell all!" << endl; }
+            };
+
+        Now you can call dontTell() on a Blabber object:
+
+            myBlabber.dontTell(); // Outputs "I'll tell all!"
+
+    If you don’t want to change the implementation of the overridden method, but only change the
+    access level, then you can use a using clause. 
+
+            class Blabber : public Secret
+            {
+                public:
+                using Secret::dontTell;
+            };
+
+    This also allows you to call dontTell() on a Blabber object, but this time the output will be “I’ll
+    never tell.”:
+
+            myBlabber.dontTell(); // Outputs "I'll never tell."
+   
+    In both previous cases, the protected method in the base class stays protected because
+    any attempts to call Secret’s dontTell() method through a Secret pointer or reference will not
+    compile.
+
+            Blabber myBlabber;
+            Secret& ref = myBlabber;
+            Secret* ptr = &myBlabber;
+            ref.dontTell(); // Error! Attempt to access protected method.
+            ptr->dontTell(); // Error! Attempt to access protected method.
+
+    NOTE:   The only truly useful way to change a method’s access level is by providing a less restrictive
+            accessor to a protected method.
+
+*/
