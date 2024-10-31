@@ -1,0 +1,58 @@
+/*
+
+The Base Class Method Has Default Arguments
+    Derived classes and base classes can each have different default arguments, but the arguments that
+    are used depend on the declared type of the variable, not the underlying object.
+
+        class Base
+        {
+            public:
+            virtual ~Base() = default;
+            virtual void go(int i = 2) {
+            cout << "Base's go with i=" << i << endl; }
+        };
+
+        class Derived : public Base
+        {
+            public:
+            virtual void go(int i = 7) override {
+            cout << "Derived's go with i=" << i << endl; }
+        };
+
+    If go() is called on a Derived object, Derived’s version of go() is executed with the default
+    argument of 7. 
+
+    If go() is called on a Base object, Base’s version of go() is called with the
+    default argument of 2.
+
+    if go() is called on a Base pointer or Base reference that really points to a Derived object,
+    Derived’s version of go() is called but with Base’s default argument of 2. 
+
+    This behavior is shown in the following example:
+
+        Base myBase;
+        Derived myDerived;
+        Base& myBaseReferenceToDerived = myDerived;
+        myBase.go();
+        myDerived.go();
+        myBaseReferenceToDerived.go();
+
+    The output of this code is as follows:
+
+        Base's go with i=2
+        Derived's go with i=7
+        Derived's go with i=2
+
+    The reason for this behavior is that C++ uses the compile-time type of the expression to bind default
+    arguments, not the run-time type.
+    Default arguments are not “inherited” in C++. 
+
+    If the Derived class in this example failed to provide a default argument as its parent did, it would be
+    overloading the go() method with a new non-zero-argument version.
+
+    NOTE:    When overriding a method that has a default argument, you should
+             provide a default argument as well, and it should probably be the same value.
+             It is recommended to use a symbolic constant for default values so that the same
+             symbolic constant can be used in derived classes.
+                    
+*/
