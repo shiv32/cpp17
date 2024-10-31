@@ -1,0 +1,89 @@
+/*
+
+The Base Class Method Is private or protected
+    Overriding a private or protected method is a common pattern in C++. 
+    Note: Java and C# only allow overriding public and protected methods, not private methods.
+
+        eg. 
+            The following class is part of a car simulator that estimates the number of miles the car
+            can travel based on its gas mileage and the amount of fuel left:
+
+                class MilesEstimator
+                {
+                    public:
+                    virtual ~MilesEstimator() = default;
+                    virtual int getMilesLeft() const;
+                    virtual void setGallonsLeft(int gallons);
+                    virtual int getGallonsLeft() const;
+                    
+                    private:
+                    int mGallonsLeft;
+                    virtual int getMilesPerGallon() const;
+                };
+
+            The implementations of the methods are as follows:
+
+                int MilesEstimator::getMilesLeft() const
+                {
+                    return getMilesPerGallon() * getGallonsLeft();
+                }
+                void MilesEstimator::setGallonsLeft(int gallons)
+                {
+                    mGallonsLeft = gallons;
+                }
+                int MilesEstimator::getGallonsLeft() const
+                {
+                    return mGallonsLeft;
+                }
+                int MilesEstimator::getMilesPerGallon() const
+                {
+                    return 20;
+                }
+
+            The following code uses the MilesEstimator to calculate how many miles can be traveled with
+            two gallons of gas:
+
+                MilesEstimator myMilesEstimator;
+                myMilesEstimator.setGallonsLeft(2);
+                cout << "Normal estimator can go " << myMilesEstimator.getMilesLeft()
+                << " more miles." << endl;
+
+            Output:
+
+            Normal estimator can go 40 more miles
+
+            To make the simulator more interesting, you may want to introduce different types of vehicles,
+            perhaps a more efficient car.
+
+            eg.
+                class EfficientCarMilesEstimator : public MilesEstimator
+                {
+                    private:
+                    virtual int getMilesPerGallon() const override;
+                };
+
+                The implementation is as follows:
+
+                int EfficientCarMilesEstimator::getMilesPerGallon() const
+                {
+                    return 35;
+                } 
+
+
+                The getMilesLeft() method in the base class automatically calls the
+                overridden version of the private getMilesPerGallon() method.
+
+
+                EfficientCarMilesEstimator myEstimator;
+                myEstimator.setGallonsLeft(2);
+                cout << "Efficient estimator can go " << myEstimator.getMilesLeft()
+                << " more miles." << endl;
+
+                Output reflects the overridden functionality:
+
+                Efficient estimator can go 70 more miles.
+
+            NOTE:   Overriding private and protected methods is a good way to change
+                    certain features of a class without a major overhaul.
+                    
+*/
