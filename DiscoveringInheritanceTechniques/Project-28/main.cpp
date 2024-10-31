@@ -10,11 +10,29 @@
  */
 
 #include <iostream>
+#include "Shy.hpp"
+#include "Blabber.hpp"
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+    // Shy myShy;
+    // myShy.talk(); // Error! Attempt to access protected method.
+
+    // Shy myShy;
+    // Gregarious &ref = myShy;
+    // ref.talk();
+
+    Blabber myBlabber;
+    // myBlabber.tell();
+    myBlabber.dontTell();
+
+    // Blabber myBlabber;
+    // Secret &ref = myBlabber;
+    // Secret *ptr = &myBlabber;
+    // ref.dontTell();  // Error! Attempt to access protected method.
+    // ptr->dontTell(); // Error! Attempt to access protected method.
 
     return 0;
 }
