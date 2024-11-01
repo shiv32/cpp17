@@ -1,0 +1,68 @@
+/*
+
+Copy Constructors and Assignment Operators in Derived Classes
+    Providing a copy constructor and assignment operator is considered a good
+    programming practice when you have dynamically allocated memory in a class.
+    When defining a derived class, you need to be careful about copy constructors and operator=.
+
+    If your derived class does not have any special data (pointers, usually) that require a nondefault copy
+    constructor or operator=, you don’t need to have one, regardless of whether or not the base class has one.
+
+    If your derived class omits the copy constructor or operator=, a default copy constructor
+    or operator= will be provided for the data members specified in the derived class, and the base class
+    copy constructor or operator= will be used for the data members specified in the base class.
+
+    If you do specify a copy constructor in the derived class, you need to explicitly
+    chain to the parent copy constructor. 
+    If you do not do this, the default constructor (not the copy constructor!) will be used
+    for the parent portion of the object.
+
+    eg.
+            class Base
+            {
+                public:
+                virtual ~Base() = default;
+                Base() = default;
+                Base(const Base& src);
+            };
+
+            Base::Base(const Base& src)
+            {
+            }
+
+            class Derived : public Base
+            {
+                public:
+                Derived() = default;
+                Derived(const Derived& src);
+            };
+
+            Derived::Derived(const Derived& src) : Base(src)
+            {
+            }
+
+    If the derived class overrides operator=, it is almost always necessary to call the parent’s
+    version of operator= as well.
+
+            Derived& Derived::operator=(const Derived& rhs)
+            {
+                if (&rhs == this) {
+                return *this;
+                }
+            
+                Base::operator=(rhs); // Calls parent's operator=.
+                // Do necessary assignments for derived class.
+                return *this;
+            }
+
+WARNING:    If your derived class does not specify its own copy constructor
+            or operator=, the base class functionality continues to work.
+            However, if the derived class does provide its own copy constructor or operator=,
+            it needs to explicitly call the base class versions.
+
+NOTE:   When you need copy functionality in an inheritance hierarchy,
+        the common idiom employed by professional C++ developers is to implement a 
+        polymorphic clone() method, because relying on the standard copy constructor and
+        copy assignment operators is not sufficient.
+
+*/
