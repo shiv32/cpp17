@@ -11,12 +11,15 @@
  */
 
 #include <iostream>
-
+#include "DogBird.hpp"
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+    DogBird myConfusedAnimal;
+    myConfusedAnimal.eat();
+    myConfusedAnimal.sleep(); // Not ambiguous because of virtual base class
 
     return 0;
 }
