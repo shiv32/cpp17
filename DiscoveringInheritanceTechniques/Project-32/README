@@ -1,0 +1,86 @@
+/*
+
+Non-public Inheritance
+    If you don’t specify any access specifier for the parent, then it is private inheritance for a
+    class, and public inheritance for a struct.
+
+    Declaring the relationship with the parent to be protected means that all public methods and data
+    members from the base class become protected in the context of the derived class. 
+    Specifying private inheritance means that all public and protected methods and data members of the
+    base class become private in the derived class.
+
+    Some programmers abuse this language feature, often in combination with multiple inheritance, 
+    to implement “components” of a class. 
+    Instead of making an Airplane class that contains an engine data member and a fuselage data member, 
+    they make an Airplane class that is a protected engine and a protected fuselage. 
+    In this way, the Airplane doesn’t look like an engine or a fuselage to client code (because everything is protected), 
+    but it is able to use all of that functionality internally.
+
+    NOTE:   Non-public inheritance is rare and I recommend using it cautiously, 
+            if for no other reason than because most programmers are not familiar with it.
+
+
+Virtual Base Classes
+    You learned about ambiguous base classes, a situation that arises when multiple parents 
+    each have a parent in common.
+
+                     <-Dog
+                    /      \  
+                Animal       DogBird
+                    \       /
+                     <-Bird
+
+    The solution that I recommended was to make sure that the shared parent doesn’t have
+    any functionality of its own. 
+    That way, its methods can never be called and there is no ambiguity problem.
+
+    C++ has another mechanism, called virtual base classes, for addressing this problem if 
+    you do want the shared parent to have its own functionality.
+      
+            eg.
+                    class Animal
+                    {
+                        public:
+                        virtual void eat() = 0;
+                        virtual void sleep() { cout << "zzzzz...." << endl; }
+                    };
+
+                    class Dog : public virtual Animal
+                    {
+                        public:
+                        virtual void bark() { cout << "Woof!" << endl; }
+                        virtual void eat() override { cout << "The dog ate." << endl; }
+                    };
+
+                    class Bird : public virtual Animal
+                    {
+                        public:
+                        virtual void chirp() { cout << "Chirp!" << endl; }
+                        virtual void eat() override { cout << "The bird ate." << endl; }
+                    };
+
+                    class DogBird : public Dog, public Bird
+                    {
+                        public:
+                        virtual void eat() override { Dog::eat(); }
+                    };
+
+                    int main()
+                    {
+                        DogBird myConfusedAnimal;
+                        myConfusedAnimal.sleep(); // Not ambiguous because of virtual base class
+                        return 0;
+                    }
+
+    Code adds a sleep() method to the Animal base class and modifies the Dog and Bird classes
+    to inherit from Animal as a virtual base class.
+    Without the virtual keyword, a call to sleep() on a DogBird object would be ambiguous and would generate
+    a compiler error because DogBird would have two subobjects of class Animal, one coming from Dog and one 
+    coming from Bird. 
+    However, when Animal is inherited virtually, DogBird has only one subobject of class Animal, so there will
+    be no ambiguity with calling sleep().
+
+    NOTE:   Virtual base classes are a great way to avoid ambiguity in class hierarchies. 
+            The only drawback is that many C++ programmers are unfamiliar with the concept.
+
+*/  
