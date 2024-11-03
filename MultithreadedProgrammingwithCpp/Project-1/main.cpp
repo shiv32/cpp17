@@ -1,20 +1,27 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief 
-  
-    Thread with Function Pointer
-    
-    g++ main.cpp -o test -pthread && ./test && rm test
+ * @brief THREADS
+            Thread with Function Pointer
+
+            output of the example can be mixed together as follows:
+
+            Counter Counter 2 has value 0
+            1 has value 0
+            Counter 1 has value 1
+            Counter 1 has value 2
+            ...
+            
+            This can be fixed using synchronization methods.
+
+            g++ main.cpp -o test -pthread && ./test && rm test
 
  * @version 0.1
  * @date 2024-10-05
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
-
-
 
 #include <iostream>
 #include <thread>

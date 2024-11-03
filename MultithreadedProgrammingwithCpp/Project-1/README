@@ -1,0 +1,23 @@
+/*
+
+Multithreaded programming is important on computer systems with multiple processor units.
+It allows you to write a program to use all those processor units in parallel. 
+
+THREADS
+    The C++ threading library, defined in the <thread> header file, makes it very easy to launch new
+    threads. 
+    You can let the new thread execute a global function, the operator() of a function object, 
+    a lambda expression, or even a member function of an instance of some class.
+
+    Thread with Function Pointer
+        Functions such as CreateThread(), _beginthread(), and so on, on Windows, and
+        pthread_create() with the pthreads library, require that the thread function 
+        has only one parameter. 
+        On the other hand, a function that you want to use with the standard C++ std::thread class can have
+        as many parameters as you want.
+
+NOTE:   Thread function arguments are always copied into some internal storage
+        for the thread. 
+        Use std::ref() or cref() from the <functional> header to pass them by reference.
+
+*/
