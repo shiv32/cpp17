@@ -3,6 +3,53 @@
 Multithreaded programming is important on computer systems with multiple processor units.
 It allows you to write a program to use all those processor units in parallel. 
 
+A professional C++ programmer needs to know how to write correct multithreaded code to take
+full advantage of all the available processor units.
+
+C++11 solved platform-independent multithreaded code problem by including a standard threading library.
+
+There are also third-party C++ libraries that try to make multithreaded programming more platform independent, 
+such as pthreads and the boost::thread library.
+
+INTRODUCTION
+        Multithreaded programming allows you to perform multiple calculations in parallel. 
+        As a result, you can take advantage of the multiple processor units inside virtually all systems today. 
+
+        NOTE:   To prevent multithreading problems, try to design your programs so that
+                multiple threads need not read and write to shared memory. 
+                Or, use a synchronization method (as described in the section “Mutual Exclusion”) or
+                atomic operations (as described in the section “Atomic Operations Library”).
+
+Race Conditions
+        Race conditions can occur when multiple threads want to access any kind of shared resources.
+        Race conditions in the context of shared memory are called data races. 
+        A data race can occur when multiple threads access shared memory, and at least one thread writes 
+        to the shared memory.
+
+Tearing
+        Tearing is a specific case or consequence of a data race. 
+        There are two kinds of tearing: torn read and torn write. 
+        
+        If a thread has written part of your data to memory, while another part hasn’t been
+        written yet by the same thread, any other thread reading that data at that exact moment sees 
+        inconsistent data, a torn read. 
+        
+        If two threads are writing to the data at the same time, one thread might
+        have written part of the data, while another thread might have written another part of the data. 
+        The final result will be inconsistent, a torn write.
+
+Deadlocks
+        If you opt to solve a race condition by using a synchronization method, such as mutual exclusion,
+        you might run into another common problem with multithreaded programming: deadlocks. 
+        Two threads are deadlocked if they are both waiting for the other thread to do something.
+
+False-Sharing
+        Most caches work with so-called cache lines. 
+        For modern CPUs, cache lines are usually 64 bytes.
+        If something needs to be written to a cache line, the entire line needs to be locked. 
+        This can bring a serious performance penalty for multithreaded code if your data 
+        structure is not properly designed. 
+
 THREADS
     The C++ threading library, defined in the <thread> header file, makes it very easy to launch new
     threads. 
@@ -10,14 +57,12 @@ THREADS
     a lambda expression, or even a member function of an instance of some class.
 
     Thread with Function Pointer
-        Functions such as CreateThread(), _beginthread(), and so on, on Windows, and
-        pthread_create() with the pthreads library, require that the thread function 
-        has only one parameter. 
+        Functions such as CreateThread(), _beginthread(), and so on, on Windows, and pthread_create() with 
+        the pthreads library, require that the thread function has only one parameter. 
         On the other hand, a function that you want to use with the standard C++ std::thread class can have
         as many parameters as you want.
 
-NOTE:   Thread function arguments are always copied into some internal storage
-        for the thread. 
+NOTE:   Thread function arguments are always copied into some internal storage for the thread. 
         Use std::ref() or cref() from the <functional> header to pass them by reference.
 
 */
