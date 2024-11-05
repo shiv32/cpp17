@@ -1,0 +1,11 @@
+/*
+
+Thread with Member Function
+        You can specify a member function of a class to be executed in a thread.
+
+        With this technique, you are executing a method on a specific object in a separate thread. 
+        If other threads are accessing the same object, you need to make sure this happens in a 
+        thread-safe way to avoid data races.
+        Mutual exclusion, can be used as a synchronization mechanism to make it thread-safe.
+
+*/

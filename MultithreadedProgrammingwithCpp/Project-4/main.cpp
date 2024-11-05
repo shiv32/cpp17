@@ -1,10 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief
- *
- *
-            Thread with Member Function
+ * @brief Thread with Member Function
 
             g++ main.cpp -o test -pthread && ./test && rm test
  *
@@ -22,7 +19,11 @@
 class Request
 {
 public:
-    Request(int id) : mId(id) {}
+    Request(int id) : mId(id) 
+    {
+        std::cout<<__PRETTY_FUNCTION__<<std::endl;
+    }
+
     void process()
     {
         std::cout << "Processing request " << mId << std::endl;
