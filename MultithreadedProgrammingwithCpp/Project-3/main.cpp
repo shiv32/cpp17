@@ -1,9 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief
- *
-            Thread with Lambda
+ * @brief Thread with Lambda
 
             g++ main.cpp -o test -pthread && ./test && rm test
  *

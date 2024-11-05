@@ -1,0 +1,6 @@
+/*
+
+Thread with Lambda
+        Lambda expressions fit nicely with the standard C++ threading library.
+
+*/
