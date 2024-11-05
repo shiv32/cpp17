@@ -11,7 +11,7 @@ Thread with Function Object
                 {
                         public:
                         Counter() {}
-                        void operator()() const { /* Omitted for brevity */ }
+                        void operator()() const { //Omitted for brevity }
                 };
 
                 int main()
