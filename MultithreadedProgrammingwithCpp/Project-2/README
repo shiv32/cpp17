@@ -1,0 +1,39 @@
+/*
+
+Thread with Function Object
+        Instead of using function pointers, you can also use a function object to execute in a thread. 
+        With the function pointer technique, the only way to pass information to the thread is by passing 
+        arguments to the function. 
+        With function objects, you can add member variables to your function object class, which you can 
+        initialize and use however you want.
+
+                class Counter
+                {
+                        public:
+                        Counter() {}
+                        void operator()() const { /* Omitted for brevity */ }
+                };
+
+                int main()
+                {
+                        thread t1(Counter()); // Error!
+                        t1.join();
+                }
+
+        This results in a compilation error because C++ interprets the first line in main() as a declaration
+        of a function called t1, which returns a thread object and accepts a pointer to a function without
+        parameters returning a Counter object. 
+        For this reason, it’s recommended to use the uniform initialization syntax:
+        
+        thread t1{ Counter{} }; // OK
+        
+
+NOTE:    Function objects are always copied into some internal storage for the thread. 
+         If you want to execute operator() on a specific instance of your function object 
+         instead of copying it, you should use std::ref() or cref() from the <functional> header 
+         to pass your instance by reference, for example:
+        
+         Counter c(2, 12);
+         thread t2(ref(c));
+
+*/
