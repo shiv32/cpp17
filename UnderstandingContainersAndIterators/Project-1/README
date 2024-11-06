@@ -1,4 +1,51 @@
 /*
-ContainersAndIterators
+
+CONTAINERS OVERVIEW
+    Containers in the Standard Library are generic data structures that are useful for storing collections
+    of data.
+    You should rarely need to use a standard C-style array, write a linked list, or design a stack
+    when you use the Standard Library.
+    The containers are implemented as class templates, so you can instantiate them for any type that meets 
+    certain basic conditions.
+    Most of the Standard Library containers, except for array and bitset, are flexible in size and 
+    automatically grow or shrink to accommodate more or fewer elements.
+    Because of the fixed-size nature of standard C-style arrays, they are more vulnerable to overruns, 
+    which in the simplest cases merely cause the program to crash because data has been corrupted, but in 
+    the worst cases allow certain kinds of security attacks. 
+    By using Standard Library containers, you ensure that your programs will be less vulnerable to these 
+    kinds of problems.
+
+    The Standard Library provides 16 containers, divided into four categories.
+
+                Sequential containers
+                    ➤ vector (dynamic array)
+                    ➤ deque
+                    ➤ list
+                    ➤ forward_list
+                    ➤ array
+
+                Associative containers
+                    ➤ map
+                    ➤ multimap
+                    ➤ set
+                    ➤ multiset
+
+                Unordered associative containers or hash tables
+                    ➤ unordered_map
+                    ➤ unordered_multimap
+                    ➤ unordered_set
+                    ➤ unordered_multiset
+
+                Container adaptors
+                    ➤ queue
+                    ➤ priority_queue
+                    ➤ stack
+
+    C++ strings and streams can also be used as Standard Library containers to a certain degree, 
+    and bitset can be used to store a fixed number of bits.
+
+    Everything in the Standard Library is in the std namespace. 
+    Use the blanket using namespace std; statement in source files (never use this in header files!).
+    You can be more selective in your own programs about which symbols from std to use.   
 
 */  
