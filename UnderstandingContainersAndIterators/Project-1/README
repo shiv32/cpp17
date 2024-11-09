@@ -90,6 +90,7 @@ CONTAINERS OVERVIEW
         below.
 
             METHOD
+            
             Copy Constructor
                 Creates a new element that is “equal” to the old one, but that can safely be destructed without 
                 affecting  the old one.
@@ -168,80 +169,81 @@ Iterators
     
     The standard defines five categories of iterators, as below.
 
-   ITERATOR CATEGORY
-   Input (also known as Read)
-        operator++
-        operator*
-        operator->
-        copy constructor
-        operator=
-        operator==
-        operator!=
+            ITERATOR CATEGORY
 
-        Provides read-only access, forward only (no operator-- to move backward).
-        Iterators can be assigned, copied, and compared for equality.
+            Input (also known as Read)
+                operator++
+                operator*
+                operator->
+                copy constructor
+                operator=
+                operator==
+                operator!=
 
-    Output (also known as Write)
-        operator++
-        operator*
-        copy constructor
-        operator=
+                Provides read-only access, forward only (no operator-- to move backward).
+                Iterators can be assigned, copied, and compared for equality.
 
-        Provides write-only access, forward only.
-        Iterators can be assigned, but cannot be compared for equality.
-        Specific to output iterators is that you can do *iter = value.
-        Note the absence of operator->.
-        Provides both prefix and postfix operator++.
+            Output (also known as Write)
+                operator++
+                operator*
+                copy constructor
+                operator=
 
-    Forward
-        Capabilities of input iterators, plus default constructor.
+                Provides write-only access, forward only.
+                Iterators can be assigned, but cannot be compared for equality.
+                Specific to output iterators is that you can do *iter = value.
+                Note the absence of operator->.
+                Provides both prefix and postfix operator++.
 
-        Provides read access, forward only.
-        Iterators can be assigned, copied, and compared for equality.
+            Forward
+                Capabilities of input iterators, plus default constructor.
 
-    Bidirectional
-        Capabilities of forward iterators, plus operator--
+                Provides read access, forward only.
+                Iterators can be assigned, copied, and compared for equality.
 
-        Provides everything a forward iterator provides.
-        Iterators can also move backward to a previous element.
-        Provides both prefix and postfix operator--.
+            Bidirectional
+                Capabilities of forward iterators, plus operator--
 
-    Random Access
-        Bidirectional capability,
-        plus the following:
-        operator+
-        operator-
-        operator+=
-        operator-=
-        operator<
-        operator>
-        operator<=
-        operator>=
-        operator[]
+                Provides everything a forward iterator provides.
+                Iterators can also move backward to a previous element.
+                Provides both prefix and postfix operator--.
 
-        Equivalent to raw pointers: support pointer arithmetic, array index syntax, and all forms of
-        comparison.
+            Random Access
+                Bidirectional capability,
+                plus the following:
+                operator+
+                operator-
+                operator+=
+                operator-=
+                operator<
+                operator>
+                operator<=
+                operator>=
+                operator[]
+
+                Equivalent to raw pointers: support pointer arithmetic, array index syntax, and all forms of
+                comparison.
 
 
-Iterators that satisfy the requirements for output iterators are called mutable iterators,
-otherwise they are called constant iterators.
+    Iterators that satisfy the requirements for output iterators are called mutable iterators,
+    otherwise they are called constant iterators.
 
-You can use std::distance() to compute the distance between two iterators of a container.
+    You can use std::distance() to compute the distance between two iterators of a container.
 
-Iterators are implemented similarly to smart pointer classes in that they overload the specific desired
-operators.
+    Iterators are implemented similarly to smart pointer classes in that they overload the specific desired
+    operators.
 
-The basic iterator operations are similar to those supported by raw pointers, so a raw pointer can be
-a legitimate iterator for certain containers. 
-In fact, the vector iterator could technically be implemented as a simple raw pointer.
-As a client of the containers, you need not worry about the implementation details; 
-you can simply use the iterator abstraction.
+    The basic iterator operations are similar to those supported by raw pointers, so a raw pointer can be
+    a legitimate iterator for certain containers. 
+    In fact, the vector iterator could technically be implemented as a simple raw pointer.
+    As a client of the containers, you need not worry about the implementation details; 
+    you can simply use the iterator abstraction.
 
-NOTE:   Iterators might, or might not, be implemented internally as pointers, so this text uses the 
-        term “refers to” instead of “points to” when discussing the elements accessible via an iterator.
+    NOTE:   Iterators might, or might not, be implemented internally as pointers, so this text uses the 
+            term “refers to” instead of “points to” when discussing the elements accessible via an iterator.
 
-NOTE:   Only the sequential containers, ordered associative containers, and unordered associative containers 
-        provide iterators. 
-        The container adaptors and bitset class do not support iteration over their elements.
+    NOTE:   Only the sequential containers, ordered associative containers, and unordered associative containers 
+            provide iterators. 
+            The container adaptors and bitset class do not support iteration over their elements.
 
 */  
