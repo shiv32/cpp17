@@ -192,8 +192,8 @@ Iterators
                 Provides write-only access, forward only.
                 Iterators can be assigned, but cannot be compared for equality.
                 Specific to output iterators is that you can do *iter = value.
-                Note the absence of operator->.
-                Provides both prefix and postfix operator++.
+                Note the absence of operator-> .
+                Provides both prefix and postfix operator++ .
 
             Forward
                 Capabilities of input iterators, plus default constructor.
