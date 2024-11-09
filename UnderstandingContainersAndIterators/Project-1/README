@@ -246,4 +246,34 @@ Iterators
             provide iterators. 
             The container adaptors and bitset class do not support iteration over their elements.
 
+    Every container class in the Standard Library that supports iterators provides public type aliases
+    for its iterator types, called iterator and const_iterator. 
+    For example, a const iterator for a vector of ints has as type std::vector<int>::const_iterator. 
+    Containers that allow you to iterate over their elements in reverse order also provide public type 
+    aliases called reverse_iterator and const_reverse_iterator.
+
+    NOTE: const_iterators and const_reverse_iterators provide read-only access to elements of the container.
+
+    The containers also provide a method begin() that returns an iterator referring to the first element
+    in the container. 
+    The end() method returns an iterator to the “past-the-end” value of the sequence of elements. 
+    That is, end() returns an iterator that is equal to the result of applying operator++ to an iterator 
+    referring to the last element in the sequence. 
+    Together, begin() and end() provide a half-open range that includes the first element but not the last. 
+    The reason for this apparent complication is to support empty ranges (containers without any elements), 
+    in which case begin() is equal to end(). 
+    The half-open range bounded by iterators begin() and end() is often written mathematically like this: [begin, end).
+
+    NOTE:   The half-open range concept also applies to iterator ranges that are passed to container methods such 
+            as insert() and erase().
+
+    Similarly, there are
+        ➤➤ cbegin() and cend() methods that return const iterators.
+        ➤➤ rbegin() and rend() methods that return reverse iterators.
+        ➤➤ crbegin() and crend() methods that return const reverse iterators.
+
+    NOTE:    The Standard Library also provides global non-member functions called std::begin(), end(), cbegin(),
+             cend(), rbegin(), rend(), crbegin(), and crend(). 
+             It’s recommended to use these non-member functions instead of the member versions.
+
 */  
