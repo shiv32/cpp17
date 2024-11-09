@@ -46,6 +46,105 @@ CONTAINERS OVERVIEW
 
     Everything in the Standard Library is in the std namespace. 
     Use the blanket using namespace std; statement in source files (never use this in header files!).
-    You can be more selective in your own programs about which symbols from std to use.   
+    You can be more selective in your own programs about which symbols from std to use.
+
+    Requirements on Elements
+        Standard Library containers use value semantics on elements. 
+        That is, they store a copy of elements that they are given, assign to elements with the 
+        assignment operator, and destroy elements with the destructor. 
+
+        Thus, when you write classes that you intend to use with the Standard Library, you need
+        to make sure they are copyable. 
+        When requesting an element from the container, a reference to the stored copy is returned.
+
+        If you prefer reference semantics, you can store pointers to elements instead of the elements 
+        themselves.
+        When the containers copy a pointer, the result still refers to the same element. 
+
+        An alternative is to store std::reference_wrappers in the container. 
+
+        A reference_wrapper can be created using std::ref() or std::cref(), and basically exist to make 
+        references copyable. 
+
+        The reference_wrapper class template, and the ref() and cref() function templates are defined in 
+        the <functional> header. 
+
+        It is possible to store move-only types, that is non-copyable types, in a container, but when doing
+        so, some operations on the container might not compile. 
+        An example of a move-only type is std::unique_ptr.
+
+        WARNING: If you want to store pointers in containers, use unique_ptr if the container becomes owner 
+                 of the pointed-to object, or shared_ptr if the container shares ownership with other owners. 
+                 Do not use the old, deprecated (removed in C++17) auto_ptr class in containers 
+                 because it does not implement copying correctly (as far as the Standard Library is concerned).
+
+        One of the template type parameters for Standard Library containers is a so-called allocator. 
+        The container can use this allocator to allocate and deallocate memory for elements. 
+        The allocator type parameter has a default value, so you can almost always just ignore it.
+
+        Some containers, such as a map, also accept a comparator as one of the template type parameters. 
+        This comparator is used to order elements. 
+        It has a default value, so you don’t always have to specify it. 
+
+        The specific requirements on elements in containers using the default allocator and comparator are
+        below.
+
+            METHOD
+            Copy Constructor
+                Creates a new element that is “equal” to the old one, but that can safely be destructed without 
+                affecting  the old one.
+
+                Used every time you insert an element, except when using an emplace method.
+
+            Move Constructor
+                Creates a new element by moving all content from a source element to the new element.
+
+                Used when the source element is an rvalue, and will be destroyed after the construction of the 
+                new element; 
+                also used when a vector grows in size. 
+                The move constructor should be noexcept, otherwise it won’t be used!
+
+            Assignment Operator
+                Replaces the contents of an element with a copy of the source element.
+
+                Used every time you modify an element.
+
+            Move Assignment Operator
+                Replaces the contents of an element by moving all content from a source element.
+
+                Used when the source element is an rvalue, and will be destroyed after the assignment operation. 
+                The move assignment operator should be noexcept, otherwise it won’t be used!
+
+            Destructor
+                Cleans up an element.
+
+                Used every time you remove an element, or when a vector grows in size and the elements are not 
+                noexcept movable.
+
+            Default Constructor
+                Constructs an element without any arguments.
+
+                Required only for certain operations, such as the vector::resize() method with one argument, and 
+                the map::operator[] access.
+
+            operator==
+                Compares two elements for equality.
+
+                Required for keys in unordered associative containers, and for certain operations, such as operator== 
+                on two containers.
+
+            operator<
+                Determines if one element is less than another.
+
+                Required for keys in ordered associative containers, and for certain operations, such as operator< 
+                on two containers.
+
+
+    For move semantics to work properly with Standard Library containers, the move constructor and the move 
+    assignment operator must be marked as noexcept!
+
+    WARNING: The Standard Library containers often call the copy constructor and copy assignment operator for 
+             elements, so make those operations efficient.
+             You can also increase performance by implementing move semantics for your elements.
 
 */  
