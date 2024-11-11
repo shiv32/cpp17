@@ -1,0 +1,21 @@
+/*
+Thread Local Storage
+        The C++ standard supports the concept of thread local storage. 
+        With a keyword called thread_local, you can mark any variable as thread local, 
+        which means that each thread will have its own unique copy of the variable and 
+        it will last for the entire duration of the thread.
+
+        For each thread, the variable is initialized exactly once. 
+        
+        For example, the following code defines two global variables. 
+        Every thread shares one—and only one—copy of k, while each thread has its own unique copy of n:
+                        
+                        int k;
+                        thread_local int n;
+
+        Note that if the thread_local variable is declared in the scope of a function, 
+        its behavior is as if it were declared static, except that every thread has its own unique copy 
+        and is initialized exactly once per thread, no matter how many times that function is called in 
+        that thread.
+
+*/
