@@ -1,0 +1,13 @@
+/*
+Cancelling Threads
+        The C++ standard does not include any mechanism for cancelling a running thread from another
+        thread. 
+        The best way to achieve this is to provide some communication mechanism that the two threads 
+        agree upon. 
+        The simplest mechanism is to have a shared variable, which the target thread
+        checks periodically to determine if it should terminate. 
+        Other threads can set this shared variable to indirectly instruct the thread to shut down. 
+        You have to be careful here, because this shared variable is being accessed by multiple threads, 
+        of which at least one is writing to the shared variable. 
+        It’s recommended to use atomic variables or condition variables.
+*/
