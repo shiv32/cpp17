@@ -1,4 +1,85 @@
 /*
-ContainersAndIterators
+SEQUENTIAL CONTAINERS
+    vector, deque, list, forward_list, and array are called sequential containers. 
+    The best way to learn about sequential containers is to jump in with an example 
+    of the vector container, which should be your default container. 
+
+vector
+    The Standard Library vector container is similar to a standard C-style array: the elements are
+    stored in contiguous memory, each in its own “slot.” 
+    You can index into a vector, as well as add new elements to the back or insert them anywhere else. 
+    Inserting and deleting elements into and from a vector generally takes linear time, though these 
+    operations actually run in amortized constant time at the end of a vector.
+    Random access of individual elements has a constant complexity.
+
+vector Overview
+    vector is defined in the <vector> header file as a class template with two type parameters: 
+    the element type to store and an allocator type.
+
+    template <class T, class Allocator = allocator<T>> class vector;
+    
+    The Allocator parameter specifies the type for a memory allocator object that the client can set in
+    order to use custom memory allocation. 
+    This template parameter has a default value.
+
+        NOTE:   The default value for the Allocator type parameter is sufficient for most
+                applications. 
+                Assumes that you always use the default allocator.
+
+Fixed-Length vectors
+    The simplest way to use a vector is as a fixed-length array. 
+    vector provides a constructor that allows you to specify the number of elements, and provides an overloaded 
+    operator[] in order to access and modify those elements. 
+    The C++ standard states that the result of operator[] is undefined when used to access an element outside the vector bounds. 
+    This means that any compiler can decide how to behave in that case. 
+    For example, the default behavior of Microsoft Visual C++ is to give a run-time error message when your program is compiled in debug mode, and to disable any bounds checking in release mode for performance reasons. 
+    You can change these default behaviors.
+
+        WARNING: Like “real” array indexing, the operator[] on a vector does not provide bounds checking.
+
+    In addition to using operator[], you can access vector elements via at(), front(), and back().
+    The at() method is identical to operator[], except that it performs bounds checking, and throws
+    an out_of_range exception if the index is out of bounds. 
+    front() and back() return references to the first and last elements of a vector, respectively. 
+    Calling front() or back() on an empty container causes undefined behavior.
+
+        NOTE: All vector element accesses run with constant complexity.
+
+    Here is a small example program to “normalize” test scores so that the highest score is set to 100,
+    and all other scores are adjusted accordingly. 
+    The program creates a vector of ten doubles, reads in ten values from the user, divides each value by 
+    the max score (times 100), and prints out the new values. 
+
+            vector<double> doubleVector(10); // Create a vector of 10 doubles.
+
+            // Initialize max to smallest number
+            double max = -numeric_limits<double>::infinity();
+
+            for (size_t i = 0; i < doubleVector.size(); i++) {
+
+                cout << "Enter score " << i + 1 << ": ";
+                cin >> doubleVector[i];
+
+                if (doubleVector[i] > max) {
+                 max = doubleVector[i];
+                }
+            }
+
+            max /= 100.0;
+
+            for (auto& element : doubleVector) {
+
+                element /= max;
+                cout << element << " ";
+
+            }
+
+    Here, the range-based for loop uses auto& and not auto because a reference is required so that the
+    element can be modified in each iteration.
+
+        NOTE:   The operator[] on a vector normally returns a reference to the element, which can be used 
+                on the left-hand side of assignment statements. 
+                If operator[] is called on a const vector object, it returns a reference to a const element, 
+                which cannot be used as the target of an assignment. 
 
 */  
