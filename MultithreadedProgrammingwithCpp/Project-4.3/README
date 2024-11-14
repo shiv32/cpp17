@@ -1,0 +1,19 @@
+/*
+Retrieving Results from Threads
+        Launching a new thread is pretty easy. 
+        In most cases you are probably interested in results produced by the thread. 
+        
+        For example, if your thread performs some mathematical calculations, you really would like to get 
+        the results out of the thread once the thread is finished. 
+        
+        One way is to pass a pointer or reference to a result variable to the thread in which the thread 
+        stores the results. 
+        Another method is to store the results inside class member variables of a function object, which 
+        you can retrieve later once the thread has finished executing.
+
+        This only works if you use std::ref() to pass your function object by reference to the thread
+        constructor.
+        
+        There is another easier method to obtain a result from threads: futures. 
+        Futures also make it easier to handle errors that occur inside your threads.
+*/
