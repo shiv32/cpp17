@@ -1,0 +1,55 @@
+File Structure
+
+/MyArduinoProject
+    /src
+        LED.hpp      // Header file with class definition
+        LED.cpp      // Source file with class implementation
+    main.ino         // Main Arduino sketch
+
+--------------------------------------------------------------------
+
+How to Use
+
+File Structure:
+Create a folder named MyArduinoProject in your Arduino sketch directory.
+Inside MyArduinoProject, create a src folder to hold the .hpp and .cpp files.
+
+Save Files:
+Save the LED.hpp and LED.cpp files in the src folder.
+Save the main.ino file in the MyArduinoProject folder.
+
+Open the Project:
+Open the main.ino file in the Arduino IDE.
+
+Upload:
+Select your Arduino board and port in the IDE.
+Click Upload to compile and upload the sketch
+
+--------------------------------------------------------------------------
+
+Why Use Separate .hpp and .cpp Files?
+
+Modularity:
+Keeps the class implementation separate from the main logic.
+
+Reusability:
+You can reuse the LED class in other projects.
+
+Scalability:
+Makes it easier to manage large and complex projects.
+
+Better Organization:
+Logical separation of interface (.hpp) and implementation (.cpp).
+
+This approach is particularly useful for larger projects with multiple classes and modules.
+
+-------------------------------------------------------------------------------
+
+Steps to Use CMake with Arduino
+
+1. Install Arduino-CMake-Toolchain
+The easiest way to use CMake with Arduino is by using an external toolchain, such as Arduino-CMake or Arduino-CMake-Toolchain. These toolchains provide CMake modules and helpers to work with Arduino.
+
+Repository: https://github.com/arduino-cmake/Arduino-CMake-NG
+Installation: Clone or download the repository and follow its setup instructions.
+
