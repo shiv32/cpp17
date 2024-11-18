@@ -1,3 +1,4 @@
+/*
 
 vector Details
     Now that you’ve had a taste of vectors, it’s time to delve into their details.
@@ -43,4 +44,4 @@ Constructors and Destructors
     You can allocate vectors on the heap as well.
     
         auto elementVector = make_unique<vector<Element>>(10);
-
+*/
