@@ -1,0 +1,44 @@
+/*
+
+Dynamic-Length vectors
+    The real power of a vector lies in its ability to grow dynamically.
+
+    For example, consider the test score normalization program with the 
+    additional requirement that it should handle any number of test scores. 
+
+            vector<double> doubleVector; // Create a vector with zero elements.
+
+        // Initialize max to smallest number
+        double max = -numeric_limits<double>::infinity();
+
+        for (size_t i = 1; true; i++) {
+
+            double temp;
+
+            cout << "Enter score " << i << " (-1 to stop): ";
+
+            cin >> temp;
+
+            if (temp == -1) {
+                break;
+            }
+
+            doubleVector.push_back(temp);
+
+            if (temp > max) {
+                max = temp;
+            }
+        }
+        
+        max /= 100.0;
+
+        for (auto& element : doubleVector) {
+            element /= max;
+            cout << element << " ";
+        }
+
+    This version of the program uses the default constructor to create a vector with zero elements. 
+    As each score is read, it’s added to the vector with the push_back() method, which takes care of 
+    allocating space for the new element.
+
+*/  
