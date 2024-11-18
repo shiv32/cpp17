@@ -1,0 +1,46 @@
+
+vector Details
+    Now that you’ve had a taste of vectors, it’s time to delve into their details.
+
+Constructors and Destructors
+    The default constructor creates a vector with zero elements.
+
+        vector<int> intVector; // Creates a vector of ints with zero elements
+
+    You can specify a number of elements and, optionally, a value for those elements, like this:
+
+        vector<int> intVector(10, 100); // Creates vector of 10 ints with value 100
+
+    If you omit the default value, the new objects are zero-initialized. 
+    Zero-initialization constructs objects with the default constructor, and initializes 
+    primitive integer types (such as char, int, and so on) to zero,
+    primitive floating-point types to 0.0, and pointer types to nullptr.
+
+    You can create vectors of built-in classes like this:
+
+        vector<string> stringVector(10, "hello");
+
+    User-defined classes can also be used as vector elements:
+
+        class Element
+        {
+            public:
+            Element() {}
+            virtual ~Element() = default;
+        };
+        ...
+        vector<Element> elementVector;
+
+    A vector can be constructed with an initializer_list containing the initial elements:
+
+        vector<int> intVector({ 1, 2, 3, 4, 5, 6 });
+
+    initializer_lists can also be used for so-called uniform initialization, Here is an example:
+
+        vector<int> intVector1 = { 1, 2, 3, 4, 5, 6 };
+        vector<int> intVector2{ 1, 2, 3, 4, 5, 6 };
+
+    You can allocate vectors on the heap as well.
+    
+        auto elementVector = make_unique<vector<Element>>(10);
+
