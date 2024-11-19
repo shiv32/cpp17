@@ -1,9 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief
- *
-    Copying and Rethrowing Exceptions
+ * @brief Copying and Rethrowing Exceptions
 
     g++ main.cpp -o test -pthread && ./test && rm test
 

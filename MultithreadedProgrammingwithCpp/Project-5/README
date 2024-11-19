@@ -1,0 +1,90 @@
+/*
+
+Copying and Rethrowing Exceptions
+    The whole exception mechanism in C++ works perfectly fine, as long as it stays within one single thread. 
+    
+    Every thread can throw its own exceptions, but they need to be caught within their own thread. 
+    
+    If a thread throws an exception and it is not caught inside the thread, the C++ runtime calls std::terminate(), 
+    
+    which terminates the whole application. 
+    
+    Exceptions thrown in one thread cannot be caught in another thread. 
+    
+    This introduces quite a few problems when you would like to use exception handling in combination with 
+    multithreaded programming.
+
+    The standard threading library solves this issue with the following exception-related functions. 
+    These functions work not only with std::exceptions, but also with other kinds of exceptions, ints, 
+    strings, custom exceptions, and so on:
+
+        ➤➤    exception_ptr current_exception() noexcept;
+                This is intended to be called from inside a catch block. 
+                It returns an exception_ptr object that refers to the exception currently being handled, 
+                or a copy of the currently handled exception. 
+                A null exception_ptr object is returned if no exception is being handled. 
+
+        ➤➤    [[noreturn]] void rethrow_exception(exception_ptr p);
+                This function rethrows the exception referenced by the exception_ptr parameter.
+                Rethrowing the referenced exception does not have to be done in the same thread that 
+                generated the referenced exception in the first place, which makes this feature perfectly 
+                suited for handling exceptions across different threads.
+                
+        ➤➤    template<class E> exception_ptr make_exception_ptr(E e) noexcept;
+                This function creates an exception_ptr object that refers to a copy of the given exception
+                object. 
+                This is basically a shorthand notation for the following code:
+
+                    try {
+
+                        throw e;
+
+                    } catch(...) {
+
+                        return current_exception();
+
+                    }
+
+        
+        main() functions usually use join() to block the main thread, and to wait until threads have finished. 
+        Of course, in real-world applications you do not want to block your main thread. 
+        For example, in a GUI application, blocking your main thread means that the UI becomes unresponsive. 
+        In that case, you can use a messaging paradigm to communicate between threads. 
+        For example, the threadFunc() function could send a message to the UI thread with as argument 
+        a copy of the result of current_exception(). 
+        But even then, you need to make sure to call either join() or detach() on any spawned threads.
+
+                    void doSomeWork()
+                    {
+                 
+                    }
+
+                    void threadFunc(exception_ptr& err)
+                    {
+                        doSomeWork();
+                    }
+
+                    void doWorkInThread()
+                    {
+                        // Launch thread
+                        thread t{ threadFunc, ref(error) };
+
+                        // Wait for thread to finish
+                        t.join();
+                    }
+
+                    int main()
+                    {
+                        try {
+
+                        doWorkInThread();
+
+                        } catch (const exception& e) {
+                            
+                        cout << "Main function caught: '" << e.what() << "'" << endl;
+
+                        }
+                    }
+
+
+*/
