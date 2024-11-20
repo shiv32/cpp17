@@ -71,6 +71,8 @@ Copying and Rethrowing Exceptions
 
                         // Wait for thread to finish
                         t.join();
+
+                        rethrow_exception(error);
                     }
 
                     int main()
