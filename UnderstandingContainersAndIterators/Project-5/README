@@ -1,0 +1,35 @@
+/*
+
+Copying and Assigning vectors
+    A vector stores copies of the objects, and its destructor calls the destructor for each of the objects.
+    The copy constructor and assignment operator of the vector class perform deep copies of all the elements 
+    in the vector. 
+    Thus, for efficiency, you should pass vectors by reference or const reference to functions and methods. 
+
+    In addition to normal copying and assignment, vectors provide an assign() method that removes all the 
+    current elements and adds any number of new elements. 
+    This method is useful if you want to reuse a vector. 
+    
+    eg.
+        intVector is created with ten elements having the default value zero. 
+        Then assign() is used to remove all ten elements and replace them with five elements with value 100.
+
+                    vector<int> intVector(10);
+
+                    intVector.assign(5, 100);
+
+        assign() can also accept an initializer_list. 
+        intVector now has four elements with the given values.
+
+                    intVector.assign({ 1, 2, 3, 4 });
+
+    vectors also provide a swap() method that allows you to swap the contents of two vectors in constant time.
+
+                vector<int> vectorOne(10);
+                vector<int> vectorTwo(5, 100);
+                vectorOne.swap(vectorTwo);
+                // vectorOne now has 5 elements with the value 100.
+                // vectorTwo now has 10 elements with the value 0. 
+
+
+*/
