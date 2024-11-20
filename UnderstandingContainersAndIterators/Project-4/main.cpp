@@ -30,7 +30,7 @@ public:
     }
 
 private:
-    int value{};
+    int value{-1};
 };
 
 int main()
@@ -47,7 +47,7 @@ int main()
         std::cout << element;
     }
     std::cout << std::endl;
-    
+
     //-----------------------------------------------------------------------------------
     std::vector<int> intVector2(10, 100); // Creates vector of 10 ints with value 100
 
@@ -165,13 +165,23 @@ int main()
 
     auto elementVector2 = std::make_unique<std::vector<Element>>(10);
 
+    std::cout << "vectors on the heap : ";
+
+    elementVector2->at(0).setValue(10);
+    // std::cout << elementVector2->at(0).getValue();
+
+    (*elementVector2)[1].setValue(20);
+    // std::cout << (*elementVector2)[1].getValue();
+
+    elementVector2->at(9).setValue(40);
+
     for (auto &element : *elementVector2)
     {
-        element.setValue(30);
+        if (element.getValue() == -1)
+            element.setValue(30);
     }
 
     counter = 0;
-    std::cout << "vectors on the heap : ";
 
     for (auto &element : *elementVector2)
     {
