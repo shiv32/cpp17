@@ -67,4 +67,7 @@ See a bin file in a hex editor in Visual Studio Code [Hex Editor](https://market
 5 of the Most Useful Graphical Git Clients for Linux
 [Graphical Git Clients for Linux](https://www.maketecheasier.com/6-useful-graphical-git-client-for-linux/)
 
+Linter to detect & fix coding issues locally in C++
+[SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+
 [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
