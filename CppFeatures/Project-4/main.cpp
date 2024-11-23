@@ -1,8 +1,8 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief Templates
-
+ * @brief Function Templates
+ 
  * @version 0.1
  * @date 2024-10-16
  *
@@ -41,19 +41,18 @@ int main()
 
     int ff;
 
+     //int s1 = sum(3,8);
+    //double s1 = sum(3.5, 8.3);
+    //double s = sum<double>(3.5, 8.3);
 
-    // int s = sum(3,8);
-    // double s = sum(3.5,8.3);
-    // double s = sum<double>(3.5,8.3);
+    // double s = sum2(3.5, 8.3); //compilation error
+    // double s = sum2<double,double>(3.5,8.3);
 
-    //double s = sum2(3.5, 8.3); //compilation error
-    double s = sum2<double,double>(3.5,8.3);
-
-    std::cout << "sum : " << s << std::endl;
+    //std::cout << "sum : " << s << std::endl;
 
     int (*pfn)(int, int) = sum;
 
-    std::cout << "sum fpn : " << pfn(4,7) << std::endl;
+    std::cout << "sum fpn : " << pfn(4, 7) << std::endl;
 
     return 0;
 }
