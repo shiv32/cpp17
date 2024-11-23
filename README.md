@@ -73,5 +73,7 @@ Using Git source control in VS Code
 
 Linter to detect & fix coding issues locally in C++
 [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+Note: SonarLint take some time to detect issue so wait few second after open the code.
+      In VS Code bottom you will sonarLint tag. 
 
 [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
