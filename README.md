@@ -71,7 +71,7 @@ Using Git source control in VS Code
 5 of the Most Useful Graphical Git Clients for Linux
 [Graphical Git Clients for Linux](https://www.maketecheasier.com/6-useful-graphical-git-client-for-linux/)
 
-Linter to detect & fix coding issues locally in C++
+VS Code Linter to detect & fix coding issues locally in C++
 [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 Note: SonarLint take some time to detect issue so wait few second after open the code.
       In VS Code bottom you will see sonarLint tag. 
