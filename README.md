@@ -65,7 +65,7 @@ go to "Settings" -> type "terminal" in search box -> CMake Tools ->Cmake:Launch 
 See a bin file in a hex editor in Visual Studio Code [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor) or [hexdump for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.vscode-hexdump) 
 
 Using Git source control in VS Code
-[Git in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
+[Git in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview) and
 [Git in VS Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git)
 
 5 of the Most Useful Graphical Git Clients for Linux
