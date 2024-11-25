@@ -1,0 +1,67 @@
+/*
+
+ATOMIC OPERATIONS LIBRARY
+    Atomic types allow atomic access, which means that concurrent reading and writing without 
+    additional synchronization is allowed. 
+    
+    Without atomic operations, incrementing a variable is not threadsafe because the compiler 
+    first loads the value from memory into a register, increments it, and then stores the result 
+    back in memory. 
+    
+    Another thread might touch the same memory during this increment operation, which is a data race. 
+    
+    For example, the following code is not thread-safe and contains a data race. 
+    
+            int counter = 0; // Global variable
+            ++counter;       // Executed in multiple threads
+
+    You can use an std::atomic type to make this thread-safe without explicitly using any synchronization 
+    mechanism, such as mutual exclusion objects.
+
+    Here is the same code using an atomic integer:
+
+            atomic<int> counter(0) ; // Global variable
+            ++counter;              // Executed in multiple threads
+
+    You need to include the <atomic> header to use these atomic types. 
+    
+    The C++ standard defines named integral atomic types for all primitive types. 
+    The following table lists a few.
+
+        NAMED ATOMIC TYPE           EQUIVALENT STD::ATOMIC T YPE
+        atomic_bool                 atomic<bool>
+        atomic_char                 atomic<char>
+        atomic_int                  atomic<int>
+
+    When the hardware you are targeting lacks the instructions to perform an operation atomically. 
+    
+    You can use the is_lock_free() method on an atomic type to query whether it supports lock-free operations, 
+    that is, its operations run without any explicit synchronization mechanism underneath.
+
+    The std::atomic class template can be used with all kinds of types, not only integral types. 
+    For example, you can create an atomic<double>, or an atomic<MyType>, but only if MyType is trivially
+    copyable. 
+    In the following example, both Foo and Bar are trivially copyable, that is, 
+    std::is_trivially_copyable_v is true for both. 
+    However, atomic<Foo> is not lock free, while atomic<Bar> is.
+
+            class Foo { private: int mArray[123]; };
+            class Bar { private: int mInt; };
+
+            int main()
+            {
+                atomic<Foo> f;
+
+                // Outputs: 1 0
+                cout << is_trivially_copyable_v<Foo> << " " << f.is_lock_free() << endl;
+                
+                atomic<Bar> b;
+                
+                // Outputs: 1 1
+                cout << is_trivially_copyable_v<Bar> << " " << b.is_lock_free() << endl;
+            }
+
+    When accessing a piece of data from multiple threads, atomics also solve problems such as memory ordering, 
+    compiler optimizations, and so on. 
+
+*/
