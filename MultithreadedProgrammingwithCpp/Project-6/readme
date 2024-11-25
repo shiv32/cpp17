@@ -28,7 +28,7 @@ ATOMIC OPERATIONS LIBRARY
     The C++ standard defines named integral atomic types for all primitive types. 
     The following table lists a few.
 
-        NAMED ATOMIC TYPE           EQUIVALENT STD::ATOMIC T YPE
+        NAMED ATOMIC TYPE           EQUIVALENT STD::ATOMIC TYPE
         atomic_bool                 atomic<bool>
         atomic_char                 atomic<char>
         atomic_int                  atomic<int>

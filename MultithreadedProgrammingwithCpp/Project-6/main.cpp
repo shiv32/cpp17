@@ -29,6 +29,7 @@ class Bar
 {
 private:
     int mInt;
+    //int mArray[123];
 };
 
 int main()
