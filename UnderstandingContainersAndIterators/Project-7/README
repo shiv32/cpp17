@@ -1,5 +1,55 @@
 /*
 
+vector Iterators
+    Here is the last for loop of the test score normalization program from earlier using iterators instead
+    of a range-based for loop:
 
+        for (vector<double>::iterator iter = begin(doubleVector); iter != end(doubleVector); ++iter) 
+        {
+            *iter /= max;
+            cout << *iter << " ";
+        }
+
+    First, take a look at the for loop initialization statement:
+
+        vector<double>::iterator iter = begin(doubleVector);
+
+    Recall that every container defines a type named iterator to represent iterators for that type of container. 
+    begin() returns an iterator of that type referring to the first element in the container.
+    
+    Thus, the initialization statement obtains in the variable iter an iterator referring to the first element 
+    of doubleVector. 
+    
+    Next, look at the for loop comparison:
+
+        iter != end(doubleVector);
+
+    This statement simply checks if the iterator is past the end of the sequence of elements in the vector.
+    When it reaches that point, the loop terminates.
+
+    The increment statement, ++iter, increments the iterator to refer to the next element in the vector.
+
+    NOTE:   Use pre-increment instead of post-increment when possible because pre-increment is at least as efficient, 
+            and usually more efficient. 
+            iter++ must return a new iterator object, while ++iter can simply return a reference to iter. 
+
+    The for loop body contains these two lines:
+
+        *iter /= max;
+        cout << *iter << " ";
+
+    Code can both access and modify the elements over which it iterates. 
+    The first line uses * to dereference iter to obtain the element to which it refers, and assigns to that element.
+    The second line dereferences iter again, but this time only to stream the element to cout.
+
+    The preceding for loop using iterators can be simplified by using the auto keyword:
+
+        for (auto iter = begin(doubleVector); iter != end(doubleVector); ++iter) {
+            *iter /= max;
+            cout << *iter << " ";
+        }
+
+    With auto, the compiler automatically deduces the type of the variable iter based on the righthand side of the 
+    initializer, which in this case is the result of the call to begin().
 
 */

@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief Copying and Assigning vectors
+ * @brief vector Iterators
  *
  * @version 0.1
  * @date 2024-09-23
@@ -12,33 +12,65 @@
 
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    std::vector<int> vectorOne(10);
-    std::vector<int> vectorTwo(10);
+    std::vector<double> doubleVector(5); // Create a vector of 5 doubles.
 
-    if (vectorOne == vectorTwo)
+    // Initialize max to smallest number
+    double max = -std::numeric_limits<double>::infinity();
+
+    for (size_t i = 0; i < doubleVector.size(); i++)
     {
-        std::cout << "equal!" << std::endl;
-    }
-    else
-    {
-        std::cout << "not equal!" << std::endl;
+        std::cout << "Enter score " << i + 1 << ": ";
+        std::cin >> doubleVector[i];
+
+        if (doubleVector[i] > max)
+        {
+            max = doubleVector[i];
+        }
     }
 
-    vectorOne[3] = 50;
+    max /= 100.0;
 
-    if (vectorOne < vectorTwo)
+    // for (auto &element : doubleVector)
+    // {
+    //     element /= max;
+
+    //     std::cout << element;
+
+    //     if (element != doubleVector.back()) // not Last element
+    //     {
+    //         std::cout << ", ";
+    //     }
+    // }
+
+    // for (std::vector<double>::iterator iter = begin(doubleVector); iter != end(doubleVector); ++iter)
+    // {
+    //     *iter /= max;
+    //     std::cout << *iter << " ";
+
+    //     if (*iter != doubleVector.back()) // not Last element
+    //     {
+    //         std::cout << ", ";
+    //     }
+    // }
+
+    for (auto iter = begin(doubleVector); iter != end(doubleVector); ++iter)
     {
-        std::cout << "vectorOne is less than vectorTwo" << std::endl;
+        *iter /= max;
+        std::cout << *iter << " ";
+
+        if (*iter != doubleVector.back()) // not Last element
+        {
+            std::cout << ", ";
+        }
     }
-    else
-    {
-        std::cout << "vectorOne is not less than vectorTwo" << std::endl;
-    }
+
+    std::cout << std::endl;
 
     return 0;
 }
