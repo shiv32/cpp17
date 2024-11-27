@@ -1,0 +1,25 @@
+/*
+
+Accessing Fields of Object Elements
+    If the elements of your container are objects, you can use the -> operator on iterators to call methods 
+    or access data members of those objects. 
+
+    For example, the following program creates a vector of ten strings, then iterates over all of them appending 
+    a new string to each one.
+
+        vector<string> stringVector(10, "hello");
+        
+        for (auto it = begin(stringVector); it != end(stringVector); ++it) 
+        {
+            it->append(" shiv");
+        }
+
+    Often, using a range-based for loop results in more elegant code.
+
+        vector<string> stringVector(10, "hello");
+
+        for (auto& str : stringVector) 
+        {
+            str.append(" shiv");
+        }
+*/
