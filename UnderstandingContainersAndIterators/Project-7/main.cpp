@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief Comparing vectors
+ * @brief Copying and Assigning vectors
  *
  * @version 0.1
  * @date 2024-09-23
