@@ -1,0 +1,107 @@
+/*
+
+Atomic Type Example
+    This section explains in more detail why you should use atomic types. 
+    
+    Suppose you have a function called increment() that increments an integer reference parameter in a loop. 
+    This code uses std::this_thread::sleep_for() to introduce a small delay in each loop. 
+    The argument to sleep_for() is an std::chrono::duration.
+
+        void increment(int& counter)
+        {
+            for (int i = 0; i < 100; ++i) {
+                ++counter;
+                this_thread::sleep_for(1ms);
+            }
+        }
+
+    Now, you would like to run several threads in parallel, all executing this increment() function on a shared 
+    counter variable. 
+    By implementing this naively without atomic types or without any kind of thread synchronization, you introduce 
+    data races. 
+    The following code launches ten threads, after which it waits for all threads to finish by calling join() on 
+    each thread.
+
+        int main()
+        {
+            int counter = 0;
+
+            vector<thread> threads;
+            
+            for (int i = 0; i < 10; ++i) {
+                threads.push_back(thread{ increment, ref(counter) });
+            }
+
+            for (auto& t : threads) {
+                t.join();
+            }
+
+            cout << "Result = " << counter <<endl;
+        }
+
+    Because increment() increments its given integer 100 times, and ten threads are launched, each of which executes 
+    increment() on the same shared counter, the expected result is 1,000. 
+    If you execute this program several times, you might get the following output but with different values.
+
+        Result = 982
+        Result = 977
+        Result = 984
+
+    This code is clearly showing a data race. 
+    In this example, you can use an atomic type to fix the code.
+
+        #include <atomic>
+
+        void increment(atomic<int>& counter)
+        {
+            for (int i = 0; i < 100; ++i) {
+                ++counter;
+                this_thread::sleep_for(1ms);
+            }
+        }
+
+        int main()
+        {
+            atomic<int> counter(0);
+            vector<thread> threads;
+
+            for (int i = 0; i < 10; ++i) {
+                threads.push_back(thread{ increment, ref(counter) });
+            }
+        
+            for (auto& t : threads) {
+                t.join();
+            }
+            cout << "Result = " << counter << endl;
+        }
+
+     When you run this modified version, you always get 1,000.
+
+        Result = 1000
+        Result = 1000
+        Result = 1000
+
+    Without explicitly adding any synchronization mechanism to the code, it is now thread-safe and data-race-free 
+    because the ++counter operation on an atomic type loads, increments, and stores the value in one atomic transaction, 
+    which cannot be interrupted.
+
+    However, there is a new problem with this modified code: a performance problem. 
+    You should try to minimize the amount of synchronization, either atomic or explicit synchronization, because it
+    lowers performance. 
+    For this simple example, the best and recommended solution is to let increment() calculate its result in a local variable, 
+    and only after the loop, add it to the counter reference. 
+    Note that it is still required to use an atomic type, because you are still writing to counter from multiple threads.
+
+        void increment(atomic<int>& counter)
+        {
+            int result = 0;
+
+            for (int i = 0; i < 100; ++i) {
+                ++result;
+                this_thread::sleep_for(1ms);
+            }
+
+            counter += result;
+        }
+
+*/

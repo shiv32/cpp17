@@ -90,7 +90,7 @@ using namespace std;
 // }
 
 
-//----------------------------(example 3)---------------------------------------
+//----------------------------(example 3 Best and recommended solution)---------------------------------------
 
 void increment(atomic<int> &counter)
 {
