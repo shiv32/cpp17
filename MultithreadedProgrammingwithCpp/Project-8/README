@@ -1,0 +1,77 @@
+/*
+
+Atomic Operations
+    The C++ standard defines a number of atomic operations. 
+    This section describes a few of those operations. 
+
+    A first example of an atomic operation is the following:
+
+        bool atomic<T>::compare_exchange_strong(T& expected, T desired);
+
+    The logic implemented atomically by this operation is as follows, in pseudo-code:
+
+        if (*this == expected) 
+        {
+                *this = desired;
+                return true;
+        } 
+        else 
+        {
+                expected = *this;
+                return false;
+        }
+
+    Although this logic might seem fairly strange on first sight, this operation is a key building block for
+    writing lock-free concurrent data structures. 
+    Lock-free concurrent data structures allow operations on their data without requiring any synchronization mechanisms. 
+    However, implementing such data structures is an advanced topic.
+
+    A second example is 
+    
+        atomic<T>::fetch_add()
+    
+    which works for integral atomic types. 
+    It fetches the current value of the atomic type, adds the given increment to the atomic value, and returns the
+    original non-incremented value.
+
+        atomic<int> value(10);
+
+        cout << "Value = " << value << endl;
+
+        int fetched = value.fetch_add(4);
+
+        cout << "Fetched = " << fetched << endl;
+
+        cout << "Value = " << value << endl;
+
+    If no other threads are touching the contents of the fetched and value variables, the output is as follows:
+
+        Value = 10
+        Fetched = 10
+        Value = 14
+
+    Atomic integral types support the following atomic operations: 
+    
+    fetch_add(), fetch_sub(), fetch_and(), fetch_or(), fetch_xor(), ++, --, +=, -=, &=, ^=, and |=
+    
+    Atomic pointer types support
+    
+    fetch_add(), fetch_sub(), ++, --, +=, and -=
+
+    Most of the atomic operations can accept an extra parameter specifying the memory ordering that
+    you would like. 
+
+        T atomic<T>::fetch_add(T value, memory_order = memory_order_seq_cst);
+
+    You can change the default memory_order. 
+    
+    The C++ standard provides 
+    memory_order_relaxed, memory_order_consume, memory_order_acquire, memory_order_release, memory_order_acq_rel, and 
+    memory_order_seq_cst, all of which are defined in the std namespace.
+
+    However, you will rarely want to use them instead of the default. 
+    
+    While another memory order may perform better than the default, according to some metrics, if you use them in a 
+    slightly incorrect way, you will again introduce data races or other difficult-to-track threading-related problems. 
+    
+*/
