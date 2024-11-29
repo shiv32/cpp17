@@ -1,0 +1,68 @@
+/*
+
+Iterator Safety
+    Generally, iterators are about as safe as pointers—that is, extremely unsafe. 
+
+    For example, you can write code like this:
+
+        vector<int> intVector;
+
+        auto iter = end(intVector);
+
+        *iter = 10; // BUG! iter doesn't refer to a valid element.
+
+    Recall that the iterator returned by end() is one element past the end of a vector, not an iterator
+    referring to the last element! 
+    Trying to dereference it results in undefined behavior.
+
+    Iterators are not required to perform any verification.
+
+    Another problem can occur if you use mismatched iterators. 
+    For example, the following for loop initializes an iterator from vectorTwo, and tries to compare it 
+    to the end iterator of vectorOne.
+    Needless to say, this loop will not do what you intended, and may never terminate. 
+    Dereferencing the iterator in the loop will likely produce undefined results.
+
+        vector<int> vectorOne(10);
+        vector<int> vectorTwo(10);
+
+        // Fill in the vectors.
+
+        // BUG! Possible infinite loop
+        for (auto iter = begin(vectorTwo); iter != end(vectorOne); ++iter) 
+        {
+            // Loop body
+        }
+
+    NOTE:   Microsoft Visual C++, by default, gives an assertion error at run time for both of the preceding problems 
+            when running a debug build of your program.
+            By default, no verification of iterators is performed for release builds. 
+            You can enable it for release builds as well, but it has a performance penalty.
+
+    Other Iterator Operations
+        The vector iterator is random access, which means that you can move it backward or forward, or jump around. 
+        For example, the following code eventually changes the fifth element (index 4) to the value 4:
+
+            vector<int> intVector(10);
+
+            auto it = begin(intVector);
+
+            it += 5;
+            --it;
+            *it = 4;
+
+    Iterators versus Indexing
+        Given that you can write a for loop that uses a simple index variable and the size() method to iterate over 
+        the elements of the vector, why should you bother using iterators? 
+        That’s a valid question, for which there are three main answers:
+
+        ➤➤  Iterators allow you to insert and delete elements and sequences of elements at any point in
+            the container.
+
+        ➤➤  Iterators allow you to use the Standard Library algorithms.
+
+        ➤➤  Using an iterator to access each element sequentially is often more efficient than indexing the
+            container to retrieve each element individually. 
+            This generalization is not true for vectors, but applies to lists, maps, and sets.
+
+*/
