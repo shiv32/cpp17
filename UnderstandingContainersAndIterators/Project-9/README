@@ -1,0 +1,57 @@
+/*
+
+const_iterator
+    The normal iterator is read/write. 
+    
+    If you call begin() or end() on a const object, or you call cbegin() or cend(), 
+    you receive a const_iterator. 
+    The const_iterator is read-only; you cannot modify the element it refers to. 
+    
+    An iterator can always be converted to a const_iterator, 
+    so it’s always safe to write something like this:
+
+        vector<type>::const_iterator it = begin(myVector);
+
+    A const_iterator cannot be converted to an iterator. 
+    If myVector is const, the following line doesn’t compile:
+
+        vector<type>::iterator it = begin(myVector);
+
+    NOTE:   If you do not need to modify the elements of a vector, you should use a const_iterator. 
+            This rule makes it easier to guarantee correctness of your code, and helps the compiler 
+            to perform better optimizations.
+
+    When using the auto keyword, using const_iterators looks a bit different. 
+   
+        vector<string> stringVector(10, "hello");
+
+        for (auto iter = begin(stringVector); iter != end(stringVector); ++iter) 
+        {
+            cout << *iter << endl;
+        }
+
+    Because of the auto keyword, the compiler deduces the type of the iter variable automatically and makes 
+    it a normal iterator because stringVector is not const. 
+    
+    If you want a read-only const_iterator in combination with using auto, then you need to use 
+    cbegin() and cend() instead of begin() and end().
+
+        vector<string> stringVector(10, "hello");
+
+        for (auto iter = cbegin(stringVector); iter != cend(stringVector); ++iter) 
+        {
+            cout << *iter << endl;
+        }
+
+    Now the compiler uses const_iterator as type for the variable iter because that’s what cbegin() returns.
+
+    A range-based for loop can also be forced to use const iterators.
+
+        vector<string> stringVector(10, "hello");
+
+        for (const auto& element : stringVector) 
+        {
+            cout << element << endl;
+        }
+
+*/
