@@ -1,0 +1,22 @@
+/*
+
+A basic example of a machine learning algorithm implemented in C++: Linear Regression. 
+This simple algorithm finds the best-fit line for a set of points, minimizing the mean squared error.
+
+Explanation:
+
+Input Data:
+        The x vector contains independent variables.
+        The y vector contains dependent variables (output).
+
+Mean Calculation:
+        A helper function computes the mean of a vector.
+
+Slope (m) and Intercept (b):
+        Using the least-squares method, the algorithm calculates the best-fit line's slope and intercept.
+
+Prediction:
+        The model predicts y values for new x inputs using the formula:
+                y=mx+b
+
+*/
