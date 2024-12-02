@@ -1,0 +1,88 @@
+/*
+
+MUTUAL EXCLUSION
+    If you are writing multithreaded applications, you have to be sensitive to sequencing of operations. 
+    If your threads read and write shared data, this can be a problem. 
+    There are many ways to avoid this problem, such as never actually sharing data between threads. 
+    if you can’t avoid sharing data, you must provide for synchronization so that only one thread 
+    at a time can change the data.
+    Scalars such as Booleans and integers can often be synchronized properly with atomic operations.
+    when your data is more complex, and you need to use that data from multiple threads, you must provide 
+    explicit synchronization.
+    The Standard Library has support for mutual exclusion in the form of mutex and lock classes.
+    These can be used to implement synchronization between threads.
+
+Mutex Classes
+    Mutex stands for mutual exclusion. 
+    The basic mechanism of using a mutex is as follows:
+
+        ➤➤  A thread that wants to use (read/write) memory shared with other threads tries to lock a
+            mutex object. 
+            If another thread is currently holding this lock, the new thread that wants to gain access blocks 
+            until the lock is released, or until a timeout interval expires.
+
+        ➤➤  Once the thread has obtained the lock, it is free to use the shared memory. 
+            Of course, this assumes that all threads that want to use the shared data correctly acquire a lock on 
+            the mutex.
+
+        ➤➤  After the thread is finished with reading/writing to the shared memory, it releases the lock
+            to give some other thread an opportunity to obtain the lock to the shared memory. 
+            If two or more threads are waiting on the lock, there are no guarantees as to which thread will be
+            granted the lock and thus allowed to proceed.
+
+    The C++ standard provides 
+        non-timed mutex classes 
+        timed mutex classes
+
+Non-timed Mutex Classes
+    The Standard Library has three non-timed mutex classes: 
+    std::mutex, 
+    recursive_mutex, and
+    shared_mutex (since C++17). 
+    
+    The first two classes are defined in <mutex>, and the last one in <shared_mutex>. 
+    
+    Each mutex supports the following methods.
+
+        ➤➤  lock(): The calling thread tries to obtain the lock and blocks until the lock has been
+                    acquired. 
+                    It blocks indefinitely. 
+                    If there is a desire to limit the amount of time the thread
+                    blocks, you should use a timed mutex.
+
+        ➤➤  try_lock(): The calling thread tries to obtain the lock. 
+                        If the lock is currently held by another thread, the call returns immediately. 
+                        If the lock has been obtained, try_lock() returns true; otherwise, it returns false.
+
+        ➤➤  unlock(): The calling thread releases the lock it currently holds, making it available for
+                      another thread.
+
+    std::mutex is a standard mutual exclusion class with exclusive ownership semantics. 
+    There can be only one thread owning the mutex. 
+    If another thread wants to obtain ownership of this mutex, it either blocks when using lock(), 
+    or fails when using try_lock(). 
+    A thread already having ownership of a mutex is not allowed to call lock() or try_lock() again on that mutex. 
+    This might lead to a deadlock!
+
+    std::recursive_mutex behaves almost identically to mutex, except that a thread already having
+    ownership of a recursive mutex is allowed to call lock() or try_lock() again on the same recursive mutex. 
+    The calling thread should call the unlock() method as many times as it obtained a lock on the recursive mutex.
+
+    The shared_mutex class supports the concept of shared lock ownership, 
+    also known as readers-writers lock. 
+    A thread can get either exclusive ownership or shared ownership of the lock. 
+    
+    Exclusive ownership, also known as a write lock, can be acquired only when there are no other threads having
+    exclusive or shared ownership. 
+    
+    Shared ownership, also known as a read lock, can be acquired if there is no other thread having exclusive ownership, 
+    but other threads are allowed to have acquired shared ownership. 
+    
+    The shared_mutex class supports lock(), try_lock(), and unlock(). 
+    These methods acquire and release exclusive locks. 
+    
+    Additionally, they have the following shared ownership-related methods: 
+    lock_shared(), try_lock_shared(), and unlock_shared(). 
+    These work similarly to the other set of methods, but try to acquire or release shared ownership.
+
+*/
