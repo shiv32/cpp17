@@ -1,0 +1,12 @@
+/*
+
+    Algorithmic trading using CSV files in C++ involves reading historical or real-time market data from CSV files, 
+    processing it to apply strategies, and potentially logging results back to CSV. 
+
+    Implement a Trading Strategy
+        Use the parsed data to compute indicators like moving averages.
+        Generate buy/sell signals based on predefined rules.
+
+    A simple example of reading a CSV, calculating a moving average, and logging results.
+
+*/
