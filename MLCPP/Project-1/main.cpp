@@ -50,8 +50,12 @@ int main()
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     // Sample data points
-    std::vector<double> x = {1, 2, 3, 4, 5};
-    std::vector<double> y = {2, 4, 5, 4, 5};
+    // std::vector<double> x = {1, 2, 3, 4, 5};
+    // std::vector<double> y = {2, 4, 5, 4, 5};
+
+    // Sample data points
+    std::vector<double> x = {10, 20, 30, 40, 50};
+    std::vector<double> y = {20, 40, 50, 40, 50};
 
     double slope = 0.0, intercept = 0.0;
 
