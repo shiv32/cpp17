@@ -30,7 +30,8 @@ void plotStockData(const std::string &dataFile)
     }
 
     //-------------------------------------------
-    script << "set terminal wxt size 1600,800\n"; // Enable the default interactive terminal
+    //script << "set terminal wxt size 1600,800\n"; // Enable the default interactive terminal
+    script << "set terminal qt size 1600,800\n"; // Enable the default interactive terminal
     script << "set title 'Stock Data'\n";
     script << "set xlabel 'Date'\n";
     script << "set ylabel 'Price'\n";

@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author your name (you@domain.com)
  * @brief  Algorithmic trading
-     
+
      Test gnuplot graph for data visualization
 
  * @version 0.1
@@ -29,7 +29,8 @@ void plotSinX()
         return;
     }
 
-    script << "set terminal wxt\n";                      // Set graphical terminal
+    // script << "set terminal wxt\n";                      // Set graphical terminal
+    script << "set terminal qt\n";                       // Set graphical terminal
     script << "set title 'Plot of sin(x)'\n";            // Set graph title
     script << "set xlabel 'x'\n";                        // Set X-axis label
     script << "set ylabel 'sin(x)'\n";                   // Set Y-axis label
