@@ -2,4 +2,9 @@
 
 Algorithmic trading
 
+    Generate a mock dataset for a stock with columns: Date, OPEN, HIGH, LOW, CLOSE, and VOLUME.
+    This program uses random values to simulate daily price changes and volumes, writes the data into a CSV file,
+    and ensures a logical relationship between the generated values.
+
+
 */
