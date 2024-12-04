@@ -1,0 +1,17 @@
+/*
+
+Algorithmic trading
+    Test gnuplot graph for data visualization
+
+
+steps to install gnuplot on a Ubuntu Linux system:
+    sudo apt update
+    sudo apt install gnuplot
+    gnuplot --version
+
+Run gnuplot from the terminal:
+    gnuplot
+    plot sin(x)
+    exit
+
+*/
