@@ -9,4 +9,27 @@
 
     A simple example of reading a CSV, calculating a moving average, and logging results.
 
+    -----------------------------------------------------------------------------------------
+
+    NSE Website (Official Data)
+
+    Features:
+    Provides free historical data for stocks and indices.
+    Useful for manual downloads of past performance data.
+
+    Steps:
+    Visit https://www.nseindia.com/
+    Search for the desired stock or index (e.g., NIFTY 50, RELIANCE).
+    Click on "Historical Data" in the stock's or index's page.
+    Select the date range and download the data as a CSV file.
+    ----------------------------------------------------------
+
+    How to remove commas from an Excel/CSV import file
+
+    1. Open the Excel file
+    2. Highlight the entire worksheet
+    3. Select Edit, Find and Replace
+    4. Find =, and Replace = (leave this blank, or use a semi-colon)
+    5. Click Replace All
+
 */
