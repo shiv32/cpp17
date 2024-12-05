@@ -32,7 +32,7 @@ T sum(T a, T b)
 }
 
 // explicit instatiation
-template char sum(char x, char y);
+// template char sum(char x, char y);
 
 // explicit specialization
 template <>
@@ -60,13 +60,49 @@ T2 sum2(T a, T b)
     return a + b;
 }
 
+// non type template argument
+template <int size>
+void print()
+{
+    // size++;//not allowed its const
+    char buffer[size];
+
+    std::cout << "size : " << size << std::endl;
+}
+
+// template <typename T>
+// T Sum(T *parr, int size)
+// {
+
+//     T sum{};
+
+//     for (int i = 0; i < size; ++i)
+//     {
+//         sum += parr[i];
+//     }
+//     return sum;
+// }
+
+template <typename T, int size>
+T Sum(T (&parr)[size])
+{
+
+    T sum{};
+
+    for (int i = 0; i < size; ++i)
+    {
+        sum += parr[i];
+    }
+    return sum;
+}
+
 int main()
 {
 
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    int s1 = sum(3, 8);
-    double s2 = sum(3.5, 8.3);
+    // int s1 = sum(3, 8);
+    // double s2 = sum(3.5, 8.3);
     // double s = sum<double>(3.5, 8.3);
 
     // double s = sum2(3.5, 8.3); //compilation error
@@ -76,21 +112,56 @@ int main()
 
     //-------------------------------------------------------------------
 
-    int (*pfn)(int, int) = sum;
-    std::cout << "sum fpn : " << pfn(4, 7) << std::endl;
+    // int (*pfn)(int, int) = sum;
+    // std::cout << "sum fpn : " << pfn(4, 7) << std::endl;
 
-    //-------------------------------------------------------------------
-    char *b{"B"};
-    char *a{"A"};
-    char *c{"C"};
+    //----------------------------------------------------------------------------
+    // char a = 'A'; // ASCII value: 65
+    // char b = 'B'; // ASCII value: 66
 
-    auto s = sum(b, a);
+    unsigned char a = 'A';
+    unsigned char b = 'B';
 
-    std::cout << "sum char : " << s << std::endl;
+    // char result = sum(a, b);
 
-    s = sum(s, c);
+    unsigned char result = sum(a, b);
 
-    std::cout << "sum char : " << s << std::endl;
+    std::cout << "The sum of '" << a << "' and '" << b << "' is: " << static_cast<int>(result) << "\n";
+
+    //---------------------------------(explicit specialization)----------------------------------
+    // char *b{"B"};
+    // char *a{"A"};
+    // char *c{"C"};
+
+    // auto s = sum(b, a);
+
+    // std::cout << "sum char : " << s << std::endl;
+
+    // s = sum(s, c);
+
+    // std::cout << "sum char : " << s << std::endl;
+
+    //-----------------------------(non type template argument)------------------------------------
+
+    // print<30>();
+
+    // int i = 30;
+    /*
+   print<i>(); //complir error
+   */
+
+    // print<sizeof(i)>();
+
+    // int arr[]{30, 10, 90, 70};
+
+    // auto it = std::begin(arr);
+
+    // // int (&ref)[4] = arr;
+
+    // // int sum = Sum(arr,4);
+    // int sum = Sum(arr);
+
+    // std::cout << "sum : " << sum << std::endl;
 
     return 0;
 }
