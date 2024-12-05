@@ -41,19 +41,21 @@ void CandlestickChartWithVolume(const std::string &dataFile)
     script << "set multiplot layout 2,1 title 'Candlestick Chart with Volume'\n";
 
     // First plot: Candlestick chart
-    script << "set margins 10,10,1,1\n";
+    script << "set margins 15,10,1,1\n";
     script << "set xlabel ''\n";
     script << "set xtics format ''\n";
     // script << "set xtics format '%d-%b-%Y' rotate by 45 right\n";
     script << "set ylabel 'Price'\n";
     script << "unset y2tics\n";
+
     script << "set style line 1 lc rgb '#00FF00'\n";
     script << "set style line 2 lc rgb '#FF0000'\n";
+
     script << "set datafile separator ','\n";
-    script << "plot '" << dataFile << "' using 1:2:3:4:5:($5 > $2 ? 1 : 2) with candlesticks lc variable title 'OHLC'\n";
+    script << "plot '" << dataFile << "' using 1:2:3:4:5:($5 > $2 ? 2 : 1) with candlesticks lc variable title 'OHLC'\n";
 
     // Second plot: Volume chart
-    script << "set margins 10,10,8,0\n"; // R,L,B,T
+    script << "set margins 15,10,8,0\n"; // R,L,B,T
     script << "set xlabel 'Date'\n";
     // script << "set xtics format '%Y-%m-%d' rotate by 45 right\n";
     script << "set xtics format '%d-%b-%Y' rotate by 45 right\n";
@@ -63,7 +65,8 @@ void CandlestickChartWithVolume(const std::string &dataFile)
     script << "set y2tics\n";
     script << "set y2range [0:*]\n";
     script << "set datafile separator ','\n";
-    script << "plot '" << dataFile << "' using 1:($6/1000):($5 > $2 ? 1 : 2) with boxes lc variable title 'Volume'\n";
+    // script << "plot '" << dataFile << "' using 1:($6/1000):($5 > $2 ? 1 : 2) with boxes lc variable title 'Volume'\n"; //scale data
+    script << "plot '" << dataFile << "' using 1:($6):($5 > $2 ? 2 : 1) with boxes lc variable title 'Volume'\n";
 
     script << "unset multiplot\n";
 

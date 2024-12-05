@@ -61,7 +61,7 @@ void CandlestickChart(const std::string &dataFile)
     script << "set style line 1 lc rgb '#00FF00'\n";
     script << "set style line 2 lc rgb '#FF0000'\n";
 
-    script << "plot '" << dataFile << "' using 1:2:3:4:5:(($5 > $2) ? 1 : 2) with candlesticks \\\n";
+    script << "plot '" << dataFile << "' using 1:2:3:4:5:(($5 > $2) ? 2 : 1) with candlesticks \\\n";
     script << "     linecolor variable fillstyle solid title '' whiskerbars\n";
     script.close();
 
