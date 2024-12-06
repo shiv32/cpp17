@@ -1,35 +1,35 @@
 /*
+Function Templates
 
+    To see template functions generated in the assembly file from C++ code
 
-To see template functions generated in the assembly file from C++ code
+    step 1:
 
-step 1:
+    compile the code into assembly with verbose annotations:
 
- compile the code into assembly with verbose annotations:
+    g++ -S -fverbose-asm -g -o output.s main.cpp
 
- g++ -S -fverbose-asm -g -o output.s main.cpp
+    mixed view of the C++ source and the assembly:
 
- mixed view of the C++ source and the assembly:
+    g++ -g -c -Wa,-adhln -fverbose-asm main.cpp > output.s
 
- g++ -g -c -Wa,-adhln -fverbose-asm main.cpp > output.s
+    ----------------------------------------------------------------------------
+    step 2:
 
-----------------------------------------------------------------------------
-step 2:
+    Identifying Template Instantiations
+    In the assembly file:
 
-Identifying Template Instantiations
-In the assembly file:
+    Look for functions with mangled names. These correspond to template instantiations.
+    Use c++filt to demangle names for better readability.
 
-Look for functions with mangled names. These correspond to template instantiations.
-Use c++filt to demangle names for better readability.
+    _Z3addIiET_S0_S0_:     # Template instantiated for int
+    _Z3addIdET_S0_S0_:     # Template instantiated for double
 
-_Z3addIiET_S0_S0_:     # Template instantiated for int
-_Z3addIdET_S0_S0_:     # Template instantiated for double
+    To demangle:
 
-To demangle:
+    $c++filt _Z3addIiET_S0_S0_
 
-$c++filt _Z3addIiET_S0_S0_
-
-output:
-add<int>(int, int)
+    output:
+    add<int>(int, int)
 
 */
