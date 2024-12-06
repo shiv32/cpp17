@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <cstring> // For strcat and strlen
+#include "Integer.h"
 
 // int sum(int a, int b)
 // {
@@ -96,6 +97,81 @@ T Sum(T (&parr)[size])
     return sum;
 }
 
+// template <typename T>
+// void Print(std::initializer_list<T> args)
+// {
+//     for(auto const &x:args)
+//     {
+//       std::cout<<x<<" "<<std::endl;
+//     }
+// }
+
+// base case function for variadic template
+void Print()
+{
+    std::cout << std::endl;
+}
+
+// // template parameter pack
+// template <typename T, typename ...params>
+// // funtion parameter pack
+// void Print(T a, params ...args)
+// {
+//     // std::cout << sizeof ...(args) << std::endl;
+//     // std::cout << sizeof ...(params) << std::endl;
+
+//     //std::cout << a << ", ";
+
+//      std::cout<<a;
+
+//      if(sizeof...(args) != 0)
+//      {
+//            std::cout<<", ";
+//      }
+
+//     Print(args...);
+// }
+
+// // template parameter pack
+// template <typename T, typename ...params>
+// // funtion parameter pack
+// void Print(const T &a, const params &...args) //L-value reference
+// {
+//     // std::cout << sizeof ...(args) << std::endl;
+//     // std::cout << sizeof ...(params) << std::endl;
+
+//     //std::cout << a << ", ";
+
+//      std::cout<<a;
+
+//      if(sizeof...(args) != 0)
+//      {
+//            std::cout<<", ";
+//      }
+
+//     Print(args...);
+// }
+
+// template parameter pack
+template <typename T, typename... params>
+// funtion parameter pack
+void Print(T &&a, params &&...args) // R-value reference
+{
+    // std::cout << sizeof ...(args) << std::endl;
+    // std::cout << sizeof ...(params) << std::endl;
+
+    // std::cout << a << ", ";
+
+    std::cout << a;
+
+    if (sizeof...(args) != 0)
+    {
+        std::cout << ", ";
+    }
+
+    Print(std::forward<params>(args)...);
+}
+
 int main()
 {
 
@@ -119,14 +195,14 @@ int main()
     // char a = 'A'; // ASCII value: 65
     // char b = 'B'; // ASCII value: 66
 
-    unsigned char a = 'A';
-    unsigned char b = 'B';
+    // unsigned char a = 'A';
+    // unsigned char b = 'B';
 
-    // char result = sum(a, b);
+    // // char result = sum(a, b);
 
-    unsigned char result = sum(a, b);
+    // unsigned char result = sum(a, b);
 
-    std::cout << "The sum of '" << a << "' and '" << b << "' is: " << static_cast<int>(result) << "\n";
+    // std::cout << "The sum of '" << a << "' and '" << b << "' is: " << static_cast<int>(result) << "\n";
 
     //---------------------------------(explicit specialization)----------------------------------
     // char *b{"B"};
@@ -162,6 +238,17 @@ int main()
     // int sum = Sum(arr);
 
     // std::cout << "sum : " << sum << std::endl;
+    //-----------------------------------(variadic template)--------------------------------------------
+
+    // Print({10,20,30,40});
+
+    // Print({10,20,30.5,40}); //compile time error template arg deduction
+
+    // Print(1, 2, 3.4, "r", 's'); // variadic template
+
+    Integer val{1};
+
+    Print(0, val, Integer{2});
 
     return 0;
 }
