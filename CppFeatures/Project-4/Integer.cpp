@@ -1,5 +1,6 @@
 #include "Integer.h"
 #include <iostream>
+
 Integer::Integer() {
 	std::cout << "Integer()" << std::endl;
 	m_pInt = new int(0);
