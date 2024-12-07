@@ -1,0 +1,15 @@
+/*
+
+Linear Regression Overview
+        Linear regression predicts the value of a dependent variable (y) based on an independent variable (x). 
+        The relationship is modeled as:
+
+                y=m⋅x+b
+
+                Where:
+                m: Slope (weight)
+                b: Intercept (bias)
+
+The algorithm minimizes the error between predictions and actual data using the mean squared error (MSE).
+
+*/

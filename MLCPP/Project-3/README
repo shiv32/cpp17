@@ -1,0 +1,18 @@
+/*
+
+ Machine learning example in C++: K-Nearest Neighbors (KNN) for classification. 
+ This algorithm predicts the class of a data point based on the classes of its nearest neighbors in a feature space.
+
+ K-Nearest Neighbors (KNN) Classifier Example
+
+        1. How KNN Works
+                Training: KNN doesn't involve "training" in the traditional sense. 
+                          It stores the data points in memory.
+
+                Prediction: To classify a new data point:
+
+                        Compute the distance to all training points.
+                        Find the k closest points.
+                        Take a majority vote of their classes.
+
+*/

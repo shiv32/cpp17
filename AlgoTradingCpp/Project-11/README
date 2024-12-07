@@ -1,0 +1,19 @@
+/*
+
+Algorithmic trading
+
+Bollinger Band Swing Trading Logic
+
+      Bollinger Bands:
+            Upper Band: SMA + (Multiplier × Standard Deviation)
+            Lower Band: SMA - (Multiplier × Standard Deviation)
+
+      Buy Signal:
+            Triggered when the close price crosses above the lower Bollinger Band.
+
+      Sell Signal:
+            Triggered when the close price crosses below the upper Bollinger Band.
+
+      Profit Calculation:
+            Buy and sell prices are used to calculate the profit for each trade.
+*/

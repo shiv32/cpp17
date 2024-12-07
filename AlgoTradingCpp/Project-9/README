@@ -1,0 +1,20 @@
+/*
+
+Algorithmic trading
+
+    Here’s an implementation of a simple swing trading algorithm in C++ for predicting buy and sell signals based on 
+    stock prices. 
+    This example uses moving averages (a common technical indicator) to make trading decisions.
+
+    Strategy Overview
+
+      Indicators:
+            Short-Term Moving Average (SMA): Tracks recent price trends.
+            Long-Term Moving Average (LMA): Tracks broader price trends.
+
+      Signals:
+            Buy: When SMA crosses above LMA (bullish crossover).
+            Sell: When SMA crosses below LMA (bearish crossover).
+
+
+*/

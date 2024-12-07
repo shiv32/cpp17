@@ -1,0 +1,9 @@
+/*
+
+Algorithmic trading
+
+ Volume analysis:
+      Calculates a Volume Moving Average (VMA).
+      Flags days with a volume spike (volume higher than a threshold multiple of the VMA).
+     
+*/
