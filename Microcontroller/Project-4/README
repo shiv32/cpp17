@@ -1,0 +1,6 @@
+/*
+
+ Compile-Time Assert
+    The static_assert facility checks a constant expression at compile time.
+
+*/
