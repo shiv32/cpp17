@@ -2,6 +2,8 @@
  * @file main.cpp
  * @author your name (you@domain.com)
  * @brief Iterator Safety
+ *        Other Iterator Operations
+ *        Iterators versus Indexing
  *
  * @version 0.1
  * @date 2024-09-23

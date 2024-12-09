@@ -1,0 +1,140 @@
+/*
+
+Storing references in a vector
+    It is possible to store references in a container, such as a vector. 
+    To do this, you store std::reference_wrappers in the container. 
+    The std::ref() and cref() function templates are used to create non-const and const reference_wrapper
+    instances.
+    You need to include the <functional> header file.
+
+        string str1 = "Hello";
+        string str2 = "World";
+
+        // Create a vector of references to strings.
+        vector<reference_wrapper<string>> vec{ ref(str1) };
+
+        vec.push_back(ref(str2)); // push_back() works as well.
+
+        // Modify the string referred to by the second reference in the vector.
+        vec[1].get() += "!";
+
+        // The end result is that str2 is actually modified.
+        cout << str1 << " " << str2 << endl;
+
+Adding and Removing Elements
+    You can append an element to a vector with the push_back() method.
+    The vector provides a parallel remove method called pop_back().
+
+        WARNING: pop_back() does not return the element that it removed. 
+                If you want that element, you must first retrieve it with back().
+
+    You can also insert elements at any point in the vector with the insert() method, which adds
+    one or more elements to a position specified by an iterator, shifting all subsequent elements down
+    to make room for the new ones. 
+    
+    There are five different overloaded forms of insert() that do the following:
+
+        ➤  Insert a single element.
+
+        ➤  Insert n copies of a single element.
+
+        ➤  Insert elements from an iterator range. 
+        Recall that the iterator range is half-open, such that it includes the element referred to by the 
+        starting iterator but not the one referred to by the ending iterator.
+
+        ➤ Insert a single element by moving the given element to a vector using move semantics.
+
+        ➤ Insert a list of elements into a vector where the list of elements is given as an
+        initializer_list.
+
+        NOTE:   There are versions of push_back() and insert() that take an lvalue or an rvalue as a parameter. 
+                Both versions allocate memory as needed to store the new elements. 
+                The lvalue versions store copies of the given elements, 
+                while the rvalue versions use move semantics to move ownership of the given elements to the vector 
+                instead of copying them.
+
+        You can remove elements from any point in a vector with erase(), and you can remove all elements with clear(). 
+        There are two forms of erase() 
+            1. one accepting a single iterator to remove a single element. 
+            2. one accepting two iterators specifying a range of elements to remove.
+
+        If you want to remove a number of elements that satisfy a certain condition, one solution would be
+        to write a loop iterating over all the elements and erasing every element that matches the condition.
+        However, this solution has quadratic complexity, which is very bad for performance. 
+        In this case, the quadratic complexity can be avoided by using the remove-erase-idiom, 
+        which has a linear complexity.
+
+        Here is a small program that demonstrates the methods for adding and removing elements. 
+        It uses a helper function template printVector() to print the contents of a vector to cout.
+
+            template<typename T>
+            void printVector(const vector<T>& v)
+            {
+
+            for (auto& element : v) 
+            { 
+                cout << element << " "; 
+            }
+
+            cout << endl;
+            
+            }
+
+        The example includes demonstrations of the two-argument version of erase() and the following versions of insert().
+
+            ➤➤ insert(const_iterator pos, const T& x)
+                    the value x is inserted at position pos.
+
+            ➤➤ insert(const_iterator pos, size_type n, const T& x)
+                    the value x is inserted n times at position pos.
+
+            ➤➤ insert(const_iterator pos, InputIterator first, InputIterator last)
+                    the elements in the range [first, last) are inserted at position pos.
+
+            eg.
+                vector<int> vectorOne = { 1, 2, 3, 5 };
+                vector<int> vectorTwo;
+
+                // Oops, we forgot to add 4. Insert it in the correct place
+                vectorOne.insert(cbegin(vectorOne) + 3, 4);
+
+                // Add elements 6 through 10 to vectorTwo
+                for (int i = 6; i <= 10; i++) 
+                {
+                    vectorTwo.push_back(i);
+                }
+
+                printVector(vectorOne);
+                printVector(vectorTwo);
+
+                // Add all the elements from vectorTwo to the end of vectorOne
+                vectorOne.insert(cend(vectorOne), cbegin(vectorTwo), cend(vectorTwo));
+                printVector(vectorOne);
+
+                // Now erase the numbers 2 through 5 in vectorOne
+                vectorOne.erase(cbegin(vectorOne) + 1, cbegin(vectorOne) + 5);
+                printVector(vectorOne);
+
+                // Clear vectorTwo entirely
+                vectorTwo.clear();
+
+                // And add 10 copies of the value 100
+                vectorTwo.insert(cbegin(vectorTwo), 10, 100);
+
+                // Decide we only want 9 elements
+                vectorTwo.pop_back();
+                printVector(vectorTwo);
+
+        Output:
+                1 2 3 4 5
+                6 7 8 9 10
+                1 2 3 4 5 6 7 8 9 10
+                1 6 7 8 9 10
+                100 100 100 100 100 100 100 100 100
+
+        WARNING:    Methods such as insert() and erase() that take a vector range as arguments 
+                    assume that the beginning and ending iterators refer to elements in the same container, 
+                    and that the end iterator refers to an element at or past the begin iterator. 
+                    The methods will not work correctly if these preconditions are not met!
+
+*/
