@@ -3,7 +3,7 @@
  * @author your name (you@domain.com)
  * @brief
 
-        MUTUAL EXCLUSION
+        Locks
        
  * @version 0.1
  * @date 2024-10-21

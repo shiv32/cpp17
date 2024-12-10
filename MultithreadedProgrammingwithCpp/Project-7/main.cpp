@@ -4,6 +4,7 @@
  * @brief
 
         Atomic Type Example
+        
         g++ main.cpp -o test -pthread && ./test && rm test
 
  * @version 0.1

@@ -4,6 +4,7 @@
  * @brief
 
         ATOMIC OPERATIONS LIBRARY
+        
         g++ main.cpp -o test -latomic && ./test && rm test
 
  * @version 0.1

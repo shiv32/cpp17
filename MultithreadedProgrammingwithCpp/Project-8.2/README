@@ -1,0 +1,71 @@
+/*
+
+Locks
+    A lock class is an RAII class that makes it easier to correctly obtain and release a lock on a mutex;
+    the destructor of the lock class automatically releases the associated mutex. 
+
+    The C++ standard defines four types of locks: 
+    std::lock_guard, 
+    unique_lock, 
+    shared_lock, and 
+    scoped_lock (C++17).
+
+lock_guard
+    lock_guard, defined in <mutex>, is a simple lock with two constructors:
+
+        ➤➤ explicit lock_guard(mutex_type& m)
+            This is a constructor accepting a reference to a mutex. 
+            This constructor tries to obtain a lock on the mutex and blocks until the lock is obtained.
+            
+        ➤➤ lock_guard(mutex_type& m, adopt_lock_t);
+            This is a constructor accepting a reference to a mutex and an instance of std::adopt_lock_t. 
+            There is a predefined adopt_lock_t instance provided, called std::adopt_lock.
+            The lock assumes that the calling thread has already obtained a lock on the referenced mutex. 
+            The lock “adopts” the mutex, and automatically releases the mutex when the lock is destroyed.
+
+unique_lock
+    std::unique_lock, defined in <mutex>, is a more sophisticated lock that allows you to defer lock acquisition until later 
+    in the execution, long after the declaration. 
+    You can use the owns_lock() method, or the unique_lock’s bool conversion operator, to see if the lock has been acquired. 
+    unique_lock has several constructors:
+
+        ➤➤ explicit unique_lock(mutex_type& m)
+            This constructor accepts a reference to a mutex. 
+            It tries to obtain a lock on the mutex and blocks until the lock is obtained.
+
+        ➤➤ unique_lock(mutex_type& m, defer_lock_t) noexcept
+            This constructor accepts a reference to a mutex and an instance of std::defer_lock_t.
+            There is a predefined defer_lock_t instance provided, called std::defer_lock. 
+            The unique_lock stores the reference to the mutex, but does not immediately try to obtain a lock. 
+            A lock can be obtained later.
+
+        ➤➤ unique_lock(mutex_type& m, try_to_lock_t)
+            This constructor accepts a reference to a mutex and an instance of std::try_to_lock_t.
+            There is a predefined try_to_lock_t instance provided, called std::try_to_lock. 
+            The lock tries to obtain a lock to the referenced mutex, but if it fails, it does not block, in which
+            case, a lock can be obtained later.
+
+        ➤➤ unique_lock(mutex_type& m, adopt_lock_t)
+            This constructor accepts a reference to a mutex and an instance of std::adopt_lock_t, for example std::adopt_lock. 
+            The lock assumes that the calling thread has already obtained a lock on the referenced mutex. 
+            The lock “adopts” the mutex, and automatically releases the mutex when the lock is destroyed.
+
+        ➤➤ unique_lock(mutex_type& m, const chrono::time_point<Clock, Duration>&abs_time);
+            This constructor accepts a reference to a mutex and an absolute time. 
+            The constructor tries to obtain a lock until the system time passes the given absolute time.
+            
+        ➤➤ unique_lock(mutex_type& m, const chrono::duration<Rep, Period>& rel_time);
+            This constructor accepts a reference to a mutex and a relative time. 
+            The constructor tries to get a lock on the mutex with the given relative timeout.
+
+    The unique_lock class also has the methods 
+
+    lock(), 
+    try_lock(), 
+    try_lock_for(), 
+    try_lock_until(), and 
+    unlock(), 
+
+    which behave as explained in the section “Timed Mutex Classes,”.
+
+*/

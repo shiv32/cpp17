@@ -85,4 +85,48 @@ Non-timed Mutex Classes
     lock_shared(), try_lock_shared(), and unlock_shared(). 
     These work similarly to the other set of methods, but try to acquire or release shared ownership.
 
+    A thread already having a lock on a shared_mutex is not allowed to try to acquire a second lock on that mutex. 
+    This might lead to a deadlock!
+
+Timed Mutex Classes
+    The Standard Library provides three timed mutex classes: 
+    std::timed_mutex, 
+    recursive_timed_mutex, and 
+    shared_timed_mutex. 
+    
+    The first two classes are defined in <mutex>, and the last one in <shared_mutex>. 
+    They all support the lock(), try_lock(), and unlock() methods; and 
+    shared_timed_mutex also supports lock_shared(), try_lock_shared(), and unlock_shared().
+
+    All these methods behave the same as described in the previous section. 
+    Additionally, they support the following methods.
+
+        ➤➤ try_lock_for(rel_time): The calling thread tries to obtain the lock for a certain relative time. 
+                                   If the lock could not be obtained after the given timeout, the call fails and returns
+                                   false. 
+                                   If the lock could be obtained within the timeout, the call succeeds and returns true.
+                                   The timeout is specified as an std::chrono::duration.
+
+        ➤➤ try_lock_until(abs_time): The calling thread tries to obtain the lock until the system time equals or exceeds 
+                                     the specified absolute time. 
+                                     If the lock could be obtained before this time, the call returns true. 
+                                     If the system time passes the given absolute time, the function stops trying to obtain 
+                                     the lock and returns false. 
+                                     The absolute time is specified as an std::chrono::time_point.
+
+    A shared_timed_mutex also supports try_lock_shared_for() and try_lock_shared_until().
+
+    A thread already having ownership of a timed_mutex or a shared_timed_mutex is not allowed to acquire the lock 
+    a second time on that mutex. 
+    This might lead to a deadlock!
+
+    A recursive_timed_mutex allows a thread to acquire a lock multiple times, just as with recursive_mutex.
+
+    WARNING:    Do not manually call one of the previously discussed lock and unlock methods on any of the mutex classes.
+                Mutex locks are resources, and, like all resources, they should almost exclusively be acquired using the 
+                RAII (Resource Acquisition Is Initialization) paradigm.
+                Using them is critical to avoid deadlocks. 
+                They automatically unlock a mutex when a lock object goes out of scope, so you don’t need to manually call
+                unlock() at the right time.
+
 */
