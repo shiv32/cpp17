@@ -13,9 +13,9 @@ Emplace Operations
     specific compiler implements these operations. 
     In most situations, you can pick the one based on the syntax that you prefer.
 
-    vec.push_back(string(5, 'a'));
-    //or
-    vec.emplace_back(5, 'a');
+        vec.push_back(string(5, 'a'));
+        //or
+        vec.emplace_back(5, 'a');
 
     Since C++17, the emplace_back() method returns a reference to the inserted element. 
     Before C++17, the return type of emplace_back() was void.
