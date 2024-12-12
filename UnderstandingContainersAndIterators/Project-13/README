@@ -1,0 +1,26 @@
+/*
+
+Emplace Operations
+    C++ supports emplace operations on most Standard Library containers, including vector. 
+    Emplace means “to put into place.” 
+    An example is emplace_back() on a vector object, which does not copy or move anything. 
+    Instead, it makes space in the container and constructs the object in place.
+
+        vec.emplace_back(5, 'a');
+
+    The emplace methods take a variable number of arguments as a variadic template. 
+    The difference in performance between emplace_back() and push_back() using move semantics depends on how your 
+    specific compiler implements these operations. 
+    In most situations, you can pick the one based on the syntax that you prefer.
+
+    vec.push_back(string(5, 'a'));
+    //or
+    vec.emplace_back(5, 'a');
+
+    Since C++17, the emplace_back() method returns a reference to the inserted element. 
+    Before C++17, the return type of emplace_back() was void.
+
+    There is also an emplace() method that constructs an object in place at a specific position in the vector, 
+    and returns an iterator to the inserted element.
+
+*/
