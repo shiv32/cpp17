@@ -1,0 +1,60 @@
+/*
+
+Move Semantics
+    All Standard Library containers implement move semantics by including a move constructor and move assignment operator. 
+    A big benefit of this is that you can easily return a Standard Library container from a function by value without 
+    performance penalty. 
+    
+    Take a look at the following function:
+
+        vector<int> createVectorOfSize(size_t size)
+        {
+            vector<int> vec(size);
+            int contents = 0;
+
+            for (auto& i : vec) {
+                i = contents++;
+            }
+
+            return vec;
+        }
+    
+        vector<int> myVector;
+        myVector = createVectorOfSize(123);
+
+    Without move semantics, assigning the result of createVectorOfSize() to myVector calls the copy assignment operator. 
+    With the move semantics support in the Standard Library containers, copying of the vector is avoided. 
+    Instead, the assignment to myVector triggers a call to the move assignment operator.
+
+    Similarly, push operations can also make use of move semantics to improve performance in certain situations. 
+    
+    For example, suppose you have a vector of strings:
+
+        vector<string> vec;
+
+    You can add an element to this vector as follows:
+
+        string myElement(5, 'a'); // Constructs the string "aaaaa"
+        vec.push_back(myElement);
+
+    However, because myElement is not a temporary object, push_back() makes a copy of myElement and puts it in the vector.
+
+    The vector class also defines a push_back(T&& val), which is the move equivalent of push_back(const T& val). 
+    So, copying can be avoided if you call the push_back() method as follows:
+
+        vec.push_back(move(myElement));
+
+    Now you are explicitly saying that myElement should be moved into the vector. 
+    Note that after this call, myElement is in a valid but otherwise indeterminate state. 
+    You should not use myElement anymore, unless you first bring it back to a determinate state, 
+    for example by calling clear() on it! 
+    
+    You can also call push_back() as follows:
+
+        vec.push_back(string(5, 'a'));
+
+    The preceding call to push_back() triggers a call to the move version because the call to the string constructor 
+    results in a temporary object. 
+    The push_back() method moves this temporary string object into the vector, avoiding any copying.
+
+*/
