@@ -68,4 +68,14 @@ unique_lock
 
     which behave as explained in the section “Timed Mutex Classes,”.
 
+shared_lock
+    The shared_lock class, defined in <shared_mutex>, has the same type of constructors and the same methods as unique_lock. 
+    The difference is that the shared_lock class calls the shared ownership-related methods on the underlying shared mutex. 
+    
+    Thus, the methods of shared_lock are called lock(), try_lock(), and so on, but on the underlying shared mutex they  call 
+    lock_shared(), try_lock_shared(), and so on. 
+    
+    This is done to give shared_lock the same interface as unique_lock, so it can be used as a stand-in replacement for 
+    unique_lock, but acquires a shared lock instead of an exclusive lock.
+
 */

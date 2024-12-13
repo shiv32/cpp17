@@ -1,0 +1,71 @@
+/*
+
+Acquiring Multiple Locks at Once
+    C++ has two generic lock functions that you can use to obtain locks on multiple mutex objects at
+    once without the risk of creating deadlocks. 
+    Both functions are defined in the std namespace, and both are variadic template functions.
+
+    The first function, lock(), locks all the given mutex objects in an unspecified order without the risk
+    of deadlocks. 
+    If one of the mutex lock calls throws an exception, unlock() is called on all locks that have already been obtained. 
+    
+    Its prototype is as follows:
+
+        template <class L1, class L2, class... L3> 
+        void lock(L1&, L2&, L3&...);
+
+    try_lock() has a similar prototype, but it tries to obtain a lock on all the given mutex objects by
+    calling try_lock() on each of them in sequence. 
+    
+    It returns -1 if all calls to try_lock() succeed.
+    
+    If any try_lock() fails, unlock() is called on all locks that have already been obtained, and the
+    return value is the zero-based index of the parameter position of the mutex on which try_lock()
+    failed.
+
+     Example: how to use the generic lock() function 
+
+        The process() function first creates two locks, one for each mutex, and gives an instance of std::defer_lock_t as
+        a second argument to tell unique_lock not to acquire the lock during construction. 
+        The call to std::lock() then acquires both locks without the risk of deadlocks.
+
+            mutex mut1;
+            mutex mut2;
+
+            void process()
+            {
+                unique_lock lock1(mut1, defer_lock); // C++17
+                unique_lock lock2(mut2, defer_lock); // C++17
+
+                //unique_lock<mutex> lock1(mut1, defer_lock);
+                //unique_lock<mutex> lock2(mut2, defer_lock);
+
+                lock(lock1, lock2);
+                // Locks acquired
+                
+            } // Locks automatically released
+
+scoped_lock
+    std::scoped_lock, defined in <mutex>, is similar to lock_guard, except that it accepts a variable
+    number of mutexes. 
+    This greatly simplifies acquiring multiple locks. 
+
+    The example with the process() function in the previous section can be written using a scoped_lock as follows:
+
+            mutex mut1;
+            mutex mut2;
+
+            void process()
+            {
+                scoped_lock locks(mut1, mut2);
+                // Locks acquired
+            
+            } // Locks automatically released
+
+    This uses C++17’s template argument deduction for constructors. 
+    If your compiler does not support this feature yet, you have to write the following:
+    
+        scoped_lock<mutex, mutex> locks(mut1, mut2);
+
+
+*/

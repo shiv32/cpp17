@@ -1,10 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief
-
-        Locks
-       
+ * @brief Locks
  * @version 0.1
  * @date 2024-10-21
  *
