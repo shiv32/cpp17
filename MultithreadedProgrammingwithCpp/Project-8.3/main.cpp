@@ -38,6 +38,8 @@ void process2()
     std::scoped_lock locks(mut1, mut2);
     // Locks acquired
 
+    //std::scoped_lock<std::mutex, std::mutex> locks(mut1, mut2);
+
     std::cout << "process2(): Both mutexes are locked by thread " << std::this_thread::get_id() << std::endl;
 
 } // Locks automatically released
