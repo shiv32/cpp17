@@ -1,0 +1,14 @@
+POCO C++ Libraries examples
+
+
+Install in Ubuntu 18 ->
+
+sudo apt update
+sudo apt install libpoco-dev
+
+Verify Installation ->
+
+Check if the Poco header files and libraries are installed in 
+
+/usr/include/Poco/ and
+/usr/lib/
