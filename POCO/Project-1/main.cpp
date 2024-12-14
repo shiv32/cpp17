@@ -2,11 +2,7 @@
  * @file main.cpp
  * @author your name (you@domain.com)
  * @brief A simple program to test the C++ POCO installation: HTTP Client
- *
- *  g++ -o http_client main.cpp -lPocoFoundation -lPocoNet -lPocoUtil
-
-    ./http_client
-
+ 
     g++ -o http_client main.cpp -lPocoFoundation -lPocoNet -lPocoUtil && ./http_client && rm http_client
 
  * @version 0.1
