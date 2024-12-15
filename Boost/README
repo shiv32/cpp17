@@ -2,10 +2,15 @@ Boost C++ Libraries
 
 Install Boost Development Libraries
 
-sudo apt update
-sudo apt install -y libboost-all-dev
+    sudo apt update
+    sudo apt install -y libboost-all-dev
 
-Verify Installation
-dpkg -l | grep boost
+Verify Installation and Version
 
-The Boost headers are typically installed in /usr/include/boost, and the libraries are in /usr/lib.
+    dpkg -l | grep boost
+
+The Boost headers are typically installed in 
+
+/usr/include/boost, and 
+
+the libraries are in /usr/lib.
