@@ -1,0 +1,104 @@
+/*
+
+Algorithmic Complexity and Iterator Invalidation
+    Inserting or erasing elements in a vector causes all subsequent elements to shift up or down to make room for, 
+    or fill in the holes left by, the affected elements. 
+
+    Thus, these operations take linear complexity. 
+
+    Furthermore, all iterators referring to the insertion or removal point or subsequent positions are invalid 
+    following the action. 
+
+    The iterators are not “magically” moved to keep up with the elements that are shifted up or down in the 
+    vector—that’s up to you.
+
+    Also keep in mind that an internal vector reallocation can cause invalidation of all iterators referring to elements 
+    in the vector, not just those referring to elements past the point of insertion or deletion. 
+
+The vector Memory Allocation Scheme
+    A vector allocates memory automatically to store the elements that you insert. 
+    Recall that the vector requirements dictate that the elements must be in contiguous memory, like in standard
+    C-style arrays.
+    Because it’s impossible to request to add memory to the end of a current chunk of memory, every time a vector 
+    allocates more memory, it must allocate a new, larger chunk in a separate memory location and copy/move all the 
+    elements to the new chunk. 
+    
+    This process is time-consuming, so vector implementations attempt to avoid it by allocating more space than
+    needed when they have to perform a reallocation. 
+    That way, they can avoid reallocating memory every time you insert an element.
+
+    One obvious question at this point is why you, as a client of vector, care how it manages its memory internally. 
+    You might think that the principle of abstraction should allow you to disregard the internals of the vector memory 
+    allocation scheme. 
+    Unfortunately, there are two reasons why you need to understand how it works:
+
+        1. Efficiency
+                The vector allocation scheme can guarantee that an element insertion runs in amortized constant time: 
+                most of the time the operation is constant, but once in a while (if it requires a reallocation), 
+                it’s linear. 
+                If you are worried about efficiency, you can control when a vector performs reallocations.
+
+        2. Iterator invalidations
+                A reallocation invalidates all iterators referring to elements in a vector.
+
+    Thus, the vector interface allows you to query and control the vector reallocations. 
+    If you don’t control the reallocations explicitly, you should assume that all insertions cause a reallocation and
+    thus invalidate all iterators.
+
+Size and Capacity
+    vector provides two methods for obtaining information about its size: 
+    size() and 
+    capacity().
+    
+    The size() method returns the number of elements in a vector, 
+    while capacity() returns the number of elements that it can hold without a reallocation. 
+    
+    Thus, the number of elements that you can insert without causing a reallocation is capacity() – size().
+
+        NOTE: You can query whether a vector is empty with the empty() method.
+              A vector can be empty but have nonzero capacity.
+
+    C++17 introduces non-member std::size() and std::empty() global functions. 
+    These are similar to the non-member functions that are available to get iterators ( std::begin(), std::end(), and
+    so on). 
+    The non-member size() and empty() functions can be used with all containers. 
+    They can also be used with statically allocated C-style arrays not accessed through pointers, and with initializer_lists. 
+    
+        eg.
+            vector<int> vec{ 1,2,3 };
+            
+            cout << size(vec) << endl;
+            cout << empty(vec) << endl;
+
+Reserving Capacity
+    If you don’t care about efficiency or iterator invalidations, there is never a need to control the vector memory 
+    allocation explicitly. 
+    However, if you want to make your program as efficient as possible, or you want to guarantee that iterators will not be 
+    invalidated, you can force a vector to preallocate enough space to hold all of its elements. 
+    Of course, you need to know how many elements it will hold, which is sometimes impossible to predict.
+
+    One way to preallocate space is to call reserve(), which allocates enough memory to hold the specified number of elements.
+
+        WARNING: Reserving space for elements changes the capacity, but not the size.
+                 That is, it doesn’t actually create elements. 
+                 Don’t access elements past a vector’s size. 
+
+    Another way to preallocate space is to specify, in the constructor, or with the resize() or assign() method, 
+    how many elements you want a vector to store. 
+    This method actually creates a vector of that size (and probably of that capacity).
+
+Directly Accessing the Data
+    A vector stores its data contiguously in memory. 
+    You can get a pointer to this block of memory with the data() method.
+
+    C++17 introduces a non-member std::data() global function that can be used to get a pointer to the data. 
+    It works for the array and vector containers, strings, statically allocated C-style arrays not accessed through pointers, 
+    and initializer_lists. 
+
+        eg.
+            vector<int> vec{ 1,2,3 };
+
+            int* data1 = vec.data();
+            int* data2 = data(vec);
+
+*/
