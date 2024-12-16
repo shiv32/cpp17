@@ -1,7 +1,8 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief
+ * @brief Size and Capacity
+ *        Directly Accessing the Data
  *
  * @version 0.1
  * @date 2024-09-23
