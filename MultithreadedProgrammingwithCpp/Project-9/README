@@ -1,0 +1,72 @@
+/*
+std::call_once
+    You can use std::call_once() in combination with std::once_flag to make sure a certain function or method 
+    is called exactly one time, no matter how many threads try to call call_once() with the same once_flag. 
+    
+    Only one call_once() invocation actually calls the given function or method. 
+    
+    If the given function does not throw any exceptions, then this invocation is called the effective call_once() 
+    invocation. 
+    
+    If the given function does throw an exception, the exception is propagated back to the caller, and another caller 
+    is selected to execute the function. 
+    
+    The effective invocation on a specific once_flag instance finishes before all other call_once() invocations on
+    the same once_flag. 
+    
+    Other threads calling call_once() on the same once_flag block until the effective call is finished. 
+    
+    Figure illustrates this with three threads. 
+    Thread 1 performs the effective call_once() invocation, 
+    thread 2 blocks until the effective invocation is finished, and 
+    thread 3 doesn’t block because the effective invocation from thread 1 has already finished.
+
+    
+    Thread 1 -(call_once → func → func returns → call_once returns)------------------------------------------------->
+
+    Thread 2 -(call_once → blocks)--------------------------------(→ call_once returns)----------------------------->
+
+    Thread 3 ------------------------------------------------------(call_once → call_once returns)------------------>
+                                                                                                                Time
+
+
+    eg.
+
+    Three threads running processingFunction() that use some shared resources. 
+    These shared resources should be initialized only once by calling initializeSharedResources() once. 
+    To accomplish this, each thread calls call_once() with a global once_flag. 
+    The result is that only one thread effectively executes initializeSharedResources(), and exactly one time. 
+    While this call_once() call is in progress, other threads block until initializeSharedResources() returns.
+
+            once_flag gOnceFlag;
+
+            void initializeSharedResources(){cout << "Shared resources initialized." << endl;}
+
+            void processingFunction(){call_once(gOnceFlag, initializeSharedResources);cout << "Processing" << endl;};
+
+            int main()
+            {
+                // Launch 3 threads.
+                vector<thread> threads(3);
+
+                for (auto& t : threads) 
+                {
+                    t = thread{ processingFunction };
+                }
+
+                // Join on all threads
+                for (auto& t : threads) 
+                {
+                    t.join();
+                }
+            }
+
+    Output:
+            Shared resources initialized.
+            Processing
+            Processing
+            Processing
+
+    In this example, you could call initializeSharedResources() once in the beginning of the main() function before 
+    the threads are launched; however, that wouldn’t demonstrate the use of call_once().
+*/     
