@@ -1,0 +1,12 @@
+
+Microcontroller code using C++.
+
+---------------------------------------------------------------------------------------------------------
+Fixed-Width Integer Types (from <cstdint> or <stdint.h>):
+These are especially important in embedded systems to ensure precise control over the size of variables:
+
+int8_t, uint8_t: 8-bit signed and unsigned integers.
+int16_t, uint16_t: 16-bit signed and unsigned integers.
+int32_t, uint32_t: 32-bit signed and unsigned integers.
+int64_t, uint64_t: 64-bit signed and unsigned integers (used sparingly on smaller microcontrollers).
+---------------------------------------------------------------------------------------------------------
