@@ -1,0 +1,46 @@
+/*
+
+Examples Using Mutual Exclusion Objects
+    Examples on how to use mutual exclusion objects to synchronize multiple threads.
+
+Thread-Safe Writing to Streams
+    C++ streams are data-race free by default, but that the output from multiple threads can be interleaved.
+
+    To solve this interleaving issue, you can use a mutual exclusion object to make sure that only one thread at a time is reading/writing to the stream object.
+
+    Example synchronizes all accesses to cout in the Counter class. 
+    For this, a static mutex object is added. 
+    It should be static, because all instances of the class should use the same mutex instance. 
+    lock_guard is used to obtain a lock on the mutex before writing to cout.
+
+            class Counter
+            {
+                public:
+
+                    Counter(int id, int numIterations): mId(id), mNumIterations(numIterations)
+                    {
+                    }
+
+                    void operator()() const
+                    {
+                        for (int i = 0; i < mNumIterations; ++i) 
+                        {
+                            lock_guard lock(sMutex);
+                            cout << "Counter " << mId << " has value " << i << endl;
+                        }
+                    }
+
+                private:
+                    int mId;
+                    int mNumIterations;
+                    static mutex sMutex;
+            }
+
+            mutex Counter::sMutex;
+
+    This code creates a lock_guard instance on each iteration of the for loop. 
+    It is recommended to limit the time a lock is held as much as possible; otherwise, you are blocking other threads for too
+    long. 
+    For example, if the lock_guard instance was created once right before the for loop, then you would basically lose all multithreading in this code because one thread would hold a lock for the entire duration of its for loop, and all other threads would wait for this lock to be released.
+
+*/     
