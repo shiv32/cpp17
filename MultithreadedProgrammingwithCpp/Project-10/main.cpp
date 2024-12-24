@@ -5,7 +5,7 @@
  *
     Thread-Safe Writing to Streams
 
-    g++ --std=c++17 main.cpp -o test -pthread
+    g++ --std=c++17 main.cpp -o test -pthread && ./test && rm test
  *
  *
  * @version 0.1
