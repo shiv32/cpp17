@@ -10,3 +10,12 @@ int16_t, uint16_t: 16-bit signed and unsigned integers.
 int32_t, uint32_t: 32-bit signed and unsigned integers.
 int64_t, uint64_t: 64-bit signed and unsigned integers (used sparingly on smaller microcontrollers).
 ---------------------------------------------------------------------------------------------------------
+
+UINT8_C is a macro defined in the C and C++ standard libraries, typically found in <cstdint> (C++) or <stdint.h> (C). 
+It is used to define a constant of type uint8_t (an unsigned 8-bit integer).
+
+The UINT8_C macro ensures that the literal constant is treated as a uint8_t type. 
+This is particularly useful when working with fixed-width integer types across different platforms, 
+where type sizes may vary.
+-------------------------------------------------------------------------------------------------------
+
