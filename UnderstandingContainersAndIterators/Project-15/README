@@ -1,0 +1,63 @@
+/*
+
+vector Example: A Round-Robin Class
+    A common problem in computer science is distributing requests among a finite list of resources. 
+
+    For example, a simple operating system could keep a list of processes and assign a time slice 
+    (such as 100ms) to each process to let the process perform some of its work.
+
+    After the time slice is finished, the OS suspends the process and the next process in the list is 
+    given a time slice to perform some of its work. 
+    
+    One of the simplest algorithmic solutions to this problem is round-robin scheduling. 
+
+    When the time slice of the last process is finished, the scheduler starts over again with the first process. 
+    
+    For example, in the case of three processes, 
+    the first time slice would go to the first process, 
+    the second slice to the second process, 
+    the third slice to the third process, and 
+    the fourth slice back to the first process. 
+    
+    The cycle would continue in this way indefinitely.
+
+    Write a generic round-robin scheduling class that can be used with any type of resource. 
+    
+    The class should support adding and removing resources, and should support cycling through the resources in order 
+    to obtain the next one. 
+    
+    You could use a vector directly, but it’s often helpful to write a wrapper class that provides more directly the 
+    functionality you need for your specific application. 
+
+    eg.
+        The public interface is straightforward: 
+        only three methods plus the constructor and destructor. 
+        
+        The resources are stored in the vector called mElements . 
+        
+        The iterator mCurrent­Element always refers to the element that will be returned with the next call to getNext(). 
+        
+        If getNext() hasn’t been called yet, mCurrentElement is equal to begin(mElements). 
+        
+        Note the use of the typename keyword in front of the line declaring mCurrentElement . 
+        
+        So far, you’ve only seen that keyword used to specify template parameters, but there is another use for it. 
+        
+        You must specify typename explicitly whenever you access a type based on one or more template parameters. 
+        
+        In this case, the template parameter T is used to access the iterator type. 
+        
+        Thus, you must specify typename. This is another example of arcane C++ syntax.
+
+        The class also prevents assignment and pass-by-value because of the mCurrentElement data member. 
+        
+        To make assignment and pass-by-value work, you would have to implement an assignment operator and copy constructor 
+        and make sure mCurrentElement is valid in the destination object.
+        
+        Note the use of reserve() in the constructor, and the extensive use of iterators in add(), remove(), and getNext(). 
+        
+        The trickiest aspect is handling mCurrentElement in the add() and remove() methods.
+    
+
+
+*/
