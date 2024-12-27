@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author your name (you@domain.com)
  * @brief Class Templates
-            Explicit specialization I
+            Explicit specialization II
 
  * @version 0.1
  * @date 2024-10-16
@@ -12,6 +12,7 @@
  */
 
 #include <iostream>
+#include <vector>
 
 template <typename T>
 class PrettyPrinter
@@ -56,6 +57,49 @@ public:
     }
 };
 
+//-----------------------(II)------------------------------------
+// template <>
+// class PrettyPrinter<std::vector<int>>
+// {
+//     std::vector<int> *m_pData{};
+
+// public:
+//     PrettyPrinter(std::vector<int> *data) : m_pData(data)
+//     {
+//     }
+
+//     void Print()
+//     {
+//         std::cout << "{ ";
+
+//         for (const auto &x : *m_pData)
+//         {
+//             std::cout << x;
+//         }
+
+//         std::cout << " }" << std::endl;
+//     }
+
+//     std::vector<int> *GetData()
+//     {
+//         return m_pData;
+//     }
+// };
+
+// Explicit specialization only class member function
+template <>
+void PrettyPrinter<std::vector<int>>::Print()
+{
+    std::cout << "{ ";
+
+    for (const auto &x : *m_pData)
+    {
+        std::cout << x;
+    }
+
+    std::cout << " }" << std::endl;
+}
+
 int main()
 {
 
@@ -79,6 +123,12 @@ int main()
     p3.Print();
 
     char *pData = p3.GetData();
+
+    //------------------------------(II)------------------------------
+    std::vector<int> v{1, 2, 3, 4, 5};
+
+    PrettyPrinter<std::vector<int>> pv(&v);
+    pv.Print();
 
     return 0;
 }
