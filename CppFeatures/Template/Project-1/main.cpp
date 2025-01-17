@@ -198,16 +198,22 @@ int main()
     // unsigned char a = 'A';
     // unsigned char b = 'B';
 
-    // // char result = sum(a, b);
+    // char result = sum(a, b);
 
     // unsigned char result = sum(a, b);
 
     // std::cout << "The sum of '" << a << "' and '" << b << "' is: " << static_cast<int>(result) << "\n";
 
     //---------------------------------(explicit specialization)----------------------------------
+
+    // Compiler: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
     // char *b{"B"};
     // char *a{"A"};
     // char *c{"C"};
+
+    // char b[]{"B"};
+    // char a[]{"A"};
+    // char c[]{"C"};
 
     // auto s = sum(b, a);
 
@@ -222,9 +228,8 @@ int main()
     // print<30>();
 
     // int i = 30;
-    /*
-   print<i>(); //complir error
-   */
+
+    // print<i>(); //complir error
 
     // print<sizeof(i)>();
 
@@ -232,21 +237,21 @@ int main()
 
     // auto it = std::begin(arr);
 
-    // // int (&ref)[4] = arr;
+    // int (&ref)[4] = arr;
 
-    // // int sum = Sum(arr,4);
+    // int sum = Sum(arr,4);
     // int sum = Sum(arr);
 
     // std::cout << "sum : " << sum << std::endl;
     //-----------------------------------(variadic template)--------------------------------------------
 
-    // Print({10,20,30,40});
+    //Print({10,20,30,40});
 
     // Print({10,20,30.5,40}); //compile time error template arg deduction
 
-    // Print(1, 2, 3.4, "r", 's'); // variadic template
+    //Print(1, 2, 3.4, "r", 's'); // variadic template
 
-    Integer val{1};
+     Integer val{1};
 
     Print(0, val, Integer{2});
 

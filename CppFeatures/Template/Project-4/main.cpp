@@ -114,7 +114,7 @@ int main()
     // PrettyPrinter<float> p2(&floatData);
     // p2.Print();
 
-    // char *p{"Hello World"}; //ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+    // char *p{"Hello World"}; //Compiler: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
     char p[]{"Hello World"};
 
     PrettyPrinter<char *> p3(p);
