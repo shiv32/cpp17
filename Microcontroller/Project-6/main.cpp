@@ -251,12 +251,12 @@ int main()
 
     using namespace cpp17PWMImproved2;
     // PWM pwm(9, 1); // 1 Hz frequency
-     PWM pwm(9, 20); // 20 Hz frequency
+    PWM pwm(9, 20); // 20 Hz frequency
     // or
     // cpp17PWMImproved::PWM pwm(9, 1);        // 1 Hz frequency
 
-    pwm.setDutyCycle(50); // 50% duty cycle
-    //pwm.setDutyCycle(75); // 75% duty cycle
+    // pwm.setDutyCycle(50); // 50% duty cycle
+    pwm.setDutyCycle(75); // 75% duty cycle
     pwm.simulate();       // Start the simulation
 
     return 0;
