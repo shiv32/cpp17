@@ -181,18 +181,82 @@ namespace cpp17PWMImproved
 
 }
 
+namespace cpp17PWMImproved2
+{
+    class PWM
+    {
+    public:
+        PWM(int pin, int frequency) : pin(pin), frequency(frequency), cycleCounter(0) {}
+
+        void setDutyCycle(int dutyCycle)
+        {
+            // Clamp the duty cycle to be within the valid range (0 to 100)
+            dutyCycle = std::max(0, std::min(dutyCycle, 100));
+            this->dutyCycle = dutyCycle;
+        }
+
+        void simulate()
+        {
+            // Calculate the time for HIGH and LOW states based on the duty cycle and frequency
+            auto highTime = std::chrono::milliseconds((dutyCycle * 1000) / frequency);      // Time spent on HIGH
+            auto lowTime = std::chrono::milliseconds((100 - dutyCycle) * 1000 / frequency); // Time spent on LOW
+
+            std::cout << "Simulating PWM on pin " << pin << " with "
+                      << dutyCycle << "% duty cycle at " << frequency
+                      << " Hz.\n";
+
+            while (true)
+            {
+                ++cycleCounter;
+
+                // Display HIGH state
+                std::cout << "Cycle " << cycleCounter << ": ";
+                displayGraph(true, highTime);
+
+                // Display LOW state
+                displayGraph(false, lowTime);
+                std::cout << "\n\n"; // End the line after one full cycle
+            }
+        }
+
+    private:
+        int pin;
+        int frequency;
+        int dutyCycle;
+        int cycleCounter; // Counter to track the number of cycles
+
+        // Helper function to display the graph
+        void displayGraph(bool isHigh, std::chrono::milliseconds duration) const
+        {
+            const int totalBars = 50; // Total width of the graph in characters
+            const int intervalMs = duration.count() / totalBars;
+
+            std::string symbol = isHigh ? "█" : "-";
+
+            for (int i = 0; i < totalBars; ++i)
+            {
+                std::this_thread::sleep_for(std::chrono::milliseconds(intervalMs));
+                std::cout << symbol << std::flush;
+            }
+            // std::cout << "\n"; // Move to the next line after displaying the graph
+        }
+    };
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     // Simulate PWM on pin 9 with a frequency of 1 Hz and a duty cycle of 50%
-    
-    using namespace cpp17PWMImproved;
-    PWM pwm(9, 1);        // 1 Hz frequency
-    //or
-    //cpp17PWMImproved::PWM pwm(9, 1);        // 1 Hz frequency
+
+    using namespace cpp17PWMImproved2;
+    // PWM pwm(9, 1); // 1 Hz frequency
+     PWM pwm(9, 20); // 20 Hz frequency
+    // or
+    // cpp17PWMImproved::PWM pwm(9, 1);        // 1 Hz frequency
 
     pwm.setDutyCycle(50); // 50% duty cycle
+    //pwm.setDutyCycle(75); // 75% duty cycle
     pwm.simulate();       // Start the simulation
 
     return 0;
