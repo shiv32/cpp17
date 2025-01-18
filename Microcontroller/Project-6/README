@@ -1,0 +1,11 @@
+/*
+
+ Pulse Width Modulation (PWM) in C++ is commonly used to control the power delivered to devices 
+ such as motors, LEDs, or servos by varying the duty cycle of a signal. 
+ Many microcontrollers, such as Arduino, have built-in functions to work with PWM.
+
+ To simulate PWM on a desktop system using C++, we can't directly generate a PWM signal like we can on microcontrollers.
+ However, we can simulate the behavior of PWM by printing output to the console, where we vary the duty cycle over time. 
+ You can simulate this by using a time loop and adjusting the "pulse" with delays, similar to how PWM works.
+
+*/
