@@ -1,5 +1,21 @@
-// Double-Checked Locking
-// g++ --std=c++17 main.cpp -o test -pthread
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * 
+    Double-Checked Locking
+
+    g++ --std=c++17 main.cpp -o test -pthread
+    
+ * 
+ * @version 0.1
+ * @date 2025-01-23
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
+
+
 
 #include <iostream>
 #include <thread>
@@ -35,6 +51,8 @@ void processingFunction()
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     vector<thread> threads;
 
     for (int i = 0; i < 5; ++i)

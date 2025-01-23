@@ -1,0 +1,84 @@
+/*
+
+Double-Checked Locking
+    The double-checked locking pattern is actually an anti-pattern, which you should avoid! 
+    It is shown here because you might come across it in existing code bases. 
+
+    The idea of the double-checked locking pattern is to try to avoid the use of mutual exclusion objects.
+
+    It’s a half-baked attempt at trying to write more efficient code than using a mutual exclusion object. 
+
+    The pattern becomes sensitive to data races, and it is hard to get right. 
+
+    The irony is that using call_once() will actually be faster, and 
+    using a magic static(Function local static instances are called magic statics)(if applicable) 
+    will be even faster than that.
+
+    WARNING 
+        Avoid the double-checked locking pattern! 
+        Instead, use other mechanisms such as simple locks, atomic variables, call_once(), magic statics, and so on.
+
+    Double-checked locking could, for example, be used to make sure that resources are initialized exactly once. 
+
+    The following example shows how you can implement this. 
+
+    It is called the double-checked locking pattern because it is checking the value of the gInitialized variable twice, 
+    once before acquiring the lock and once right after acquiring the lock. 
+
+    The first gInitialized check is used to prevent acquiring a lock when it is not needed. 
+
+    The second check is required to make sure that no other thread performed the initialization between the first gInitialized 
+    check and acquiring the lock.
+
+    eg.
+
+    void initializeSharedResources()
+    {
+        // ... Initialize shared resources to be used by multiple threads.
+        cout << "Shared resources initialized." << endl;
+    }
+
+    atomic<bool> gInitialized(false);
+    mutex gMutex;
+
+    void processingFunction()
+    {
+      if (!gInitialized) 
+      {
+        unique_lock lock(gMutex);
+
+        if (!gInitialized) 
+        {
+            initializeSharedResources();
+            gInitialized = true;
+        }
+      }
+        cout << "OK" << endl;
+    }
+
+    int main()
+    {
+        vector<thread> threads;
+
+        for (int i = 0; i < 5; ++i) {
+            threads.push_back(thread{ processingFunction });
+        }
+
+        for (auto& t : threads) {
+            t.join();
+        }
+    }
+
+    In Output only one thread initializes the shared resources:
+
+        Shared resources initialized.
+        OK
+        OK
+        OK
+        OK
+        OK 
+    
+    NOTE 
+        For this example, it’s recommended to use call_once(), instead of double-checked locking!
+        
+*/     
