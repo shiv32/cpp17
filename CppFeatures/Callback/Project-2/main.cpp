@@ -143,8 +143,8 @@ int main()
         }
     */
 
-    // auto found = Find_if(Begin(arr), End(arr),Less3);  //function pointer used
-    auto found = Find_if(Begin(arr), End(arr), Greater3);
+     //auto found = Find_if(Begin(arr), End(arr),Less3);  //function pointer used
+   auto found = Find_if(Begin(arr), End(arr), Greater3);
 
     if (found != End(arr))
     {
