@@ -103,6 +103,7 @@ T Find_if(T beg, T end, ElemType Pfn)
     return beg;
 }
 
+//function object
 struct FnGreater
 {
     int m_Value{};
