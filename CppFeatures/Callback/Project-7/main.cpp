@@ -112,7 +112,7 @@ struct FnGreater
     {
     }
 
-    bool operator()(int x) const
+    bool operator()(int x) const //function call operator
     {
         // return x > 3;
         return x > m_Value;
