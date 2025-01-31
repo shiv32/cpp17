@@ -1,0 +1,44 @@
+/*
+
+Function Objects vs Function Pointers
+
+    When to Use What?
+
+    Use Case	                   Function Pointers	 Function Objects
+    Simple callbacks	               ✅ Yes	        🔸 Not necessary
+    Maintaining state	               ❌ No              ✅ Yes
+    Used in STL algorithms	           ❌ No	             ✅ Yes
+    Efficient execution	               ✅ Yes (faster)	🔸 Slightly slower
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+ To see he assembly file from C++ code
+
+    step 1:
+
+    Build c++ project from vs code.
+    main.s file will be generated in build dir.
+
+    ----------------------------------------------------------------------------
+    step 2:
+
+    In the assembly file:
+
+    Look for functions with mangled names. 
+    Use c++filt to demangle names for better readability.
+
+    _Z3addIiET_S0_S0_:     # Template instantiated for int
+    _Z3addIdET_S0_S0_:     # Template instantiated for double
+
+    To demangle:
+
+    $c++filt _Z3addIiET_S0_S0_
+
+    output:
+    add<int>(int, int)
+    
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+*/
