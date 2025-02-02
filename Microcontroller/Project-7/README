@@ -1,0 +1,96 @@
+/*
+
+C++ Microcontroller
+
+Full List of Pin-to-Register Mappings (ATmega328P - Arduino Uno)
+
+Pin	Register    Bit	Macro
+0	PORTD	    0	PD0
+1	PORTD	    1	PD1
+2	PORTD	    2	PD2
+3	PORTD	    3	PD3
+4	PORTD	    4	PD4
+5	PORTD	    5	PD5
+6	PORTD	    6	PD6
+7	PORTD	    7	PD7
+8	PORTB	    0	PB0
+9	PORTB	    1	PB1
+10	PORTB	    2	PB2
+11	PORTB	    3	PB3
+12	PORTB	    4	PB4
+13	PORTB	    5	PB5
+A0	PORTC	    0	PC0
+A1	PORTC	    1	PC1
+A2	PORTC	    2	PC2
+A3	PORTC	    3	PC3
+A4	PORTC	    4	PC4
+A5	PORTC	    5	PC5
+----------------------------------------------------------
+Understanding Arduino Pin Registers
+
+Each Arduino pin is part of a port register:
+
+Pin Number	Port Register (ATmega328P - Arduino Uno)
+0 - 7	    PORTD
+8 - 13	    PORTB
+A0 - A5	    PORTC
+
+Each port has three registers:
+
+DDR (Data Direction Register) – Sets pin as input/output
+PORT (Data Register) – Controls HIGH/LOW output
+PIN (Input Register) – Reads input values
+
+Example:
+DDRB |= (1 << PB5); → Set pin 13 (PB5) as output
+PORTB |= (1 << PB5); → Turn LED ON
+PORTB &= ~(1 << PB5); → Turn LED OFF
+
+
+---------------------------------------------------------
+
+Breakdown of the Code
+
+DDRB |= (1 << PB5);
+1️⃣ DDRB (Data Direction Register for PORTB)
+DDRB (Data Direction Register for PORTB) controls whether each pin in PORTB (Pins 8-13) is an INPUT or OUTPUT.
+Writing 1 to a bit in DDRB makes the corresponding pin an OUTPUT.
+Writing 0 to a bit in DDRB makes the corresponding pin an INPUT.
+2️⃣ (1 << PB5)
+PB5 refers to Bit 5 in PORTB, which corresponds to Digital Pin 13.
+1 << PB5 shifts the binary 00000001 left by 5 positions:
+
+00000001 << 5  →  00100000  (0x20 in hex)
+This ensures only PB5 (Pin 13) is affected, leaving other bits unchanged.
+3️⃣ |= (Bitwise OR Assignment)
+DDRB |= (1 << PB5); is equivalent to:
+
+DDRB = DDRB | (1 << PB5);
+This sets only PB5 (Pin 13) as an OUTPUT without affecting other pins.
+
+-----------------------------------------------------------
+Breakdown of the Code
+
+PORTB |= (1 << PB5);
+
+1️⃣ PORTB
+PORTB is the output register for digital pins 8 to 13 on Arduino UNO.
+Writing 1 to a bit in PORTB sets the corresponding pin HIGH.
+
+2️⃣ (1 << PB5)
+PB5 refers to Bit 5 in PORTB, which corresponds to Digital Pin 13.
+
+1 << PB5 shifts the binary 00000001 left by 5 positions:
+
+00000001 << 5  →  00100000  (0x20 in hex)
+
+This ensures only PB5 (Pin 13) is affected, leaving other bits unchanged.
+
+3️⃣ |= (Bitwise OR Assignment)
+PORTB |= (1 << PB5); is equivalent to:
+
+PORTB = PORTB | (1 << PB5);
+
+It sets only PB5 to HIGH without changing other bits.
+
+*/
