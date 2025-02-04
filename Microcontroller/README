@@ -51,7 +51,7 @@ by right click on file tab.
 
 click compile button in SimulIDE
 
-4. Now drag Arduino UNO from left pan and run upload from editor tab and turn on the Arduino UNO
+4. Now drag Arduino UNO from left pan and save it in a folder then run upload from editor tab and turn on the Arduino UNO
 from tab.
 
 5. If any error come restart/relaunch the SimulIDE.
