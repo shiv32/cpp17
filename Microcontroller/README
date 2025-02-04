@@ -19,3 +19,44 @@ This is particularly useful when working with fixed-width integer types across d
 where type sizes may vary.
 -------------------------------------------------------------------------------------------------------
 
+SimulIDE/Arduino setup -->
+
+Note: OS is Ubuntu 18.04.6 LTS
+
+1. Download SimulIDE 0.4.15 – older version from ->
+
+https://simulide.com/p/downloads/
+
+Download file will SimulIDE_0.4.15-SR10.AppImage
+
+chmod +x SimulIDE_0.4.15-SR10.AppImage
+
+run ->
+sudo ./SimulIDE_0.4.15-SR10.AppImage
+
+2. Download Arduino from -->
+
+https://www.arduino.cc/en/software
+
+go to Arduino IDE 1.8.19 
+
+downloaded file will be "arduino-1.8.19-linux64.tar.xz"
+
+extract it
+
+3. Now run SimulIDE and make new .ino file to blink led and set compiler path below
+by right click on file tab.
+
+/home/xyz/Downloads/ardiuno-simulator/arduino-1.8.19-linux64/arduino-1.8.19
+
+click compile button in SimulIDE
+
+4. Now drag Arduino UNO from left pan and run upload from editor tab and turn on the Arduino UNO
+from tab.
+
+5. If any error come restart the SimulIDE.
+
+ref:https://www.hackster.io/patrick-fitzgerald2/setup-simulide-for-arduino-82694a
+
+--------------------------------------------------------------------------------------------- 
+
