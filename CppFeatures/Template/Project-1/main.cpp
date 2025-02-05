@@ -245,13 +245,13 @@ int main()
     // std::cout << "sum : " << sum << std::endl;
     //-----------------------------------(variadic template)--------------------------------------------
 
-    //Print({10,20,30,40});
+    // Print({10,20,30,40});
 
     // Print({10,20,30.5,40}); //compile time error template arg deduction
 
-    //Print(1, 2, 3.4, "r", 's'); // variadic template
+    // Print(1, 2, 3.4, "r", 's'); // variadic template
 
-     Integer val{1};
+    Integer val{1};
 
     Print(0, val, Integer{2});
 
