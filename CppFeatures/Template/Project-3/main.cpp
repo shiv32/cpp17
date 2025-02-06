@@ -74,7 +74,7 @@ int main()
     char p[]{"Hello World"};
 
     PrettyPrinter<char *> p3(p);
-    //  PrettyPrinter<char *> p3(&p);
+    // PrettyPrinter<char *> p3(&p);
     // PrettyPrinter<char> p3(p);
     p3.Print();
 
