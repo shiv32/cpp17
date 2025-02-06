@@ -79,6 +79,7 @@ int main()
     p3.Print();
 
     char *pData = p3.GetData();
+    std::cout << "pData : " << pData << std::endl;
 
     return 0;
 }

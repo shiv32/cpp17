@@ -123,6 +123,7 @@ int main()
     p3.Print();
 
     char *pData = p3.GetData();
+    std::cout << "pData : " << pData << std::endl;
 
     //------------------------------(II)------------------------------
     std::vector<int> v{1, 2, 3, 4, 5};
