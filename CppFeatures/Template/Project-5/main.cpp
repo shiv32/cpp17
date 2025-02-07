@@ -71,16 +71,19 @@ public:
 
     T *operator->()
     {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
         return m_ptr;
     }
 
     T &operator*()
     {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
         return *m_ptr;
     }
 
     ~SmartPointer()
     {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
         delete m_ptr;
     }
 };
@@ -96,13 +99,21 @@ public:
 
     T &operator[](int index)
     {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
         return m_ptr[index];
     }
 
     ~SmartPointer()
     {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
         delete[] m_ptr;
     }
+};
+
+class Car
+{
+public:
+    void show() { std::cout << "Car is running!" << std::endl; }
 };
 
 int main()
@@ -116,12 +127,16 @@ int main()
     p.Print();
 
     // smart pointer
-    //  SmartPointer<int> s1{new int(30)};
-    // std::cout<<*s1<<std::endl;
+    SmartPointer<int> s1{new int(30)};
+    std::cout << *s1 << std::endl;
 
-    SmartPointer<int[]> s1{new int[5]};
-    s1[0] = 50;
-    std::cout << s1[0] << std::endl;
+    SmartPointer<Car> s3{new Car()};
+    s3->show();
+    (*s3).show();
+
+    SmartPointer<int[]> s2{new int[5]};
+    s2[0] = 50;
+    std::cout << s2[0] << std::endl;
 
     return 0;
 }
