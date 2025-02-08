@@ -10,12 +10,6 @@
  */
 
 // The LED program.
-
-// #include <iostream>
-// #include <cstdint>
-// #include "mcal_reg.h"
-// #include <thread> // For std::this_thread::sleep_for
-// #include <chrono> // For std::chrono::seconds
 #include <stdint.h>
 #include <Arduino.h> // Needed for Serial in a custom main()
 
