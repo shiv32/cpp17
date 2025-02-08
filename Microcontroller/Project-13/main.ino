@@ -1,3 +1,13 @@
+/**
+ * @file main.ino
+ * @author your name (you@domain.com)
+ * @brief Tested on SimulIDE
+ * @version 0.1
+ * @date 2025-02-08
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 // #include <avr/io.h>
 // #include <util/delay.h>
 #include "Led.h" // Include the header file for the Led class
