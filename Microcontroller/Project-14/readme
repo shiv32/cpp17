@@ -1,3 +1,5 @@
+
+/*
 1. Finding the Address of an Arduino Pin
 Each pin is controlled by three registers:
 
@@ -41,3 +43,4 @@ int main()
    
     while (1);  // Prevent program from exiting
  }
+ */
