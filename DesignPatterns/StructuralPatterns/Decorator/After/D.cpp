@@ -1,8 +1,8 @@
 #include "D.hpp"
 
-D::D(I *inner)
+D::D(I *inner):m_wrappee{inner}
 {
-    m_wrappee = inner;
+    //m_wrappee = inner;
 }
 
 D::~D()

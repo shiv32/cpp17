@@ -1,7 +1,10 @@
 #include "X.hpp"
 #include <iostream>
 
-X::X(I *core) : D(core) {}
+X::X(I *core) : D(core) 
+{
+    
+}
 
 X::~X()
 {
