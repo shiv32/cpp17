@@ -1,7 +1,9 @@
 /*
     Dependency Inversion/Injection
-        High-level modules should not depend on low-level modules. Both should depend on abstractions.
-        Abstractions should not depend on details. Details should depend on abstractions.
+        High-level modules should not depend on low-level modules.
+        Both should depend on abstractions.
+        Abstractions should not depend on details.
+        Details should depend on abstractions.
 
         High-level modules
             It uses an abstraction to interact with different methods without
@@ -132,7 +134,9 @@ class Fan final : public Switchable
 class ElectricPowerSwitch
 {
 public:
-    ElectricPowerSwitch(std::unique_ptr<Switchable> switchable) : switchable_{std::move(switchable)}, on_{false} {}
+    ElectricPowerSwitch(std::unique_ptr<Switchable> switchable) : switchable_{std::move(switchable)}, on_{false}
+    {
+    }
 
     void press()
     {
