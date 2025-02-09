@@ -34,9 +34,9 @@ int main() // client
      * This way the client code can support both simple components...
      */
     // Component *simple = new ConcreteComponent;
-    
+
     // smart pointer
-    auto simple = std::make_shared<ConcreteComponent>();
+    auto simple = std::make_unique<ConcreteComponent>();
 
     std::cout << "Client: I've got a simple component:\n";
     // ClientCode(simple);
@@ -53,13 +53,13 @@ int main() // client
     // Component *decorator2 = new ConcreteDecoratorB(decorator1);
 
     // smart pointer
-    auto decorator1 = std::make_shared<ConcreteDecoratorA>(simple.get());
-    auto decorator2 = std::make_shared<ConcreteDecoratorB>(decorator1.get());
+    auto decorator1 = std::make_unique<ConcreteDecoratorA>(simple.get());
+    auto decorator2 = std::make_unique<ConcreteDecoratorB>(decorator1.get());
 
     std::cout << "Client: Now I've got a decorated component:\n";
     // ClientCode(decorator2);
     ClientCode(decorator2.get());
-    std::cout << "\n";
+    std::cout << "\n\n";
 
     // delete simple;
     // delete decorator1;
