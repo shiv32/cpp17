@@ -1,0 +1,52 @@
+/*
+
+CONDITION VARIABLES
+    Condition variables allow a thread to block until a certain condition is set by another thread, or
+    until the system time reaches a specified time. 
+    These variables allow for explicit inter-thread communication.
+
+    Two kinds of condition variables are available, both of which are defined in the 
+    <condition_variable> header file. 
+    
+        std::condition_variable: 
+            A condition variable that can wait only on a unique_lock<mutex>, which, according to the C++ standard, 
+            allows for maximum efficiency on certain platforms.
+
+        std::condition_variable_any: 
+            A condition variable that can wait on any kind of object, including custom lock types.
+
+    A condition_variable supports the following methods:
+
+        notify_one();
+            This method wakes up one of the threads waiting on this condition variable. 
+            This is similar to an auto-reset event in Windows.
+        
+        notify_all();
+            This method wakes up all threads waiting on this condition variable.
+
+        wait(unique_lock<mutex>& lk);
+            The thread calling wait() should already have acquired a lock on lk. 
+            The effect of calling wait() is that it atomically calls lk.unlock() and then blocks the thread, 
+            waiting for a notification. 
+            When the thread is unblocked by a notify_one() or notify_all() call in another thread, the function 
+            calls lk.lock() again, possibly blocking until the lock has been acquired, and then returns.
+
+        wait_for(unique_lock<mutex>& lk, const chrono::duration<Rep, Period>& rel_time);
+            This method is similar to wait(), except that the thread is unblocked by a notify_one()
+            call, a notify_all() call, or when the given timeout has expired.
+
+        wait_until(unique_lock<mutex>& lk, const chrono::time_point<Clock, Duration>& abs_time);
+            This method is similar to wait(), except that the thread is unblocked by a notify_one()
+            call, a notify_all() call, or when the system time passes the given absolute time.
+
+    There are also versions of wait(), wait_for(), and wait_until() that accept an extra predicate
+    parameter. 
+    For instance, the version of wait() accepting an extra predicate is equivalent to the following:
+
+                        while (!predicate())
+                            wait(lk);
+
+    The condition_variable_any class supports the same methods as condition_variable, except that it accepts 
+    any kind of lock class instead of only a unique_lock<mutex>. 
+    The lock class used should have a lock() and unlock() method.       
+*/     

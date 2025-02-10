@@ -10,36 +10,40 @@ std::mutex mtx;
 std::condition_variable cv;
 bool ready = false;
 
-void ThreadF_1() {
+void ThreadF_1()
+{
 
     std::unique_lock lock(mtx);
 
     std::cout << "Thread 1: Acquired lock" << std::endl;
-    
+
     // Wait until ready is true
-    cv.wait(lock, []{ return ready; });
-    
+    cv.wait(lock, []
+            { return ready; });
+
     // Do something
     std::cout << "Thread 1: Received notification" << std::endl;
 }
 
+void ThreadF_2()
+{
 
-void ThreadF_2() {
-    
     std::lock_guard lock(mtx);
-    
+
     std::cout << "Thread 2: Acquired lock" << std::endl;
-    
+
     // Modify ready
     ready = true;
-    
+
     // Notify waiting threads
     cv.notify_one();
-    
+
     std::cout << "Thread 2: Released lock and notified" << std::endl;
 }
 
-int main() {
+int main()
+{
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     // Create threads
     std::thread t1(ThreadF_1);
