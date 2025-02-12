@@ -1,0 +1,73 @@
+/*
+Spurious Wake-Ups
+    Threads waiting on a condition variable can wake up when another thread calls notify_one() or
+    notify_all(), with a relative timeout, or when the system time reaches a certain time. 
+    However, they can also wake up spuriously. 
+    This means that a thread can wake up, even if no other thread has called any notify method, 
+    and no timeouts have been reached yet. 
+    Thus, when a thread waits on a condition variable and wakes up, it needs to check why it woke up. 
+    One way to check for this is by using one of the versions of wait() accepting a predicate.
+
+Using Condition Variables
+    As an example, condition variables can be used for background threads processing items from a
+    queue. 
+    You can define a queue in which you insert items to be processed. 
+    A background thread waits until there are items in the queue. 
+    When an item is inserted into the queue, the thread wakes up, processes the item, and goes back to sleep, 
+    waiting for the next item. 
+    Suppose you have the following queue:
+
+                    queue<string> mQueue;
+
+    You need to make sure that only one thread is modifying this queue at any given time. 
+    You can do this with a mutex:
+
+                    mutex mMutex;
+
+    To be able to notify a background thread when an item is added, you need a condition variable:
+
+    condition_variable mCondVar;
+
+    A thread that wants to add an item to the queue first acquires a lock on the mutex, then adds the
+    item to the queue, and notifies the background thread. 
+    You can call notify_one() or notify_all() whether or not you currently have the lock; both work.
+
+                    // Lock mutex and add entry to the queue.
+                    unique_lock lock(mMutex);
+
+                    mQueue.push(entry);
+                    
+                    // Notify condition variable to wake up thread.
+                    mCondVar.notify_all();
+
+    The background thread waits for notifications in an infinite loop, as follows. 
+    Note the use of wait() accepting a predicate to correctly handle spurious wake-ups. 
+    The predicate checks if there really is something in the queue. 
+    When the call to wait() returns, you are sure there is something in the queue.
+
+                    unique_lock lock(mMutex);
+
+                    while (true) {
+
+                    // Wait for a notification.
+                    mCondVar.wait(lock, [this]{ return !mQueue.empty(); });
+
+                    // Condition variable is notified, so something is in the queue.
+                    // Process queue item...
+
+                    }
+
+    The C++ standard also defines a helper function called std::notify_all_at_thread_exit(cond,lk) 
+    where cond is a condition variable and lk is a unique_lock<mutex> instance. 
+    A thread calling this function should already have acquired the lock lk. 
+    When the thread exits, it automatically executes the following:
+
+                    lk.unlock();
+                    cond.notify_all();
+
+    NOTE 
+        The lock lk stays locked until the thread exits. 
+        So, you need to make sure that this does not cause any deadlocks in your code, 
+        for example, due to wrong lock ordering. 
+
+*/
