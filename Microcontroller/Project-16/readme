@@ -1,0 +1,6 @@
+/*
+
+`int8_t` and `uint8_t` are fixed-width integer types defined in `<cstdint>` (or `<stdint.h>` in C) 
+to ensure portability across different platforms.  
+
+*/
