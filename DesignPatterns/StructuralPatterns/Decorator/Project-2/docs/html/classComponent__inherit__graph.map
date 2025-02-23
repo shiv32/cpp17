@@ -1,0 +1,6 @@
+<map id="Component" name="Component">
+<area shape="rect" id="node2" href="$classConcreteComponent.html" title="ConcreteComponent" alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node3" href="$classDecorator.html" title="Decorator" alt="" coords="172,80,251,107"/>
+<area shape="rect" id="node4" href="$classConcreteDecoratorA.html" title="ConcreteDecoratorA" alt="" coords="58,155,199,181"/>
+<area shape="rect" id="node5" href="$classConcreteDecoratorB.html" title="ConcreteDecoratorB" alt="" coords="223,155,365,181"/>
+</map>

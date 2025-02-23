@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classComponent.html" title="Component" alt="" coords="5,31,95,57"/>
+<area shape="rect" id="node2" href="$classConcreteComponent.html" title="ConcreteComponent" alt="" coords="143,5,285,32"/>
+<area shape="rect" id="node3" href="$classDecorator.html" title="Decorator" alt="" coords="175,56,253,83"/>
+<area shape="rect" id="node4" href="$classConcreteDecoratorA.html" title="ConcreteDecoratorA" alt="" coords="333,31,475,57"/>
+<area shape="rect" id="node5" href="$classConcreteDecoratorB.html" title="ConcreteDecoratorB" alt="" coords="333,81,475,108"/>
+</map>
