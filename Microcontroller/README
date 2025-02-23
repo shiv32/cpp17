@@ -63,12 +63,14 @@ ref:https://www.hackster.io/patrick-fitzgerald2/setup-simulide-for-arduino-82694
 --------------------------------------------------------------------------------------------- 
 Usefull Links -->
 
-1. Designing a HAL in C++
-    https://blog.mbedded.ninja/programming/languages/c-plus-plus/designing-a-hal-in-cpp/
+1.  Designing a HAL in C++
+        https://blog.mbedded.ninja/programming/languages/c-plus-plus/designing-a-hal-in-cpp/
 
-2. How to use C++ with STM32 HAL
-    https://barenakedembedded.com/how-to-use-cpp-with-stm32-hal/
+2.  How to use C++ with STM32 HAL
+        https://barenakedembedded.com/how-to-use-cpp-with-stm32-hal/
 
 3.  STM32 vs Arduino
-    https://www.orientdisplay.com/stm32-vs-arduino/
+        https://www.orientdisplay.com/stm32-vs-arduino/
 
+4.  C to C++: 3 Reasons to Migrate
+        https://www.embeddedrelated.com/showarticle/1478.php
