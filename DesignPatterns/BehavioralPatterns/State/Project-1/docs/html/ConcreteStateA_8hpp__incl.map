@@ -1,7 +1,4 @@
 <map id="ConcreteStateA.hpp" name="ConcreteStateA.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="129,5,279,32"/>
-<area shape="rect" id="node2" href="$State_8hpp.html" title=" " alt="" coords="162,80,246,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,85,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="110,155,186,181"/>
-<area shape="rect" id="node5" href="$Context_8hpp.html" title=" " alt="" coords="211,155,312,181"/>
+<area shape="rect" id="node2" href="$State_8hpp.html" title="State.hpp" alt="" coords="149,80,227,107"/>
+<area shape="rect" id="node5" href="$Context_8hpp.html" title="Context.hpp" alt="" coords="195,155,288,181"/>
 </map>

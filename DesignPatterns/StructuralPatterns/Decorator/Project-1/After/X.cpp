@@ -18,7 +18,7 @@ X::X(I *core) : D(core)
 
 X::~X()
 {
-    std::cout << "X dtor" << "   ";
+   std::cout <<__PRETTY_FUNCTION__<<"   ";
 }
 
 void X::do_it()

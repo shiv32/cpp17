@@ -15,7 +15,7 @@ Z::Z(I *core) : D(core) {}
 
 Z::~Z()
 {
-    std::cout << "Z dtor" << "   ";
+   std::cout <<__PRETTY_FUNCTION__<<"   ";
 }
 
 void Z::do_it()

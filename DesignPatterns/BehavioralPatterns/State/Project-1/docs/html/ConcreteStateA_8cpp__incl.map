@@ -1,9 +1,6 @@
 <map id="ConcreteStateA.cpp" name="ConcreteStateA.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="129,5,279,32"/>
-<area shape="rect" id="node2" href="$ConcreteStateA_8hpp.html" title=" " alt="" coords="42,80,193,107"/>
-<area shape="rect" id="node7" href="$ConcreteStateB_8hpp.html" title=" " alt="" coords="217,80,367,107"/>
-<area shape="rect" id="node3" href="$State_8hpp.html" title=" " alt="" coords="162,155,246,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,229,85,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="110,229,186,256"/>
-<area shape="rect" id="node6" href="$Context_8hpp.html" title=" " alt="" coords="211,229,312,256"/>
+<area shape="rect" id="node2" href="$ConcreteStateA_8hpp.html" title="ConcreteStateA.hpp" alt="" coords="37,80,177,107"/>
+<area shape="rect" id="node7" href="$ConcreteStateB_8hpp.html" title="ConcreteStateB.hpp" alt="" coords="201,80,341,107"/>
+<area shape="rect" id="node3" href="$State_8hpp.html" title="State.hpp" alt="" coords="149,155,227,181"/>
+<area shape="rect" id="node6" href="$Context_8hpp.html" title="Context.hpp" alt="" coords="195,229,288,256"/>
 </map>

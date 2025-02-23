@@ -9,6 +9,7 @@
  * 
  */
 #include "D.hpp"
+#include <iostream>
 
 D::D(I *inner):m_wrappee{inner}
 {
@@ -17,6 +18,7 @@ D::D(I *inner):m_wrappee{inner}
 
 D::~D()
 {
+    //std::cout <<__PRETTY_FUNCTION__<< '\n';
     delete m_wrappee;
 }
 

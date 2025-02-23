@@ -13,7 +13,7 @@
 
 A::~A()
 {
-    std::cout << "A dtor" << '\n';
+    std::cout <<__PRETTY_FUNCTION__<< '\n';
 }
 
 void A::do_it()

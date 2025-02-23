@@ -27,7 +27,9 @@ int main() // client
 
     // smart pointer
     auto anX = std::make_unique<X>(new A);
+
     auto anXY = std::make_unique<Y>(new X(new A));
+
     auto anXYZ = std::make_unique<Z>(new Y(new X(new A())));
 
     anX->do_it();

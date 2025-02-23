@@ -15,7 +15,7 @@ Y::Y(I *core) : D(core) {}
 
 Y::~Y()
 {
-    std::cout << "Y dtor" << "   ";
+    std::cout <<__PRETTY_FUNCTION__<<"   ";
 }
 
 void Y::do_it()
