@@ -1,0 +1,68 @@
+/*
+
+FUTURES
+    Using std::thread to launch a thread that calculates a single result does not make it easy to get the computed 
+    result back once the thread has finished executing. 
+    Another problem with std::thread is in how it handles errors like exceptions. 
+    If a thread throws an exception and this exception is not caught by the thread itself, the C++ runtime calls
+    std::terminate(), which usually terminates the entire application.
+
+    A future can be used to more easily get the result out of a thread, and to transport exceptions from
+    one thread to another thread, which can then handle the exception however it wants. 
+    Of course, it’s still good practice to always try to handle exceptions in the actual threads as much 
+    as possible, in order to prevent them from leaving the thread.
+
+    A promise is something where a thread stores its result. 
+    A future is used to get access to the result stored in a promise. 
+    That is, a promise is the input side for a result, a future is the output side. 
+    Once a function, running in the same thread or in another thread, has calculated the value that it wants to
+    return, it can put this value in a promise. 
+    This value can then be retrieved through a future. 
+    You can think of this mechanism as an inter-thread communication channel for a result.
+
+    C++ provides a standard future, called std::future. 
+    You can retrieve the result from an std::future as follows. 
+    T is the type of the calculated result.
+
+        future<T> myFuture = ...; 
+        T result = myFuture.get();
+
+    The call to get() retrieves the result and stores it in the variable result. 
+    If calculating the result is not finished yet, the call to get() blocks until the value becomes available. 
+    You can only call get() once on a future. 
+    The behavior of calling it a second time is undefined by the standard.
+
+    If you want to avoid blocking, you can first ask the future if there is a result available.
+
+        if (myFuture.wait_for(0)) { // Value is available
+            T result = myFuture.get();
+        } else {
+            // Value is not yet available
+        ...
+        }
+
+
+std::promise and std::future
+    C++ provides the std::promise class as one way to implement the concept of a promise. 
+    You can call set_value() on a promise to store a result, or you can call set_exception() on it to store an
+    exception in the promise. 
+    Note that you can only call set_value() or set_exception() once on a specific promise. 
+    If you call it multiple times, an std::future_error exception will be thrown.
+
+    A thread A that launches another thread B to calculate something can create an std::promise and
+    pass this to the launched thread. 
+    Note that a promise cannot be copied, but it can be moved into a thread! 
+    Thread B uses that promise to store the result. 
+    Before moving the promise into thread B, thread A calls get_future() on the created promise to be able 
+    to get access to the result once B has finished.
+
+    NOTE 
+        Code is just for demonstration purposes. 
+        It starts the calculation in a new thread, and then calls get() on the future, which blocks until 
+        the result is calculated. 
+        This sounds like a very expensive function call. 
+        In real-world applications, you can use futures by periodically checking if there is a result available
+        or not (using wait_for()), or by using a synchronization mechanism such as a condition variable. 
+        When the result is not yet available, you can do something else in the meantime, instead of blocking.
+
+*/
