@@ -1,5 +1,18 @@
-// std::promise, std::future, wait_for
-// g++ --std=c++17 main.cpp -o test -pthread
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief
+ *
+        Example std::promise, std::future, wait_for
+        g++ --std=c++17 main.cpp -o test -pthread
+ *
+ *
+ * @version 0.1
+ * @date 2025-02-27
+ *
+ * @copyright Copyright (c) 2025
+ *
+ */
 
 #include <iostream>
 #include <thread>
@@ -12,8 +25,11 @@ void DoWork(std::promise<int> thePromise)
     // And ultimately store the result in the promise.
     thePromise.set_value(42);
 }
+
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     // Create a promise to pass to the thread.
     std::promise<int> myPromise;
 
@@ -34,7 +50,7 @@ int main()
     else
     {
         // Value is not yet available
-         std::cout << "status failed !"<< std::endl;
+        std::cout << "status failed !" << std::endl;
     }
 
     // Make sure to join the thread.
