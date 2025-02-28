@@ -1,0 +1,12 @@
+/*
+
+Exception Handling
+    A big advantage of using futures is that they can transport exceptions between threads. 
+    Calling get() on a future either returns the calculated result, or rethrows any exception that has been
+    stored in the promise linked to the future. 
+    
+    When you use packaged_task or async(), any exception thrown from the launched function is automatically 
+    stored in the promise. 
+    If you use std::promise as your promise, you can call set_exception() to store an exception in it.      
+
+*/
