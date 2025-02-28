@@ -1,0 +1,37 @@
+/*
+
+std::async
+    If you want to give the C++ runtime more control over whether or not a thread is created to calculate something, 
+    you can use std::async(). 
+    It accepts a function to be executed, and returns a future that you can use to retrieve the result.
+
+    There are two ways in which async() can run your function:
+        -> Run your function on a separate thread asynchronously
+        -> Run your function on the calling thread synchronously at the time you call get() on the returned future
+
+    If you call async() without additional arguments, the runtime automatically chooses one of the two methods 
+    depending on factors such as the number of CPU cores in your system and the amount of concurrency already 
+    taking place. 
+    You can influence the runtime’s behavior by specifying a policy argument.
+        -> launch::async: forces the runtime to execute the function asynchronously on a different thread.
+        -> launch::deferred: forces the runtime to execute the function synchronously on the calling thread 
+           when get() is called.
+        -> launch::async | launch::deferred: lets the runtime choose (= default behavior).
+
+    In example, std::async() is one of the easiest methods to perform some calculations either  
+    asynchronously (on a different thread), or synchronously (on the same thread), and retrieve the result afterward.
+
+    WARNING 
+        A future returned by a call to async() blocks in its destructor until the result is available. 
+        That means that if you call async() without capturing the returned future, the async() call effectively 
+        becomes a blocking call!
+        For example, the following line synchronously calls calculate():
+
+            async(calculate);
+
+        What happens with this statement is that async() creates and returns a future.
+        This future is not captured, so it is a temporary future. 
+        Because it is a temporary future, its destructor is called before this statement is finished, and this
+        destructor will block until the result is available.
+
+*/
