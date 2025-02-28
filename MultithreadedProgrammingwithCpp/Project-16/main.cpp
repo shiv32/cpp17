@@ -1,5 +1,19 @@
-// std::packaged_task
-// g++ --std=c++17 main.cpp -o test -pthread
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * 
+    std::packaged_task
+    g++ --std=c++17 main.cpp -o test -pthread
+ * 
+ * @version 0.1
+ * @date 2025-02-28
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
+
+
 
 #include <iostream>
 #include <thread>
@@ -12,6 +26,8 @@ int CalculateSum(int a, int b)
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     // Create a packaged task to run CalculateSum.
     std::packaged_task<int(int, int)> task(CalculateSum);
 

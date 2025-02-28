@@ -1,0 +1,19 @@
+/*
+
+std::packaged_task
+    An std::packaged_task makes it easier to work with promises than explicitly using std::promise.
+    
+    Code demonstrates this. 
+    It creates a packaged_task to execute CalculateSum(). 
+    The future is retrieved from the packaged_task by calling get_future(). 
+    A thread is launched, and the packaged_task is moved into it. 
+    A packaged_task cannot be copied! 
+    After the thread is launched, get() is called on the retrieved future to get the result. 
+    This blocks until the result is available.
+
+    Note that CalculateSum() does not need to store anything explicitly in any kind of promise.
+    A packaged_task automatically creates a promise, automatically stores the result of the called
+    function, CalculateSum() in this case, in the promise, and automatically stores any exceptions
+    thrown from the function in the promise.
+
+*/
