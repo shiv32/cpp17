@@ -1,0 +1,12 @@
+/*
+Block Breaker console game
+
+Here's a simple Block Breaker console game written in C++17 using ASCII graphics. 
+This game is a single-player game where you control a paddle to hit a ball and break blocks.
+
+Controls
+A → Move paddle left
+D → Move paddle right
+
+*/
+
