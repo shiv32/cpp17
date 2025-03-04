@@ -1,0 +1,27 @@
+/*
+
+std::shared_future
+    std::future<T> only requires T to be move-constructible. 
+    When you call get() on a future<T>, the result is moved out of the future and returned to you. 
+    This means you can call get() only once on a future<T>.
+
+    If you want to be able to call get() multiple times, even from multiple threads, then you need to use
+    an std::shared_future<T>, in which case T needs to be copy-constructible. 
+    A shared_future can be created by using std::future::share(), or by passing a future to the shared_future 
+    constructor. 
+    Note that a future is not copyable, so you have to move it into the shared_future constructor.
+
+    shared_future can be used to wake up multiple threads at once. 
+    For example, code defines two lambda expressions to be executed asynchronously on different threads. 
+    The first thing each lambda expression does is set a value to their respective promise to signal that
+    they have started. 
+    Then they both call get() on signalFuture which blocks until a parameter is made available through the 
+    future, after which they continue their execution. 
+    Each lambda expression captures their respective promise by reference, and captures signalFuture by value,
+    so both lambda expressions have a copy of signalFuture . 
+    The main thread uses async() to execute both lambda expressions asynchronously on different threads, 
+    waits until both threads have started, and then sets the parameter in the signalPromise which wakes up both 
+    threads.
+  
+
+*/
