@@ -32,10 +32,10 @@ EXAMPLE: MULTITHREADED LOGGER CLASS
         For example, the open-source boost C++ libraries1 have an implementation of a queue that is lock-free, and
         allows concurrent use without the need for any explicit synchronization.
 
-    If you build and run this naive initial version, you will notice that the application is terminated
-    abruptly. 
+    If you build and run this naive initial version, you will notice that the application is terminated abruptly. 
     That is caused because the application never calls join() or detach() on the background thread. 
-    Remember that the destructor of a thread object which is still joinable, that is, neither join() nor detach() has been called yet, will call std::terminate() to terminate all running threads and the application itself. 
+    Remember that the destructor of a thread object which is still joinable, that is, neither join() nor detach() 
+    has been called yet, will call std::terminate() to terminate all running threads and the application itself. 
     This means that messages still in the queue are not written to the file on disk. 
     Some runtime libraries even issue an error or generate a crash dump when the application is terminated like this.   
   
