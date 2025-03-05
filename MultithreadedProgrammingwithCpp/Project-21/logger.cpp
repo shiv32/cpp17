@@ -77,10 +77,12 @@ void Logger::processEntries()
 
             lock.unlock();
         }
+
         if (mExit)
         {
             break;
         }
+        
     }
 }
 
