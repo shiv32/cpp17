@@ -1,0 +1,38 @@
+/*
+
+EXAMPLE: MULTITHREADED LOGGER CLASS
+    You need to add a mechanism to gracefully shutdown the background thread and wait until the background thread 
+    is completely shut down before terminating the application. 
+    You can do this by adding a destructor and a Boolean member variable to the class. 
+
+    The destructor sets mExit to true, wakes up the background thread, and then waits until the thread is shut down. 
+    The destructor acquires a lock on mMutex before setting mExit to true and before calling notify_all(). 
+    This is to prevent a race condition and deadlock with processEntries().
+    processEntries() could be at the beginning of its while loop right after having checked mExit and right before 
+    the call to wait(). 
+    If the main thread calls the Logger destructor at that very moment, and the destructor wouldn’t acquire a lock 
+    on mMutex, then the destructor sets mExit to true and calls notify_all() after processEntries() has checked 
+    mExit and before process­Entries() is waiting on the condition variable; thus, processEntries() will not see the
+    new value of mExit and it will miss the notification. 
+    In that case, the application is in a deadlock situation, because the destructor is waiting on the join() call 
+    and the background thread is waiting on the condition variable. 
+    Note that the destructor must release the lock on mMutex before calling join().
+
+    WARNING 
+        In general, you should always own a lock on the mutex associated with a condition variable when setting 
+        the condition it’s waiting for.
+
+    The processEntries() method needs to check this Boolean variable and terminate the processing loop when it’s 
+    true.
+
+    Note that you cannot just check for mExit in the condition for the outer while loop because even when mExit is 
+    true, there might still be log entries in the queue that need to be written.
+
+    You can add artificial delays in specific places in your multithreaded code to trigger certain behavior. 
+    Note that such delays should only be added for testing, and should be removed from your final code! 
+    For example, to test that the race condition with the destructor is solved, you can remove any calls to log() 
+    from the main program, causing it to almost immediately call the destructor of the Logger class, and add the 
+    delay.
+  
+
+*/

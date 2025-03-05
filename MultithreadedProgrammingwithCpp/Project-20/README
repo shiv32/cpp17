@@ -1,0 +1,42 @@
+/*
+
+EXAMPLE: MULTITHREADED LOGGER CLASS
+    This section demonstrates how to use threads, mutual exclusion objects, locks, and condition variables 
+    to write a multithreaded Logger class. 
+    The class allows log messages to be added to a queue from different threads. 
+    The Logger class itself processes this queue in a background thread that serially writes the log messages 
+    to a file. 
+    The class will be designed in two iterations to show you some examples of problems you will encounter when writing multithreaded code.
+
+    The C++ standard does not have a thread-safe queue, so it is obvious that you have to protect access
+    to the queue with some synchronization mechanism to prevent multiple threads from reading/writing to the queue 
+    at the same time. 
+    This example uses a mutual exclusion object and a condition variable to provide the synchronization. 
+    Based on that, you might define the Logger class.
+
+    The implementation is as follows. 
+    Note that this initial design has a couple of problems and when you try to run it, it might behave strangely 
+    or even crash. 
+    This is discussed and solved in the next iteration of the Logger class. 
+    The inner while loop in the processEntries() method is worth looking at. 
+    It processes all messages in the queue one at a time, and acquires and releases the lock on each iteration. 
+    This is done to make sure the loop doesn’t keep the lock for too long, blocking other threads.
+
+    WARNING 
+        As you can already see from this rather simple task, writing correct multithreaded code is hard! 
+        Unfortunately, at this moment, threads, atomics, mutual exclusion objects, condition variables, and futures, are all the C++ standard provides. 
+        C++ does not provide any concurrent data structures, at least not yet in C++17. 
+        This might change in the future though.
+        The Logger class is just an example to show these basic building blocks. 
+        For production-quality code, I recommend using an appropriate third party concurrent data structure, instead of writing your own. 
+        For example, the open-source boost C++ libraries1 have an implementation of a queue that is lock-free, and
+        allows concurrent use without the need for any explicit synchronization.
+
+    If you build and run this naive initial version, you will notice that the application is terminated
+    abruptly. 
+    That is caused because the application never calls join() or detach() on the background thread. 
+    Remember that the destructor of a thread object which is still joinable, that is, neither join() nor detach() has been called yet, will call std::terminate() to terminate all running threads and the application itself. 
+    This means that messages still in the queue are not written to the file on disk. 
+    Some runtime libraries even issue an error or generate a crash dump when the application is terminated like this.   
+  
+*/
