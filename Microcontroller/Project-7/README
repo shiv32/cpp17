@@ -13,12 +13,14 @@ Pin	Register    Bit	Macro
 5	PORTD	    5	PD5
 6	PORTD	    6	PD6
 7	PORTD	    7	PD7
+
 8	PORTB	    0	PB0
 9	PORTB	    1	PB1
 10	PORTB	    2	PB2
 11	PORTB	    3	PB3
 12	PORTB	    4	PB4
 13	PORTB	    5	PB5
+
 A0	PORTC	    0	PC0
 A1	PORTC	    1	PC1
 A2	PORTC	    2	PC2

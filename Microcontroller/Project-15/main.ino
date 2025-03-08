@@ -20,6 +20,7 @@ namespace mcal
     {
         // The address of portb.
         constexpr uint8_t portb = 0x25U;
+        
         // The values of bit0 through bit7.
         constexpr uint8_t bval0 = 1U;
         constexpr uint8_t bval1 = 1U << 1U;

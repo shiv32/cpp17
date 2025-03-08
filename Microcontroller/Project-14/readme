@@ -6,18 +6,21 @@ Each pin is controlled by three registers:
 DDR (Data Direction Register) → Sets pin as INPUT or OUTPUT
 PORT (Port Register) → Controls HIGH or LOW
 PIN (Input Register) → Reads pin state
+
 🔹 Example: Addresses of Registers in Arduino Uno (ATmega328P)
 
 Register	Address	Function
-DDRB	0x24	Controls PB0-PB7 (Pin 8-13)
-PORTB	0x25	Sets HIGH/LOW for PB0-PB7
-PINB	0x23	Reads state of PB0-PB7
-DDRC	0x27	Controls PC0-PC6 (Analog pins)
-PORTC	0x28	Sets HIGH/LOW for PC0-PC6
-PINC	0x26	Reads state of PC0-PC6
-DDRD	0x2A	Controls PD0-PD7 (Pins 0-7)
-PORTD	0x2B	Sets HIGH/LOW for PD0-PD7
-PIND	0x29	Reads state of PD0-PD7
+DDRB	    0x24	  Controls PB0-PB7 (Pin 8-13)
+PORTB	    0x25	  Sets HIGH/LOW for PB0-PB7
+PINB	    0x23	  Reads state of PB0-PB7
+
+DDRC	    0x27	  Controls PC0-PC6 (Analog pins)
+PORTC	    0x28	  Sets HIGH/LOW for PC0-PC6
+PINC	    0x26	  Reads state of PC0-PC6
+
+DDRD	    0x2A	  Controls PD0-PD7 (Pins 0-7)
+PORTD     0x2B	  Sets HIGH/LOW for PD0-PD7
+PIND	    0x29	  Reads state of PD0-PD7
 
 --------------------------------------------------
 //Printing Pin Register Addresses
