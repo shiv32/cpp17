@@ -123,7 +123,7 @@ int main()
     for (;;)
     {
         // Serial.println("Hello from main()1!");
-        uart_print("Hello, AVR this is shiv !\n");
+        uart_print("Hello, AVR this is shiv cmake !\n");
 
         led_b5.toggle();
         _delay_ms(500);
