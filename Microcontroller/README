@@ -66,6 +66,7 @@ avr-g++ setup ubuntu 18.04 -->
 sudo apt update
 sudo apt install gcc-avr binutils-avr avr-libc avrdude arduino arduino-core
 sudo snap install arduino-cli
+arduino-cli core install arduino:avr
 
 Check -->
 avr-g++ --version
