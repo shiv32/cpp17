@@ -60,6 +60,39 @@ Note: To zoom in/out Arduino UNO pic in SimulIDE, click on Arduino UNO pic after
 
 ref:https://www.hackster.io/patrick-fitzgerald2/setup-simulide-for-arduino-82694a
 
+---------------------------------------------------------------------------------------------
+avr-g++ setup ubuntu 18.04 -->
+
+sudo apt update
+sudo apt install gcc-avr binutils-avr avr-libc avrdude arduino arduino-core
+sudo snap install arduino-cli
+
+Check -->
+avr-g++ --version
+o/p:
+avr-g++ (GCC) 5.4.0
+
+Package	                Description
+gcc-avr	                C compiler for AVR
+g++-avr	                C++ compiler for AVR
+binutils-avr	        Tools (assembler, linker, objcopy)
+avr-libc	        Standard C library (includes <util/delay.h>)
+avrdude	                Uploader (flashes HEX files to AVR)
+
+
+Upload Code to AVR Microcontroller (arduino)-->
+
+avrdude -c arduino -p m328p -P /dev/ttyUSB0 -b 115200 -U flash:w:main.hex:i
+
+Explanation:
+-c arduino              → Use Arduino as ISP (for Arduino bootloader)
+-p m328p                → Target ATmega328P (used in Arduino Uno)
+-P /dev/ttyUSB0         → Port name (use ls /dev/tty* to find)
+-b 115200               → Baud rate (for Arduino bootloader)
+-U flash:w:main.hex:i   → Write main.hex to flash memory
+
+In simulIDE direct upload the hex file by right click on ardiuno image -> load firmware 
+then click on the power button in top menue to run simulation.
 --------------------------------------------------------------------------------------------- 
 Usefull Links -->
 
