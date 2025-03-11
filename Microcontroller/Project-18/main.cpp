@@ -50,6 +50,27 @@ void uart_print(const char *str)
     }
 }
 
+//------------------------------
+void uart_init() {
+    UBRR0H = 0;
+    UBRR0L = 103;  // 9600 baud for 16MHz clock
+    UCSR0B = (1 << TXEN0); // Enable transmitter
+    UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // 8-bit data
+}
+
+void uart_send(char c) {
+    while (!(UCSR0A & (1 << UDRE0)));  // Wait for buffer to empty
+    UDR0 = c;
+}
+
+void uart_send_string(const char* str) {
+    while (*str) {
+        uart_send(*str++);
+    }
+}
+
+//------------------------------
+
 namespace mcal
 {
     // Compile-time constant register addresses.
@@ -98,6 +119,7 @@ public:
         // Toggle the LED via direct memory access.
         *reinterpret_cast<volatile bval_type *>(port) ^= bval;
         // Serial.println("Hello from toggle()!");
+         uart_print("Hello, AVR this is shiv Hello from toggle()! !\n");
     }
 
 private:
@@ -117,6 +139,10 @@ int main()
     // Serial.begin(9600);
     uart_init(9600); // Equivalent to Serial.begin(9600)
 
+    //uart_init();
+    //uart_send_string("Hello SimAVR!\n");
+
+
     // while (!Serial); // Wait for Serial Monitor to open
 
     // while(1)
@@ -126,7 +152,7 @@ int main()
         uart_print("Hello, AVR this is shiv cmake !\n");
 
         led_b5.toggle();
-        _delay_ms(500);
+        _delay_ms(5000);
 
         // Serial.println("Hello from main()2!");
     }
