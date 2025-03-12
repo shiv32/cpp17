@@ -12,6 +12,7 @@ Which Design Pattern Should You Choose?
 
 
 Final Thoughts
+
     Start simple and pick patterns as needed.
     Combine patterns when necessary (e.g., Factory + Singleton for database connections).
     Avoid over-engineering—patterns should solve problems, not create complexity.
