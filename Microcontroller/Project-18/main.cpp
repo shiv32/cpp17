@@ -3,7 +3,7 @@
  * @author your name (you@domain.com)
  * @brief
  *
- * Tested on simulIDE
+ * Tested on simulIDE & simavr
  *
  * avr-g++ -mmcu=atmega328p -std=c++17 -Os -o main.elf main.cpp && avr-objcopy -O ihex main.elf main.hex
  *
