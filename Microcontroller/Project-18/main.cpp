@@ -119,7 +119,7 @@ public:
         // Toggle the LED via direct memory access.
         *reinterpret_cast<volatile bval_type *>(port) ^= bval;
         // Serial.println("Hello from toggle()!");
-         uart_print("Hello, AVR this is shiv Hello from toggle()! !\n");
+         uart_print("Hello, AVR this is shiv Hello from toggle() !\n");
     }
 
 private:
