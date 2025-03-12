@@ -2,18 +2,18 @@
 
 Which Design Pattern Should You Choose?
 
-Project Type	                Best Pattern(s)
-Console Utility	                Singleton, Factory
-GUI (Qt-based)	                MVC, Observer
-Game Development	            Singleton, Strategy, Observer
-AI/ML Systems	                Strategy, Factory
-Enterprise Applications	        Factory, Observer, MVC
-Networking (Client-Server)	    Singleton, Observer
+    Project Type	                Best Pattern(s)
+    Console Utility	                Singleton, Factory
+    GUI (Qt-based)	                MVC, Observer
+    Game Development	            Singleton, Strategy, Observer
+    AI/ML Systems	                Strategy, Factory
+    Enterprise Applications	        Factory, Observer, MVC
+    Networking (Client-Server)	    Singleton, Observer
 
 
 Final Thoughts
-Start simple and pick patterns as needed.
-Combine patterns when necessary (e.g., Factory + Singleton for database connections).
-Avoid over-engineering—patterns should solve problems, not create complexity.
+    Start simple and pick patterns as needed.
+    Combine patterns when necessary (e.g., Factory + Singleton for database connections).
+    Avoid over-engineering—patterns should solve problems, not create complexity.
 
 */
