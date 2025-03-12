@@ -64,6 +64,14 @@ ref:https://www.hackster.io/patrick-fitzgerald2/setup-simulide-for-arduino-82694
 avr-g++ setup ubuntu 18.04 -->
 
 sudo apt update
+sudo apt install -y build-essential
+sudo apt install -y freeglut3 freeglut3-dev
+sudo apt install -y gcc-avr avr-libc binutils-avr gdb-avr avrdude
+
+or with arduino
+
+sudo apt update
+sudo apt install -y build-essential
 sudo apt install gcc-avr binutils-avr avr-libc avrdude arduino arduino-core
 sudo snap install arduino-cli
 arduino-cli core install arduino:avr
@@ -94,7 +102,7 @@ Explanation:
 
 In simulIDE direct upload the hex file by right click on ardiuno image -> load firmware 
 then click on the power button in top menue to run simulation.
------------------------------------------------------
+----------------------------------------------------------
 SimAVR is a lightweight AVR simulator that allows you to test AVR programs without real hardware.
 
 SimAVR Tested on "Ubuntu 20.04 LTS"
