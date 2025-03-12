@@ -1,0 +1,11 @@
+/*
+
+Writing Generic Code with Templates
+        C++ provides language support not only for object-oriented programming, but also for generic programming. 
+        The goal of generic programming is to write reusable code.
+        The fundamental tools for generic programming in C++ are templates. 
+        Although not strictly an object-oriented feature, templates can be combined with object-oriented programming 
+        for powerful results. 
+        As a professional C++ programmer, you need to know about them.
+
+*/
