@@ -61,8 +61,8 @@
     }
 
     private:
-    LightBulb light_bulb_;
-    bool on_;
+        LightBulb light_bulb_;
+        bool on_;
     };
 
 */
