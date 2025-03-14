@@ -23,6 +23,7 @@ public:
     FileRAII(const std::string &filename)
     {
         file.open(filename);
+        
         if (!file)
         {
             throw std::runtime_error("Failed to open file");
