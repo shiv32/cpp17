@@ -1,0 +1,20 @@
+/*
+
+C++(11/14/17) interview questions:
+
+1. Types of constructors.
+2. Shalllow copy and deep copy (Prototype in C++).
+3. Smart pointers.
+4. RAII.
+5. S.O.L.I.D. Principles.
+6. Design Patterns
+        Behavioral (how objects send messages to each other)
+            Chain of responsibility, Observer, Iterator, State
+
+        Structural (defining relationships between objects)
+            Adaptor, Proxy, Decorator
+
+        Creational (flexible ways to create objects)
+            Singleton, Factory, Abstract factory, Prototype
+
+*/
