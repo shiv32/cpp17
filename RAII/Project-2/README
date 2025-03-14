@@ -1,0 +1,7 @@
+/*
+
+Example: RAII with Dynamic Memory (Smart Pointers)
+
+RAII is commonly used with smart pointers like std::unique_ptr and std::shared_ptr.
+
+*/
