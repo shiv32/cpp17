@@ -1,0 +1,20 @@
+/*
+
+OVERVIEW OF TEMPLATES
+        The main programming unit in the procedural paradigm is the procedure or function. 
+        Functions are useful primarily because they allow you to write algorithms that are independent of specific values
+        and can thus be reused for many different values. 
+        For example, the sqrt() function in C++ calculates the square root of a value supplied by the caller. 
+        A square root function that calculates only the square root of one number, such as four, would not be particularly useful! 
+        The sqrt() function is written in terms of a parameter, which is a stand-in for whatever value the caller passes. 
+        Computer scientists say that functions parameterize values.
+
+        Templates take the concept of parameterization a step further to allow you to parameterize on types as well as values. 
+        Types in C++ include primitives such as int and double, as well as user-defined classes such as SpreadsheetCell and CherryTree. 
+        With templates, you can write code that is independent not only of the values it will be given, but also of the types of those values. 
+        For example, instead of writing separate stack classes to store ints, Cars, and SpreadsheetCells, you can write one stack class definition that can be used for any of those types.
+
+        Although templates are an amazing language feature, templates in C++ are syntactically confusing, and many programmers avoid writing templates themselves. 
+        However, every programmer needs to know at least how to use templates, because they are widely used by libraries. 
+        For example, the C++ Standard Library uses templates extensively.
+*/
