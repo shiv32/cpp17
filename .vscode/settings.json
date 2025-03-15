@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "iostream": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/shiv/Desktop/desktop_files/1/projects/c++17/thread/cpp17/AlgoTradingCpp/Project-5"
 }

@@ -1,5 +1,0 @@
-<map id="Decorator" name="Decorator">
-<area shape="rect" id="node3" href="$classConcreteDecoratorA.html" title="ConcreteDecoratorA" alt="" coords="5,155,147,181"/>
-<area shape="rect" id="node4" href="$classConcreteDecoratorB.html" title="ConcreteDecoratorB" alt="" coords="171,155,312,181"/>
-<area shape="rect" id="node2" href="$classComponent.html" title="Component" alt="" coords="114,5,203,32"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="Decorator.hpp" name="Decorator.hpp">
-<area shape="rect" id="node2" href="$ConcreteDecoratorA_8hpp.html" title="ConcreteDecoratorA.hpp" alt="" coords="55,80,221,107"/>
-<area shape="rect" id="node5" href="$ConcreteDecoratorB_8hpp.html" title="ConcreteDecoratorB.hpp" alt="" coords="245,80,412,107"/>
-<area shape="rect" id="node7" href="$Decorator_8cpp.html" title="Decorator.cpp" alt="" coords="437,80,541,107"/>
-<area shape="rect" id="node3" href="$ConcreteDecoratorA_8cpp.html" title="ConcreteDecoratorA.cpp" alt="" coords="5,155,172,181"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="without Decorator " alt="" coords="197,155,271,181"/>
-<area shape="rect" id="node6" href="$ConcreteDecoratorB_8cpp.html" title="ConcreteDecoratorB.cpp" alt="" coords="296,155,463,181"/>
-</map>

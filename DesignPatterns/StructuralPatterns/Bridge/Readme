@@ -1,0 +1,8 @@
+/*
+
+Bridge is a structural design pattern that divides business logic or huge class into separate class hierarchies 
+that can be developed independently.
+
+Decouple an abstraction from its implementation so that the two can vary independently.
+
+*/
