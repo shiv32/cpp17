@@ -1,5 +1,43 @@
 /*
 
+Design Patterns
+
+    Behavioral (how objects send messages to each other)
+
+        Pattern	                    Purpose
+        Chain of Responsibility	    Pass request along a chain
+        Command	                    Encapsulate a request
+        Interpreter	                Define a grammar
+        Iterator	                Sequentially access elements
+        Mediator	                Centralized communication
+        Memento	                    Save/restore object state
+        Observer	                One-to-many dependency
+        State	                    Change behavior dynamically
+        Strategy	                Switch algorithms easily
+        Template Method	            Define a skeleton of an algorithm
+        Visitor	                    Separate operations from structure
+
+    Structural (defining relationships between objects) 
+
+        Pattern	                    Purpose
+        Adapter	                    Convert interface A to interface B
+        Bridge	                    Decouple abstraction from implementation
+        Composite	                Treat individual and composite objects uniformly
+        Decorator	                Add behavior dynamically
+        Facade	                    Simplify complex subsystems
+        Flyweight	                Share objects for memory efficiency
+        Proxy	                    Control access to another object
+
+
+    Creational (flexible ways to create objects) 
+
+        Pattern	                    Purpose
+        Factory Method	            Create objects without specifying exact class
+        Abstract Factory	        Factory of factories for related objects
+        Builder	                    Step-by-step construction of complex objects
+        Prototype	                Clone existing objects instead of creating new ones
+        Singleton	                Ensure only one instance of a class
+
 Which Design Pattern Should You Choose?
 
     Project Type	                Best Pattern(s)
