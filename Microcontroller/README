@@ -1,6 +1,15 @@
 
 Microcontroller code using C++.
 
+Which Language Should You Choose?
+
+        Language	Best For	                                Microcontrollers
+        C	        High performance, direct hardware access	STM32, AVR, PIC, ARM Cortex
+        C++	        OOP, modularity, RTOS	                        Arduino, STM32, ESP32
+        Assembly	Maximum performance, real-time	                ARM Cortex, DSPs
+        Python	        IoT, prototyping	                        ESP32, Raspberry Pi Pico
+        Rust	        Memory safety, modern embedded	                STM32, ARM Cortex
+
 ---------------------------------------------------------------------------------------------------------
 Fixed-Width Integer Types (from <cstdint> or <stdint.h>):
 These are especially important in embedded systems to ensure precise control over the size of variables:
