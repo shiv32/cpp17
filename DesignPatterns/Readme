@@ -12,31 +12,31 @@ However, here’s a logical sequence to follow:
 Architecture patterns
 	
         Pattern 		        Best For
-        Layered Architecture  	General applications with UI, logic, and data separation 
-        MVC / MVVM  		    GUI applications, front-end systems 
-        Microservices 	 	    Scalable, cloud-based, distributed systems 
-        Event-Driven 	 	    Asynchronous systems, real-time applications 
-        Plugin-Based 	 	    Extensible applications (game engines, IDEs) 
+        Layered Architecture  	        General applications with UI, logic, and data separation 
+        MVC / MVVM  		        GUI applications, front-end systems 
+        Microservices 	 	        Scalable, cloud-based, distributed systems 
+        Event-Driven 	 	        Asynchronous systems, real-time applications 
+        Plugin-Based 	 	        Extensible applications (game engines, IDEs) 
         Hexagonal 	 	        Systems needing strong separation of concerns 
 
 Creational Design Patterns (flexible ways to create objects) 
 
         Pattern	                    Purpose
         Factory Method	            Create objects without specifying exact class
-        Abstract Factory	        Factory of factories for related objects
+        Abstract Factory	    Factory of factories for related objects
         Builder	                    Step-by-step construction of complex objects
-        Prototype	                Clone existing objects instead of creating new ones
-        Singleton	                Ensure only one instance of a class
+        Prototype	            Clone existing objects instead of creating new ones
+        Singleton	            Ensure only one instance of a class
 
 Structural Design Patterns (defining relationships between objects) 
 
         Pattern	                    Purpose
         Adapter	                    Convert interface A to interface B
         Bridge	                    Decouple abstraction from implementation
-        Composite	                Treat individual and composite objects uniformly
-        Decorator	                Add behavior dynamically
+        Composite	            Treat individual and composite objects uniformly
+        Decorator	            Add behavior dynamically
         Facade	                    Simplify complex subsystems
-        Flyweight	                Share objects for memory efficiency
+        Flyweight	            Share objects for memory efficiency
         Proxy	                    Control access to another object
 
 Behavioral Design Patterns (how objects send messages to each other)
@@ -44,19 +44,19 @@ Behavioral Design Patterns (how objects send messages to each other)
         Pattern	                    Purpose
         Chain of Responsibility	    Pass request along a chain
         Command	                    Encapsulate a request
-        Interpreter	                Define a grammar
-        Iterator	                Sequentially access elements
-        Mediator	                Centralized communication
+        Interpreter	            Define a grammar
+        Iterator	            Sequentially access elements
+        Mediator	            Centralized communication
         Memento	                    Save/restore object state
-        Observer	                One-to-many dependency
+        Observer	            One-to-many dependency
         State	                    Change behavior dynamically
-        Strategy	                Switch algorithms easily
+        Strategy	            Switch algorithms easily
         Template Method	            Define a skeleton of an algorithm
         Visitor	                    Separate operations from structure
 
 Concurrency Pattern
 	
-        Pattern	 		    Best For
+        Pattern	 		Best For
         Thread Pool 		Efficient background task execution 
         Producer-Consumer 	Message queues, event-driven systems 
         Future & Promise	Asynchronous operations, parallel computation 
@@ -68,10 +68,10 @@ Which Design Pattern Should You Choose?
     Project Type	                Best Pattern(s)
     Console Utility	                Singleton, Factory
     GUI (Qt-based)	                MVC, Observer
-    Game Development	            Singleton, Strategy, Observer
+    Game Development	                Singleton, Strategy, Observer
     AI/ML Systems	                Strategy, Factory
     Enterprise Applications	        Factory, Observer, MVC
-    Networking (Client-Server)	    Singleton, Observer
+    Networking (Client-Server)	        Singleton, Observer
 
 
 Final Thoughts
