@@ -1,13 +1,13 @@
-The **most common architectural patterns** for a **C++ library** depend on its purpose, but here are the top **three** widely used ones:
+/*
 
----
+The **most common architectural patterns** for a **C++ library** depend on its purpose, but here are the top **three** widely used ones:
 
 ### **1. Layered Architecture (Most Common & Versatile)**
 ✅ **Best for:** Networking, database, game engines, and general-purpose libraries.  
 ✅ **Why?** Provides a **modular, structured, and maintainable** design.  
 
 #### **Example: A Database Library**
-```
+
 +-------------------------+
 | Public API (User Layer) |  --> Exposes functions like `executeQuery()`
 +-------------------------+
@@ -15,10 +15,9 @@ The **most common architectural patterns** for a **C++ library** depend on its p
 +-------------------------+
 | Infrastructure Layer    |  --> Direct OS interactions (Sockets, File I/O)
 +-------------------------+
-```
 
 ##### **Implementation (C++)**
-```cpp
+
 // Infrastructure Layer (Low-Level)
 class Storage {
 public:
@@ -41,21 +40,18 @@ public:
         storage.readData();
     }
 };
-```
 
 ✅ **Advantages:**  
 ✔ Easy to **maintain & test**  
 ✔ Promotes **code separation & reusability**  
 ✔ Scales well for large libraries  
 
----
 
 ### **2. Plugin Architecture (For Extensible Libraries)**
 ✅ **Best for:** Graphics, compression, and simulation libraries.  
 ✅ **Why?** Allows **dynamic module loading and easy extensibility**.  
 
 #### **Example: A Rendering Library**
-```
 +----------------------+
 | Rendering API        |  --> User calls `render()`
 +----------------------+
@@ -66,7 +62,7 @@ public:
 ```
 
 ##### **Implementation (C++)**
-```cpp
+
 // Abstract Renderer Interface
 class Renderer {
 public:
@@ -87,29 +83,25 @@ public:
         return nullptr;
     }
 };
-```
 
 ✅ **Advantages:**  
 ✔ Supports **multiple backends**  
 ✔ Allows **runtime loading/unloading of components**  
-
----
 
 ### **3. Event-Driven Architecture (For Asynchronous Processing)**
 ✅ **Best for:** GUI frameworks, game engines, message queues.  
 ✅ **Why?** Decouples components and improves responsiveness.  
 
 #### **Example: A GUI Button System**
-```
+
 +----------------------+
 | UI Components       |  --> Buttons, Labels, Windows
 +----------------------+
 | Event System        |  --> Dispatches events to listeners
 +----------------------+
-```
 
 ##### **Implementation (C++)**
-```cpp
+
 class Listener {
 public:
     virtual void onEvent(const std::string& event) = 0;
@@ -124,24 +116,28 @@ public:
         for (auto* listener : listeners) listener->onEvent("Button Clicked");
     }
 };
-```
 
 ✅ **Advantages:**  
 ✔ Reduces **tight coupling** between components  
 ✔ Improves **asynchronous handling**  
 
----
+Which One Should You Use?
 
-### **Which One Should You Use?**
-| **Pattern** | **Best For** | **Why Use It?** |
-|------------|-------------|----------------|
-| **Layered Architecture** | **General-purpose C++ libraries** (networking, databases) | **Most common, modular, and maintainable** |
-| **Plugin Architecture** | **Extensible systems** (graphics, simulations, IDEs) | **Supports multiple backends and dynamic modules** |
-| **Event-Driven Architecture** | **Asynchronous/event-based systems** (GUIs, game engines) | **Decouples components and improves scalability** |
+        Pattern     :   Layered Architecture	
+        Best For    :   General-purpose C++ libraries (networking, databases)	
+        Why Use It? :   Most common, modular, and maintainable
 
----
+        Pattern     :   Plugin Architecture	
+        Best For    :   Extensible systems (graphics, simulations, IDEs)	
+        Why Use It? :   Supports multiple backends and dynamic modules
+
+        Pattern     :   Event-Driven Architecture	
+        Best For    :   Asynchronous/event-based systems (GUIs, game engines)	
+        Why Use It? :   Decouples components and improves scalability
 
 ### **Final Thoughts**  
-🔹 If your library is **general-purpose**, **use Layered Architecture**.  
-🔹 If your library **needs dynamic extensions**, **use Plugin Architecture**.  
-🔹 If your library **relies on events or async communication**, **use Event-Driven Architecture**.  
+🔹 If your library is **general-purpose**, use Layered Architecture.  
+🔹 If your library **needs dynamic extensions**, use Plugin Architecture.  
+🔹 If your library **relies on events or async communication**, use Event-Driven Architecture.  
+
+*/

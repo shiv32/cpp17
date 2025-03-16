@@ -19,21 +19,6 @@ Architecture patterns
         Plugin-Based 	 	        Extensible applications (game engines, IDEs) 
         Hexagonal 	 	        Systems needing strong separation of concerns 
 
-Which One Should You Use?
-
-        Layered Architecture	
-                General-purpose C++ libraries (networking, databases)	
-                Most common, modular, and maintainable
-
-        Plugin Architecture	
-                Extensible systems (graphics, simulations, IDEs)	
-                Supports multiple backends and dynamic modules
-
-        Event-Driven Architecture	
-                Asynchronous/event-based systems (GUIs, game engines)	
-                Decouples components and improves scalability
-
-
 Creational Design Patterns (flexible ways to create objects) 
 
         Pattern	                    Purpose
