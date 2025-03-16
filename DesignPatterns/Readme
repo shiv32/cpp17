@@ -1,8 +1,45 @@
 /*
 
-Design Patterns
+When starting a new C++ project, the order in which you apply design patterns depends on the project's complexity, requirements, and scalability. 
+However, here’s a logical sequence to follow:
 
-    Behavioral (how objects send messages to each other)
+	- Start with **architectural patterns** to define the project structure.
+	- Use **creational patterns** to manage object instantiation effectively.
+	- Apply **structural patterns** as needed for maintainability and scalability.
+	- Introduce **behavioral patterns** based on interactions and business logic.
+	- Use **concurrency patterns** if the project requires multithreading.
+
+Architecture patterns
+	
+        Pattern 		        Best For
+        Layered Architecture  	General applications with UI, logic, and data separation 
+        MVC / MVVM  		    GUI applications, front-end systems 
+        Microservices 	 	    Scalable, cloud-based, distributed systems 
+        Event-Driven 	 	    Asynchronous systems, real-time applications 
+        Plugin-Based 	 	    Extensible applications (game engines, IDEs) 
+        Hexagonal 	 	        Systems needing strong separation of concerns 
+
+Creational Design Patterns (flexible ways to create objects) 
+
+        Pattern	                    Purpose
+        Factory Method	            Create objects without specifying exact class
+        Abstract Factory	        Factory of factories for related objects
+        Builder	                    Step-by-step construction of complex objects
+        Prototype	                Clone existing objects instead of creating new ones
+        Singleton	                Ensure only one instance of a class
+
+Structural Design Patterns (defining relationships between objects) 
+
+        Pattern	                    Purpose
+        Adapter	                    Convert interface A to interface B
+        Bridge	                    Decouple abstraction from implementation
+        Composite	                Treat individual and composite objects uniformly
+        Decorator	                Add behavior dynamically
+        Facade	                    Simplify complex subsystems
+        Flyweight	                Share objects for memory efficiency
+        Proxy	                    Control access to another object
+
+Behavioral Design Patterns (how objects send messages to each other)
 
         Pattern	                    Purpose
         Chain of Responsibility	    Pass request along a chain
@@ -17,26 +54,14 @@ Design Patterns
         Template Method	            Define a skeleton of an algorithm
         Visitor	                    Separate operations from structure
 
-    Structural (defining relationships between objects) 
-
-        Pattern	                    Purpose
-        Adapter	                    Convert interface A to interface B
-        Bridge	                    Decouple abstraction from implementation
-        Composite	                Treat individual and composite objects uniformly
-        Decorator	                Add behavior dynamically
-        Facade	                    Simplify complex subsystems
-        Flyweight	                Share objects for memory efficiency
-        Proxy	                    Control access to another object
-
-
-    Creational (flexible ways to create objects) 
-
-        Pattern	                    Purpose
-        Factory Method	            Create objects without specifying exact class
-        Abstract Factory	        Factory of factories for related objects
-        Builder	                    Step-by-step construction of complex objects
-        Prototype	                Clone existing objects instead of creating new ones
-        Singleton	                Ensure only one instance of a class
+Concurrency Pattern
+	
+        Pattern	 		    Best For
+        Thread Pool 		Efficient background task execution 
+        Producer-Consumer 	Message queues, event-driven systems 
+        Future & Promise	Asynchronous operations, parallel computation 
+        Reader-Writer Lock	Optimizing shared resource access 
+        Monitor Pattern	 	Safe access to shared resources 
 
 Which Design Pattern Should You Choose?
 
