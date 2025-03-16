@@ -28,7 +28,7 @@ protected:
      * provide some default implementation for these methods.
      */
 public:
-    virtual ~Component(); // {}
+    virtual ~Component();
     void SetParent(Component *parent);
     Component *GetParent() const;
 

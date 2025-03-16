@@ -1,3 +1,13 @@
+/**
+ * @file Composite.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2025-03-16
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #include "Composite.hpp"
 
 void Composite::Add(Component *component)
@@ -20,6 +30,7 @@ bool Composite::IsComposite() const
 std::string Composite::Operation() const
 {
     std::string result;
+
     for (const Component *c : children_)
     {
         if (c == children_.back())
@@ -31,5 +42,6 @@ std::string Composite::Operation() const
             result += c->Operation() + "+";
         }
     }
+    
     return "Branch(" + result + ")";
 }
