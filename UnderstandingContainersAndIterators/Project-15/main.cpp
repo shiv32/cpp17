@@ -12,7 +12,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Scheduler.hpp"
+#include "Scheduler.hpp" //kind of adapter: make communication between Round robin and process
 
 int main()
 {

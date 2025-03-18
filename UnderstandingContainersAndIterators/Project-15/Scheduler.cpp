@@ -1,4 +1,3 @@
-#include "Scheduler.hpp"
 /**
  * @file Scheduler.cpp
  * @author your name (you@domain.com)
@@ -10,6 +9,7 @@
  *
  */
 
+#include "Scheduler.hpp"
 #include <iostream>
 
 Scheduler::Scheduler(const std::vector<Process> &processes)
