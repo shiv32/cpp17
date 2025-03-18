@@ -5,12 +5,18 @@ Instead of storing `bool` values as individual bytes, it packs them into bits, l
 Here are some common issues categorized by their nature:
 
 1. Storage and Performance Issues
-    Packed Storage: `std::vector<bool>` does not store `bool` values as individual bytes but as bits in a packed form, often using a bitset-like structure. This results in:
+   
+    Packed Storage: `std::vector<bool>` does not store `bool` values as individual bytes but as bits in a packed form, often using a bitset-like structure. 
+    This results in:
+   
     Unexpected Memory Layout: Unlike `std::vector<T>` (where `T` is a fundamental type), `std::vector<bool>` does not provide direct access to memory.
+   
     Cache Line Contention: Since multiple `bool` values share the same memory block, modifying one bit can cause read-modify-write operations affecting adjacent values.
 
 2. Lack of True Reference Semantics (Code: `no_ref`)  
+    
     Issue: The `operator[]` and `at()` return a proxy object instead of a true `bool&`, due to bit-packing.  
+    
     Example:
     std::vector<bool> vec(10, true);
     bool& ref = vec[0]; // Compilation error: No real reference available
@@ -18,7 +24,9 @@ Here are some common issues categorized by their nature:
     Consequence: Functions expecting a real `bool&` will not work with `std::vector<bool>`, leading to unexpected behavior.
 
 3. Unexpected Iterator Behavior (Code: `iter_proxy`)  
+    
     Issue: Iterators return proxy objects instead of `bool&`, breaking algorithms relying on standard iterators.  
+    
     Example:
     std::vector<bool> vec = {true, false, true};
     std::vector<bool>::iterator it = vec.begin();
@@ -27,9 +35,11 @@ Here are some common issues categorized by their nature:
     Consequence: Algorithms expecting iterators to return real `bool&` may not work correctly.
 
 4. Performance and Threading Issues (Code: `thread_unsafe`)  
+    
     Issue: Since multiple `bool` values are stored in a single word (e.g., `unsigned long`), modifying one `bool` requires a read-modify-write cycle, leading to:
     Race conditions in multithreading scenarios.
     False sharing issues in concurrent programs.
+    
     Example:
         std::vector<bool> vec(100);
         std::thread t1([&]() { vec[0] = true; });
@@ -40,8 +50,10 @@ Here are some common issues categorized by their nature:
     - In a multi-threaded environment, modifying `vec[0]` might inadvertently modify `vec[1]` due to shared memory writes.
 
 5. No Direct Access to Raw Data (Code: `no_data`)  
+    
     Issue: Unlike other `std::vector<T>`, `std::vector<bool>` does not provide `data()` for accessing raw storage.  
-        Example:
+    
+    Example:
         std::vector<bool> vec(10);
         bool* ptr = vec.data(); // Compilation error
     

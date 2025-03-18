@@ -1,0 +1,9 @@
+/*
+
+The vector<bool> Specialization 
+    
+    Example-2
+        Here's a demonstration of how std::vector<bool> packs multiple bool values into a single storage unit, typically using 
+        bitwise operations within an underlying storage type (such as unsigned long or uint8_t).
+    
+*/
