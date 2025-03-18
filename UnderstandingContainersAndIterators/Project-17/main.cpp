@@ -28,13 +28,18 @@ void printPackedStorage(const std::vector<bool> &vec)
     size_t numBits = vec.size();
     size_t numWords = (numBits + sizeof(unsigned long) * 8 - 1) / (sizeof(unsigned long) * 8);
 
+    std::cout << "numBits : " << numBits << std::endl;
+    std::cout << "numWords : " << numWords << std::endl;
+
     std::cout << "Packed Storage Approximation (bitwise representation):" << std::endl;
     for (size_t i = 0; i < numWords; ++i)
     {
         std::bitset<sizeof(unsigned long) * 8> bits;
+
         for (size_t j = 0; j < sizeof(unsigned long) * 8; ++j)
         {
             size_t idx = i * sizeof(unsigned long) * 8 + j;
+
             if (idx < numBits)
             {
                 bits[j] = vec[idx];
