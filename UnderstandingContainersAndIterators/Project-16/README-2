@@ -18,9 +18,9 @@ Here are some common issues categorized by their nature:
     Issue: The `operator[]` and `at()` return a proxy object instead of a true `bool&`, due to bit-packing.  
     
     Example:
-    std::vector<bool> vec(10, true);
-    bool& ref = vec[0]; // Compilation error: No real reference available
-    
+        std::vector<bool> vec(10, true);
+        bool& ref = vec[0]; // Compilation error: No real reference available
+        
     Consequence: Functions expecting a real `bool&` will not work with `std::vector<bool>`, leading to unexpected behavior.
 
 3. Unexpected Iterator Behavior (Code: `iter_proxy`)  
@@ -28,9 +28,9 @@ Here are some common issues categorized by their nature:
     Issue: Iterators return proxy objects instead of `bool&`, breaking algorithms relying on standard iterators.  
     
     Example:
-    std::vector<bool> vec = {true, false, true};
-    std::vector<bool>::iterator it = vec.begin();
-    *it = false; // Works but modifies underlying packed storage indirectly
+        std::vector<bool> vec = {true, false, true};
+        std::vector<bool>::iterator it = vec.begin();
+        *it = false; // Works but modifies underlying packed storage indirectly
  
     Consequence: Algorithms expecting iterators to return real `bool&` may not work correctly.
 

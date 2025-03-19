@@ -1,29 +1,37 @@
 /*
 
-Many C++ experts recommend avoiding vector<bool> in favor of the bitset.
-
 The vector<bool> Specialization
-    The C++ standard requires a partial specialization of vector for bools, with the intention that it optimizes space allocation 
-    by “packing” the Boolean values. 
-    Recall that a bool is either true or false, and thus could be represented by a single bit, which can take on exactly two values. 
-    C++ does not have a native type that stores exactly one bit. 
-    Some compilers represent a Boolean value with a type the same size as a char, other compilers use an int. 
+    The C++ standard requires a partial specialization of vector for bools, with the intention that it optimizes space allocation
+    by “packing” the Boolean values.
+    Recall that a bool is either true or false, and thus could be represented by a single bit, which can take on exactly two values.
+    C++ does not have a native type that stores exactly one bit.
+    Some compilers represent a Boolean value with a type the same size as a char, other compilers use an int.
     The vector< bool> specialization is supposed to store the “array of bools” in single bits, thus saving space.
 
-        NOTE 
+        NOTE
             You can think of the vector<bool> as a bit-field instead of a vector.
-            The bitset container provides a more fullfeatured bit-field implementation than does vector<bool>. 
+            The bitset container provides a more fullfeatured bit-field implementation than does vector<bool>.
             However, the benefit of vector<bool> is that it can change size dynamically.
 
-        WARNING 
-            The fact that references returned from vector<bool> are really proxies means that you can’t take their addresses 
+    flip() method can be called either on the container, in which case it complements all the elements in the container
+    or on a single reference returned from operator[] or a similar method, in which case it complements that single element.
+
+    At this point, you should be wondering how you can call a method on a reference to bool.
+    The answer is that you can’t.
+    The vector<bool> specialization actually defines a class called reference that serves as a proxy for the underlying bool (or bit).
+    When you call operator[], at(), or a similar method, then vector<bool> returns a reference object, which is a proxy for the real bool.
+
+        WARNING
+            The fact that references returned from vector<bool> are really proxies means that you can’t take their addresses
             to obtain pointers to the actual elements in the container.
 
-    flip() method can be called either on the container, in which case it complements all the elements in the container 
+    In practice, the little amount of space saved by packing bools hardly seems worth the extra effort.
+    Even worse, accessing and modifying elements in a vector<bool> is much slower than, for example, in a vector<int>.
+    Many C++ experts recommend avoiding vector<bool> in favor of the bitset.
 
-    If you do need a dynamically sized bit field, then it’s recommended to use something like vector<std::int_fast8_t> or 
-    vector<unsigned char>. 
-    The std::int_fast8 _ t type is defined in <cstdint>. 
+    If you do need a dynamically sized bit field, then it’s recommended to use something like vector<std::int_fast8_t> or
+    vector<unsigned char>.
+    The std::int_fast8_t type is defined in <cstdint>.
     It is a signed integer type for which the compiler has to use the fastest integer type it has that is at least 8 bits.
 
 */
