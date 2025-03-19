@@ -48,6 +48,11 @@
     
     https://www.amazon.com/exec/obidos/ASIN/3662567172/acmorg-20
 
+    6. game programming patterns
+       
+    https://gameprogrammingpatterns.com/
+   
+
 5. Download Any Book
 
     https://libgen.is
