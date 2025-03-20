@@ -63,6 +63,17 @@ Concurrency Pattern
         Reader-Writer Lock	Optimizing shared resource access 
         Monitor Pattern	 	Safe access to shared resources 
 
+
+Which Architecture is Best for You?
+
+        Use Case				Best Architecture
+        Enterprise & Desktop Apps		Layered, Hexagonal
+        High-Performance Systems		Microservices, SOA
+        Real-Time Apps (Games, IoT, AI)		Event-Driven, Actor Model
+        Game Engines & Robotics			Component-Based
+        Compilers & Image Processing		Pipe-and-Filter
+        Embedded & Financial Apps		Hexagonal, Layered
+
 Which Design Pattern Should You Choose?
 
         Project Type	                Best Pattern(s)
@@ -78,5 +89,10 @@ Final Thoughts
         Start simple and pick patterns as needed.
         Combine patterns when necessary (e.g., Factory + Singleton for database connections).
         Avoid over-engineering—patterns, It should solve problems, not create complexity.
+
+---------------------------------------------------------------------------------------------------------
+Ref:
+
+1. https://www.modernescpp.com/index.php/design-patterns-and-architectural-patterns-a-first-overview/
         
 */
