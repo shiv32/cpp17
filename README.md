@@ -2,9 +2,8 @@
 
 software architecture patterns
 
-https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/Software%20Architectural%20Patterns.gif
+    https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/Software%20Architectural%20Patterns.gif
   
-   
 1. S.O.L.I.D. Principles
 
     S = Single Responsibility Principle
