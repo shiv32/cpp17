@@ -2,9 +2,8 @@
 
 software architecture patterns
 
-[cmake-linux](https://code.visualstudio.com/docs/cpp/cmake-linux)
-    https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F37da2535-a515-41b6-9b63-6a9bc9357cbf_800x991.gif
-
+    [software architecture patterns]( https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F37da2535-a515-41b6-9b63-6a9bc9357cbf_800x991.gif)
+   
 1. S.O.L.I.D. Principles
 
     S = Single Responsibility Principle
