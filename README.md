@@ -1,6 +1,6 @@
 # cpp17
 
-software Architecture Patterns
+Software Architecture Patterns
 
 https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/Software%20Architectural%20Patterns.gif
   
