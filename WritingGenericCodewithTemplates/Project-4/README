@@ -1,0 +1,31 @@
+/*
+
+A Template Grid Class
+    The GameBoard class is nice, but insufficient. 
+    A first problem is that you can not use GameBoard to store elements by value; it always stores pointers. 
+    Another, more serious issue is related to type safety. 
+    Each cell in a GameBoard stores a unique_ptr<GamePiece>. 
+    Even if you are storing ChessPieces, when you use at() to request a certain cell, you will get back a 
+    unique_ptr<GamePiece>. 
+    This means you have to downcast the retrieved GamePiece to a ChessPiece to be able to make use of ChessPiece’s 
+    specific functionality. 
+    Another shortcoming of GameBoard is that it cannot be used to store primitive types, such as int or double, 
+    because the type stored in a cell has to derive from GamePiece.
+
+    So, it would be nice if you could write a generic Grid class that you could use for storing ChessPieces, 
+    SpreadsheetCells, ints, doubles, and so on. 
+    In C++, you can do this by writing a class template, which allows you to write a class without specifying one or 
+    more types. 
+    Clients then instantiate the template by specifying the types they want to use. 
+    This is called generic programming. 
+    The biggest advantage of generic programming is type safety. 
+    The types used in the class and its methods are concrete types, and not abstract base class types, as is the case with 
+    the polymorphic solution.
+
+    For example, suppose there is not only a ChessPiece but also a TicTacToePiece.
+    With the polymorphic solution, nothing stops you from storing tic-tac-toe pieces and chess pieces on the same 
+    chess board.
+    The big problem with this is that you somehow need to remember what a cell is storing, so that you can perform the correct 
+    downcast when you call at().
+
+*/
