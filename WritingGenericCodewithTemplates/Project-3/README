@@ -1,0 +1,42 @@
+/*
+
+CLASS TEMPLATES
+    Class templates define a class where the types of some of the variables, return types of methods, and/or parameters 
+    to the methods are specified as parameters. 
+    Class templates are useful primarily for containers, or data structures, that store objects. 
+    This section uses example of a Grid container. 
+
+Writing a Class Template
+    Suppose that you want a generic game board class that you can use as a chessboard, checkers board, tic-tac-toe board, or 
+    any other two-dimensional game board. 
+    In order to make it general-purpose, you should be able to store chess pieces, checkers pieces, tic-tac-toe pieces, or any 
+    type of game piece.
+
+Coding without Templates
+    Without templates, the best approach to build a generic game board is to employ polymorphism to store generic GamePiece objects. 
+    Then, you could let the pieces for each game inherit from the GamePiece class. 
+    For example, in a chess game, ChessPiece would be a derived class of GamePiece. 
+    Through polymorphism, the GameBoard, written to store GamePieces, could also store ChessPieces. 
+    Because it should be possible to copy a GameBoard, the GameBoard needs to be able to copy GamePieces. 
+    This implementation employs polymorphism, so one solution is to add a pure virtual clone() method to the GamePiece base class. 
+
+    GamePiece is an abstract base class. 
+    Concrete classes, such as ChessPiece, derive from it and implement the clone() method.
+
+    The implementation of GameBoard uses a vector of vectors of unique_ptrs to store the GamePieces.
+
+    In this implementation, at() returns a reference to the piece at a specified spot instead of a copy of the piece. 
+    The GameBoard serves as an abstraction of a two-dimensional array, so it should provide array access semantics by giving 
+    the actual object at an index, not a copy of the object. 
+    Client code should not store this reference for future use because it might become invalid. 
+    Instead, client code should call at() right before using the returned reference. 
+    This follows the design philosophy of the Standard Library std::vector class.
+
+    NOTE 
+        This implementation of the class provides two versions of at(), one of which returns a reference and one of which returns 
+        a const reference.
+
+    Note that this implementation uses the copy-and-swap idiom for the assignment operator, and Scott Meyer’s const_cast() pattern
+    to avoid code duplication.
+        
+*/
