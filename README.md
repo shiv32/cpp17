@@ -1,10 +1,10 @@
 # cpp17
 
-Software Architecture Patterns
+1. Software Architecture Patterns
 
 https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/Software%20Architectural%20Patterns.gif
   
-1. S.O.L.I.D. Principles
+2. S.O.L.I.D. Principles
 
     S = Single Responsibility Principle
     
@@ -18,7 +18,7 @@ https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/
 
     https://cpp-design-patterns.readthedocs.io/en/latest/principles.html#solid
 
-2. Design Patterns
+3. Design Patterns
 
     1. Behavioral (how objects send messages to each other) ->  Chain of responsibility, Observer, Iterator, State
     
@@ -30,7 +30,7 @@ https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/
 
     https://sourcemaking.com/design_patterns
 
-3. Books
+4. Books
 
     1. Professional C++, 4th Edition
     
@@ -73,19 +73,19 @@ https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/
     
     3. https://learning.poash.com/
 
-8. Upload and read book from any where
+7. Upload and read book from any where
 
     https://www.bookfusion.com/
 
-9. Google C++ Style Guide
+8. Google C++ Style Guide
 
     https://google.github.io/styleguide/cppguide.html
 
-10. Google's C++ Class
+9. Google's C++ Class
 
     https://developers.google.com/edu/c++
 
-12. C++ online compiler
+10. C++ online compiler
 
     https://onecompiler.com/cpp
 
