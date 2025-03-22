@@ -85,8 +85,7 @@ Which Design Pattern Should You Choose?
         Networking (Client-Server)	Singleton, Observer
 
 
-C++ application for microcontrollers
-Which Pattern Should You Use?
+Architecture for microcontrollers
 
         For basic microcontroller applications 
                 Layered Architecture (Onion or Hexagonal) + State Machine Pattern (FSM - Finite State Machine)
