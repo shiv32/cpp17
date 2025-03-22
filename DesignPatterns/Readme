@@ -84,6 +84,22 @@ Which Design Pattern Should You Choose?
         Enterprise Applications	        Factory, Observer, MVC
         Networking (Client-Server)	Singleton, Observer
 
+
+C++ application for microcontrollers
+Which Pattern Should You Use?
+
+        For basic microcontroller applications 
+                Layered Architecture (Onion or Hexagonal) + State Machine Pattern (FSM - Finite State Machine)
+
+        For reactive low-power systems
+                Event-Driven Architecture(Reactive Pattern) + Publish-Subscribe Pattern (Observer Pattern)
+
+        For complex firmware needing modularity
+                Component-Based Architecture(Modular Design) + Microkernel(Plug-in Architecture)
+
+        For multitasking RTOS applications 
+                Active Object Pattern (Concurrency)
+
 Final Thoughts
 
         Start simple and pick patterns as needed.
