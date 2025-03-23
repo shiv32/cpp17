@@ -10,6 +10,15 @@ git push origin master
 
 ----------------------------------------------------------------------------------
 
+Extensions for C++ code review:
+
+      C/C++ (Microsoft) – Intellisense and debugging.
+      Clang-Tidy – Static analysis.
+      CppCheck – Code quality checks.
+      GitLens – Git blame and inline diff for reviews.
+
+----------------------------------------------------------------------------------
+
 Install VS Code in Ubuntu
 
 Download VS Code deb file from [VS Code](https://code.visualstudio.com/download)
