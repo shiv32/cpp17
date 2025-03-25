@@ -1,0 +1,76 @@
+/*
+
+The Grid Class Definition
+    In order to understand class templates, it is helpful to examine the syntax. 
+
+    template <typename T>
+    class Grid
+    {
+
+    }
+
+    The template specifier holds for the entire statement, which in this case is the class definition.
+
+    NOTE 
+        For historical reasons, you can use the keyword class instead of typename to specify template type parameters. 
+        Thus, many books and existing programs use syntax like this: template <class T>. 
+        However, the use of the word “class” in this context is confusing because it implies that the type must be a class, 
+        which is not true. 
+        The type can be a class, a struct, a union, a primitive type of the language like int or double, and so on.
+
+    When you write a class template, what you used to think of as the class name (Grid) is actually the template name. 
+    When you want to talk about actual Grid classes or types, you discuss them as Grid<T>, instantiations of the Grid 
+    class template for a certain type, such as int, SpreadsheetCell, or ChessPiece.
+
+The Grid Class Method Definitions
+    The template <typename T> specifier must precede each method definition for the Grid template.
+
+    NOTE 
+        Templates require you to put the implementation of the methods in the header file itself, because the compiler needs to 
+        know the complete definition, including the definition of methods, before it can create an instance of the template.
+
+    NOTE 
+        If an implementation of a class template method needs a default value for a certain template type parameter, 
+        for example T,  then you can use the T() syntax. 
+        T() calls the default constructor for the object if T is a class type, or generates zero if T is a simple type. 
+        This syntax is called the zero-initialization syntax. 
+        It’s a good way to provide a reasonable default value for a variable whose type you don’t know yet.
+
+        eg.
+           1.
+                class A {
+                public:
+                    A() { std::cout << "A() constructor called\n"; }
+                };
+
+                template <typename T>
+                void createObject() {
+                    T obj = T();  // Calls default constructor
+                }
+
+                createObject<A>();  // Outputs "A() constructor called"
+
+            2. 
+                template <typename T>
+                T zero_initialize() {
+                    return T{};  // Uniform initialization (C++11+)
+                }
+
+                std::cout << zero_initialize<int>() << "\n";      // 0
+                std::cout << zero_initialize<double>() << "\n";   // 0.0
+                std::cout << zero_initialize<char>() << "\n";     // '\0'
+
+Using the Grid Template
+    When you want to create grid objects, you cannot use Grid alone as a type; you must specify the type that will be stored 
+    in that Grid. 
+    Creating an object of a class template for a specific type is called instantiating the template.
+
+    NOTE 
+        Instead of writing the full Grid type every time—for example,
+            Grid<int>
+        you can use a type alias to give it an easier name:
+            using IntGrid = Grid<int>;
+        Now you can write code as follows:
+        void processIntGrid(IntGrid& grid) { }
+
+*/

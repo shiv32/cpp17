@@ -4,6 +4,8 @@
 #include <iostream>
 #include <optional>
 
+//----------- The Grid Class Definition ---------------
+
 template <typename T>
 class Grid
 {
@@ -38,11 +40,14 @@ private:
     size_t mWidth, mHeight;
 };
 
+//---------- The Grid Class Method Definitions ---------------
+
 template <typename T>
 Grid<T>::Grid(size_t width, size_t height)
     : mWidth(width), mHeight(height)
 {
     mCells.resize(mWidth);
+    
     for (auto &column : mCells)
     {
         // Equivalent to:

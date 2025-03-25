@@ -1,0 +1,11 @@
+/*
+
+Difference Between const Function Variations in C++
+
+Function Declaration		Meaning
+const int fun();		    Returns a const int (cannot modify returned value)
+int fun() const;		    Const Member Function (does not modify class members)
+const int fun() const;		Const Member Function + Const Return
+const int& fun() const;		Returns a const int& (efficient, prevents modification)
+
+*/
