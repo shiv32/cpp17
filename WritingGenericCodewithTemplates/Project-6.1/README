@@ -1,0 +1,34 @@
+/*
+
+Template Requirements on Types
+    When you write code that is independent of types, you must assume certain things about those
+    types. 
+    For example, 
+        In the Grid template, you assume that the element type (represented by T) is destructible. 
+        The Grid template implementation doesn’t assume much. 
+        However, other templates could assume that their template type parameters support, for example, 
+        an assignment operator. 
+        If you attempt to instantiate a template with a type that does not support all the operations used
+        by the template in your particular program, the code will not compile. 
+
+Implicit Requirements (Duck Typing)		
+    C++98+				
+    Simple & flexible			
+    Hard-to-read error messages
+
+std::enable_if (SFINAE)				
+    C++11/14			
+    Selectively enable templates		
+    Verbose syntax
+
+Concepts (requires)				
+    C++20				
+    Clean & readable			
+    Requires C++20
+
+Type Traits (std::is_integral, std::is_same)	
+    C++11+				
+    Compile-time checks			
+    Slightly more code          
+
+*/

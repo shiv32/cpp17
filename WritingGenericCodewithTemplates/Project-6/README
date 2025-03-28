@@ -1,0 +1,6 @@
+/*
+
+Selective Instantiation
+    The compiler always generates code for all virtual methods of a generic class.
+
+*/

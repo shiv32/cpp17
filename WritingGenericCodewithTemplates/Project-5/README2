@@ -1,0 +1,21 @@
+/*
+
+Angle Brackets
+    Some of the examples use templates with double angle brackets
+
+        std::vector<std::vector<T>> mCells;
+   
+    This works perfectly fine since C++11. 
+    However, before C++11, the double angle brackets >> could mean only one thing: the >> operator. 
+    Depending on the types involved, this >> operator could be a right bit-shift operation, or 
+    a stream extraction operator. 
+    This was annoying with template code, because you were forced to put a space between double angle brackets. 
+    The previous declaration had to be written as follows:
+    std::vector<std::vector<T> > mCells;
+
+How the Compiler Processes Templates
+    There’s no magic here; templates just automate an annoying process. 
+    If you don’t instantiate a class template for any types in your program, then the class method definitions 
+    are never compiled.
+
+*/
