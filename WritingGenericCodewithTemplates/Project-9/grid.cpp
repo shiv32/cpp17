@@ -1,4 +1,4 @@
-#include "grid.hpp"
+// #include "grid.hpp"
 
 template <typename T>
 Grid<T>::~Grid()
@@ -33,6 +33,7 @@ void Grid<T>::verifyCoordinate(size_t x, size_t y) const
 template <typename T>
 const std::optional<T> &Grid<T>::at(size_t x, size_t y) const
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
     verifyCoordinate(x, y);
     return mCells[x][y];
 }
