@@ -1,7 +1,20 @@
 /*
 Non-type Template Parameters
 
+Non-type template parameters in C++ are template parameters that are values (as opposed to types).
+They let you pass constant values—like integers, pointers, or enums—to templates.
+
+eg.
+
+template <typename T, size_t WIDTH, size_t HEIGHT>  //WIDTH, HEIGHT -> Non-type template parameters
+class Grid
+{
+}
+
+Grid<int, 10, 10> myGrid;
+
 g++ -std=c++17 main.cpp -o test
+
 */
 
 #include <iostream>
