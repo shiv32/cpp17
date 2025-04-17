@@ -37,6 +37,3 @@ private:
 
     size_t mWidth, mHeight;
 };
-
-//------------------------------ template definition -------------------------
-#include "grid.cpp"
