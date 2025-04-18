@@ -1,21 +1,18 @@
-/*
-Non-type Template Parameters
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief
+ *
+    Non-type Template Parameters
 
-Non-type template parameters in C++ are template parameters that are values (as opposed to types).
-They let you pass constant values—like integers, pointers, or enums—to templates.
-
-eg.
-
-template <typename T, size_t WIDTH, size_t HEIGHT>  //WIDTH, HEIGHT -> Non-type template parameters
-class Grid
-{
-}
-
-Grid<int, 10, 10> myGrid;
-
-g++ -std=c++17 main.cpp -o test
-
-*/
+    g++ -std=c++17 main.cpp -o test
+ *
+ * @version 0.1
+ * @date 2025-04-19
+ *
+ * @copyright Copyright (c) 2025
+ *
+ */
 
 #include <iostream>
 #include "grid.hpp"
@@ -28,12 +25,12 @@ constexpr size_t getHeight()
 int main()
 {
 
-    Grid<int, 10, 10> myGrid;
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+    Grid<int, 10, 10> myGrid;
     Grid<int, 10, 10> anotherGrid;
 
     myGrid.at(2, 3) = 42;
-
     anotherGrid = myGrid;
 
     std::cout << anotherGrid.at(2, 3).value_or(0) << std::endl;
@@ -45,7 +42,7 @@ int main()
     std::cout << testGrid.at(2, 3).value_or(0) << std::endl;
 
     //---------------------
-    Grid<double, 2, getHeight()> myDoubleGrid;
+    Grid<double, 2, getHeight()> myDoubleGrid;  // Compiles and work
     myDoubleGrid.at(1, 3) = 44.5;
     std::cout << myDoubleGrid.at(1, 3).value_or(0) << std::endl;
 
