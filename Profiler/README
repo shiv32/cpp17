@@ -1,0 +1,12 @@
+/*
+
+Test performance profilers for C++
+
+    Use Case				        Tool(s)
+    Quick and simple profiling		gprof, std::chrono
+    In-depth CPU + memory			Valgrind, perf, VTune
+    Game dev / real-time			Tracy, Remotery, EasyProfiler
+    Memory leaks				    Valgrind, Dr. Memory, Heaptrack
+    Micro-benchmarking			    Google Benchmark, Chrono
+
+*/
