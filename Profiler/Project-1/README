@@ -1,0 +1,45 @@
+/*
+
+gprof (GNU Profiler) in a C++ project with a simple example. 
+gprof gives you a function-level CPU usage breakdown — great for spotting bottlenecks in small to medium-sized projects.
+
+Report Generation ->
+
+1. Use g++ (or clang++) with the -pg flag for both compile and link:
+
+        g++ -pg main.cpp -o my_program
+
+2. Run Your Program Normally
+
+        ./my_program
+
+It will generate a file called gmon.out in the current directory — this contains the profiling data.
+
+3. Generate a Report with gprof
+        
+        gprof ./my_program gmon.out > report.txt
+
+4. Then view the report:
+        
+        less report.txt
+
+
+The output has two key sections:
+1. Flat Profile
+    Shows time spent per function.
+    Sorts by time usage (most expensive at the top).
+
+2. Call Graph
+    Shows call relationships and time spent in callee functions.
+
+
+Note ->
+1. gprof works best for CPU-bound code.
+
+2. Doesn’t work well with:
+    Multithreading (limited support)
+    Modern system calls or I/O waits
+
+3. Only works with x86/ARM on Linux, not macOS (unless using an old GCC version).
+
+*/
