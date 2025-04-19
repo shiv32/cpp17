@@ -11,6 +11,9 @@ set(CMAKE_CXX_FLAGS -pthread)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
+    ConcreteBuilder1.cpp
+    Director.cpp
+    Product1.cpp
     main.cpp
 )
 
