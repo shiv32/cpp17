@@ -1,12 +1,12 @@
 /**
  * @file ConcreteBuilder1.hpp
  * @author your name (you@domain.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2025-04-19
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 #pragma once
 
@@ -24,19 +24,15 @@ private:
      */
 public:
     ConcreteBuilder1();
-
     ~ConcreteBuilder1();
-
+    
     void Reset();
-
+    
     /**
      * All production steps work with the same product instance.
      */
-
     void ProducePartA() const override;
-
     void ProducePartB() const override;
-
     void ProducePartC() const override;
 
     Product1 *GetProduct();

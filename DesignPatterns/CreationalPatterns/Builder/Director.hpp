@@ -1,12 +1,12 @@
 /**
  * @file Director.hpp
  * @author your name (you@domain.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2025-04-19
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 #pragma once
 
@@ -14,11 +14,9 @@
 
 class Director
 {
-    /**
-     * @var Builder
-     */
 private:
     Builder *builder;
+    
     /**
      * The Director works with any builder instance that the client code passes
      * to it. This way, the client code may alter the final type of the newly
@@ -32,7 +30,6 @@ public:
      * The Director can construct several product variations using the same
      * building steps.
      */
-
     void BuildMinimalViableProduct();
     void BuildFullFeaturedProduct();
 };
