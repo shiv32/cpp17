@@ -1,0 +1,94 @@
+For C++ architect 👷‍♂️
+
+in real-world C++ projects, **combining design patterns** is often more powerful than using them in isolation. 
+Here's a curated list of **best pattern combinations** in C++ with common use cases, 
+especially relevant to system-level programming, engines, or toolkits:
+
+Best Combinations of Design Patterns in C++
+
+🔧1. Factory + Strategy
+Use for:** Configurable behaviors (e.g., sensor handlers, AI behavior, file format loaders)
+
+- **Factory** creates the right **Strategy** at runtime
+- Useful when behavior needs to be easily swapped or extended
+
+cpp
+auto handler = SensorHandlerFactory::create(sensorType);
+handler->handle(data);  // Strategy behavior
+
+
+🏭 2. Abstract Factory + Singleton
+Use for:** Creating families of related objects with global access (like platforms, engines)
+
+- **Singleton** provides one instance of **AbstractFactory**
+- Used in UI toolkits, cross-platform engines, resource managers
+
+cpp
+EngineFactory::get().createRenderer();
+
+
+🏗️ 3. Builder + Director + Factory
+Use for:** Step-by-step construction of complex objects (e.g., game levels, JSON parsers)
+
+- **Factory** chooses builder
+- **Director** controls building process
+
+cpp
+auto builder = ObjectBuilderFactory::get("vehicle");
+Director dir(builder);
+dir.construct();
+auto vehicle = builder->getResult();
+
+📦 4. Composite + Visitor
+Use for:** Operating on hierarchical data (e.g., scene graphs, file systems)
+
+- **Composite** makes tree structures
+- **Visitor** performs actions on them without altering node classes
+
+cpp
+SceneNode* root = buildScene();
+RenderVisitor visitor;
+root->accept(visitor);  // Visitor pattern applied to composite
+
+🧩 5. Observer + Command + Mediator
+Use for:** Event-driven systems (e.g., UI, sensors, networked inputs)
+
+- **Observer** notifies subscribers
+- **Command** encapsulates actions
+- **Mediator** centralizes communication
+
+cpp
+eventBus.subscribe(...);
+inputHandler.setCommand("jump", new JumpCommand());
+mediator.notify("player_collided");
+
+
+🔄 6. State + Strategy + Factory
+Use for:** Stateful systems with changeable behavior (e.g., game AI, connection protocols)
+
+- **Factory** creates strategies/states
+- **Strategy** defines behavior
+- **State** transitions at runtime
+
+cpp
+state = StateFactory::create("Patrol");
+state->execute(agent);
+
+
+⚙️ 7. Decorator + Bridge + Prototype
+Use for:** Extensible systems (e.g., GUI widgets, weapons systems)
+
+- **Decorator** adds dynamic features
+- **Bridge** separates abstraction from implementation
+- **Prototype** clones customizable objects
+
+cpp
+auto baseGun = new Gun();
+auto silencedGun = new SilencerDecorator(baseGun);
+auto cloned = silencedGun->clone();
+
+
+🛠️ Tips for Combining Patterns in C++:
+- Use **smart pointers** (`std::unique_ptr`, `std::shared_ptr`) to manage lifetime in pattern combinations.
+- **Namespace** your pattern-based components to avoid clutter (strategy::, factory::, etc.).
+- Prefer **composition over inheritance**, especially with Strategy and Decorator.
