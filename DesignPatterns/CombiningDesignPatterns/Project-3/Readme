@@ -1,0 +1,14 @@
+
+Hybrid Example: Template + Runtime Factory
+
+ We combine template-based strategies with runtime flexibility. This approach gives you:
+
+✅ Compile-time performance for core logic
+✅ Runtime flexibility through a common base + factory
+✅ Avoids excessive virtual calls inside the strategy itself
+
+
+Bonus Benefits:
+Strategy logic stays type-safe and inlineable.
+You can reuse SensorHandlerImpl<T> for many components.
+Easy to extend: just add new types and register them in the factory.
