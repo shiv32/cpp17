@@ -8,6 +8,7 @@ public:
     {
         std::cout << __PRETTY_FUNCTION__ << std::endl;
     }
+
     const T &getContent() const { return mContent; }
 
 private:

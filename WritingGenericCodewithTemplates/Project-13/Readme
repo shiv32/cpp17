@@ -1,0 +1,6 @@
+/*
+
+User-defined deduction guide
+    Allow you to write rules for how the template parameters have to be deduced.
+
+*/
