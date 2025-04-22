@@ -1,7 +1,16 @@
 
 template <typename T, size_t WIDTH, size_t HEIGHT>
-Grid<T, WIDTH, HEIGHT>::Grid(const T &data){
-   std::cout<<"Template type : " << typeid(T).name() << std::endl;
+Grid<T, WIDTH, HEIGHT>::Grid(const T &data)
+{
+    std::cout << "Template type : " << typeid(T).name() << std::endl;
+
+    //set default at each cell
+    for(auto i = 0; i<WIDTH; i++)
+    {
+        for(auto j = 0; j<HEIGHT; j++)
+        at(i,j) = data;
+    }
+
 }
 
 template <typename T, size_t WIDTH, size_t HEIGHT>
