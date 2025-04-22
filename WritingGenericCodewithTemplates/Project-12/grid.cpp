@@ -1,16 +1,22 @@
+#include "grid.hpp"
 
 template <typename T, size_t WIDTH, size_t HEIGHT>
-Grid<T, WIDTH, HEIGHT>::Grid(const T &data)
+Grid<T, WIDTH, HEIGHT>::Grid(const T &data): mContent(data)
 {
     std::cout << "Template type : " << typeid(T).name() << std::endl;
 
-    //set default at each cell
-    for(auto i = 0; i<WIDTH; i++)
+    // set default value at each cell
+    for (auto i = 0; i < WIDTH; i++)
     {
-        for(auto j = 0; j<HEIGHT; j++)
-        at(i,j) = data;
+        for (auto j = 0; j < HEIGHT; j++)
+            at(i, j) = getContent();
     }
+}
 
+template <typename T, size_t WIDTH, size_t HEIGHT>
+const T &Grid<T, WIDTH, HEIGHT>::getContent() const
+{
+    return mContent;
 }
 
 template <typename T, size_t WIDTH, size_t HEIGHT>

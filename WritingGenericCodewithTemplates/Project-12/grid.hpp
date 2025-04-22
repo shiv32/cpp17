@@ -22,9 +22,12 @@ public:
     size_t getHeight() const { return HEIGHT; }
     size_t getWidth() const { return WIDTH; }
 
+    const T &getContent() const;
+
 private:
     void verifyCoordinate(size_t x, size_t y) const;
     std::optional<T> mCells[WIDTH][HEIGHT];
+    T mContent;
 };
 
 //------------------------------ template definition -------------------------
