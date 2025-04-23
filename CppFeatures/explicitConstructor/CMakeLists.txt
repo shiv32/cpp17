@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the project name
-project(InsertIterators)
+project(explicitConstructor)
 
 set(CMAKE_CXX_FLAGS -pthread)
 
@@ -14,7 +14,7 @@ set(SOURCES
 )
 
 # Add an executable with the above sources
-add_executable(InsertIterators ${SOURCES})
+add_executable(explicitConstructor ${SOURCES})
 
 # Link filesystem library if needed
 # if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9.0)
