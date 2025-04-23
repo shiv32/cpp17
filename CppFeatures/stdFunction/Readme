@@ -1,0 +1,7 @@
+/*
+
+std::function in C++17 is a part of the <functional> header and is used to encapsulate 
+any callable target—functions, lambda expressions, bind expressions, or 
+other function objects—with a specific signature.
+
+*/
