@@ -3,6 +3,8 @@
 list
     The Standard Library list class template, defined in the <list> header file, is a standard doubly linked list.
 
+    WARNING Lists do not provide random access to elements.
+
 list operations:
     Accessing Elements
     Iterators
