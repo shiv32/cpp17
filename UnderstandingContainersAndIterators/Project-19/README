@@ -1,0 +1,12 @@
+/*
+
+list
+    The Standard Library list class template, defined in the <list> header file, is a standard doubly linked list.
+
+list operations:
+    Accessing Elements
+    Iterators
+    Adding and Removing Elements
+    list Size
+
+*/

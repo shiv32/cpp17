@@ -2,9 +2,6 @@
  * @file main.cpp
  * @author your name (you@domain.com)
  * @brief Tuples
- *
-
- *
  * @version 0.1
  * @date 2024-09-13
  *
