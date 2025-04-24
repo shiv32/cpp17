@@ -1,0 +1,16 @@
+/*
+
+Special list Operations
+
+    Splicing
+        The linked-list characteristics of a list allow it to splice, or insert, an entire list at any position 
+        in another list in constant time. 
+  
+  There are also two other forms of splice(): 
+    one that inserts a single element from another list,
+    one that inserts a range from another list. 
+
+    WARNING Splicing is destructive to the list passed as an argument: it removes the spliced elements from one list 
+            in order to insert them into the other.
+
+*/
