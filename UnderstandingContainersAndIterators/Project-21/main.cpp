@@ -60,21 +60,21 @@ int main()
 
     listOfStudent droppedStudents = {"amit", "manoj"};
 
-    listOfStudent mathClass = {"bhanu", "shilpa", "shiv"};
-    listOfStudent physicsClass = {"bhanu", "mohan"};
-    listOfStudent chemistryClass = {"shilpa", "mohan"};
-    listOfStudent cppClass = {"shiv", "surbhi"};
+    listOfStudent mathStudents = {"bhanu", "shilpa", "shiv"};
+    listOfStudent physicsStudents = {"bhanu", "mohan"};
+    listOfStudent chemistryStudents = {"shilpa", "mohan"};
+    listOfStudent cppStudents = {"shiv", "surbhi"};
 
-    listOfStudentContainer courseStudents{mathClass, physicsClass, chemistryClass, cppClass};
+    listOfStudentContainer courseStudents{mathStudents, physicsStudents, chemistryStudents, cppStudents};
 
     //listOfStudentContainer courseStudents;
 
-    // courseStudents.emplace_back(mathClass);
-    // courseStudents.emplace_back(physicsClass);
-    // courseStudents.emplace_back(chemistryClass);
-    // courseStudents.emplace_back(cppClass);
+    // courseStudents.emplace_back(mathStudents);
+    // courseStudents.emplace_back(physicsStudents);
+    // courseStudents.emplace_back(chemistryStudents);
+    // courseStudents.emplace_back(cppStudents);
 
-    // for (auto &&cls : {mathClass, physicsClass, chemistryClass, cppClass})
+    // for (auto &&cls : {mathStudents, physicsStudents, chemistryStudents, cppStudents})
     // {
     //     courseStudents.emplace_back(std::move(cls));
     // }
