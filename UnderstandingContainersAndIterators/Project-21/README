@@ -1,0 +1,32 @@
+/*
+
+More Efficient Versions of Algorithms
+
+  NOTE 
+    When you have a choice, use the list-specific methods rather than the generic Standard Library algorithms 
+    because the former are more efficient. 
+    Sometimes you don’t have a choice and you must use the list-specific methods; 
+    for example, the generic std::sort() algorithm requires RandomAccessIterators, which a list does not provide.
+
+    The algorithms for which list provides special implementations as methods.
+      remove()
+      remove_if()
+      unique()
+      merge()
+      sort()
+      reverse()
+
+list Example: Determining Enrollment
+  Writing a computer registration system for a university.
+  Generate a complete list of enrolled students in the university from lists of the students in each class.
+  Generate a complete list of all the students in all the courses, without any duplicates, and without those 
+  students who have been dropped. 
+  Note that students might be in more than one course.
+
+  NOTE 
+    This example demonstrates the use of the list-specific algorithms. 
+    As stated several times before, often a vector is faster than a list. 
+    So, the recommended solution to the student enrollment problem would be to only use vectors, and to combine these 
+    with generic Standard Library algorithms.
+
+*/
