@@ -36,7 +36,9 @@ Flyweight FlyweightFactory::GetFlyweight(const SharedState &shared_state)
 void FlyweightFactory::ListFlyweights() const
 {
     size_t count = this->flyweights_.size();
+
     std::cout << "\nFlyweightFactory: I have " << count << " flyweights:\n";
+    
     for (std::pair<std::string, Flyweight> pair : this->flyweights_)
     {
         std::cout << pair.first << "\n";

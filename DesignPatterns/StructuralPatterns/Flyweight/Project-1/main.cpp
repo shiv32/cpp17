@@ -15,12 +15,13 @@
 #include "SharedState.hpp"
 #include "UniqueState.hpp"
 
-void AddCarToPoliceDatabase(FlyweightFactory &ff,
-                            const std::string &plates,
-                            const std::string &owner,
-                            const std::string &brand,
-                            const std::string &model,
-                            const std::string &color)
+void AddCarToPoliceDatabase(
+    FlyweightFactory &ff,
+    const std::string &plates,
+    const std::string &owner,
+    const std::string &brand,
+    const std::string &model,
+    const std::string &color)
 {
     std::cout << "\nClient: Adding a car to database.\n";
 
@@ -50,6 +51,13 @@ int main() // client
                            "James Doe",
                            "BMW",
                            "M5",
+                           "red");
+
+    AddCarToPoliceDatabase(*factory,
+                           "CL234IR",
+                           "James Doe",
+                           "BMW",
+                           "X6",
                            "red");
 
     AddCarToPoliceDatabase(*factory,
