@@ -12,8 +12,8 @@
 #include <iostream>
 #include "FlyweightFactory.hpp"
 #include "Flyweight.hpp"
-// #include "SharedState.hpp"
-// #include "UniqueState.hpp"
+#include "SharedState.hpp"
+#include "UniqueState.hpp"
 
 void AddCarToPoliceDatabase(FlyweightFactory &ff,
                             const std::string &plates,

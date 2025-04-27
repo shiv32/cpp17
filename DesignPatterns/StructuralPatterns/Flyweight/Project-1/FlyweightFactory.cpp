@@ -1,7 +1,6 @@
 #include <iostream>
 #include "FlyweightFactory.hpp"
-//#include "SharedState.hpp"
-// #include "Flyweight.hpp"
+#include "SharedState.hpp"
 
 std::string FlyweightFactory::GetKey(const SharedState &ss) const
 {

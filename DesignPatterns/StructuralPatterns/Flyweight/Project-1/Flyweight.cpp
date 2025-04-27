@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Flyweight.hpp"
-// #include "SharedState.hpp"
-// #include "UniqueState.hpp"
+#include "SharedState.hpp"
+#include "UniqueState.hpp"
 
 Flyweight::Flyweight(const SharedState *shared_state)
     : shared_state_(new SharedState(*shared_state))

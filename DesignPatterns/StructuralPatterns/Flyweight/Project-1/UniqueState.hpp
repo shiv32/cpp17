@@ -9,6 +9,5 @@ struct UniqueState
     std::string plates_;
 
     UniqueState(const std::string &owner, const std::string &plates);
-
     friend std::ostream &operator<<(std::ostream &os, const UniqueState &us);
 };
