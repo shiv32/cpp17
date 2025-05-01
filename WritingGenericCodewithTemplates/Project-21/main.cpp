@@ -1,10 +1,13 @@
-/*
-Function Template Specialization
-
-std::optional<size_t> version
-
-g++ -std=c++17 *.cpp -o test
-*/
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief Function Template Specialization
+ * @version 0.1
+ * @date 2025-05-01
+ *
+ * @copyright Copyright (c) 2025
+ *
+ */
 
 #include <iostream>
 #include "funtemplate.hpp"
@@ -13,24 +16,22 @@ using namespace std;
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     const char *word = "three";
-
     const char *words[] = {"one", "two", "three", "four"};
-
     const size_t sizeWords = std::size(words);
 
     std::optional<size_t> res;
 
-    // Calls const char* specialization
-    res = Find<const char *>(word, words, sizeWords);
+    res = Find<const char *>(word, words, sizeWords); // Calls const char* specialization explicitly
 
     if (res.has_value())
         cout << "index : " << res.value() << endl;
     else
         cout << "Not found" << endl;
 
-    // Calls const char* specialization
-    res = Find(word, words, sizeWords);
+    res = Find(word, words, sizeWords); // Calls const char* specialization, by deduction
 
     if (res.has_value())
         cout << "index : " << res.value() << endl;

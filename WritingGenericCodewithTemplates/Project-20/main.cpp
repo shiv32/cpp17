@@ -1,10 +1,13 @@
-/*
-FUNCTION TEMPLATES
-
-std::optional<size_t> version
-
-g++ -std=c++17 *.cpp -o test
-*/
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief FUNCTION TEMPLATES
+ * @version 0.1
+ * @date 2025-05-01
+ *
+ * @copyright Copyright (c) 2025
+ *
+ */
 
 #include <iostream>
 #include "funtemplate.hpp"
@@ -14,17 +17,15 @@ using namespace std;
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     //------------> 1
     cout << "//-----------> 1" << endl;
     int myInt = 3, intArray[] = {1, 2, 3, 4};
-
     const size_t sizeIntArray = std::size(intArray);
-
     std::optional<size_t> res;
-
     res = Find(myInt, intArray, sizeIntArray); // calls Find<int> by deduction
-
-    res = Find<int>(myInt, intArray, sizeIntArray); // calls Find<int> explicitly
+                                               // res = Find<int>(myInt, intArray, sizeIntArray); // calls Find<int> explicitly
 
     if (res.has_value())
         cout << "index : " << res.value() << endl;
@@ -34,14 +35,9 @@ int main()
     //-----------> 2
     cout << "//-----------> 2" << endl;
     double myDouble = 5.6, doubleArray[] = {1.2, 3.4, 5.7, 7.5};
-
     const size_t sizeDoubleArray = std::size(doubleArray);
-
-    // calls Find<double> by deduction
-    res = Find(myDouble, doubleArray, sizeDoubleArray);
-
-    // calls Find<double> explicitly
-    res = Find<double>(myDouble, doubleArray, sizeDoubleArray);
+    res = Find(myDouble, doubleArray, sizeDoubleArray); // calls Find<double> by deduction
+    // res = Find<double>(myDouble, doubleArray, sizeDoubleArray); // calls Find<double> explicitly
 
     if (res.has_value())
         cout << "index : " << res.value() << endl;
@@ -51,19 +47,19 @@ int main()
     //-----------> 3
     cout << "//-----------> 3" << endl;
     // res = Find(myInt, doubleArray, sizeDoubleArray); // DOES NOT COMPILE! Arguments are different types.
+    res = Find<double>(myInt, doubleArray, sizeDoubleArray);   // calls Find<double> explicitly, even with myInt
 
-    // calls Find<double> explicitly, even with myInt
-    res = Find<double>(myInt, doubleArray, sizeDoubleArray);
+    if (res.has_value())
+        cout << "index : " << res.value() << endl;
+    else
+        cout << "Not found" << endl;
 
     //-----------> 4
     cout << "//-----------> 4" << endl;
     SpreadsheetCell cell1(10), cellArray[] = {SpreadsheetCell(4), SpreadsheetCell(10)};
-
     const size_t sizeCellArray = std::size(cellArray);
-
-    res = Find(cell1, cellArray, sizeCellArray);
-
-    res = Find<SpreadsheetCell>(cell1, cellArray, sizeCellArray);
+    res = Find(cell1, cellArray, sizeCellArray);//by deduction
+    //res = Find<SpreadsheetCell>(cell1, cellArray, sizeCellArray);//explicitly
 
     if (res.has_value())
         cout << "index : " << res.value() << endl;

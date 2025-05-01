@@ -1,0 +1,9 @@
+/*
+
+Function Template Specialization
+
+std::optional<size_t> version
+
+g++ -std=c++17 *.cpp -o test
+
+*/
