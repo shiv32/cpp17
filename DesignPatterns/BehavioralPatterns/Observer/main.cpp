@@ -1,12 +1,12 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief 
+ * @brief Observer
  * @version 0.1
  * @date 2024-08-05
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
 
 /**
@@ -21,11 +21,13 @@
  * Also the verbs "observe", "listen" or "track" usually mean the same thing.
  */
 
+#include <memory>
 #include "Subject.hpp"
 #include "Observer.hpp"
 
 void ClientCode()
 {
+    /*
     Subject *subject = new Subject;
     Observer *observer1 = new Observer(*subject);
     Observer *observer2 = new Observer(*subject);
@@ -54,11 +56,37 @@ void ClientCode()
     delete observer2;
     delete observer1;
     delete subject;
+    */
+
+    // using smart pointer
+
+    auto subject = std::make_shared<Subject>();
+
+    auto observer1 = std::make_shared<Observer>(*subject);
+    auto observer2 = std::make_shared<Observer>(*subject);
+    auto observer3 = std::make_shared<Observer>(*subject);
+
+    subject->CreateMessage("Hello World! :D");
+
+    observer3->RemoveMeFromTheList();
+
+    subject->CreateMessage("The weather is hot today! :p");
+
+    observer2->RemoveMeFromTheList();
+
+    auto observer4 = std::make_shared<Observer>(*subject);
+    auto observer5 = std::make_shared<Observer>(*subject);
+
+    subject->CreateMessage("My new car is great! ;)");
+
+    observer5->RemoveMeFromTheList();
+    observer4->RemoveMeFromTheList();
+    observer1->RemoveMeFromTheList();
 }
 
 int main()
 {
-    system("clear && printf '\e[3J'"); //clean the terminal before output in linux
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
     ClientCode();
     return 0;
 }
