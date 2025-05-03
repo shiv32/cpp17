@@ -1,0 +1,27 @@
+/*
+
+volatile is used to prevent the compiler from optimizing access to variables 
+that may change outside the program's control, such as hardware registers or 
+interrupt-modified variables.
+
+Tells the compiler not to optimize reads/writes to x.
+
+Every access to x must be performed as-is, not cached or optimized away.
+
+Commonly used when:
+Reading hardware registers or memory-mapped I/O.
+Working with variables modified outside the program's control 
+(e.g., by an interrupt service routine or another thread in very low-level code).
+-------------------------------------------
+uintptr_t is an unsigned integer type capable of holding a pointer. 
+It's defined in the <cstdint> header (or <stdint.h> in C). 
+It's used when you want to convert a pointer to an integer without losing information or breaking portability.
+
+To safely cast a pointer to an integer (e.g., for address arithmetic or logging).
+It's guaranteed to be large enough to hold any valid pointer.
+-------------------------------------------
+std::hex → sets output to hexadecimal.
+std::dec → sets output back to decimal (base 10).
+std::oct → sets output to octal.
+
+*/
