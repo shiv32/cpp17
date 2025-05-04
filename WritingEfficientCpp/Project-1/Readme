@@ -1,0 +1,36 @@
+/*
+
+PROFILING
+Profiling Example with gprof
+First Design Attempt
+
+    There are three steps to using gprof:
+
+1.  Compile your program with a special flag that causes it to log raw execution information
+    when it is run. 
+    When using g++ as your compiler, the flag is –pg, as in this example:
+
+        $ g++ -std=c++17 -pg -o namedb NameDB.cpp main.cpp
+
+2.  Run your program. 
+
+       $ ./namedb
+
+    This should generate a file called gmon.out in the working directory. 
+    Be patient when you run the program because this first version is slow.
+
+3.  Run the gprof command. 
+    This final step enables you to analyze the gmon.out profiling information and produce a (somewhat) readable report. 
+    gprof outputs to standard out, so you should redirect the output to a file:
+    
+        $ gprof namedb gmon.out > gprof_analysis.out
+
+4. open file gprof_analysis.out in text editor.
+
+---------------------------------------------------------
+Delete Everything in a Directory Except 'boys_long.txt' File
+
+find . -mindepth 1 ! -name 'boys_long.txt' -exec rm -rf {} +
+
+
+*/
