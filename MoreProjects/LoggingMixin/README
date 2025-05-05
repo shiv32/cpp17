@@ -1,0 +1,10 @@
+/*
+
+A mixin class in C++ is a class designed to provide additional functionality to other classes through inheritance, 
+but it is not intended to be instantiated on its own. 
+Mixins are typically template-based and promote code reuse by composing behaviors instead of relying solely on 
+deep class hierarchies.
+
+ Example: Logging Mixin
+
+*/
