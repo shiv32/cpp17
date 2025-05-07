@@ -1,0 +1,7 @@
+/*
+
+C++ code for a Multithreaded Download Manager, using threads, mutexes, condition variables, 
+and a producer-consumer pattern. 
+It simulates multiple workers downloading files concurrently.
+
+*/
