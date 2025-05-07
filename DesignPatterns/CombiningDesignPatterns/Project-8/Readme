@@ -1,0 +1,6 @@
+The C++ code for the Chatbot with Intent Handling uses:
+
+Chain of Responsibility     - to match input with intent handlers
+Factory                     - to build the chain of handlers
+Command                     - to encapsulate responses
+Strategy                    - to control reply tone/formatting

@@ -1,0 +1,9 @@
+The C++ code for the Quiz Engine with Plugin System has been created. 
+
+It uses the following design patterns:
+
+Factory         – to instantiate different question types.
+Strategy        – for flexible scoring systems.
+Template Method – to define a consistent question execution flow.
+Observer        – to update score observers after each question.
+

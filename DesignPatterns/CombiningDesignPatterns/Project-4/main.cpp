@@ -195,6 +195,8 @@ void EnemyTurn::handle(BattleContext &context)
 int main()
 {
 
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     srand(time(nullptr));
 
     auto player = CharacterFactory::createWarrior("Hero");

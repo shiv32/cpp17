@@ -1,0 +1,7 @@
+The C++ code for the Shopping Cart System has been created using:
+
+Factory     - for product and bundle creation
+Decorator   - for promotions/discounts
+Observer    - for UI updates on cart changes
+Strategy    - for flexible pricing models
+Composite   - for bundles of products
