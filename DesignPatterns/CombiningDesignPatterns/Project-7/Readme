@@ -1,4 +1,9 @@
-The C++ code for the Shopping Cart System has been created using:
+
+The C++ code for the 
+
+Shopping Cart System 
+
+created using:
 
 Factory     - for product and bundle creation
 Decorator   - for promotions/discounts

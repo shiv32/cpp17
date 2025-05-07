@@ -1,4 +1,9 @@
-The C++ code for the Chatbot with Intent Handling uses:
+
+The C++ code for the 
+
+Chatbot with Intent Handling 
+
+uses:
 
 Chain of Responsibility     - to match input with intent handlers
 Factory                     - to build the chain of handlers

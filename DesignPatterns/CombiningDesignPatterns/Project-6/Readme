@@ -1,5 +1,9 @@
 
-The C++ code for the File System Simulation using Composite, Iterator (via recursion), Visitor, and Command patterns has been created.
+The C++ code for the 
+
+File System Simulation 
+
+using Composite, Iterator (via recursion), Visitor, and Command patterns.
 
 Features included:
 Folder/File hierarchy (Composite)
