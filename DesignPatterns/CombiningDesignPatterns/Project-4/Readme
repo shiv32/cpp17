@@ -1,6 +1,8 @@
 Complete mini project 
-implementing a Turn-Based RPG Battle System in C++ 
-using five design patterns: 
+
+Implementing a Turn-Based RPG Battle System in C++ 
+
+Using five design patterns: 
 Factory, 
 Strategy, 
 Command, 

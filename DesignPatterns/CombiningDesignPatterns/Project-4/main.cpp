@@ -12,122 +12,146 @@ class Character;
 class BattleContext;
 
 // --------------------- Observer Pattern ------------------------
-class Observer {
+class Observer
+{
 public:
-    virtual void onEvent(const std::string& message) = 0;
+    virtual void onEvent(const std::string &message) = 0;
 };
 
-class ConsoleLogger : public Observer {
+class ConsoleLogger : public Observer
+{
 public:
-    void onEvent(const std::string& message) override {
+    void onEvent(const std::string &message) override
+    {
         std::cout << "[Log] " << message << std::endl;
     }
 };
 
 // --------------------- Command Pattern ------------------------
-class Command {
+class Command
+{
 public:
-    virtual void execute(Character& user, Character& target) = 0;
+    virtual void execute(Character &user, Character &target) = 0;
     virtual ~Command() = default;
 };
 
-class AttackCommand : public Command {
+class AttackCommand : public Command
+{
 public:
-    void execute(Character& user, Character& target) override;
+    void execute(Character &user, Character &target) override;
 };
 
 // --------------------- Strategy Pattern ------------------------
-class AttackStrategy {
+class AttackStrategy
+{
 public:
-    virtual int calculateDamage(Character& attacker) = 0;
+    virtual int calculateDamage(Character &attacker) = 0;
     virtual ~AttackStrategy() = default;
 };
 
-class NormalAttack : public AttackStrategy {
+class NormalAttack : public AttackStrategy
+{
 public:
-    int calculateDamage(Character& attacker) override;
+    int calculateDamage(Character &attacker) override;
 };
 
 // --------------------- Character ------------------------
-class Character {
+class Character
+{
     std::string name;
     int hp;
     std::unique_ptr<AttackStrategy> attackStrategy;
-    std::vector<Observer*> observers;
+    std::vector<Observer *> observers;
 
 public:
-    Character(const std::string& name, int hp, std::unique_ptr<AttackStrategy> strategy)
+    Character(const std::string &name, int hp, std::unique_ptr<AttackStrategy> strategy)
         : name(name), hp(hp), attackStrategy(std::move(strategy)) {}
 
-    void attach(Observer* obs) { observers.push_back(obs); }
-    void notify(const std::string& msg) {
-        for (auto obs : observers) obs->onEvent(msg);
+    void attach(Observer *obs) { observers.push_back(obs); }
+
+    void notify(const std::string &msg)
+    {
+        for (auto obs : observers)
+            obs->onEvent(msg);
     }
 
-    void takeDamage(int dmg) {
+    void takeDamage(int dmg)
+    {
         hp -= dmg;
-        if (hp < 0) hp = 0;
+        if (hp < 0)
+            hp = 0;
         notify(name + " takes " + std::to_string(dmg) + " damage. HP: " + std::to_string(hp));
     }
 
-    void attack(Character& target) {
+    void attack(Character &target)
+    {
         int dmg = attackStrategy->calculateDamage(*this);
         target.takeDamage(dmg);
     }
 
-    const std::string& getName() const { return name; }
+    const std::string &getName() const { return name; }
     bool isAlive() const { return hp > 0; }
 };
 
 // Implementation of strategies and commands
-int NormalAttack::calculateDamage(Character&) {
+int NormalAttack::calculateDamage(Character &)
+{
     return 10 + rand() % 6; // Random base damage
 }
 
-void AttackCommand::execute(Character& user, Character& target) {
+void AttackCommand::execute(Character &user, Character &target)
+{
     user.attack(target);
 }
 
 // --------------------- Factory Pattern ------------------------
-class CharacterFactory {
+class CharacterFactory
+{
 public:
-    static std::unique_ptr<Character> createWarrior(const std::string& name) {
+    static std::unique_ptr<Character> createWarrior(const std::string &name)
+    {
         return std::make_unique<Character>(name, 100, std::make_unique<NormalAttack>());
     }
 };
 
 // --------------------- State Pattern ------------------------
-class BattleState {
+class BattleState
+{
 public:
-    virtual void handle(BattleContext& context) = 0;
+    virtual void handle(BattleContext &context) = 0;
     virtual ~BattleState() = default;
 };
 
-class PlayerTurn : public BattleState {
+class PlayerTurn : public BattleState
+{
 public:
-    void handle(BattleContext& context) override;
+    void handle(BattleContext &context) override;
 };
 
-class EnemyTurn : public BattleState {
+class EnemyTurn : public BattleState
+{
 public:
-    void handle(BattleContext& context) override;
+    void handle(BattleContext &context) override;
 };
 
 // --------------------- Battle Context ------------------------
-class BattleContext {
+class BattleContext
+{
     std::unique_ptr<BattleState> state;
-public:
-    Character& player;
-    Character& enemy;
 
-    BattleContext(Character& p, Character& e)
+public:
+    Character &player;
+    Character &enemy;
+
+    BattleContext(Character &p, Character &e)
         : player(p), enemy(e), state(std::make_unique<PlayerTurn>()) {}
 
     void setState(std::unique_ptr<BattleState> s) { state = std::move(s); }
     void nextTurn() { state->handle(*this); }
 };
 
-void PlayerTurn::handle(BattleContext& context) {
+void PlayerTurn::handle(BattleContext &context)
+{
     ConsoleLogger logger;
     context.player.attach(&logger);
     context.enemy.attach(&logger);
@@ -136,12 +160,14 @@ void PlayerTurn::handle(BattleContext& context) {
     int choice;
     std::cin >> choice;
 
-    if (choice == 1) {
+    if (choice == 1)
+    {
         AttackCommand attack;
         attack.execute(context.player, context.enemy);
     }
 
-    if (!context.enemy.isAlive()) {
+    if (!context.enemy.isAlive())
+    {
         std::cout << "Enemy defeated!\n";
         return;
     }
@@ -149,12 +175,14 @@ void PlayerTurn::handle(BattleContext& context) {
     context.nextTurn();
 }
 
-void EnemyTurn::handle(BattleContext& context) {
+void EnemyTurn::handle(BattleContext &context)
+{
     std::cout << "\nEnemy's Turn:\n";
     AttackCommand attack;
     attack.execute(context.enemy, context.player);
 
-    if (!context.player.isAlive()) {
+    if (!context.player.isAlive())
+    {
         std::cout << "You were defeated...\n";
         return;
     }
@@ -164,13 +192,16 @@ void EnemyTurn::handle(BattleContext& context) {
 }
 
 // --------------------- Main ------------------------
-int main() {
+int main()
+{
+
     srand(time(nullptr));
 
     auto player = CharacterFactory::createWarrior("Hero");
     auto enemy = CharacterFactory::createWarrior("Goblin");
 
     BattleContext context(*player, *enemy);
+
     context.nextTurn();
 
     return 0;
