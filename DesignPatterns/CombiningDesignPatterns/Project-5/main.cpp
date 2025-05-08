@@ -8,6 +8,8 @@
 #include <map>
 #include <functional>
 
+
+
 // ------------------- Observer ----------------------
 class ScoreObserver
 {
@@ -170,5 +172,6 @@ int main()
     }
 
     std::cout << "\nQuiz complete.\n";
+    
     return 0;
 }

@@ -1,0 +1,105 @@
+
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Without Stepping Into System Files",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${command:cmake.launchTargetPath}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      // "setupCommands": [
+      //   { "text": "skip -gfi /usr/include/**" },
+      //   { "text": "skip -gfi /usr/lib/**" },
+      //   { "text": "skip -gfi /usr/local/include/**" },
+      //   { "text": "skip function std::*" },
+      //   { "text": "skip function __gnu_cxx::*" }
+      // ]
+
+      // "setupCommands": [
+      //   { "text": "rbreak ." }  // set breakpoints on all symbols with debug info
+      // ]
+
+      // "setupCommands": [
+      //   { "text": "rbreak ^src/.*" }
+      // ]
+      
+    }
+  ]
+}
+
+
+
+
+//--------------------------------------------------------------
+// {
+//   "version": "0.2.0",
+//   "configurations": [
+//     {
+//       "name": "Debug (Only My Code)",
+//       "type": "cppdbg",
+//       "request": "launch",
+//       "program": "${command:cmake.launchTargetPath}",
+//       "args": [],
+//       "stopAtEntry": false,
+//       "cwd": "${workspaceFolder}",
+//       "externalConsole": false,
+//       "MIMode": "gdb",
+//       "miDebuggerPath": "/usr/bin/gdb",
+
+//       "setupCommands": [
+//         { "text": "skip -gfi /usr/include/**" },
+//         { "text": "skip -gfi /usr/lib/**" },
+//         { "text": "skip -gfi /usr/local/include/**" },
+//         { "text": "skip -gfi /usr/local/lib/**" }
+//       ]
+
+//       "autoSkipFiles": [
+//         "<**/libstdc++/**>",
+//         "<**/libc/**>",
+//         "<**/usr/include/**>",
+//         "<**/usr/lib/**>"
+//       ]
+
+//       // "setupCommands": [
+//       //   { "text": "skip -gfi /usr/include/**" },
+//       //   { "text": "skip -gfi /usr/lib/**" }
+//       // ]
+//       // "setupCommands": [
+//       //   {
+//       //     "description": "Enable pretty-printing",
+//       //     "text": "-enable-pretty-printing",
+//       //     "ignoreFailures": true
+//       //   }
+//       // ],
+
+//     //   "setupCommands": [
+//     //     {
+//     //         "description": "Skip over stdlib/*.c",
+//     //         "text": "-exec skip -gfi stdlib/*.c",
+//     //         "ignoreFailures": true
+//     //     }
+//     // ],
+    
+
+    
+//       // "skipFiles": [
+//       //   "**/bits/**",
+//       //   "**/c++/**",
+//       //   "**/include/**",
+//       //   "**/__gnu_cxx/**",
+//       //   "**/libstdc++/**",
+//       //   "**/usr/include/**",
+//       //   "<*>"
+//       // ]
+//     }
+
+    
+//   ]
+// }
