@@ -153,6 +153,7 @@ public:
 void PlayerTurn::handle(BattleContext &context)
 {
     ConsoleLogger logger;
+
     context.player.attach(&logger);
     context.enemy.attach(&logger);
 
@@ -171,6 +172,7 @@ void PlayerTurn::handle(BattleContext &context)
         std::cout << "Enemy defeated!\n";
         return;
     }
+    
     context.setState(std::make_unique<EnemyTurn>());
     context.nextTurn();
 }
