@@ -1,0 +1,23 @@
+/*
+
+Minimal C++ Game Engine Structure (Console-based)
+
+Here’s a minimal example of a game engine structure in standard C++,
+using just the STL and no external libraries — perfect as a foundation
+for a console-based or text-mode game, or to expand later with graphics, input, etc.
+
+
+This structure focuses on Object-Oriented Programming (OOP) concepts:
+    Game loop
+    Entity abstraction
+    Update/draw cycle
+    Input handling (basic)
+
+Features You Can Add Next
+    Basic input manager
+    Collision system
+    Component-based architecture (ECS)
+    Time step and FPS handling
+    Graphics via SFML, SDL, or NCurses
+
+*/
