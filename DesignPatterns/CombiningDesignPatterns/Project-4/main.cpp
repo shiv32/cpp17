@@ -67,7 +67,11 @@ public:
     Character(const std::string &name, int hp, std::unique_ptr<AttackStrategy> strategy)
         : name(name), hp(hp), attackStrategy(std::move(strategy)) {}
 
-    void attach(Observer *obs) { observers.push_back(obs); }
+    void attach(Observer *obs)
+    {
+        observers.clear();
+        observers.push_back(obs);
+    }
 
     void notify(const std::string &msg)
     {
@@ -172,7 +176,7 @@ void PlayerTurn::handle(BattleContext &context)
         std::cout << "Enemy defeated!\n";
         return;
     }
-    
+
     context.setState(std::make_unique<EnemyTurn>());
     context.nextTurn();
 }

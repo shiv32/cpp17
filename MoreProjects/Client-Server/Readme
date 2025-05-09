@@ -1,0 +1,18 @@
+
+/*
+
+For testing debugger behaviour in client and server app at the same time.
+Debugger working fine and navigating in client and server as per response from each other.
+
+I set the Break Point in Server 
+
+in main ->  Server server(8080);
+in "Server.cpp" ->   std::cout << "[Client]: " << buffer << std::endl;
+
+
+I set the Break Point in Client 
+
+in main ->   Client client("127.0.0.1", 8080);
+in Client.cpp -> std::cout << "[Server]: " << buffer << std::endl;
+
+*/
