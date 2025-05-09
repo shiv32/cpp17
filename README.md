@@ -49,6 +49,9 @@ VS Code extension for cmake format
 [cmake format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format) or
 [cmake format](https://marketplace.visualstudio.com/items?itemName=KylinIdeTeam.cmake-intellisence)
 
+Using C++ on Linux in VS Code
+[Explore the debugger](https://code.visualstudio.com/docs/cpp/config-linux)
+
 Note:Restart VS Code after extensions install.
 
 VS Code C++ Disassembly View
@@ -89,5 +92,8 @@ VS Code Linter to detect & fix coding issues locally in C++
 [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 Note: SonarLint take some time to detect issue so wait few second after open the code.
       In VS Code bottom you will see sonarLint tag. 
+
+VS Code extension for PDF file view
+[PDF viewer](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf)
 
 [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
