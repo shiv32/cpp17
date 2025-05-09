@@ -96,4 +96,7 @@ Note: SonarLint take some time to detect issue so wait few second after open the
 VS Code extension for PDF file view
 [PDF viewer](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf)
 
+VS Code extension for Browser
+[Browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser)
+
 [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
