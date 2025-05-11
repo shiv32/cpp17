@@ -1,0 +1,28 @@
+
+Project Structure
+
+console_engine/
+├── CMakeLists.txt
+│
+├── engine/                            ← Reusable engine
+│   ├── CMakeLists.txt
+│   ├── include/
+│   │   └── ConsoleEngine/
+│   │       ├── Engine.hpp            ← Engine class
+│   │       └── GameInterface.hpp     ← Interface for user-defined Game
+│   └── src/
+│       └── Engine.cpp                ← Game loop + input/render/update
+│
+├── example_game/                      ← Example game using the engine
+│   ├── CMakeLists.txt
+│   ├── src/
+│   │   ├── main.cpp                  ← Entry point
+│   │   ├── Game.hpp                  ← Implements GameInterface
+│   │   ├── Game.cpp
+│   │   ├── Map.hpp
+│   │   ├── Map.cpp
+│   │   ├── Player.hpp
+│   │   └── Player.cpp
+│   └── ui/
+│       ├── UIManager.hpp
+│       └── UIManager.cpp

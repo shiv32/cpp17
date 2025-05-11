@@ -1,0 +1,77 @@
+/*
+
+Console Game Engine in C++
+
+---------------------------------------------------------------------
+🎮 Console Game Engine Responsibilities (Brief)
+
+Game Loop
+    Controls the cycle: Input → Update → Render at a steady framerate.
+
+Input Handling
+    Reads keyboard input (non-blocking) and maps it to game actions.
+
+Rendering
+        Draws characters and UI using ncurses or standard terminal output.
+
+Entity Management
+    Manages game objects (like the player and enemies) and updates them each frame.
+
+Map System
+    Handles tile-based world (e.g., walls, floors, objects) and their interactions.
+
+Collision & Movement
+    Prevents invalid moves and handles interactions (e.g., hitting enemies or walls).
+
+UI System
+    Displays health, status bars, message logs, and menus.
+
+Save/Load (optional)
+    Allows saving and loading the game state from disk.
+
+Debug/Logging (optional)
+    Shows logs or debug info to help test the game.
+
+-----------------------------------------------------------------------
+
+A minimal template project structure for a console-based C++ game engine, 
+designed to be modular and extendable.
+
+console_engine/
+├── CMakeLists.txt
+├── main.cpp
+├── engine/
+│   ├── Engine.hpp
+│   ├── Engine.cpp
+│
+├── game/
+│   ├── Game.hpp
+│   ├── Game.cpp
+│   ├── Map.hpp
+│   ├── Map.cpp
+│   ├── Player.hpp
+│   ├── Player.cpp
+│
+├── ui/
+│   ├── UIManager.hpp
+│   ├── UIManager.cpp
+
+
+🔧 Responsibilities of Each Module
+    Engine/: Manages the game loop and timing.
+    Game/: Contains game logic, map, and entity updates.
+    Map/: Holds the game world grid (walls, floors, etc.).
+    Player/: Represents the player entity and controls.
+    UI/: Handles rendering HUD elements like health or logs.
+                HUD stands for Heads-Up Display. 
+                In games, it refers to the visual overlay that displays important information 
+                to the player without interrupting gameplay.
+
+🧱 Core Features in Template
+    A working game loop (Engine)
+    Basic player movement using arrow keys
+    Tilemap grid (Map) with collision detection
+    Console rendering using ncurses
+    Clean code separation for easy scaling
+
+*/
