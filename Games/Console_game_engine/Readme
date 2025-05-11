@@ -1,0 +1,26 @@
+/*
+
+Here's a minimal working example of a console-based C++ game engine using ncurses on Linux. 
+This code creates a simple moving character controlled with arrow keys.
+This version introduces a clean architecture with core systems like Game, Entity, and Engine Loop separated.
+
+This simple framework gives you:
+    A working game loop (input → update → render)
+    FPS limiting
+    Input handling
+    Rendering with ncurses
+
+This is a scalable foundation. 
+From here you can:
+    Add more entities or enemies
+    Build a map system
+    Implement simple AI or turn-based logic
+    Create a component system
+
+eg. roguelike framework (tilemap, combat, levels, etc.) 
+
+Essential dependencies:
+    sudo apt update
+    sudo apt install build-essential cmake libncurses5-dev libncursesw5-dev gdb valgrind
+
+*/
