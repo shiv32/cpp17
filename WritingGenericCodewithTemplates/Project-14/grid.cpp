@@ -1,14 +1,16 @@
+
+
 template <typename T>
 Grid<T>::~Grid()
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
 Grid<T>::Grid(size_t width, size_t height)
     : mWidth(width), mHeight(height)
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+   // std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     mCells.resize(mWidth);
     for (auto &column : mCells)
@@ -38,15 +40,18 @@ const std::optional<T> &Grid<T>::at(size_t x, size_t y) const
 template <typename T>
 std::optional<T> &Grid<T>::at(size_t x, size_t y)
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
     return const_cast<std::optional<T> &>(std::as_const(*this).at(x, y));
 }
 
+//------------------------(Method templates)---------------------------------
 template <typename T>
 template <typename E>
 Grid<T>::Grid(const Grid<E> &src)
     : Grid(src.getWidth(), src.getHeight())
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     // The ctor-initializer of this constructor delegates first to the
     // non-copy constructor to allocate the proper amount of memory.
     // The next step is to copy the data.
@@ -63,13 +68,17 @@ template <typename T>
 template <typename E>
 Grid<T> &Grid<T>::operator=(const Grid<E> &rhs)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    
     // no need to check for self-assignment because this version of
     // assignment is never called when T and E are the same
+
     // Copy-and-swap idiom
     Grid<T> temp(rhs); // Do all the work in a temporary instance
     swap(temp);        // Commit the work with only non-throwing operations
     return *this;
 }
+//--------------------------------------------------------------------------
 
 template <typename T>
 void Grid<T>::swap(Grid<T> &other) noexcept

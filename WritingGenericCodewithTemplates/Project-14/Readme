@@ -1,0 +1,10 @@
+/*
+
+ Method templates
+    C++ allows you to templatize individual methods of a class.
+    Method templates come in useful for assignment operators and copy constructors in class templates.
+    Generate methods that will convert from one type to another.
+
+    WARNING Virtual methods and destructors cannot be method templates.
+
+*/
