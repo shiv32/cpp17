@@ -1,0 +1,6 @@
+/*
+
+Central place to rename/modify keys, so even if different adapters use different internal key names, 
+your QML view always gets consistent, user-friendly keys.
+
+*/
