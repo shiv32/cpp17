@@ -154,7 +154,8 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    Chatbot bot(std::make_unique<CasualStyle>());
+    // Chatbot bot(std::make_unique<CasualStyle>());
+    Chatbot bot(std::make_unique<FormalStyle>());
 
     std::vector<std::string> inputs = {
         "hi",
