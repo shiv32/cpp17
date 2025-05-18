@@ -1,0 +1,96 @@
+**how to map requirements to design patterns** before coding your C++ project. 
+This is a key part of planning. 
+Here's a practical step-by-step approach to guide you in selecting appropriate design patterns **based on your project's requirements**.
+
+---
+
+## ✅ Step-by-Step Guide: Matching Requirements to Design Patterns
+
+---
+
+### 🔹 **1. List & Group Your Requirements**
+
+Break down your requirements into **functional** and **non-functional**:
+
+#### Example Requirements:
+
+| Functional                   | Non-Functional          |
+| ---------------------------- | ----------------------- |
+| User input handling          | Scalable code           |
+| Load/Save game or simulation | Easy to test            |
+| Execute trading strategy     | Multithreading          |
+| Switch AI behaviors          | Loosely coupled modules |
+
+---
+
+### 🔹 **2. Categorize Requirements by Responsibility**
+
+Use categories to guide your pattern selection:
+
+| Responsibility         | Example Requirement                                    | Candidate Patterns                 |
+| ---------------------- | ------------------------------------------------------ | ---------------------------------- |
+| **Object Creation**    | Dynamically create game entities or services           | Factory, Builder, Prototype        |
+| **Object Composition** | Combine components into systems (e.g., UI, simulation) | Composite, Decorator, Adapter      |
+| **Behavior**           | Switching strategies or state handling                 | Strategy, State, Observer, Command |
+| **Flow Control**       | Decouple subsystems (e.g., logging, events)            | Mediator, Observer                 |
+| **Concurrency**        | Run tasks in background or parallel                    | Thread Pool, Future, Active Object |
+
+---
+
+### 🔹 **3. Use This Mapping Table**
+
+Here's a **reference table** to help you map patterns to typical requirements:
+
+| Requirement                                | Recommended Pattern                       | Purpose                 |
+| ------------------------------------------ | ----------------------------------------- | ----------------------- |
+| Dynamically create entities or services    | **Factory Method** / **Abstract Factory** | Decouples instantiation |
+| Construct complex config objects           | **Builder Pattern**                       | Step-by-step creation   |
+| Reuse object templates (like NPCs)         | **Prototype Pattern**                     | Clone from existing     |
+| Change algorithm at runtime (AI, trading)  | **Strategy Pattern**                      | Pluggable logic         |
+| Switch states (e.g., menu/gameplay)        | **State Pattern**                         | Encapsulate transitions |
+| Undo/Redo actions                          | **Command Pattern**                       | Action history          |
+| Notify other systems of events             | **Observer Pattern**                      | Loose coupling          |
+| Isolate interface from implementation      | **Bridge Pattern**                        | Scalability             |
+| Translate incompatible interfaces          | **Adapter Pattern**                       | Integration             |
+| Run background jobs or tasks               | **Thread Pool**                           | Parallel processing     |
+| Communicate between threads                | **Active Object**, **Future**             | Safe concurrency        |
+| Interface for complex system (e.g. Engine) | **Facade Pattern**                        | Simplified API          |
+
+---
+
+### 🔹 **4. Design Around Use Cases**
+
+Take each major **use case or feature**, and determine:
+
+* What objects need to be created? → **Creational patterns**
+* How do objects collaborate? → **Structural patterns**
+* How should logic change over time or due to input? → **Behavioral patterns**
+* Does it need to be multithreaded? → **Concurrency patterns**
+
+---
+
+## 🧠 Example: You’re Building a Console-Based Trading Simulator
+
+#### Requirements Breakdown:
+
+| Requirement                                              | Pattern                |
+| -------------------------------------------------------- | ---------------------- |
+| User can pick a trading strategy                         | **Strategy Pattern**   |
+| Save/load simulation state                               | **Memento Pattern**    |
+| Create traders/assets dynamically                        | **Factory or Builder** |
+| Trade engine processes orders in parallel                | **Thread Pool**        |
+| Log all trade events                                     | **Observer Pattern**   |
+| Switch between simulation states (Running, Paused, etc.) | **State Pattern**      |
+| Unified access to multiple subsystems                    | **Facade Pattern**     |
+
+---
+
+## 🧰 Tools You Can Use
+
+* **UML Diagrams**: Use UML to map out relationships and responsibilities.
+* **CRC Cards**: Class-Responsibility-Collaborator cards help visualize responsibilities and collaborations.
+* **Mind Maps**: Quickly visualize use cases and attach possible patterns.
+
+---
+
+

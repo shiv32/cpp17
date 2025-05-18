@@ -77,11 +77,14 @@ protected:
 
 public:
     virtual ~IntentHandler() = default;
+
     void setNext(std::shared_ptr<IntentHandler> n) { next = std::move(n); }
+
     virtual bool handle(const std::string &input, std::shared_ptr<Command> &outCmd)
     {
         if (next)
             return next->handle(input, outCmd);
+
         return false;
     }
 };
@@ -94,8 +97,10 @@ public:
         if (input.find("hello") != std::string::npos || input.find("hi") != std::string::npos)
         {
             outCmd = std::make_shared<GreetCommand>();
+
             return true;
         }
+
         return IntentHandler::handle(input, outCmd);
     }
 };
@@ -108,8 +113,10 @@ public:
         if (input.find("time") != std::string::npos)
         {
             outCmd = std::make_shared<TimeCommand>();
+
             return true;
         }
+
         return IntentHandler::handle(input, outCmd);
     }
 };
@@ -122,7 +129,9 @@ public:
     {
         auto greet = std::make_shared<GreetingHandler>();
         auto time = std::make_shared<TimeHandler>();
+
         greet->setNext(time);
+
         return greet;
     }
 };
@@ -135,7 +144,9 @@ class Chatbot
 
 public:
     Chatbot(std::unique_ptr<ReplyStyle> style)
-        : rootHandler(IntentFactory::createChain()), replyStyle(std::move(style)) {}
+        : rootHandler(IntentFactory::createChain()), replyStyle(std::move(style))
+    {
+    }
 
     void processInput(const std::string &input)
     {
@@ -158,7 +169,7 @@ int main()
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     Chatbot bot(std::make_unique<CasualStyle>());
-    //Chatbot bot(std::make_unique<FormalStyle>());
+    // Chatbot bot(std::make_unique<FormalStyle>());
 
     std::vector<std::string> inputs = {
         "hi",

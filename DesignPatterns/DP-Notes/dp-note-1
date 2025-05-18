@@ -1,0 +1,64 @@
+
+Explains patterns using **everyday examples**.
+
+---
+
+## 🧱 **CREATIONAL PATTERNS** – *Creating objects smartly*
+
+| 🧠 **Pattern**       | 🌍 **Real-World Analogy**                                                                             |
+| -------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Singleton**        | The President – only one at a time, accessible by everyone.                                           |
+| **Factory Method**   | Coffee Machine – select your drink, and it makes the right type.                                      |
+| **Abstract Factory** | Furniture Set Maker – gives you a matching set (table, chair, sofa) without knowing how each is made. |
+| **Builder**          | Burger Order – choose bread, meat, cheese, sauce… and the chef builds it your way.                    |
+| **Prototype**        | Making Copies – like photocopying an already-filled form.                                             |
+
+---
+
+## 🧩 **STRUCTURAL PATTERNS** – *Organizing and connecting parts*
+
+| 🧠 **Pattern** | 🌍 **Real-World Analogy**                                                 |
+| -------------- | ------------------------------------------------------------------------- |
+| **Adapter**    | Travel Plug Adapter – makes a US plug work in a UK socket.                |
+| **Bridge**     | TV Remote – same buttons control different TV brands (hidden complexity). |
+| **Composite**  | Folder of Files – treat single files and folders (groups) the same way.   |
+| **Decorator**  | Wrapping a Gift – you add decoration without changing the gift itself.    |
+| **Facade**     | Restaurant Waiter – simplifies access to kitchen, menu, and bill.         |
+| **Flyweight**  | Same Chair Model – multiple people use the same design to save cost.      |
+| **Proxy**      | Personal Assistant – they talk to people on your behalf.                  |
+
+---
+
+## 🧠 **BEHAVIORAL PATTERNS** – *How parts behave and talk to each other*
+
+| 🧠 **Pattern**              | 🌍 **Real-World Analogy**                                                                |
+| --------------------------- | ---------------------------------------------------------------------------------------- |
+| **Strategy**                | GPS App – lets you pick fastest, shortest, or scenic route.                              |
+| **State**                   | Phone Modes – silent, vibrate, or ring depending on current state.                       |
+| **Observer**                | YouTube Subscriptions – get notified when a new video is uploaded.                       |
+| **Command**                 | TV Remote – buttons send commands like ON, OFF, Volume+.                                 |
+| **Chain of Responsibility** | Tech Support Call Center – your issue goes to Level 1, then Level 2 if needed.           |
+| **Iterator**                | TV Channel Surfing – you use a remote to browse without knowing how channels are stored. |
+| **Mediator**                | Air Traffic Controller – keeps planes from talking directly and causing chaos.           |
+| **Memento**                 | Save Game – take a snapshot of progress to reload later.                                 |
+| **Visitor**                 | House Inspector – visits each room and performs different checks.                        |
+| **Interpreter**             | Translator – converts your commands into another language.                               |
+| **Template Method**         | Cooking Class – fixed recipe with room for your own spice choice.                        |
+
+---
+
+## ⚙️ **CONCURRENCY PATTERNS** – *Handling multitasking*
+
+| 🧠 **Pattern**             | 🌍 **Real-World Analogy**                                              |
+| -------------------------- | ---------------------------------------------------------------------- |
+| **Thread Pool**            | A team of workers – jobs are given to whoever is free.                 |
+| **Future / Promise**       | Pizza Delivery – you order now, and it will arrive later.              |
+| **Active Object**          | Secretary with To-Do List – tasks are queued and handled one by one.   |
+| **Monitor Object**         | Bathroom Key – only one person can enter at a time.                    |
+| **Read/Write Lock**        | Library Book – many can read, only one can update.                     |
+| **Double-Checked Locking** | Locking a Door Twice – to make sure it’s secure before entering.       |
+| **Guarded Suspension**     | Wait in Line – only proceed when it’s your turn or a condition is met. |
+
+---
+
+

@@ -1,0 +1,135 @@
+Here’s a **C++ boilerplate project structure** that is pre-mapped to key design patterns. 
+It’s organized into functional folders so that you can plug in components easily while following clean architecture and design principles.
+
+---
+
+## 📦 Project Structure Overview
+
+```
+/DesignPatternApp
+│
+├── /src
+│   ├── /core              ← App core (Singleton, Facade)
+│   ├── /factory           ← Factory Method, Abstract Factory
+│   ├── /builder           ← Builder for config/scenario objects
+│   ├── /components        ← Composite / Decorator patterns
+│   ├── /strategy          ← Strategy and State patterns
+│   ├── /observer          ← Observer/Event system
+│   ├── /command           ← Command pattern for actions
+│   ├── /concurrency       ← Thread Pool, Future, Active Object
+│   ├── /interface         ← Interfaces for loose coupling
+│   └── main.cpp
+│
+├── /include               ← Public headers (optional)
+├── /tests                 ← Unit tests
+├── CMakeLists.txt
+└── README.md
+```
+
+---
+
+## 🧩 Pattern Usage by Directory
+
+| Directory      | Pattern(s)                         | Use Case Example                       |
+| -------------- | ---------------------------------- | -------------------------------------- |
+| `/core`        | Singleton, Facade                  | Central `Engine`                       |
+| `/factory`     | Factory Method, Abstract Factory   | Create objects like `Trader`, `Entity` |
+| `/builder`     | Builder                            | Build `Scenario`, `Config`, `Level`    |
+| `/components`  | Composite, Decorator               | Game/Sim entities with modular parts   |
+| `/strategy`    | Strategy, State                    | AI behavior, trading logic, menus      |
+| `/observer`    | Observer                           | Event system, logger                   |
+| `/command`     | Command                            | Action system, undo/redo               |
+| `/concurrency` | Thread Pool, Future, Active Object | Async simulation, job queue            |
+| `/interface`   | Abstract classes/interfaces        | Decoupled design, Dependency Inversion |
+
+---
+
+## 🛠 Sample Code Snippets
+
+### 1. **Singleton + Facade (core/Engine.h)**
+
+```cpp
+class Engine {
+public:
+    static Engine& getInstance() {
+        static Engine instance;
+        return instance;
+    }
+    void run();
+
+private:
+    Engine() = default;
+};
+```
+
+---
+
+### 2. **Factory Pattern (factory/EntityFactory.h)**
+
+```cpp
+class Entity {
+public:
+    virtual void update() = 0;
+    virtual ~Entity() = default;
+};
+
+class Trader : public Entity { /* ... */ };
+class Market : public Entity { /* ... */ };
+
+class EntityFactory {
+public:
+    static std::unique_ptr<Entity> createEntity(const std::string& type);
+};
+```
+
+---
+
+### 3. **Strategy Pattern (strategy/TradeStrategy.h)**
+
+```cpp
+class TradeStrategy {
+public:
+    virtual void execute() = 0;
+    virtual ~TradeStrategy() = default;
+};
+
+class AggressiveStrategy : public TradeStrategy {
+    void execute() override { /* ... */ }
+};
+```
+
+---
+
+### 4. **Observer Pattern (observer/EventBus.h)**
+
+```cpp
+class IObserver {
+public:
+    virtual void onEvent(const std::string& event) = 0;
+};
+
+class EventBus {
+    std::vector<IObserver*> observers;
+public:
+    void subscribe(IObserver* obs) { observers.push_back(obs); }
+    void notify(const std::string& event);
+};
+```
+
+---
+
+### ✅ CMake Example
+
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(DesignPatternApp)
+
+set(CMAKE_CXX_STANDARD 17)
+
+file(GLOB_RECURSE SOURCES "src/*.cpp")
+add_executable(app ${SOURCES})
+```
+
+---
+
+
