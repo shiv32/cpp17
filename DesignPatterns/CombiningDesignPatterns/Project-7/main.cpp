@@ -186,6 +186,7 @@ int main()
 
     ShoppingCart cart;
     ConsoleUI ui;
+    
     cart.attach(&ui);
 
     auto apple = ProductFactory::createProduct("Apple", 1.0);

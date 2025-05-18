@@ -140,11 +140,14 @@ public:
     void processInput(const std::string &input)
     {
         std::shared_ptr<Command> command;
+
         if (!rootHandler->handle(input, command))
         {
             command = std::make_shared<FallbackCommand>();
         }
+
         std::cout << replyStyle->format("");
+
         command->execute();
     }
 };
@@ -154,8 +157,8 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    // Chatbot bot(std::make_unique<CasualStyle>());
-    Chatbot bot(std::make_unique<FormalStyle>());
+    Chatbot bot(std::make_unique<CasualStyle>());
+    //Chatbot bot(std::make_unique<FormalStyle>());
 
     std::vector<std::string> inputs = {
         "hi",
@@ -165,6 +168,7 @@ int main()
     for (const auto &input : inputs)
     {
         std::cout << "> User: " << input << "\n";
+
         bot.processInput(input);
     }
 

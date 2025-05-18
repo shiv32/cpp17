@@ -1,9 +1,9 @@
 
-The C++ code for the 
+The C++ code for the mini project
 
 File System Simulation 
 
-using Composite, Iterator (via recursion), Visitor, and Command patterns.
+Using Composite, Iterator (via recursion), Visitor, and Command patterns.
 
 Features included:
 Folder/File hierarchy (Composite)

@@ -1,9 +1,9 @@
 
-The C++ code for the 
+The C++ code for the mini project
 
 Chatbot with Intent Handling 
 
-uses:
+Uses:
 
 Chain of Responsibility     - to match input with intent handlers
 Factory                     - to build the chain of handlers
