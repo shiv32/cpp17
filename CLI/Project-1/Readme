@@ -1,0 +1,44 @@
+
+CLI11 is a command line parser for C++11 and beyond that provides a rich feature set with a simple and intuitive interface.
+
+git link -->
+https://github.com/CLIUtils/CLI11.git
+
+-----------------------------------------
+latest cmake setup in ubuntu 18 -->
+
+cd ~
+wget https://github.com/Kitware/CMake/releases/download/v3.27.9/cmake-3.27.9.tar.gz
+tar -zxvf cmake-3.27.9.tar.gz
+cd cmake-3.27.9
+
+# Build and install
+./bootstrap
+make -j$(nproc)
+sudo make install
+
+
+cmake --version
+----------------------------------------------------------
+in cmake file --> 
+
+FetchContent_Declare(
+    CLI11
+    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
+    GIT_TAG v2.3.2
+  )
+  FetchContent_MakeAvailable(CLI11)
+  
+  target_link_libraries(MyCliApp PRIVATE CLI11::CLI11)
+
+---------------------------------------------------------------------
+  in main.cpp use like ->
+
+  #include <CLI/CLI.hpp>
+  
+
+  app usees->
+
+  ./MyCliApp -n shiv -r 5
+  ./MyCliApp -n shiv -r 5 -s
+---------------------------------------------------------------
