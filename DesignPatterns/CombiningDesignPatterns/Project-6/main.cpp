@@ -101,6 +101,9 @@ public:
             child->accept(*this);
         }
     }
+
+    void resetSize() { totalSize = 0; };
+
     int getTotalSize() const { return totalSize; }
 };
 
@@ -183,10 +186,21 @@ int main()
     delCmd.execute();
     root->accept(printer);
 
+    std::cout << "\nTotal Size:\n";
+    sizeCalc.resetSize();
+    root->accept(sizeCalc);
+    std::cout << sizeCalc.getTotalSize() << " KB\n";
+
     std::cout << "\nExecuting MoveCommand (resume.pdf to Pictures):\n";
     MoveCommand moveCmd(*docs, *pics, "resume.pdf");
     moveCmd.execute();
     root->accept(printer);
+
+    std::cout << "\nTotal Size:\n";
+    sizeCalc.resetSize();
+    root->accept(sizeCalc);
+    std::cout << sizeCalc.getTotalSize() << " KB\n";
+    std::cout << std::endl;
 
     return 0;
 }
