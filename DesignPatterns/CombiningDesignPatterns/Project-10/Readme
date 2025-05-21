@@ -1,0 +1,22 @@
+
+Mini Project: Task Manager CLI
+    A simple console application that allows you to create, view, and manage tasks using a combination of design patterns.
+
+🧱 Design Patterns Used:
+
+    Pattern Type	Pattern	    Purpose
+    Creational	    Factory	    Create different types of tasks.
+    Structural	    Composite	Support nested tasks (subtasks).
+    Behavioral	    Command	    Encapsulate user commands (add, remove, list).
+    Behavioral	    Observer	Notify UI or logger when tasks change.
+    Creational	    Singleton	Ensure a single instance of TaskManager.
+
+📁 File/Component Structure:
+
+    Task (base class)
+    SimpleTask, CompositeTask (Composite pattern)
+    TaskFactory (Factory pattern)
+    TaskManager (Singleton, Observer)
+    Command Interface + AddTaskCommand, ListTasksCommand, etc.
+    Main.cpp (User interface loop)
+
