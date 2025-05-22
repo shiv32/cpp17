@@ -1,7 +1,8 @@
+
 template <typename T>
 Grid<T>::~Grid()
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
@@ -38,7 +39,7 @@ const std::optional<T> &Grid<T>::at(size_t x, size_t y) const
 template <typename T>
 std::optional<T> &Grid<T>::at(size_t x, size_t y)
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
     return const_cast<std::optional<T> &>(std::as_const(*this).at(x, y));
 }
 
@@ -48,6 +49,7 @@ Grid<const char *>::Grid(size_t width, size_t height) : mWidth(width), mHeight(h
 {
     std::cout << "---------- Specialization --------" << std::endl;
     std::cout << __PRETTY_FUNCTION__ << std::endl;
+    
     mCells.resize(mWidth);
     for (auto &column : mCells)
     {
@@ -57,6 +59,9 @@ Grid<const char *>::Grid(size_t width, size_t height) : mWidth(width), mHeight(h
 
 void Grid<const char *>::verifyCoordinate(size_t x, size_t y) const
 {
+    //std::cout << "---------- Specialization --------" << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     if (x >= mWidth || y >= mHeight)
     {
         throw std::out_of_range("");
@@ -65,15 +70,17 @@ void Grid<const char *>::verifyCoordinate(size_t x, size_t y) const
 
 const std::optional<std::string> &Grid<const char *>::at(size_t x, size_t y) const
 {
-    std::cout << "---------- Specialization --------" << std::endl;
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    //std::cout << "---------- Specialization --------" << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     verifyCoordinate(x, y);
     return mCells[x][y];
 }
 
 std::optional<std::string> &Grid<const char *>::at(size_t x, size_t y)
 {
-    std::cout << "---------- Specialization --------" << std::endl;
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    //std::cout << "---------- Specialization --------" << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     return const_cast<std::optional<std::string> &>(std::as_const(*this).at(x, y));
 }

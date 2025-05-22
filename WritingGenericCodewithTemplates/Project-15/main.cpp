@@ -1,8 +1,18 @@
-/*
-Method Templates with Non-type Parameters
-
-g++ -std=c++17 main.cpp -o test
-*/
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * 
+    Method Templates with Non-type Parameters
+    
+    g++ -std=c++17 main.cpp -o test
+ * 
+ * @version 0.1
+ * @date 2025-05-22
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 
 #include <iostream>
 #include "grid.hpp"

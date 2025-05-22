@@ -1,0 +1,11 @@
+/*
+
+Class Template Specialization
+    You can provide alternate implementations of class templates for specific types.
+
+    Alternate implementations of templates are called template specializations.
+
+    When you specialize a template, you don’t “inherit” any code: 
+    Specializations are not like derivations. 
+
+*/
