@@ -1,12 +1,9 @@
 
-The C++ code for the mini project
+The C++ code for the mini project "Shopping Cart System" 
 
-Shopping Cart System 
-
-created using:
-
-Factory     - for product and bundle creation
-Decorator   - for promotions/discounts
-Observer    - for UI updates on cart changes
-Strategy    - for flexible pricing models
-Composite   - for bundles of products
+Created using:
+    Factory     - for product and bundle creation
+    Decorator   - for promotions/discounts
+    Observer    - for UI updates on cart changes
+    Strategy    - for flexible pricing models
+    Composite   - for bundles of products

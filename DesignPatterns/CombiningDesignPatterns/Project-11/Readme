@@ -1,0 +1,48 @@
+
+C++ console-based mini project that manages a list of people (name and mobile number) using an SQLite database. 
+It demonstrates a combination of design patterns to structure the application cleanly and modularly.
+
+✅ Project Features:
+    Add a person
+    Update a person
+    Delete a person
+    List all people
+    Store data in SQLite database
+
+🧠 Design Patterns Used:
+    Pattern	                    Purpose
+    Singleton	                Manage a single database connection
+    DAO (Data Access Object)	Encapsulate DB operations
+    Command	                    Encapsulate actions (add, update, delete, list)
+    Factory Method	            Create commands
+    Strategy (optional)	        Switch between display formats or validations
+
+
+📁 Folder Structure
+
+    PersonManager/
+    ├── CMakeLists.txt
+    ├── include/
+    │   ├── Database.h
+    │   ├── Person.h
+    │   ├── PersonDAO.h
+    │   ├── Command.h
+    │   └── CommandFactory.h
+    ├── src/
+    │   ├── main.cpp
+    │   ├── Database.cpp
+    │   ├── Person.cpp
+    │   ├── PersonDAO.cpp
+    │   ├── Command.cpp
+    │   └── CommandFactory.cpp
+
+
+-------------------------------------------------------------------------
+Dependencies:
+
+C++17
+SQLite3
+
+Install SQLite dev libraries on Ubuntu:
+sudo apt install libsqlite3-dev
+-------------------------------------------------------------------------
