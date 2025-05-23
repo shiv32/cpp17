@@ -1,1 +1,8 @@
- Under Develpoment !
+
+Complete POCO + SQLite console CRUD app that:
+
+    Inserts, updates, deletes contacts
+    Lists all contacts correctly (fetching all rows)
+    Uses non-const copies for use() calls
+    Shows a clean console menu
+
