@@ -1,5 +1,19 @@
-// Shopping Cart System
-// Patterns: Factory, Strategy, Decorator, Observer, Composite
+/**
+ * @file main.cpp
+ * @author your name (you@domain.com)
+ * @brief 
+ * 
+    Shopping Cart System
+    Patterns: Factory, Strategy, Decorator, Observer, Composite
+ * 
+ * 
+ * 
+ * @version 0.1
+ * @date 2025-05-24
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 
 #include <iostream>
 #include <vector>
