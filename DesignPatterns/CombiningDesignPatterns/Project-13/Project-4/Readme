@@ -1,0 +1,26 @@
+
+C++17 console-based mini project named "TaskFlow Manager" with more states.
+
+
+Project Structure:
+
+    TaskFlowManager/
+    ├── include/
+    │   ├── Context.hpp
+    │   ├── State.hpp
+    │   ├── States/
+    │   ├── Command.hpp
+    │   ├── Observer.hpp
+    │   ├── Strategy.hpp
+    │   ├── InputHandler.hpp
+    │   └── TaskGroup.hpp
+    ├── src/
+    │   ├── main.cpp
+    │   ├── Context.cpp
+    │   ├── States/
+    │   ├── Command.cpp
+    │   ├── Observer.cpp
+    │   ├── Strategy.cpp
+    │   ├── InputHandler.cpp
+    │   └── TaskGroup.cpp
+    ├── CMakeLists.txt

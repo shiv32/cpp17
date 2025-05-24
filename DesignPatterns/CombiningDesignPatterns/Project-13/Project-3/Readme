@@ -1,0 +1,41 @@
+
+C++17 console-based mini project named "TaskFlow Manager", 
+which simulates a simplified task execution engine with 
+multiple task states (Idle, Running, Paused, Completed) and integrates all the design patterns you requested:
+
+🛠️ Project Overview: TaskFlow Manager
+
+👇 Key Concepts:
+    State Machine: Controls task flow.
+    State Pattern: Defines each task state behavior.
+    Factory Pattern: Creates state objects.
+    Singleton Pattern: Ensures one instance per state.
+    Command Pattern: Encapsulates actions like start, pause, complete.
+    Observer Pattern: Observers react to state changes (e.g., Logger).
+    Strategy Pattern: Chooses execution strategies (sequential, delayed).
+    Chain of Responsibility: Handles input events.
+    Composite Pattern: Groups tasks (e.g., TaskGroup).
+    Builder Pattern: Builds the task system and flow.
+
+Project Structure:
+
+    TaskFlowManager/
+    ├── include/
+    │   ├── Context.hpp
+    │   ├── State.hpp
+    │   ├── States/
+    │   ├── Command.hpp
+    │   ├── Observer.hpp
+    │   ├── Strategy.hpp
+    │   ├── InputHandler.hpp
+    │   └── TaskGroup.hpp
+    ├── src/
+    │   ├── main.cpp
+    │   ├── Context.cpp
+    │   ├── States/
+    │   ├── Command.cpp
+    │   ├── Observer.cpp
+    │   ├── Strategy.cpp
+    │   ├── InputHandler.cpp
+    │   └── TaskGroup.cpp
+    ├── CMakeLists.txt
