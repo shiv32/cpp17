@@ -1,0 +1,20 @@
+
+About SFML (Simple and Fast Multimedia Library)
+
+SFML is a modern, easy-to-use C++ multimedia library designed for developing 2D games and graphical applications. 
+It provides a simple API to handle:
+
+Window creation and management
+Graphics rendering (shapes, sprites, text)
+Input handling (keyboard, mouse, joystick)
+Audio playback (sounds, music)
+Networking
+
+SFML abstracts low-level details, allowing developers to focus on game logic and design. 
+It’s cross-platform, lightweight, and ideal for beginners and professionals alike.
+
+Dependencies (Ubuntu 18.04)
+    sudo apt update
+    sudo apt install g++ cmake make libsfml-dev
+    sudo apt install pkg-config
+

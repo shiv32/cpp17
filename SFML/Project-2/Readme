@@ -1,0 +1,7 @@
+A basic SFML game example in C++ — a simple window where you control a moving rectangle with arrow keys.
+
+What you’ll get:
+    Window with a rectangle shape.
+    Move rectangle with arrow keys.
+    Basic game loop with event handling.
+
