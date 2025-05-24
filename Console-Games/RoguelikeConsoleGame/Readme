@@ -1,0 +1,13 @@
+
+Roguelike Console Game
+A simple roguelike game built in C++17 using the ncurses library.
+Navigate the player @ through a procedurally generated dungeon map, avoiding enemies E that chase you.
+Use arrow keys to move the player @
+
+Features include:
+    Procedurally generated map with walls and open spaces
+    Player movement constrained by map boundaries and walls
+    Basic enemy AI that moves toward the player slowly
+    Game over condition when an enemy catches the player
+    Console rendering with ncurses for smooth text-based graphics
+    This project demonstrates core game engine concepts, basic AI, and design patterns in a console environment.
