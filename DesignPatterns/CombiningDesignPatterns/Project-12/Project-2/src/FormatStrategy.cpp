@@ -1,0 +1,1 @@
+// Interface only - no implementation

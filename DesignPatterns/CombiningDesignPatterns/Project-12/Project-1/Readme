@@ -1,0 +1,37 @@
+🛠️ Project Title: Data Exporter App
+
+🎯 Goal:
+    Build a C++17 console application that reads a dataset and exports it in different formats (like JSON, CSV, XML) using 
+    different strategies, utilizing Template Method as the core.
+
+🧩 Design Patterns Used:
+    Pattern	            Purpose
+    Template Method	    Define the skeleton of export steps in a base class.
+    Factory Method	    Instantiate the correct exporter class based on user input.
+    Strategy	        Choose the data formatting strategy dynamically.
+    Singleton	        Used for configuration or logging manager.
+
+
+📁 Project Structure:
+
+    DataExporterApp/
+    ├── CMakeLists.txt
+    ├── main.cpp
+    ├── include/
+    │   ├── Exporter.hpp
+    │   ├── CSVExporter.hpp
+    │   ├── JSONExporter.hpp
+    │   ├── XMLExporter.hpp
+    │   ├── ExporterFactory.hpp
+    │   ├── Logger.hpp
+    │   └── FormatStrategy.hpp
+    ├── src/
+    │   ├── Exporter.cpp
+    │   ├── CSVExporter.cpp
+    │   ├── JSONExporter.cpp
+    │   ├── XMLExporter.cpp
+    │   ├── ExporterFactory.cpp
+    │   ├── Logger.cpp
+    │   └── FormatStrategy.cpp
+    └── data/
+        └── sample.txt
