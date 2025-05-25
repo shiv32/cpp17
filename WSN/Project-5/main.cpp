@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief Central place to rename/modify keys, using C++
+ * @brief Template Method
  * @version 0.1
  * @date 2025-05-17
  *
@@ -16,6 +16,7 @@
 #include <vector>
 #include <set>
 
+//Template Method
 class IController
 {
 public:
@@ -43,6 +44,7 @@ public:
     virtual ~IController() = default;
 };
 
+//subclasses-----------------------------------
 class ControllerA : public IController
 {
 public:
@@ -69,6 +71,7 @@ public:
         return {"Carol", "28", "Berlin"};
     }
 };
+//----------------------------------------------------------------
 
 void displayUnifiedData(const std::vector<std::shared_ptr<IController>> &controllers)
 {
