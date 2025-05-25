@@ -1,0 +1,6 @@
+/*
+
+The Template Method Pattern lets you define the structure of an operation in a base class, 
+but let subclasses provide parts (like values).
+
+*/

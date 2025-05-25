@@ -1,11 +1,9 @@
 
-The C++ code for the mini project
-
-Chatbot with Intent Handling 
+The C++ code for the mini project "Chatbot with Intent Handling" 
 
 Uses:
 
-Chain of Responsibility     - to match input with intent handlers
-Factory                     - to build the chain of handlers
-Command                     - to encapsulate responses
-Strategy                    - to control reply tone/formatting
+    Chain of Responsibility     - to match input with intent handlers
+    Factory                     - to build the chain of handlers
+    Command                     - to encapsulate responses
+    Strategy                    - to control reply tone/formatting
