@@ -4,11 +4,12 @@
 #include <Poco/Data/RecordSet.h>
 #include <iostream>
 #include <string>
-#include <vector>
+//#include <vector>
 
 using namespace Poco::Data;
 using namespace Poco::Data::Keywords;
 using namespace std;
+
 
 void createTable(Session &session)
 {
@@ -43,6 +44,7 @@ void listContacts(Session &session)
     std::vector<string> phones;
 
     Statement select(session);
+
     select << "SELECT id, name, phone FROM contacts",
         into(ids),
         into(names),
@@ -50,6 +52,7 @@ void listContacts(Session &session)
         now;
 
     cout << "\nID\tName\tPhone\n";
+    
     for (size_t i = 0; i < ids.size(); ++i)
     {
         cout << ids[i] << "\t" << names[i] << "\t" << phones[i] << "\n";
@@ -142,5 +145,6 @@ int main()
     }
 
     SQLite::Connector::unregisterConnector();
+
     return 0;
 }
