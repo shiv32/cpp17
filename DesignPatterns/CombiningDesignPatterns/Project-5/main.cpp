@@ -8,8 +8,6 @@
 #include <map>
 #include <functional>
 
-
-
 // ------------------- Observer ----------------------
 class ScoreObserver
 {
@@ -53,9 +51,12 @@ protected:
 
 public:
     Question(std::string t, std::unique_ptr<ScoringStrategy> strategy)
-        : text(std::move(t)), scoringStrategy(std::move(strategy)) {}
+        : text(std::move(t)), scoringStrategy(std::move(strategy))
+    {
+    }
 
     void attach(ScoreObserver *obs) { observers.push_back(obs); }
+
     void notify(int score)
     {
         for (auto obs : observers)
@@ -84,16 +85,21 @@ class MCQQuestion : public Question
 
 public:
     MCQQuestion(const std::string &t, std::vector<std::string> opts, char correct, std::unique_ptr<ScoringStrategy> strategy)
-        : Question(t, std::move(strategy)), options(std::move(opts)), correctOption(correct) {}
+        : Question(t, std::move(strategy)), options(std::move(opts)), correctOption(correct)
+    {
+    }
 
     void ask() override
     {
         std::cout << text << "\n";
+
         char opt = 'A';
+        
         for (auto &o : options)
         {
             std::cout << opt++ << ". " << o << "\n";
         }
+        
     }
 
     std::string getUserAnswer() override
@@ -172,6 +178,6 @@ int main()
     }
 
     std::cout << "\nQuiz complete.\n";
-    
+
     return 0;
 }

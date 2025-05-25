@@ -1,0 +1,14 @@
+
+Here’s a fun and educational way to print "Hello, World!" in C++ using a combination of design patterns. 
+We'll combine several common design patterns even for such a simple task, just to illustrate how they work together.
+
+🧠 Design Patterns Used:
+    Singleton           – Ensure one global instance of the printer.
+    Factory Method      – Create a message object.
+    Strategy            – Choose how to format the message.
+    Command             – Encapsulate the print action.
+    Observer            – Notify when message is printed.
+
+🧩 What You Learned:
+    How to apply design patterns to even a trivial task.
+    How patterns can interact and layer responsibilities.
