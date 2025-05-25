@@ -1,13 +1,11 @@
 
-The C++ code for the mini project
-
-Microservices Simulator
+The C++ code for the mini project "Microservices Simulator"
 
 Combining the following design patterns:
 
-Mediator (Singleton) - for inter-service communication.
-Observer - for notifying subscribed services.
-Chain of Responsibility - for request processing (Auth → Validation → Storage).
+    Mediator (Singleton)        - for inter-service communication.
+    Observer                    - for notifying subscribed services.
+    Chain of Responsibility     - for request processing (Auth → Validation → Storage).
 
 -----------------------------------------
 Uses: 

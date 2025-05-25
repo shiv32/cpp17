@@ -19,6 +19,27 @@ public:
 };
 
 //----------------------------------
+// Example Microservices
+//----------------------------------
+class LoggingService : public IObserver
+{
+public:
+    void onNotify(const std::string &message) override
+    {
+        std::cout << "[Logger] Received: " << message << std::endl;
+    }
+};
+
+class NotificationService : public IObserver
+{
+public:
+    void onNotify(const std::string &message) override
+    {
+        std::cout << "[Notifier] Alert sent: " << message << std::endl;
+    }
+};
+
+//----------------------------------
 // Mediator Pattern (Singleton)
 //----------------------------------
 class Mediator
@@ -65,10 +86,12 @@ public:
         if (next)
             next->handle(request);
     }
+
     void setNext(std::shared_ptr<Handler> nextHandler)
     {
         next = nextHandler;
     }
+
     virtual ~Handler() = default;
 };
 
@@ -78,6 +101,7 @@ public:
     void handle(const std::string &request) override
     {
         std::cout << "[Auth] Processing: " << request << std::endl;
+
         if (request.find("auth") != std::string::npos)
         {
             std::cout << "[Auth] Authentication passed\n";
@@ -96,6 +120,7 @@ public:
     void handle(const std::string &request) override
     {
         std::cout << "[Validation] Validating: " << request << std::endl;
+        
         if (request.length() > 5)
         {
             std::cout << "[Validation] Validation passed\n";
@@ -117,26 +142,6 @@ public:
     }
 };
 
-//----------------------------------
-// Example Microservices
-//----------------------------------
-class LoggingService : public IObserver
-{
-public:
-    void onNotify(const std::string &message) override
-    {
-        std::cout << "[Logger] Received: " << message << std::endl;
-    }
-};
-
-class NotificationService : public IObserver
-{
-public:
-    void onNotify(const std::string &message) override
-    {
-        std::cout << "[Notifier] Alert sent: " << message << std::endl;
-    }
-};
 
 //----------------------------------
 // Main Simulation
@@ -164,10 +169,13 @@ int main()
 
     // Simulate requests
     std::string request;
+
     while (true)
     {
         std::cout << "\nEnter request (or 'exit'): ";
+
         std::getline(std::cin, request);
+        
         if (request == "exit")
             break;
 
