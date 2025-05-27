@@ -12,4 +12,16 @@ Why Use RAII?
     Exception safety (resources are always released, even if an exception occurs).
     Prevents memory leaks and resource mismanagement.
 
+
+🔁 Rephrased:
+    Getting a resource = Initializing an object
+
+Or more fully:
+    When an object is initialized (created), it also acquires a resource. 
+    When the object is destroyed (goes out of scope), the resource is automatically released.
+
+So RAII means:
+    Acquire resource when object is created (via constructor)
+    Release resource when object is destroyed (via destructor)
+
 */
