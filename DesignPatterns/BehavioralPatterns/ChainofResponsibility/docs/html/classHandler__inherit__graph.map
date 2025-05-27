@@ -1,6 +1,0 @@
-<map id="Handler" name="Handler">
-<area shape="rect" id="node2" href="$classAbstractHandler.html" title="AbstractHandler" alt="" coords="119,80,235,107"/>
-<area shape="rect" id="node3" href="$classDogHandler.html" title="DogHandler" alt="" coords="5,155,96,181"/>
-<area shape="rect" id="node4" href="$classMonkeyHandler.html" title="MonkeyHandler" alt="" coords="121,155,234,181"/>
-<area shape="rect" id="node5" href="$classSquirrelHandler.html" title="SquirrelHandler" alt="" coords="258,155,369,181"/>
-</map>
