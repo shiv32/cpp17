@@ -1,1 +1,10 @@
-Data Export APP
+
+Data Export APP 
+    C++17 console application that reads a dataset and exports it in different formats (like JSON, CSV, XML).
+
+🧩 Design Patterns Used:
+    Pattern	            Purpose
+    Template Method	    Define the skeleton of export steps in a base class.
+    Factory Method	    Instantiate the correct exporter class based on user input.
+    Strategy	        Choose the data formatting strategy dynamically.
+    Singleton	        Used for configuration or logging manager.

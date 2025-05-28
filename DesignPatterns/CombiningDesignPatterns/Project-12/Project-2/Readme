@@ -8,6 +8,7 @@
     Pattern	            Purpose
     Template Method	    Define the skeleton of export steps in a base class.
     Factory Method	    Instantiate the correct exporter class based on user input.
+    Strategy	        Choose the data formatting strategy dynamically.
     Singleton	        Used for configuration or logging manager.
 
 
@@ -23,7 +24,7 @@
     │   ├── XMLExporter.hpp
     │   ├── ExporterFactory.hpp
     │   ├── Logger.hpp
-    │   
+    │   └── FormatStrategy.hpp
     ├── src/
     │   ├── Exporter.cpp
     │   ├── CSVExporter.cpp
@@ -31,6 +32,6 @@
     │   ├── XMLExporter.cpp
     │   ├── ExporterFactory.cpp
     │   ├── Logger.cpp
-    │   
+    │   └── FormatStrategy.cpp
     └── data/
         └── sample.txt

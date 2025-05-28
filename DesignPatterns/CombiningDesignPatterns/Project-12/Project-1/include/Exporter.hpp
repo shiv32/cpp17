@@ -2,10 +2,11 @@
 #include <vector>
 #include <string>
 
+//Template method class
 class Exporter
 {
 public:
-    void exportData(const std::vector<std::string> &data);
+    void exportData(const std::vector<std::string> &data);//Template method
     virtual ~Exporter() = default;
 
 protected:
