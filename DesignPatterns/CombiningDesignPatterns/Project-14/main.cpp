@@ -59,6 +59,7 @@ public:
     void print(const std::string &message)
     {
         std::cout << message << std::endl;
+
         for (auto obs : observers)
         {
             obs->onPrinted(message);
@@ -66,7 +67,7 @@ public:
     }
 
     Printer(const Printer &) = delete;
-    void operator=(const Printer &) = delete;
+    Printer &operator=(const Printer &) = delete;
 };
 
 // Factory Method
@@ -83,9 +84,9 @@ public:
 class MessageFactory
 {
 public:
-    static std::unique_ptr<Message> createMessage()
+    static std::unique_ptr<Message> createMessage(std::string msg)
     {
-        return std::make_unique<Message>("Hello, World!");
+        return std::make_unique<Message>(msg);
     }
 };
 
@@ -116,7 +117,7 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    auto message = MessageFactory::createMessage();
+    auto message = MessageFactory::createMessage("Hello, Shiv !");
 
     SimpleFormatter formatter;
     ConsoleObserver observer;
