@@ -1,0 +1,42 @@
+/*
+
+Here's a basic C++17 blockchain implementation in a single-file console application, 
+perfect for learning how blockchains work. 
+
+This example includes:
+
+    Basic Block structure
+    Blockchain container
+    SHA-256 hashing
+    Proof-of-work mining
+    Console interaction
+
+🧠 Key Concepts Demonstrated
+
+    Concept	        C++ Feature Used
+    Hashing	        SHA-256 via OpenSSL
+    Time	        std::time_t, ctime()
+    Blockchain	    std::vector<Block>
+    Mining	        Proof-of-work (nonce)
+    Modern C++	    Constructors, stringstream, move semantics
+
+✅ Next Steps
+You can expand this project by adding:
+
+    Transactions and wallets
+    Digital signatures (ECDSA)
+    Networking (POCO / Boost ASIO)
+    JSON storage (nlohmann/json)
+    Persistent storage (SQLite)
+
+🐧 Linux Dependencies
+
+    sudo apt update && sudo apt install g++ cmake libssl-dev -y
+
+ Check Installed Versions
+
+    g++ --version       # Should show g++ 7+ or clang++
+    cmake --version     # Should be 3.10+
+    openssl version     # Should show OpenSSL 1.1 or 3.x
+
+*/
