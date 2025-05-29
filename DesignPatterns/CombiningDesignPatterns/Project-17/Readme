@@ -1,0 +1,21 @@
+
+Project: Templated Stock Market Simulator
+
+🧠 What We are Adding:
+    Template-based Observer pattern: Generic Observer<T> and Subject<T>
+    Template-based Command pattern: Generic Command<T>
+    Simulated stock events via StockEvent struct
+
+✅ What This Version Shows:
+
+    Feature	                Template Use
+    Observer pattern	    Generic Observer<T>
+    Command pattern	        Generic Command<T>
+    Event system	        Uses StockEvent as data type
+    Reusability	            Can extend to Crypto, Forex, etc.
+
+🔄 Next Steps (Optional Enhancements):
+    Add MarketManager Singleton
+    Use Strategy pattern to vary price simulation
+    Log trades to file
+    Add user input (interactive simulation)
