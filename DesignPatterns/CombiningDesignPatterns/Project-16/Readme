@@ -1,0 +1,27 @@
+✅ Project: Generic Event Dispatcher
+
+📌 Description:
+A lightweight, extensible system that allows generic event publishing and subscribing using templates and classic design patterns.
+
+🎯 Design Patterns Used:
+    Template-Based Observer Pattern – Generic observer system using templates.
+    Singleton – Centralized event dispatcher instance.
+    Strategy (via template policy classes) – Different dispatching strategies.
+    Command – Encapsulates event actions.
+    Factory (optional) – Dynamically create event handlers.
+
+🛠 Structure:
+
+    EventDispatcher/
+    ├── main.cpp
+    ├── Event.hpp
+    ├── Observer.hpp
+    ├── Singleton.hpp
+    ├── Command.hpp
+    └── Strategy.hpp
+
+
+✅ Features:
+    Easily extendable to support multiple event types
+    Uses templates for generalization
+    Combines Observer, Singleton, Command, and optionally Factory
