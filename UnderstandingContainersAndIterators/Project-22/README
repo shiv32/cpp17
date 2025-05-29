@@ -1,0 +1,7 @@
+/*
+
+forward_list
+  A forward_list, defined in the <forward_list> header file, is similar to a list except that it is
+  a singly linked list, while a list is a doubly linked list.
+
+*/
