@@ -1,0 +1,10 @@
+Here's a complete C++17 console-based Sensor Monitoring System that uses multiple design patterns:
+
+✅ Patterns Implemented:
+    Observer – Notifies logger when sensor data changes
+    Factory Method – Dynamically creates different sensor types
+    Strategy – Different processing strategies (e.g., smoothing)
+    Singleton – Centralized SensorManager
+    Command – Encapsulates polling as a command
+    Decorator – Adds threshold alert to sensors
+
