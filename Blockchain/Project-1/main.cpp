@@ -121,5 +121,6 @@ int main()
 
     std::cout << "\nBlockchain valid? " << (myBlockchain.isChainValid() ? "Yes" : "No") << "\n\n";
     myBlockchain.printChain();
+
     return 0;
 }
