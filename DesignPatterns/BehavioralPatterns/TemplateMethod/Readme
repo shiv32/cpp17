@@ -2,6 +2,9 @@
 Template Method is a behavioral design pattern that allows you to define a skeleton of an algorithm 
 in a base class and let subclasses override the steps without changing the overall algorithm’s structure.
 
+The Template Method defines the skeleton of an algorithm in a base class, 
+allowing derived classes to override specific steps without changing the algorithm's structure.
+
 Usage examples: 
     The Template Method pattern is quite common in C++ frameworks. 
     Developers often use it to provide framework users with a simple means of extending standard functionality using inheritance.

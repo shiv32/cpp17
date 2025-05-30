@@ -1,7 +1,7 @@
 ✅ Project: Generic Event Dispatcher
 
 📌 Description:
-A lightweight, extensible system that allows generic event publishing and subscribing using templates and classic design patterns.
+    A lightweight, extensible system that allows generic event publishing and subscribing using templates and classic design patterns.
 
 🎯 Design Patterns Used:
     Template-Based Observer Pattern – Generic observer system using templates.
