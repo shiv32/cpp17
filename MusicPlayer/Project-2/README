@@ -1,0 +1,15 @@
+🎵 MP3 Console Music Player (C++17)
+    A lightweight console-based MP3 player built with C++17, using:
+
+    🧠 libmpg123 – for MP3 decoding
+    🔊 PortAudio – for cross-platform audio playback
+
+✅ Features
+    Play MP3 files from the terminal
+    Lightweight and dependency-minimal
+    Simple CMake-based build
+
+
+📦 Dependencies (Ubuntu)
+    sudo apt update
+    sudo apt install libmpg123-dev portaudio19-dev

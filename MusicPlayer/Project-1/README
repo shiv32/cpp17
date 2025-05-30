@@ -1,0 +1,32 @@
+C++17 Console Music Player
+    A simple console-based music player written in C++17 using SFML Audio and standard filesystem.
+
+Features
+    Plays .wav files from a specified music directory
+
+Commands:
+
+    p — Pause
+    r — Resume
+    s — Stop
+    n — Next track
+    q — Quit player
+
+Usage
+    Place .wav files in the ../music directory (relative to executable).
+
+Build with C++17 and SFML.
+Run the executable and control playback via keyboard commands.
+
+------------------------------------------
+Build and Run player:
+Note: need gcc-11
+
+$mkdir build
+$cd build
+
+$cmake -DCMAKE_C_COMPILER=/home/linuxbrew/.linuxbrew/bin/gcc-11 -DCMAKE_CXX_COMPILER=/home/linuxbrew/.linuxbrew/bin/g++-11 ..
+$make
+
+$./sfml-app
+------------------------------------------
