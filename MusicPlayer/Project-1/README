@@ -30,3 +30,6 @@ $make
 
 $./sfml-app
 ------------------------------------------
+Ref:
+The Missing Package Manager for macOS (or Linux)
+https://brew.sh/
