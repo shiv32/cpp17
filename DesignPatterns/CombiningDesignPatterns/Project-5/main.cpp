@@ -50,12 +50,17 @@ protected:
     std::unique_ptr<ScoringStrategy> scoringStrategy;
 
 public:
-    Question(std::string t, std::unique_ptr<ScoringStrategy> strategy)
-        : text(std::move(t)), scoringStrategy(std::move(strategy))
-    {
-    }
+    Question(std::string t, 
+            std::unique_ptr<ScoringStrategy> strategy)
+            : text(std::move(t)), 
+            scoringStrategy(std::move(strategy))
+            {
+            }
 
-    void attach(ScoreObserver *obs) { observers.push_back(obs); }
+    void attach(ScoreObserver *obs)
+    {
+        observers.push_back(obs);
+    }
 
     void notify(int score)
     {
@@ -63,7 +68,7 @@ public:
             obs->onScoreUpdate(score);
     }
 
-    void run()
+    void run() //template method
     {
         ask();
         bool correct = checkAnswer(getUserAnswer());
@@ -74,6 +79,7 @@ public:
     virtual void ask() = 0;
     virtual std::string getUserAnswer() = 0;
     virtual bool checkAnswer(const std::string &ans) = 0;
+
     virtual ~Question() = default;
 };
 
@@ -84,22 +90,26 @@ class MCQQuestion : public Question
     char correctOption;
 
 public:
-    MCQQuestion(const std::string &t, std::vector<std::string> opts, char correct, std::unique_ptr<ScoringStrategy> strategy)
-        : Question(t, std::move(strategy)), options(std::move(opts)), correctOption(correct)
-    {
-    }
+    MCQQuestion(const std::string &t, 
+                std::vector<std::string> opts, 
+                char correct, 
+                std::unique_ptr<ScoringStrategy> strategy)
+                : Question(t, std::move(strategy)), 
+                options(std::move(opts)), 
+                correctOption(correct)
+                {
+                }
 
     void ask() override
     {
         std::cout << text << "\n";
 
         char opt = 'A';
-        
+
         for (auto &o : options)
         {
             std::cout << opt++ << ". " << o << "\n";
         }
-        
     }
 
     std::string getUserAnswer() override
@@ -121,8 +131,14 @@ class TrueFalseQuestion : public Question
     bool correctAnswer;
 
 public:
-    TrueFalseQuestion(const std::string &t, bool correct, std::unique_ptr<ScoringStrategy> strategy)
-        : Question(t, std::move(strategy)), correctAnswer(correct) {}
+    TrueFalseQuestion(const std::string &t, 
+                    bool correct, 
+                    std::unique_ptr<ScoringStrategy> strategy)
+                    : Question(t, std::move(strategy)), 
+                    correctAnswer(correct) 
+                    {
+
+                    }
 
     void ask() override
     {
@@ -168,6 +184,7 @@ int main()
     int totalScore = 0;
 
     std::vector<std::unique_ptr<Question>> quiz;
+    
     quiz.push_back(QuestionFactory::createMCQ("What is the capital of France?", {"Berlin", "Madrid", "Paris", "Rome"}, 'C'));
     quiz.push_back(QuestionFactory::createTrueFalse("The Earth is flat.", false));
 
