@@ -1,14 +1,10 @@
-Complete mini project in C++
-
-Implementing a 
-
-Turn-Based RPG Battle System 
+Complete mini project in C++ "Turn-Based RPG Battle System" 
 
 Using five design patterns: 
 
-Factory     - to create characters
-Strategy    - for attack behavior
-Command     - to encapsulate actions
-Observer    - to update battle log/UI
-State       - for battle phases (player turn, enemy turn)
+    Factory     - to create characters
+    Strategy    - for attack behavior
+    Command     - to encapsulate actions
+    Observer    - to update battle log/UI
+    State       - for battle phases (player turn, enemy turn)
 

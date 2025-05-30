@@ -1,0 +1,67 @@
+# 🎮 DungeonBeeps - Console Game with SFML Sound
+
+DungeonBeeps is a simple C++ console-based dungeon crawler game that uses **design patterns** and **SFML** for audio playback. 
+Move around, attack enemies, and hear sound effects right from your terminal!
+
+---
+
+## 🧩 Features
+
+- Console-based gameplay with keyboard input
+- Sound effects using **SFML**
+- Clean C++ architecture using design patterns:
+  - **Singleton** for `GameManager` and `AudioManager`
+  - **Command** pattern for handling user input (extensible)
+- Easy to build and run with **CMake**
+
+---
+
+## 🔧 Requirements
+
+- **C++17**
+- **SFML 2.5+** (audio module required)
+- **CMake 3.14+**
+
+---
+
+Install SFML
+
+sudo apt install libsfml-dev
+
+----------------------------------------------------------------
+🎮 Gameplay
+
+You are in a dark room.
+Commands: [w] up, [s] down, [a] left, [d] right, [q] quit
+
+> d
+[Sound: Footstep]
+
+> a
+[Sound: Attack]
+
+> q
+Game Over.
+--------------------------------------------------------------------
+
+🗂 Project Structure
+
+    DungeonBeeps/
+    ├── assets/
+    │   ├── move.wav
+    │   └── attack.wav
+    ├── src/
+    │   ├── main.cpp
+    │   ├── GameManager.h / .cpp
+    │   ├── AudioManager.h / .cpp
+    ├── CMakeLists.txt
+    ├── README.md
+
+-----------------------------------------------------------------------
+📚 Design Patterns Used
+
+    Pattern	            Role
+    Singleton	          GameManager, AudioManager
+    Command	            Extendable input actions (planned)
+    Strategy	          (To be added: enemy AI behaviors)
+    Factory	            (Optional for future: enemy creation)
