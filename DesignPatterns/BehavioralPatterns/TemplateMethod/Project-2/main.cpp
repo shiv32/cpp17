@@ -81,15 +81,26 @@ int main()
     // delete processor2;
 
     // smart pointer---------------------------------------------------------------
-    std::unique_ptr<DataProcessor> processor{nullptr};
 
-    processor = std::make_unique<CSVDataProcessor>();
-    processor->process();
+    // Solution 1 ----------------
+    //  std::unique_ptr<DataProcessor> processor{nullptr};
+
+    // processor = std::make_unique<CSVDataProcessor>();
+    // processor->process();
+
+    // std::cout << "\n";
+
+    // processor = std::make_unique<XMLDataProcessor>();
+    // processor->process();
+
+    // Solution 2 -----------------
+    auto CSVProcessor = std::make_unique<CSVDataProcessor>();
+    CSVProcessor->process();
 
     std::cout << "\n";
 
-    processor = std::make_unique<XMLDataProcessor>();
-    processor->process();
+    auto XMLProcessor = std::make_unique<XMLDataProcessor>();
+    XMLProcessor->process();
 
     return 0;
 }
