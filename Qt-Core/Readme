@@ -1,0 +1,22 @@
+
+
+Qt Core C++ Project
+ C++ project using Qt Core for core functionalities like QString, QTimer, QDateTime, QObject, and QCoreApplication, suitable for command-line (CLI) or background applications without GUI.
+
+ 🧪 Features You Can Use
+        QCoreApplication – CLI event loop
+        QObject – signal-slot system
+        QString – Unicode-safe string handling
+        QTimer – background scheduling
+        QDateTime – time utilities
+        QFile/QTextStream – file I/O
+        QProcess – external command execution
+
+ ✅ Dependencies
+        C++17 or later
+        Qt Core 5 
+        CMake (3.16+)
+
+This installs Qt Core and other non-GUI essentials on Ubuntu 18.04 :
+
+    sudo apt install qtbase5-dev
