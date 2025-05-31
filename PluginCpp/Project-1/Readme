@@ -1,0 +1,29 @@
+
+PluginDemo — C++ Plugin System
+
+This project demonstrates a C++ plugin system where the main app loads a default plugin automatically and other plugins on demand via command-line.
+
+How to add a new plugin:
+
+Create a new plugin .cpp in plugins/ implementing PluginInterface.
+
+Add the plugin to plugins/CMakeLists.txt as a shared library.
+
+Rebuild the project (cmake .. && ninja).
+
+Run the app with your plugin name as an argument:
+
+    ./main_app your_plugin
+
+Plugins are loaded dynamically without modifying the main app.
+
+-------------------------------------------
+eg.
+# Run with only the default plugin
+./main_app
+
+# Run with default plus "extra_plugin"
+./main_app extra_plugin
+
+# Run with default plus "my_plugin"
+./main_app my_plugin

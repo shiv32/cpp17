@@ -1,0 +1,15 @@
+
+Plugin Architecture(C++):
+
+    The app loads a default plugin plus any plugins specified at runtime as shared libraries. 
+
+    Plugins implement a common interface and export factory functions. 
+
+    New plugins can be added simply by compiling them as shared libraries and passing their names to the app,
+    no app code changes needed.
+
+Summary:
+
+    Plugin Architecture : talking about the design/structure.
+    Plugin System       : talking about the implementation/mechanism.
+
