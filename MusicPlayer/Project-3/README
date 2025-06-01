@@ -1,3 +1,6 @@
 Qt Multimedia console app in C++. 
 This example assumes the app plays an audio file using QMediaPlayer. 
 You can customize it based on your actual features (e.g., recording, video playback, camera, etc.).
+
+Dependency:
+    sudo apt install qtmultimedia5-dev

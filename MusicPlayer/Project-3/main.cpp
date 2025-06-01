@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QCoreApplication app(argc, argv);
 
     QString appDir = QCoreApplication::applicationDirPath();
-    // QString musicDir = appDir + "/../music/test2.wav";
+     //QString musicDir = appDir + "/../music/test2.wav";
     QString musicDir = appDir + "/../music/test.mp3";
 
     // if (argc < 2)

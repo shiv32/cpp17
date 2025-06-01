@@ -21,6 +21,7 @@ QVariant MyModel::data(const QModelIndex &index, int role) const
         return {};
 
     const auto &item = items_[index.row()];
+    
     if (role == NameRole)
         return item.name;
     else if (role == ValueRole)
