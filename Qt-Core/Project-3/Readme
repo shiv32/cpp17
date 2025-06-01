@@ -1,0 +1,8 @@
+Qt State Machine
+    The State Machine framework provides classes for creating and executing state graphs.
+
+🔄 What is a State Graph?
+    A state graph is a visual or logical representation of:
+
+    Nodes = states (e.g., Idle, Running, Stopped)
+    Edges = transitions between states, triggered by events (e.g., Start, Stop)
