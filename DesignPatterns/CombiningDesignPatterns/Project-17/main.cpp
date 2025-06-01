@@ -14,6 +14,33 @@ public:
     virtual void onNotify(const T &data) = 0;
 };
 
+// === Stock Event Structure ===
+
+struct StockEvent
+{
+    std::string ticker;
+    double price;
+};
+
+// === Investor ===
+
+class Investor : public Observer<StockEvent>
+{
+    std::string name;
+
+public:
+    Investor(const std::string &n) : name(n) 
+    {
+
+    }
+
+    void onNotify(const StockEvent &event) override
+    {
+        std::cout << "[Investor: " << name << "] " << event.ticker
+                  << " price: $" << event.price << "\n";
+    }
+};
+
 template <typename T>
 class Subject
 {
@@ -37,29 +64,6 @@ public:
     }
 };
 
-// === Stock Event Structure ===
-
-struct StockEvent
-{
-    std::string ticker;
-    double price;
-};
-
-// === Investor ===
-
-class Investor : public Observer<StockEvent>
-{
-    std::string name;
-
-public:
-    Investor(const std::string &n) : name(n) {}
-    void onNotify(const StockEvent &event) override
-    {
-        std::cout << "[Investor: " << name << "] " << event.ticker
-                  << " price: $" << event.price << "\n";
-    }
-};
-
 // === Stock (Subject) ===
 
 class Stock : public Subject<StockEvent>
@@ -68,14 +72,21 @@ class Stock : public Subject<StockEvent>
     double price;
 
 public:
-    Stock(std::string name, double initialPrice)
-        : ticker(std::move(name)), price(initialPrice) {}
+    Stock(std::string name, 
+            double initialPrice)
+        : ticker(std::move(name)), 
+          price(initialPrice) 
+        {
+
+        }
 
     void fluctuate()
     {
         static std::mt19937 gen{std::random_device{}()};
         std::uniform_real_distribution<> dist(-2.0, 2.0);
+
         price += dist(gen);
+        
         if (price < 1.0)
             price = 1.0;
 
@@ -135,11 +146,13 @@ int main()
     for (int i = 0; i < 3; ++i)
     {
         std::cout << "\n[Market Tick " << (i + 1) << "]\n";
+
         apple.fluctuate();
         tesla.fluctuate();
     }
 
     std::cout << "\n[Executing Trades]\n";
+    
     buy.execute(apple);
     sell.execute(tesla);
 
