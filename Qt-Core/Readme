@@ -1,7 +1,8 @@
 
 ----------------------------------------------------------------------------------
 Qt Core C++ Project
- C++ project using Qt Core for core functionalities like QString, QTimer, QDateTime, QObject, and QCoreApplication, suitable for command-line (CLI) or background applications without GUI.
+ C++ project using Qt Core for core functionalities like QString, QTimer, QDateTime, QObject, and QCoreApplication, 
+ suitable for command-line (CLI) or background applications without GUI.
 
  🧪 Features You Can Use
         QCoreApplication – CLI event loop
