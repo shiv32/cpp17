@@ -8,7 +8,7 @@
 #include <random>
 #include <atomic>
 #include <map>
-#include <algorithm> // Fixes std::remove usage
+#include <algorithm>
 
 // ========== Observer Pattern ==========
 
@@ -17,6 +17,20 @@ class IObserver
 public:
     virtual void update(const std::string &sensorName, double value) = 0;
     virtual ~IObserver() = default;
+};
+
+// ========== Dashboard ==========
+
+class Dashboard : public IObserver
+{
+    std::mutex display_mutex;
+
+public:
+    void update(const std::string &sensorName, double value) override
+    {
+        std::lock_guard<std::mutex> lock(display_mutex);
+        std::cout << "[Dashboard] " << sensorName << ": " << value << std::endl;
+    }
 };
 
 class ISubject
@@ -63,6 +77,19 @@ public:
 
 // ========== Sensor ==========
 
+/**
+ * @brief 
+            Why use std::enable_shared_from_this<T>?
+                It solves a common problem: getting a shared_ptr to this from inside a class that is already managed by a shared_ptr.
+
+                public std::enable_shared_from_this<Sensor>
+
+                allows you to call:
+                
+                shared_from_this()
+
+ * 
+ */
 class Sensor : public ISubject, public std::enable_shared_from_this<Sensor>
 {
     std::string name;
@@ -73,8 +100,13 @@ class Sensor : public ISubject, public std::enable_shared_from_this<Sensor>
     std::atomic<bool> running{false};
 
 public:
-    Sensor(const std::string &name, std::unique_ptr<ISensorStrategy> strat)
-        : name(name), strategy(std::move(strat)) {}
+    Sensor(const std::string &name, 
+            std::unique_ptr<ISensorStrategy> strat)
+        : name(name), 
+          strategy(std::move(strat)) 
+        {
+
+        }
 
     void attach(std::shared_ptr<IObserver> observer) override
     {
@@ -91,6 +123,7 @@ public:
     void notify(double value) override
     {
         std::lock_guard<std::mutex> lock(mutex);
+
         for (auto &obs : observers)
         {
             obs->update(name, value);
@@ -100,6 +133,7 @@ public:
     void start()
     {
         running = true;
+
         worker = std::thread([this]()
                              {
             while (running) {
@@ -112,6 +146,7 @@ public:
     void stop()
     {
         running = false;
+        
         if (worker.joinable())
             worker.join();
     }
@@ -121,20 +156,6 @@ public:
     ~Sensor()
     {
         stop();
-    }
-};
-
-// ========== Dashboard ==========
-
-class Dashboard : public IObserver
-{
-    std::mutex display_mutex;
-
-public:
-    void update(const std::string &sensorName, double value) override
-    {
-        std::lock_guard<std::mutex> lock(display_mutex);
-        std::cout << "[Dashboard] " << sensorName << ": " << value << std::endl;
     }
 };
 
@@ -188,5 +209,6 @@ int main()
     }
 
     std::cout << "Shutting down dashboard.\n";
+
     return 0;
 }

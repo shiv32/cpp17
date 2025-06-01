@@ -1,21 +1,12 @@
+Sensor Monitoring Dashboard
 
-Project: Templated Stock Market Simulator
+Design Patterns Used
 
-🧠 What We are Adding:
-    Template-based Observer pattern: Generic Observer<T> and Subject<T>
-    Template-based Command pattern: Generic Command<T>
-    Simulated stock events via StockEvent struct
+Observer:       Monitor sensor data changes and notify alerts/loggers.
+Factory Method: Create different sensor types dynamically.
+Strategy:       Different data processing or filtering algorithms per sensor.
 
-✅ What This Version Shows:
-
-    Feature	                Template Use
-    Observer pattern	    Generic Observer<T>
-    Command pattern	        Generic Command<T>
-    Event system	        Uses StockEvent as data type
-    Reusability	            Can extend to Crypto, Forex, etc.
-
-🔄 Next Steps (Optional Enhancements):
-    Add MarketManager Singleton
-    Use Strategy pattern to vary price simulation
-    Log trades to file
-    Add user input (interactive simulation)
+//Future work
+Singleton:      Central SensorManager to register and manage sensors.
+Command:        Encapsulate sensor commands like calibrate, reset, start, stop.
+Decorator:      Add features to sensors like data smoothing or thresholds.
