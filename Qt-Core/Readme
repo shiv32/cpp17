@@ -1,5 +1,5 @@
 
-
+----------------------------------------------------------------------------------
 Qt Core C++ Project
  C++ project using Qt Core for core functionalities like QString, QTimer, QDateTime, QObject, and QCoreApplication, suitable for command-line (CLI) or background applications without GUI.
 
@@ -20,3 +20,16 @@ Qt Core C++ Project
 This installs Qt Core and other non-GUI essentials on Ubuntu 18.04 :
 
     sudo apt install qtbase5-dev
+-----------------------------------------------------------------------------------
+Qt Core includes core non-GUI functionality: event loop, string handling, object model, timers, file system access, etc.
+
+Qt Multimedia is a separate Qt module used for:
+       Audio and video playback
+       Recording
+       Camera support
+       Media device handling
+
+To use Qt5::Multimedia, you must install it explicitly:
+
+$sudo apt install qtmultimedia5-dev
+------------------------------------------------------------------------------------
