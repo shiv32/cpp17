@@ -1,0 +1,8 @@
+C++17 mini project implementing a Generic Cache System.
+
+✅ Design Patterns:
+    Pattern	    Purpose
+    Template	Cache for any Key, Value type
+    Strategy	Swap eviction policies (e.g., FIFO, LRU)
+    Singleton	Optional global cache (can disable if undesired)
+    Decorator	Easily add logging (extension-ready)
