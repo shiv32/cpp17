@@ -1,3 +1,6 @@
+
+Simple Markov Chain Simulator using C++:
+
 Modeling the stock market using Markov Chains is a fascinating way to study probabilistic behavior of stock price movements. 
 This technique is often used in quantitative finance to simulate or predict sequences of events based on historical trends.
 
