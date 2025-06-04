@@ -1,0 +1,9 @@
+🔧 Project: Sensor Reading Cache
+    A console-based, templated caching system to store and manage recent sensor readings using LRU + Logging.
+
+✅ Features:
+    Uses a SensorReading struct (e.g., temperature, humidity, timestamp).
+    Caches the most recent readings using LRU eviction.
+    Logs every cache access using the Decorator pattern.
+    Uses Factory, Strategy, and Template patterns.
+
