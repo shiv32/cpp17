@@ -2,14 +2,14 @@
 template <typename T>
 Grid<T>::~Grid()
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
 Grid<T>::Grid(size_t width, size_t height)
     : mWidth(width), mHeight(height)
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     mCells.resize(mWidth);
     for (auto &column : mCells)
@@ -39,7 +39,7 @@ const std::optional<T> &Grid<T>::at(size_t x, size_t y) const
 template <typename T>
 std::optional<T> &Grid<T>::at(size_t x, size_t y)
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     return const_cast<std::optional<T> &>(std::as_const(*this).at(x, y));
 }
 

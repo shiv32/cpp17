@@ -1,0 +1,7 @@
+/*
+
+Deriving from Class Templates
+    You can inherit from class templates. 
+    If the derived class inherits from the template itself, it must be a template as well.
+
+*/
