@@ -8,7 +8,7 @@ std::unique_ptr<GamePiece> ChessPiece::clone() const
     return std::make_unique<ChessPiece>(*this);
 }
 
-void ChessPiece::status() 
+void ChessPiece::status() const
 {
     std::cout<<"pawn"<<std::endl;
 }

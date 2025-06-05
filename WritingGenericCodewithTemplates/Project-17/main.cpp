@@ -8,6 +8,20 @@ g++ -std=c++17 main.cpp chesspiece.cpp -o test
 #include "grid.hpp"
 #include "chesspiece.hpp"
 
+void pawnStatus(const GameBoard<ChessPiece> &chessBoard)
+{
+    if (chessBoard.at(0, 0).has_value())
+    {
+        std::cout << "(0,0) : ";
+        chessBoard.at(0, 0).value().status();
+    }
+    else if (chessBoard.at(0, 1).has_value())
+    {
+        std::cout << "(0,1) : ";
+        chessBoard.at(0, 1).value().status();
+    }
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -22,31 +36,10 @@ int main()
     ChessPiece pawn;
 
     chessBoard.at(0, 0) = pawn;
-
-    if (chessBoard.at(0, 0).has_value())
-    {
-        std::cout << "(0,0) : ";
-        chessBoard.at(0, 0).value().status();
-    }
-    else
-    {
-        std::cout << "No pawn found at (0,0)" << std::endl;
-    }
+    pawnStatus(chessBoard);
 
     chessBoard.move(0, 0, 0, 1);
-
-    if (chessBoard.at(0, 0).has_value())
-    {
-        std::cout << "(0,0) : ";
-        chessBoard.at(0, 0).value().status();
-    }
-    else
-    {
-        std::cout << "No pawn found at (0,0)" << std::endl;
-
-        std::cout << "(0,1) : ";
-        chessBoard.at(0, 1).value().status();
-    }
+    pawnStatus(chessBoard);
 
     std::cout << std::endl;
 
