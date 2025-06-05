@@ -4,4 +4,12 @@ Deriving from Class Templates
     You can inherit from class templates. 
     If the derived class inherits from the template itself, it must be a template as well.
 
+Inheritance versus Specialization
+    Derived classes contain all base class data members and methods.
+    you must rewrite all required code in the specialization.
+
+NOTE 
+    Use inheritance for extending implementations and for polymorphism.
+    Use specialization for customizing implementations for particular types.
+
 */
