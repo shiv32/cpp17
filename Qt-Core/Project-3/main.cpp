@@ -23,7 +23,11 @@ int main(int argc, char *argv[])
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+    /*
+    for event loop (signals/slots, timers, asynchronous operations)
+   */
     QCoreApplication app(argc, argv);
+
     Door door;
 
     QStateMachine machine;
@@ -71,7 +75,7 @@ int main(int argc, char *argv[])
     machine.addState(opening);
     machine.addState(open);
     machine.addState(closing);
-    
+
     machine.setInitialState(closed);
     machine.start();
 
