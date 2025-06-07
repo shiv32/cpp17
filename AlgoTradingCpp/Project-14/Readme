@@ -1,0 +1,19 @@
+Stock Market Data API
+
+-----------------------------------------------------------
+Free 3rd-party APIs:
+
+Alpha Vantage                   https://www.alphavantage.co/
+Twelve Data                     https://twelvedata.com/
+Yahoo Finance (via RapidAPI)    https://rapidapi.com/
+
+Note : You need API KEY from above source. Use same key in code.
+---------------------------------------------------------------
+
+-----------------------------------------------------
+Requirements 
+
+Ubuntu 18.04
+
+sudo apt install rapidjson-dev libcurl4-openssl-dev
+------------------------------------------------------
