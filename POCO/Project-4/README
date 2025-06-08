@@ -1,0 +1,12 @@
+Project: Contact Management Console App (C++17 + POCO + SQLite)
+This is a standard C++17 mini project demonstrating a Contact Management System using the POCO C++ Libraries with an SQLite backend.
+
+🔧 Features
+    CRUD operations (Create, Read, Update, Delete)
+    Uses POCO Data and SQLite connector
+
+Demonstrates usage of Design Patterns:
+    DAO (Data Access Object) – Encapsulates DB logic
+    Command Pattern – Handles user commands modularly
+    Singleton Pattern – Manages database session
+
