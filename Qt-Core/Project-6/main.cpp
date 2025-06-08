@@ -44,11 +44,14 @@ public:
         if (role == Qt::DisplayRole)
         {
             const Contact &c = m_contacts[index.row()];
+
             if (index.column() == 0)
                 return c.name;
             else if (index.column() == 1)
                 return c.phone;
+
         }
+        
         return QVariant();
     }
 

@@ -1,0 +1,14 @@
+
+C++17 mini project using POCO libraries with design patterns.
+
+We'll do a simple HTTP REST Client example using:
+    Singleton Pattern (for HTTP client manager)
+    Factory Pattern (to create HTTP requests)
+    Observer Pattern (to notify on response)
+    Command Pattern (to execute requests)
+
+How this works:
+    Singleton: HttpClientManager manages HTTP sessions.
+    Factory: HttpRequestFactory creates HTTP requests by method and URI.
+    Command: HttpGetCommand encapsulates the GET request execution.
+    Observer: ConsoleResponseObserver is notified once a response is received and prints it.
