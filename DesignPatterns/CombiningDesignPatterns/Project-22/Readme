@@ -1,0 +1,21 @@
+🛠️ Project Name: Task Scheduler Console App
+
+✅ Overview
+    A console-based task scheduler that lets users add tasks (like printing messages or executing simple math functions) 
+    with simulated time delays.
+
+🧱 Design Patterns:
+    Command (for task encapsulation)
+    Singleton (for scheduler instance)
+    Factory Method (for creating tasks)
+    Observer (to notify on task status change)
+
+🔗 std::bind to bind task functions with arguments and delay
+
+
+Note:
+    Prefer lambdas over std::bind in modern C++ (C++11 and later)
+    unless you're doing something that lambdas can't express easily.
+
+
+
