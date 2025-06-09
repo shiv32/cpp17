@@ -1,0 +1,22 @@
+/*
+
+CONTAINER ADAPTORS
+  In addition to the standard sequential containers, 
+  the Standard Library provides three container adaptors: queue, priority_queue, and stack. 
+  Each of these adaptors is a wrapper around one of the sequential containers.
+
+  queue
+    The queue container adaptor, defined in the header file <queue>, 
+    provides standard “first-in, first-out” (FIFO) semantics. 
+
+  queue Operations
+    
+    WARNING 
+      pop() does not return the element popped. 
+      If you want to retain a copy, you must first retrieve it with front().
+
+  queue Example: A Network Packet Buffer
+    When two computers communicate over a network, they send information to each other divided up into discrete chunks called packets. 
+    The packets should be processed in the order they arrive, so this problem is perfect for a queue structure.
+
+*/
