@@ -12,6 +12,20 @@ public:
     virtual ~ITask() = default;
 };
 
+// ===== Concrete Task =====
+class FunctionTask : public ITask
+{
+    std::function<void()> func;
+
+public:
+    FunctionTask(std::function<void()> f) : func(std::move(f)) {}
+
+    void execute() override
+    {
+        func();
+    }
+};
+
 // ===== Observer Interface =====
 class IObserver
 {
@@ -30,19 +44,6 @@ public:
     }
 };
 
-// ===== Concrete Task =====
-class FunctionTask : public ITask
-{
-    std::function<void()> func;
-
-public:
-    FunctionTask(std::function<void()> f) : func(std::move(f)) {}
-    void execute() override
-    {
-        func();
-    }
-};
-
 // ===== Factory using std::bind =====
 class TaskFactory
 {
@@ -50,6 +51,7 @@ public:
     static void printMessage(const std::string &msg, std::shared_ptr<IObserver> obs)
     {
         std::cout << "[Task] " << msg << std::endl;
+
         if (obs)
             obs->onTaskExecuted(msg);
     }
@@ -57,7 +59,9 @@ public:
     static void addNumbers(int a, int b, std::shared_ptr<IObserver> obs)
     {
         int result = a + b;
+
         std::cout << "[Task] Sum = " << result << std::endl;
+
         if (obs)
             obs->onTaskExecuted("MathTask: " + std::to_string(result));
     }
@@ -97,12 +101,14 @@ public:
     void run()
     {
         std::cout << "=== Running Scheduled Tasks ===\n";
+
         for (const auto &task : tasks)
         {
             task->execute();
         }
     }
 
+    // Disable copy
     Scheduler(const Scheduler &) = delete;
     Scheduler &operator=(const Scheduler &) = delete;
 };

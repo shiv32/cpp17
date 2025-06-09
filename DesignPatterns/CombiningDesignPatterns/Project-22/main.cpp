@@ -19,6 +19,7 @@ class PrintTask : public ITask
 
 public:
     PrintTask(std::function<void()> f) : func(std::move(f)) {}
+
     void execute() override
     {
         func();
@@ -49,19 +50,25 @@ class TaskFactory
 public:
     static std::shared_ptr<ITask> createPrintTask(const std::string &msg, std::shared_ptr<IObserver> observer = nullptr)
     {
-        return std::make_shared<PrintTask>([msg, observer]()
-                                           {
-            std::cout << "[Task] " << msg << std::endl;
-            if (observer) observer->onTaskExecuted(msg); });
+        return std::make_shared<PrintTask>(
+                                                [msg, observer]()
+                                                {
+                                                    std::cout << "[Task] " << msg << std::endl;
+                                                    if (observer) observer->onTaskExecuted(msg); 
+                                                }
+                                        );
     }
 
     static std::shared_ptr<ITask> createMathTask(int a, int b, std::shared_ptr<IObserver> observer = nullptr)
     {
-        return std::make_shared<PrintTask>([a, b, observer]()
-                                           {
-            int result = a + b;
-            std::cout << "[Task] " << a << " + " << b << " = " << result << std::endl;
-            if (observer) observer->onTaskExecuted("MathTask: " + std::to_string(result)); });
+        return std::make_shared<PrintTask>(
+                                                [a, b, observer]()
+                                                {
+                                                    int result = a + b;
+                                                    std::cout << "[Task] " << a << " + " << b << " = " << result << std::endl;
+                                                    if (observer) observer->onTaskExecuted("MathTask: " + std::to_string(result)); 
+                                                }
+                                        );
     }
 };
 
@@ -87,6 +94,7 @@ public:
     void run()
     {
         std::cout << "=== Running Scheduled Tasks ===\n";
+        
         for (const auto &task : tasks)
         {
             task->execute();
