@@ -87,7 +87,8 @@ int main()
         {
         case 1:
         {
-            MyPair<int, string> p(100, "Shiv");
+            // MyPair<int, string> p(100, "Shiv");
+            MyPair p(100, "Shiv"); //C++ 17 feature ctor deduce
             p.display();
             break;
         }
@@ -115,7 +116,8 @@ int main()
         }
         case 4:
         {
-            Calculator<float> calc(10.5f, 4.2f);
+            // Calculator<float> calc(10.5f, 4.2f);
+            Calculator calc(10.5f, 4.2f); //C++ 17 feature ctor deduce
             cout << "Add: " << calc.add() << ", Subtract: " << calc.subtract() << endl;
 
             break;

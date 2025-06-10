@@ -23,8 +23,10 @@ template <typename T>
 void printArray(T arr[], int size)
 {
     cout << "Array: ";
+
     for (int i = 0; i < size; ++i)
         cout << arr[i] << " ";
+
     cout << endl;
 }
 
@@ -97,10 +99,13 @@ int main()
         case 5:
         {
             Stack<string> s;
+
             s.push("Hello");
             s.push("World");
+
             while (!s.isEmpty())
                 cout << "Pop: " << s.pop() << endl;
+                
             break;
         }
         case 0:
