@@ -1,3 +1,15 @@
 Generic Repository System
     Simulates a simple in-memory data repository (like a database DAO) using class templates to store 
     and manage different types of data (e.g., User, Product).
+
+🔧 Key Features
+    Repository<T> template class manages any entity type.
+    CRUD operations: add(), remove(), findById(), listAll().
+    Works for any struct/class with an id field.
+
+🧠 Concepts Used
+    Class templates to create a generic repository
+    Function templates (implicitly through lambdas)
+    Custom operator<< for clean output
+    Modern C++ STL (e.g., std::remove_if, std::vector)
+
