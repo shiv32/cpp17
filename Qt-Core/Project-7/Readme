@@ -1,0 +1,37 @@
+QtMocExample
+
+In **Qt**, `moc` stands for **Meta-Object Compiler**. It is a **code generator** that enables Qt's key features like:
+
+* `QObject` inheritance
+* **Signals and slots** mechanism
+* **Run-time type information**
+* **Dynamic property system**
+
+---
+
+## ✅ What `moc` Does
+
+When you define a class with `Q_OBJECT`, `moc` parses your header/source files and generates C++ code that:
+
+* Implements **signal/slot connections**
+* Provides metadata for reflection
+* Enables dynamic method invocation
+
+---
+
+## ⚠️ Required:
+
+* Any class that uses **signals or slots** or Qt’s meta-object system **must have `Q_OBJECT` macro**
+* That class must be processed by `moc`
+
+---
+
+## 🧠 Summary
+
+| Feature                           | Requires `moc`? |
+| --------------------------------- | --------------- |
+| QObject with `Q_OBJECT`           | ✅ Yes           |
+| Signals/slots                     | ✅ Yes           |
+| Regular Qt classes like `QString` | ❌ No            |
+
+---
