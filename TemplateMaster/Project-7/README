@@ -1,0 +1,3 @@
+Generic Repository System
+    Simulates a simple in-memory data repository (like a database DAO) using class templates to store 
+    and manage different types of data (e.g., User, Product).
