@@ -6,8 +6,10 @@ class Database {
 private:
     sqlite3* db;
     Database();
+
     Database(const Database&) = delete;
     Database& operator=(const Database&) = delete;
+    
 public:
     static Database& getInstance();
     sqlite3* getConnection();

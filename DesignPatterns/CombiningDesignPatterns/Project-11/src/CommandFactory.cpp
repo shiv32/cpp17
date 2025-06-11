@@ -17,8 +17,6 @@ public:
         std::cin.ignore();
         std::getline(std::cin, name);
 
-        // std::cout << "Enter mobile: ";
-        // std::getline(std::cin, mobile);
         while (true)
         {
             std::cout << "Enter mobile: ";
@@ -41,6 +39,7 @@ public:
     {
         int id;
         std::string name, mobile;
+
         std::cout << "Enter ID to update: ";
         std::cin >> id;
         std::cin.ignore();
@@ -48,6 +47,7 @@ public:
         std::getline(std::cin, name);
         std::cout << "Enter new mobile: ";
         std::getline(std::cin, mobile);
+
         PersonDAO().updatePerson(id, name, mobile);
     }
 };
@@ -58,8 +58,10 @@ public:
     void execute() override
     {
         int id;
+
         std::cout << "Enter ID to delete: ";
         std::cin >> id;
+
         PersonDAO().deletePerson(id);
     }
 };
@@ -70,6 +72,7 @@ public:
     void execute() override
     {
         auto people = PersonDAO().listPeople();
+        
         for (const auto &p : people)
         {
             std::cout << "ID: " << p.id << ", Name: " << p.name << ", Mobile: " << p.mobile << std::endl;
