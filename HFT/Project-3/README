@@ -1,0 +1,17 @@
+Simple High-Frequency Trading (HFT)-style beginner mini project in C++17, 
+designed to simulate a basic market data receiver + trading signal + order execution loop. 
+It focuses on logic — not real trading speed — so it's safe for beginners.
+
+📈 HFT Mini Project in C++17 – "MicroTrader Sim"
+
+✅ Features:
+    Simulates price feed (like a market tick stream)
+    Uses a basic moving average strategy
+    Executes "buy" or "sell" signals
+    Applies design patterns: Strategy, Observer, Factory
+    Uses only standard C++17 (no external libs)
+
+    Pattern	    Usage
+    Observer	MarketDataFeed notifies Trader
+    Strategy	MovingAverageStrategy encapsulates signal logic
+    Factory	    StrategyFactory creates strategies dynamically

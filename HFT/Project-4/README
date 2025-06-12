@@ -1,0 +1,16 @@
+
+⚡ Project: HFT Signal Engine Simulator
+
+🎯 Goal: Build a low-latency simulation engine that:
+            Receives real-time market data
+            Computes simple signals (like momentum or mean-reversion)
+            Sends orders based on strategy
+            Measures simulated latency (in nanoseconds)
+
+        Design Pattern	            Used For
+        Factory	                    To create strategies and commands
+        Command	                    Encapsulate order send logic
+        Strategy	                Define trading logic
+        Observer	                Market feed → trader
+        Data Model	                Order struct
+        Separation of Concerns	    Modular classes for strategy, trader, command, feed, etc.
