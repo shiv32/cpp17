@@ -1,0 +1,6 @@
+Minimal C++ Example: Thread Control via CLI
+
+🎯 Goal:
+    Start a background thread (e.g., printing message every second)
+    Stop it using a command
+    Avoid undefined behavior with thread join/detach
