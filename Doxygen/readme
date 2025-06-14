@@ -40,6 +40,17 @@ set the attribute in Doxyfile file like
 INPUT = ../
 FILE_PATTERNS = *.hpp \
                 *.cpp 
+---------------------------------------------------------------------------
+Edit Doxyfile:
+
+EXTRACT_ALL       = YES
+HAVE_DOT          = YES
+CALL_GRAPH        = YES
+CALLER_GRAPH      = YES
+UML_LOOK          = YES
+CLASS_DIAGRAMS    = YES
+DOT_PATH          = /usr/bin/dot
+----------------------------------------------------------------------------
 
 You can invoke Doxygen by simply running:
 
