@@ -95,11 +95,13 @@ You should now notice two newly created folders:
     html/
     latex/
 
-now go to html directory and type
+now in docs directory type
 
-firefox index.html
+xdg-open html/index.html
+or
+firefox html/index.html
 
-page will open in firefox browser
+page will open in browser
 -----------------------------------------------------------------------
 
 Ref:
