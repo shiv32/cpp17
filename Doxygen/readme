@@ -40,7 +40,7 @@ set the attribute in Doxyfile file like
 INPUT = ../
 FILE_PATTERNS = *.hpp \
                 *.cpp 
----------------------------------------------------------------------------
+====================================================================================================
 Edit Doxyfile:
 
 EXTRACT_ALL       = YES
@@ -51,6 +51,40 @@ UML_LOOK          = YES
 CLASS_DIAGRAMS    = YES
 DOT_PATH          = /usr/bin/dot
 ----------------------------------------------------------------------------
+# Input/output
+RECURSIVE           = YES
+FILE_PATTERNS       = *.cpp *.h *.hpp *.cxx *.cc
+
+# Extraction
+EXTRACT_ALL         = YES
+EXTRACT_PRIVATE     = YES
+EXTRACT_STATIC      = YES
+EXTRACT_LOCAL_CLASSES = YES
+EXTRACT_ANON_NSPACES  = YES
+
+# Class diagrams and relationships
+HAVE_DOT            = YES
+CLASS_DIAGRAMS      = YES
+UML_LOOK            = YES
+COLLABORATION_GRAPH = YES
+CALL_GRAPH          = YES
+CALLER_GRAPH        = YES
+INCLUDE_GRAPH       = YES
+INCLUDED_BY_GRAPH   = YES
+
+# Dot tool path
+DOT_PATH            = /usr/bin
+DOT_GRAPH_MAX_NODES = 50
+
+# Image formats
+DOT_IMAGE_FORMAT    = svg
+INTERACTIVE_SVG     = YES
+
+# Output directory
+OUTPUT_DIRECTORY    = ./
+GENERATE_HTML       = YES
+GENERATE_LATEX      = NO
+===================================================================================================
 
 You can invoke Doxygen by simply running:
 
