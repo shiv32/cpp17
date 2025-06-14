@@ -22,13 +22,21 @@ Run the executable and control playback via keyboard commands.
 Build and Run player:
 Note: need gcc-11
 
-$mkdir build
-$cd build
+Set kit or Toolchain
 
-$cmake -DCMAKE_C_COMPILER=/home/linuxbrew/.linuxbrew/bin/gcc-11 -DCMAKE_CXX_COMPILER=/home/linuxbrew/.linuxbrew/bin/g++-11 ..
-$make
+1.  Preferred
+    
+    Press Ctrl+Shift+P → CMake: Select a Kit
+    select /home/linuxbrew/.linuxbrew/bin/g++-11
 
-$./sfml-app
+2.
+    $mkdir build
+    $cd build
+
+    $cmake -DCMAKE_C_COMPILER=/home/linuxbrew/.linuxbrew/bin/gcc-11 -DCMAKE_CXX_COMPILER=/home/linuxbrew/.linuxbrew/bin/g++-11 ..
+    $make
+
+    $./sfml-app
 ------------------------------------------
 Ref:
 The Missing Package Manager for macOS (or Linux)

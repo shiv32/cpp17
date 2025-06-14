@@ -1,0 +1,19 @@
+📦 Project: DBMigrator – C++ CLI-based DB Versioning Tool
+
+✅ Features:
+    Versioned SQL migration scripts (001_init.sql, 002_add_users.sql, etc.)
+    Applies only unapplied migrations
+    Stores migration history in a special table
+    Simple CLI: apply, status, reset
+
+
+Project Structure
+
+    DBMigrator/
+    ├── CMakeLists.txt
+    ├── main.cpp
+    ├── db_migrator.cpp
+    ├── db_migrator.h
+    └── migrations/
+        ├── 001_init.sql
+        └── 002_add_users.sql
