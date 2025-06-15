@@ -1,0 +1,32 @@
+
+QuantLib: a free/open-source library for quantitative finance
+URL: https://www.quantlib.org/
+
+=========================================================================
+installation: (Tested on Ubuntu 20)
+
+sudo apt update
+sudo apt install build-essential git cmake libboost-all-dev
+
+# Clone the official QuantLib repository
+git clone https://github.com/lballabio/quantlib.git
+cd quantlib
+
+# Create a build directory
+mkdir build && cd build
+
+# Configure with CMake
+cmake ..
+
+# Build the library
+make -j$(nproc)
+
+# (Optional) Install system-wide
+sudo make install
+==========================================================================
+
+$g++ -std=c++17 main.cpp -o test -lQuantLib
+$export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+$./test
+
+========================================================================
