@@ -30,3 +30,4 @@ $export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 $./test
 
 ========================================================================
+scp shiv@192.168.xx.xx:/home/shiv/quantlib-test/* .
