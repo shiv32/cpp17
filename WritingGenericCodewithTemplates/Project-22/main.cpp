@@ -14,6 +14,16 @@
 
 using namespace std;
 
+using optionalValue = std::optional<size_t>;
+
+void printValue(const optionalValue &res)
+{
+    if (res.has_value())
+        cout << "index : " << res.value() << endl;
+    else
+        cout << "Not found" << endl;
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -22,21 +32,15 @@ int main()
     const char *words[] = {"one", "two", "three", "four"};
     const size_t sizeWords = std::size(words);
 
-    std::optional<size_t> res;
+    optionalValue res;
 
     res = Find<const char *>(word, words, sizeWords); // Calls const char* specialization
 
-    if (res.has_value())
-        cout << "index : " << res.value() << endl;
-    else
-        cout << "Not found" << endl;
+    printValue(res);
 
     res = Find(word, words, sizeWords); // Calls non-template function
 
-    if (res.has_value())
-        cout << "index : " << res.value() << endl;
-    else
-        cout << "Not found" << endl;
+    printValue(res);
 
     return 0;
 }
