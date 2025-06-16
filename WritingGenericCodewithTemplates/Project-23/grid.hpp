@@ -4,18 +4,17 @@
 #include <iostream>
 #include <optional>
 
-/*
-//when operator+ is friend
+// when operator+ is friend ---------------------------
+//friend function in C++ can access private and protected members of a class.
 
 // Forward declare Grid template
-template <typename T>
-class Grid;
+template <typename T> class Grid;
 
 // Prototype for templatized operator+
 template <typename T>
 Grid<T> operator+(const Grid<T> &lhs, const Grid<T> &rhs);
 
-*/
+//------------------------------------------------------
 
 template <typename T>
 class Grid
@@ -43,13 +42,12 @@ public:
     static const size_t kDefaultWidth = 10;
     static const size_t kDefaultHeight = 10;
 
-    //friend Grid<T> operator+ <T>(const Grid<T> &lhs, const Grid<T> &rhs);
+    //friend
+    friend Grid<T> operator+ <T>(const Grid<T> &lhs, const Grid<T> &rhs);
 
 private:
     void verifyCoordinate(size_t x, size_t y) const;
-
     std::vector<std::vector<std::optional<T>>> mCells;
-
     size_t mWidth, mHeight;
 };
 

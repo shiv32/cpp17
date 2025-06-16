@@ -2,14 +2,14 @@
 template <typename T>
 Grid<T>::~Grid()
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
 Grid<T>::Grid(size_t width, size_t height)
     : mWidth(width), mHeight(height)
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     mCells.resize(mWidth);
     for (auto &column : mCells)
@@ -39,14 +39,16 @@ const std::optional<T> &Grid<T>::at(size_t x, size_t y) const
 template <typename T>
 std::optional<T> &Grid<T>::at(size_t x, size_t y)
 {
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
     return const_cast<std::optional<T> &>(std::as_const(*this).at(x, y));
 }
 
-//Overload operator+ in template
+// Overload operator+ in template
 template <typename T>
 Grid<T> operator+(const Grid<T> &lhs, const Grid<T> &rhs)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     size_t minWidth = std::min(lhs.getWidth(), rhs.getWidth());
     size_t minHeight = std::min(lhs.getHeight(), rhs.getHeight());
 
@@ -56,13 +58,14 @@ Grid<T> operator+(const Grid<T> &lhs, const Grid<T> &rhs)
     {
         for (size_t x = 0; x < minWidth; ++x)
         {
-            // when operator+ is no friend
-            const auto &leftElement = lhs.at(x, y);
-            const auto &rightElement = rhs.at(x, y);
+            // when operator+ is no friend, i.e. Overload
+            // const auto &leftElement = lhs.at(x, y);
+            // const auto &rightElement = rhs.at(x, y);
 
             // when operator+ is friend
-            // const auto &leftElement = lhs.mCells[x][y];
-            // const auto &rightElement = rhs.mCells[x][y];
+            // friend function in C++ can access private and protected members of a class.
+            const auto &leftElement = lhs.mCells[x][y];
+            const auto &rightElement = rhs.mCells[x][y];
 
             if (leftElement.has_value() && rightElement.has_value())
                 result.at(x, y) = leftElement.value() + rightElement.value();

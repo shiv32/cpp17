@@ -1,0 +1,10 @@
+/*
+Friend Function Templates of Class Templates
+    Function templates are useful when you want to overload operators in a class template.
+    The only problem with this implementation is that it accesses private member mCells of the Grid class.
+
+    You can make a function template a friend of a class template.
+    friend function in C++ can access private and protected members of a class.
+
+    g++ -std=c++17 main.cpp -o test && ./test && rm test
+*/
