@@ -1,0 +1,13 @@
+ 
+Project Summary
+    This C++ project uses QuantLib to price a fixed-rate bond and demonstrates the Strategy Design Pattern.
+
+    FixedRateBondWrapper: Wraps a QuantLib bond.
+    DiscountingStrategy: Calculates bond price using a yield curve.
+    BondPricer: Applies any pricing strategy to a bond.
+
+🔧 Why?
+    To allow flexible pricing methods (e.g., discounting, yield-to-maturity) without changing core logic.
+
+💡 Real Use:
+    Used in finance apps to model and price bonds using pluggable strategies.
