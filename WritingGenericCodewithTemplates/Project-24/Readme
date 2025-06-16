@@ -1,0 +1,5 @@
+
+More on Template Parameter Deduction
+    The compiler deduces the type of the template parameters based on the arguments passed to the function template.
+
+    g++ -std=c++17 main.cpp -o test
