@@ -1,0 +1,32 @@
+Basic CLI-based "Shooter Game Loop" inspired by Unreal Engine concepts.
+
+🎯 Simulation Goal
+    Create a text-based shooter prototype in console using C++. This includes:
+        Player with health and ammo
+        Enemy with health
+        Game loop
+        Actions: Shoot, Reload, Exit
+        Simulate ticking like Unreal's Tick()
+        Uses OOP (like UE Actor/Component system)
+
+✅ Design Patterns Used
+        Pattern	        Purpose
+        Command	        Encapsulate user actions (Shoot, Reload, Quit)
+        Strategy	    Plug in enemy behaviors dynamically
+        Observer	    Notify game state (e.g., death events)
+        Singleton	    Manage global game state
+        Factory	        Create commands dynamically based on input
+
+🧠 What’s Happening Behind the Scenes?
+        Design Pattern	    Where It's Used
+        Singleton	        GameManager handles global state and notifications
+        Command	            All user actions are encapsulated as command objects
+        Strategy	        Enemy behavior is easily swappable via EnemyStrategy
+        Observer	        ConsoleNotifier observes and reacts to game events
+        Factory	            CommandFactory builds commands dynamically by input
+
+Future work:
+    Score system.
+    Weapon switching (more Strategy).
+    Game save/load with Memento or Prototype patterns.
+
