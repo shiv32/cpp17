@@ -1,0 +1,29 @@
+
+Prebuilt PDFium from GitHub
+
+https://github.com/bblanchon/pdfium-binaries?tab=readme-ov-file
+
+Tested on ubuntu 18 -->
+
+1. download "pdfium-linux-x64.tgz"
+
+from  https://github.com/bblanchon/pdfium-binaries/releases/latest/download/pdfium-linux-x64.tgz
+
+2. extract pdfium-linux-x64.tgz 
+
+3. and copy lib and inlcude dir from extract file to your project
+
+4. done
+----------------------------------------------------------------
+📦 Install ImageMagick (if not installed):
+
+sudo apt install imagemagick
+
+🔁 Convert:
+
+convert page0.ppm page0.png
+
+Or for higher quality (optional):
+
+convert page0.ppm -quality 100 page0.png
+---------------------------------------------------------------
