@@ -46,14 +46,6 @@ public:
     void operator=(GameManager const &) = delete;
 };
 
-// ==== Command Pattern ====
-class Command
-{
-public:
-    virtual void execute() = 0;
-    virtual ~Command() = default;
-};
-
 class Player
 {
     int health = 100;
@@ -83,7 +75,9 @@ public:
     void takeDamage(int dmg)
     {
         health -= dmg;
+
         std::cout << "You took " << dmg << " damage. Health: " << health << "\n";
+
         if (health <= 0)
         {
             GameManager::getInstance().notify("Player Died");
@@ -95,6 +89,14 @@ public:
     {
         std::cout << "[Player] Health: " << health << ", Ammo: " << ammo << "\n";
     }
+};
+
+// ==== Command Pattern ====
+class Command
+{
+public:
+    virtual void execute() = 0;
+    virtual ~Command() = default;
 };
 
 class ShootCommand : public Command
@@ -186,6 +188,7 @@ class Enemy
 
 public:
     Enemy(std::unique_ptr<EnemyStrategy> s) : strategy(std::move(s)) {}
+    
     void act(Player &player)
     {
         strategy->attack(player);
@@ -198,6 +201,7 @@ int main()
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
     
     srand(static_cast<unsigned int>(time(0)));
+
     Player player;
     GameManager::getInstance().observer = std::make_shared<ConsoleNotifier>();
     CommandFactory factory(player);
@@ -207,16 +211,19 @@ int main()
     {
         player.status();
         std::cout << "Enter [S]hoot [R]eload [Q]uit: ";
+
         char input;
         std::cin >> input;
 
         auto cmd = factory.create(input);
+
         if (cmd)
             cmd->execute();
         else
             std::cout << "Unknown command.\n";
 
         enemy.act(player);
+        
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 

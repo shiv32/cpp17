@@ -20,10 +20,10 @@ Basic CLI-based "Shooter Game Loop" inspired by Unreal Engine concepts.
 🧠 What’s Happening Behind the Scenes?
         Design Pattern	    Where It's Used
         Singleton	        GameManager handles global state and notifications
-        Command	            All user actions are encapsulated as command objects
+        Command	                All user actions are encapsulated as command objects
         Strategy	        Enemy behavior is easily swappable via EnemyStrategy
         Observer	        ConsoleNotifier observes and reacts to game events
-        Factory	            CommandFactory builds commands dynamically by input
+        Factory	                CommandFactory builds commands dynamically by input
 
 Future work:
     Score system.
