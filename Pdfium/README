@@ -1,4 +1,28 @@
 
+PDFium
+    PDFium is an open-source PDF rendering engine and library developed by Google, 
+    primarily known for its use in Google Chrome and other applications.
+
+    PDFium is primarily written in C++, and its core functionality is exposed through C++ APIs. 
+
+Key Features and Capabilities:
+    PDF Rendering
+    Text and Image Extraction
+    PDF Creation and Manipulation
+    Form Handling
+    JavaScript Support
+    Open Source
+
+Use Cases:
+    Web Browsers
+    Document Viewers and Editors
+    Applications Needing PDF Functionality
+
+URL:
+    https://pdfium.googlesource.com/pdfium/
+
+
+============================================================================
 Prebuilt PDFium from GitHub
 
 https://github.com/bblanchon/pdfium-binaries?tab=readme-ov-file
@@ -26,4 +50,4 @@ convert page0.ppm page0.png
 Or for higher quality (optional):
 
 convert page0.ppm -quality 100 page0.png
----------------------------------------------------------------
+-----------------------------------------------------------------
