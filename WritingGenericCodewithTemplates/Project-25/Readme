@@ -1,0 +1,7 @@
+
+Return Type of Function Templates
+    Let the compiler deduce the type of the return value. 
+    The return type depends on the template type parameters.
+
+g++ -std=c++17 main.cpp -o test
+

@@ -24,9 +24,9 @@ decltype(t1 + t2) add3(const T1 &t1, const T2 &t2)
     return t1 + t2;
 }
 */
-
+// alternative function syntax
 template <typename T1, typename T2>
-auto add4(const T1 &t1, const T2 &t2) -> decltype(t1 + t2)
+auto add4(const T1 &t1, const T2 &t2) -> decltype(t1 + t2)//trailing return type
 {
     return t1 + t2;
 }
