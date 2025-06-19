@@ -1,0 +1,20 @@
+🎯 Mini Project: UnrealConsoleSim
+
+A simplified simulation of Unreal Engine using design patterns, 
+all in the console (CLI), with the following features:
+
+    Actors and Components (Composite Pattern)
+    Game Loop (Template Method)
+    Input Command System (Command Pattern)
+    Event System (Observer Pattern)
+    Actor Factory (Factory Method Pattern)
+    Global Engine Instance (Singleton Pattern)
+
+
+Game "UnrealConsoleSim" is a console-based simulation inspired by Unreal Engine's architecture, written in C++17.
+
+🎮 Game Summary (Short):
+A text-based simulation where you control and update Actor objects (like a hero) in a simple game world. 
+Each Actor has a Tick() method that updates its state per frame, mimicking Unreal Engine’s game loop.
+
+
