@@ -1,0 +1,11 @@
+This Dungeon Crawler is a simple C++17 console-based rogue-like game. 
+You control a player navigating a grid-based dungeon filled with enemies. 
+The key features include:
+
+        Player movement using keyboard input.
+        Enemies with behavior patterns (like chasing the player).
+        Turn-based logic where each entity (player/enemy) acts in a game loop.
+        Polymorphism & smart pointers to manage actors.
+        Design patterns like Strategy (for enemy AI), and Singleton (for the game engine).
+
+It's a small CLI game to explore OOP and game loop design in C++.
