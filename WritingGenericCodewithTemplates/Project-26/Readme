@@ -1,0 +1,8 @@
+
+VARIABLE TEMPLATES
+    In addition to class templates, class method templates, and function templates, 
+    C++14 adds the ability to write variable templates.
+    Variable templates can also be specialized.
+
+g++ -std=c++17 main.cpp -o test
+
