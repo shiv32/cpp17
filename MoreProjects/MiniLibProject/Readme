@@ -1,0 +1,21 @@
+A simple Linux C++ mini project that shows how to:
+
+    Create a static library (libmaths.a)
+    Create a dynamic/shared library (liblogger.so)
+    Link both in a main project using CMake
+
+
+Project Structure:
+
+    MiniLibProject/
+    ├── CMakeLists.txt
+    ├── main.cpp
+    ├── maths/
+    │   ├── CMakeLists.txt
+    │   ├── maths.cpp
+    │   └── maths.h
+    └── logger/
+        ├── CMakeLists.txt
+        ├── logger.cpp
+        └── logger.h
+

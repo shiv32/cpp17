@@ -1,0 +1,52 @@
+**difference between static and shared (dynamic) libraries in C++** — with when to use each in a project.
+
+---
+
+## 📚 Static Library vs Shared Library
+
+| Feature            | **Static Library** (`.a`)                                           | **Shared/ Dynamic Library** (`.so`)                         |
+| ------------------ | ------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **Linking Time**   | Linked at **compile time**                                          | Linked at **runtime** (or load time)                        |
+| **File Size**      | Increases **executable size** (library code copied into executable) | Smaller executable (code stays in `.so`)                    |
+| **Performance**    | Slightly faster at runtime (no need to resolve symbols dynamically) | Slight overhead during startup                              |
+| **Update / Patch** | Need to **recompile** the app if library changes                    | Just replace `.so` without recompiling the app              |
+| **Portability**    | Easier to distribute (all-in-one binary)                            | Harder (you must ship the `.so` too or install system-wide) |
+| **Memory Usage**   | Each process has its own copy in memory                             | Can be **shared in RAM** by multiple processes              |
+| **Name Extension** | `.a` (Unix) / `.lib` (Windows)                                      | `.so` (Unix) / `.dll` (Windows)                             |
+
+---
+
+## ✅ When to Use Which?
+
+### 🏗️ **Use Static Library When:**
+
+* You want a **single self-contained binary**
+* Performance at **runtime startup** is critical
+* You don’t expect to update the library independently
+* Portability/simplicity of deployment matters (CLI tools, embedded)
+
+> ✅ Ideal for **CLI tools**, **embedded systems**, **standalone games**, **one-off apps**
+
+---
+
+### 🌐 **Use Shared Library When:**
+
+* You want to **share the same library among many apps**
+* You need to **patch/update** the library without recompiling all apps
+* App size matters and you want **smaller executables**
+* You work with **plugin architecture** or system-wide libraries
+
+> ✅ Ideal for **desktop apps**, **long-term maintained systems**, **OS-level services**, **plugins**
+
+---
+
+## 🚀 Rule of Thumb:
+
+| Scenario                     | Recommendation |
+| ---------------------------- | -------------- |
+| Small project / CLI tool     | **Static**     |
+| Large system / GUI app       | **Shared**     |
+| Cross-project code sharing   | **Shared**     |
+| Secure and simple deployment | **Static**     |
+
+
