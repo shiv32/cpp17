@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief priority_queue Example: An Error Correlator
+ * @brief stack Example: Revised Error Correlator
  * @version 0.1
  * @date 2024-09-23
  *
