@@ -1,0 +1,23 @@
+priority_queue
+    A priority queue is a queue that keeps its elements in sorted order.
+    Element at the head of the queue at any given time is the one with the highest priority.
+    If two elements have equal priority, their relative order in the queue is undefined.
+
+    NOTE 
+        The head element of a priority_queue is the one with the “highest” priority; 
+        by default, this is determined according to operator< such that elements that are “less” than other elements have lower priority.
+
+priority_queue Operations
+
+    WARNING 
+        top() returns a const reference even when called on a non-const object, 
+        because modifying the element might change its order, which is not allowed. 
+        A priority_queue provides no mechanism to obtain the tail element.
+
+        pop() does not return the element popped. 
+        If you want to retain a copy, you must first retrieve it with top().
+
+priority_queue Example: An Error Correlator
+    Single failures on a system can often cause multiple errors to be generated from different components.
+    A good error-handling system uses error correlation to process the most important errors first. 
+    You can use a priority_queue to write a very simple error correlator. 
