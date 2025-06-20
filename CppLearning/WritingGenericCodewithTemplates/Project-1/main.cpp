@@ -1,20 +1,19 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief 
- * 
+ * @brief
+ *
     Basic template demo
 
     g++ main.cpp -o test
- * 
- * 
+ *
+ *
  * @version 0.1
  * @date 2025-03-13
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
-
 
 #include <iostream>
 
@@ -31,6 +30,15 @@ int main()
     std::cout << findMax(2, 4) << std::endl;
 
     std::cout << findMax(4.6f, 8.3f) << std::endl;
+
+    std::cout << findMax('A', 'B') << std::endl;
+
+    std::cout << findMax('e', 'h') << std::endl;
+
+    std::cout << findMax('h', 'e') << std::endl;
+
+    std::cout << findMax("L", "N") << std::endl; //wrong result L
+    std::cout << findMax('L', 'N') << std::endl;
 
     return 0;
 }
