@@ -1,4 +1,3 @@
-/*
 
 C++(11/14/17) interview questions:
 
@@ -18,4 +17,3 @@ C++(11/14/17) interview questions:
         Behavioral (how objects send messages to each other)
                 Chain of responsibility, Observer, Iterator, State
    
-*/
