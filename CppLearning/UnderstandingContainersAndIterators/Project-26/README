@@ -1,0 +1,16 @@
+stack
+    A stack is almost identical to a queue, except that it provides first-in, last-out (FILO) semantics,
+    also known as last-in, first-out (LIFO), instead of FIFO. 
+
+        template <class T, class Container = deque<T>> class stack;
+
+stack Operations
+
+    WARNING 
+        pop() does not return the element popped. 
+        If you want to retain a copy, you must first retrieve it with top().
+
+stack Example: Revised Error Correlator
+    You can rewrite the ErrorCorrelator class so that it gives out the most recent error
+    instead of the one with the highest priority. 
+    The only change required is to change mErrors from a priority_queue to a stack. 

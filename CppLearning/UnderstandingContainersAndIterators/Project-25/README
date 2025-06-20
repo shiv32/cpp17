@@ -3,6 +3,8 @@ priority_queue
     Element at the head of the queue at any given time is the one with the highest priority.
     If two elements have equal priority, their relative order in the queue is undefined.
 
+        template <class T, class Container = vector<T>, class Compare = less<T>>;
+
     NOTE 
         The head element of a priority_queue is the one with the “highest” priority; 
         by default, this is determined according to operator< such that elements that are “less” than other elements have lower priority.

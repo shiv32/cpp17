@@ -9,6 +9,8 @@ CONTAINER ADAPTORS
     The queue container adaptor, defined in the header file <queue>, 
     provides standard “first-in, first-out” (FIFO) semantics. 
 
+      template <class T, class Container = deque<T>> class queue;
+
   queue Operations
     
     WARNING 
