@@ -21,7 +21,7 @@
 ### 🏗️ **Use Static Library When:**
 
 * You want a **single self-contained binary**
-* Performance at **runtime startup** is critical
+* Performance at **runtime startup** is critical (important, faster)
 * You don’t expect to update the library independently
 * Portability/simplicity of deployment matters (CLI tools, embedded)
 
