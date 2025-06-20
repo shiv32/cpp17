@@ -1,0 +1,11 @@
+A mini console-based drawing app in C++ using ncurses, all in one file. 
+It lets you move a cursor with arrow keys and draw * on a grid.
+
+🎮 Controls
+    Arrow Keys → Move cursor
+    Spacebar → Draw *
+    c → Clear canvas
+    q → Quit
+
+Requirements:
+    sudo apt install libncurses5-dev libncursesw5-dev

@@ -1,0 +1,11 @@
+
+ncurses is not a C++ library — it is written in C, 
+but it can be used in C++ projects easily since C++ is compatible with C.
+
+A simple example of wrapping basic ncurses functionality into a clean C++ class 
+to make it easier to use in a modern C++17 project.
+
+Benefits of Wrapping
+    Keeps your code clean and RAII-compliant
+    Avoids forgetting endwin()
+    Easier to expand (add menus, input boxes, windows, etc.)
