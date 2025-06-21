@@ -1,0 +1,49 @@
+STM32 simulation framework using C++ 17.
+Just add your project in "projects" section and run it to test logic.
+
+
+🔌 GPIO Responsibility
+    Controls digital pins: HIGH/LOW
+    Used for LEDs, buttons, etc.
+    Operates at bit level
+
+📡 UART Responsibility
+    Sends/receives serial data
+    Used for logging, PC communication
+    Operates at byte/stream level
+
+🛠️ Together:
+    GPIO changes state (e.g., LED), UART reports it (e.g., debug log).
+
+
+Project Structure:
+
+    stm32_sim_framework/
+    │
+    ├── CMakeLists.txt
+    ├── include/
+    │   └── hal/
+    │       ├── gpio.hpp
+    │       ├── uart.hpp
+    │       ├── timer.hpp
+    │       ├── adc.hpp
+    │       ├── i2c.hpp
+    │       ├── spi.hpp
+    │       └── rcc.hpp
+    │
+    ├── src/
+    |   ├── CMakeLists.txt
+    │   ├── main.cpp
+    │   └── hal/
+    │       ├── gpio.cpp
+    │       ├── uart.cpp
+    │       ├── timer.cpp
+    │       ├── adc.cpp
+    │       ├── i2c.cpp
+    │       ├── spi.cpp
+    │       └── rcc.cpp
+    │
+    ├── projects/
+    │   └── example_project/
+    │       ├── CMakeLists.txt
+    │       └── main.cpp

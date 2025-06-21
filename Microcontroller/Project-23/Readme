@@ -1,0 +1,33 @@
+Mocking STM32 HAL (Example: GPIO and UART)
+
+A simple mocking framework for STM32 development in Ubuntu 18.04 
+so you can test STM32 C++ code without a simulator or hardware, using mock classes and C++17.
+
+Goal:
+    Simulate STM32 peripherals (GPIO, UART, etc.) using mock classes so you can:
+    Compile and test your embedded C++17 code on a Linux PC
+    Avoid needing QEMU/renode/hardware
+
+Project structure:
+
+  mock-stm32/
+    ├── CMakeLists.txt
+    ├── main.cpp
+    ├── stm32_hal_mock/
+    │   ├── gpio.hpp
+    │   └── uart.hpp
+    ├── logic/
+    │   └── app_logic.hpp
+
+
+
+Compile & Run (on Ubuntu PC)
+
+    g++ -std=c++17 main.cpp -o mock_stm32
+    ./mock_stm32
+
+Why This Is Useful
+    You can unit test STM32 code logic before flashing or using a simulator.
+    Easily mock more modules: SPI, ADC, I2C.
+    Works on Ubuntu 18.04 with only g++ — no STM32 SDK needed.
+
