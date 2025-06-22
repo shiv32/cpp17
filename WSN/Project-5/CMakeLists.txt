@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(TradingSimApp)
+project(sensor)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,4 +13,4 @@ set(SOURCES
 include_directories(src)
 
 # Create executable
-add_executable(TradingSim ${SOURCES})
+add_executable(sensor ${SOURCES})

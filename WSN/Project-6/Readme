@@ -1,0 +1,2 @@
+ Generate a CSV file from sensor data accessed through getters in C++, 
+ and structure this using design patterns. 
