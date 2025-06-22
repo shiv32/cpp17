@@ -6,7 +6,7 @@
 class SpreadsheetCell
 {
 public:
-    // Constructor
+    // Constructor or ctor
     SpreadsheetCell(double initialValue);
    
     void setValue(double mValue);

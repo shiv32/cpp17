@@ -15,7 +15,6 @@ int main()
     SpreadsheetCell myCell, anotherCell;
     
     myCell.setValue(6);
-    
     anotherCell.setString("3.2");
     
     std::cout << "cell 1: " << myCell.getValue() << std::endl;
