@@ -22,7 +22,7 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     std::cout << "----------------(1)----------------------" << std::endl;
     GameBoard chessBoard(8, 8);

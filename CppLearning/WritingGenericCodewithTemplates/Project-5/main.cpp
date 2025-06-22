@@ -67,7 +67,9 @@ int main()
     //-----------------------------------------------------------------
     Grid<SpreadsheetCell> mySpreadsheet;
     SpreadsheetCell myCell(1.234);
-    mySpreadsheet.at(3, 4) = myCell;
+    // mySpreadsheet.at(3, 4) = myCell; //copy ctor
+    mySpreadsheet.at(3, 4) = std::move(myCell); // move ctor
+    std::cout << "mySpreadsheet value at (3,4) : " << mySpreadsheet.at(3, 4).value().getValue() << std::endl;
 
     // store pointer types
     Grid<const char *> myStringGrid;
@@ -79,6 +81,11 @@ int main()
     std::vector<int> myVector{1, 2, 3, 4};
     gridOfVectors.at(5, 6) = myVector;
 
+    for (const auto &value : gridOfVectors.at(5, 6).value())
+    {
+        std::cout << "gridOfVectors value at (5,6) : " << value << std::endl;
+    }
+
     // dynamically allocate Grid template instantiations on the heap
     auto myGridOnHeap = std::make_unique<Grid<int>>(2, 2); // 2x2 Grid on the heap
     myGridOnHeap->at(0, 0) = 20;
@@ -88,8 +95,15 @@ int main()
     //------------------------------------------------------------------
 
     Grid<ChessPiece> chessBoard(8, 8);
-    ChessPiece king;
+    
+    ChessPiece king("King");
+    ChessPiece queen("Queen");
+
     chessBoard.at(0, 0) = king;
+    chessBoard.at(1, 1) = queen;
+
+    std::cout << "chessBoard value at (0,0) : " << chessBoard.at(0, 0).value().getValue() << std::endl;
+    std::cout << "chessBoard value at (1,1) : " << chessBoard.at(1, 1).value().getValue() << std::endl;
 
     return 0;
 }

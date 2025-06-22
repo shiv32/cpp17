@@ -2,5 +2,7 @@
 
 Selective Instantiation
     The compiler always generates code for all virtual methods of a generic class.
+    For non-virtual methods, the compiler generates code only for those non-virtual 
+    methods that you actually call for a particular type.
 
 */

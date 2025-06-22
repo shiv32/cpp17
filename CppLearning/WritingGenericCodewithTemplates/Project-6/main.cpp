@@ -22,8 +22,8 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    Grid<int> myIntGrid;
-    myIntGrid.at(0, 0) = 10;
+     Grid<int> myIntGrid;
+     myIntGrid.at(0, 0) = 10;
 
     return 0;
 }

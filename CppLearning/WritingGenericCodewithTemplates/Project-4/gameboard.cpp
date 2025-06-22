@@ -3,7 +3,7 @@
 GameBoard::GameBoard(size_t width, size_t height)
     : mWidth(width), mHeight(height)
 {
-    std::cout<<__PRETTY_FUNCTION__<<std::endl;
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     mCells.resize(mWidth);
 
@@ -52,26 +52,27 @@ GameBoard &GameBoard::operator=(const GameBoard &rhs)
     {
         return *this;
     }
-    
+
     // Copy-and-swap idiom
     GameBoard temp(rhs); // Do all the work in a temporary instance
 
-    swap(*this, temp);   // Commit the work with only non-throwing operations
+    swap(*this, temp); // Commit the work with only non-throwing operations
 
     return *this;
 }
 
 const std::unique_ptr<GamePiece> &GameBoard::at(size_t x, size_t y) const
 {
-    std::cout<<__PRETTY_FUNCTION__<<std::endl;
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     verifyCoordinate(x, y);
+
     return mCells[x][y];
 }
 
 std::unique_ptr<GamePiece> &GameBoard::at(size_t x, size_t y)
 {
-    std::cout<<__PRETTY_FUNCTION__<<std::endl;
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
 
     return const_cast<std::unique_ptr<GamePiece> &>(std::as_const(*this).at(x, y));
 }

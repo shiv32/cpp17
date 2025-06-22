@@ -34,9 +34,7 @@ public:
 
 private:
     void verifyCoordinate(size_t x, size_t y) const;
-
     std::vector<std::vector<std::optional<T>>> mCells;
-
     size_t mWidth, mHeight;
 };
 

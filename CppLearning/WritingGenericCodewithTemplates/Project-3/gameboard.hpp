@@ -33,8 +33,6 @@ public:
 
 private:
     void verifyCoordinate(size_t x, size_t y) const;
-
     std::vector<std::vector<std::unique_ptr<GamePiece>>> mCells;
-
     size_t mWidth, mHeight;
 };
