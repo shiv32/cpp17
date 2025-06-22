@@ -63,9 +63,9 @@ int main()
     // printSquare("Hi"); //Error: std::enable_if prevents this instantiation
 
     // Type Traits
-    //  checkType<int>();         // Output: T is an integer type.
-    //  checkType<double>();      // Output: T is a floating-point type.
-    //  checkType<std::string>(); // Output: T is neither integer nor floating point.
+    // checkType<int>();         // Output: T is an integer type.
+    // checkType<double>();      // Output: T is a floating-point type.
+    // checkType<std::string>(); // Output: T is neither integer nor floating point.
 
     return 0;
 }
