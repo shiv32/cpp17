@@ -91,9 +91,9 @@ https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/
 
     https://onecompiler.com/cpp
 
-11. C++ Core Guidelines
+11. Standard C++
 
-    https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+    https://isocpp.org/
 
 
     [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
