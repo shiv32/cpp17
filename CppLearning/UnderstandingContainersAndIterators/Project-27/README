@@ -1,0 +1,15 @@
+
+ORDERED ASSOCIATIVE CONTAINERS
+    Unlike the sequential containers, the ordered associative containers do not store elements in a linear
+    configuration. 
+    Instead, they provide a mapping of keys to values. 
+
+Four ordered associative containers
+    map, multimap, set, and multiset
+
+Four unordered associative containers
+    unordered_map, unordered_multimap, unordered_set, and unordered_multiset
+
+The pair Utility Class
+    pair is a class template that groups together two values of possibly different types.
+    Defined in the <utility> header file.
