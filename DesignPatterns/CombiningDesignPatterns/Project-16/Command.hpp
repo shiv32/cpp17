@@ -1,7 +1,8 @@
 #pragma once
 
-template<typename EventType>
-class EventCommand {
+template <typename EventType>
+class EventCommand
+{
 public:
-    virtual void execute(const EventType& event) = 0;
+    virtual void execute(const EventType &event) = 0;
 };

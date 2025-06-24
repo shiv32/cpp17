@@ -4,11 +4,11 @@
     A lightweight, extensible system that allows generic event publishing and subscribing using templates and classic design patterns.
 
 🎯 Design Patterns Used:
-    Template-Based Observer Pattern – Generic observer system using templates.
-    Singleton – Centralized event dispatcher instance.
-    Strategy (via template policy classes) – Different dispatching strategies.
-    Command – Encapsulates event actions.
-    Factory (optional) – Dynamically create event handlers.
+    Template-Based Observer Pattern         – Generic observer system using templates.
+    Singleton                               – Centralized event dispatcher instance.
+    Strategy (via template policy classes)  – Different dispatching strategies.
+    Command                                 – Encapsulates event actions.
+    Factory (optional)                      – Dynamically create event handlers.
 
 🛠 Structure:
 
