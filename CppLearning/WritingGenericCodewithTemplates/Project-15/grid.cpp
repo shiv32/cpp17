@@ -27,6 +27,8 @@ std::optional<T> &Grid<T, WIDTH, HEIGHT>::at(size_t x, size_t y)
     return const_cast<std::optional<T> &>(std::as_const(*this).at(x, y));
 }
 
+ //-----------------------Method Templates with Non-type Parameters-------------
+
 template <typename T, size_t WIDTH, size_t HEIGHT>
 template <typename E, size_t WIDTH2, size_t HEIGHT2>
 Grid<T, WIDTH, HEIGHT>::Grid(const Grid<E, WIDTH2, HEIGHT2> &src)
@@ -53,13 +55,6 @@ Grid<T, WIDTH, HEIGHT>::Grid(const Grid<E, WIDTH2, HEIGHT2> &src)
 }
 
 template <typename T, size_t WIDTH, size_t HEIGHT>
-void Grid<T, WIDTH, HEIGHT>::swap(Grid<T, WIDTH, HEIGHT> &other) noexcept
-{
-    using std::swap;
-    swap(mCells, other.mCells);
-}
-
-template <typename T, size_t WIDTH, size_t HEIGHT>
 template <typename E, size_t WIDTH2, size_t HEIGHT2>
 Grid<T, WIDTH, HEIGHT> &Grid<T, WIDTH, HEIGHT>::operator=(const Grid<E, WIDTH2, HEIGHT2> &rhs)
 {
@@ -75,3 +70,12 @@ Grid<T, WIDTH, HEIGHT> &Grid<T, WIDTH, HEIGHT>::operator=(const Grid<E, WIDTH2, 
     swap(temp);                       // Commit the work with only non-throwing operations
     return *this;
 }
+//-----------------------------------------------------------------------------------
+
+template <typename T, size_t WIDTH, size_t HEIGHT>
+void Grid<T, WIDTH, HEIGHT>::swap(Grid<T, WIDTH, HEIGHT> &other) noexcept
+{
+    using std::swap;
+    swap(mCells, other.mCells);
+}
+
