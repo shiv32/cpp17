@@ -1,0 +1,12 @@
+Data Processor Framework
+A type-generic data processing system where different data types (e.g., integers, floats, strings) 
+are processed via plug-in algorithms at runtime. The app can log the process and notify observers.
+
+🔧 Design Patterns Used
+    Pattern	            Use
+    Template Method	    IProcessor<T> provides base process flow
+    Strategy	        Plug-in processing logic by type
+    Factory Method	    ProcessorFactory creates processors
+    Singleton	        Logger writes to console/file
+    Observer	        Notify observers when processing is done
+    Template	        IProcessor<T> is templated for type safety
