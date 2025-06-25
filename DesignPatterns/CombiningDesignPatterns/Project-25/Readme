@@ -1,0 +1,20 @@
+🔧 Project: Generic Plugin-Based Calculation Engine
+    A type-safe, extensible engine that allows users to define and run math operations (e.g., sum, product, power, average) 
+    on any type (int, float, double, etc.) using:
+
+🎯 Key Features
+    Feature	                        Implementation
+    Advanced Templates	            CRTP, SFINAE, Traits
+    Design Patterns	                Strategy, Factory, Singleton, Observer
+    Plugin Architecture	            Register custom operations at runtime
+    Polymorphism via Templates	    Type-erased dispatch or CRTP
+    Console-friendly	            Easily extendable to GUI
+
+🔩 Design Patterns Used
+    Pattern	                            Where
+    Strategy	                        Operation<T> interface
+    Factory	                            Operation registry per type
+    Singleton	                        OperationRegistry<T>
+    Observer	                        Notify on operation completion
+    CRTP + Traits	                    Compile-time customization
+    Type-Erased Dispatcher (optional)	run ops by name
