@@ -17,6 +17,7 @@ public:
         static Logger inst;
         return inst;
     }
+
     void log(const std::string &msg)
     {
         std::lock_guard<std::mutex> lock(mu_);
@@ -34,6 +35,16 @@ class IObserver
 public:
     virtual void onOperationFinished(const std::string &opName) = 0;
     virtual ~IObserver() = default;
+};
+
+// ----------------- Observer Impl -----------------
+class ConsoleObserver : public IObserver
+{
+public:
+    void onOperationFinished(const std::string &opName) override
+    {
+        std::cout << "[Observer] Operation completed: " << opName << std::endl;
+    }
 };
 
 // ----------------- Strategy Base (CRTP) -----------------
@@ -102,24 +113,16 @@ public:
     Operation<T> *getOp(const std::string &name)
     {
         auto it = operations_.find(name);
+
         if (it != operations_.end())
             return it->second.get();
+
         return nullptr;
     }
 
 private:
     OperationRegistry() = default;
     std::map<std::string, std::unique_ptr<Operation<T>>> operations_;
-};
-
-// ----------------- Observer Impl -----------------
-class ConsoleObserver : public IObserver
-{
-public:
-    void onOperationFinished(const std::string &opName) override
-    {
-        std::cout << "[Observer] Operation completed: " << opName << std::endl;
-    }
 };
 
 // ----------------- Execution Engine -----------------
@@ -155,7 +158,7 @@ private:
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
-    
+
     // Register operations
     OperationRegistry<float>::instance().registerOp("sum", std::make_unique<SumOp<float>>());
     OperationRegistry<float>::instance().registerOp("product", std::make_unique<ProductOp<float>>());

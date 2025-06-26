@@ -1,0 +1,13 @@
+Project: Flexible Logger System
+
+Goal:
+    Build a flexible logging framework that:
+        Uses variadic templates to accept any number/type of log arguments.
+
+        Applies design patterns like:
+            Singleton – global logging access.
+            Strategy – multiple output methods (console, file).
+            Decorator – timestamp, log level enhancement.
+            Factory – for creating formatters or outputs.
+            Observer – notify subscribers (e.g., GUI, remote logger).
+            Command – queue or buffer logs.
