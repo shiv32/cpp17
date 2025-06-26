@@ -1,12 +1,10 @@
 #include "SomeClass.hpp"
 
-SomeClass::SomeClass(double mVal):mCell(mVal)
-{ 
-
-
+SomeClass::SomeClass(double mVal) : mCell(mVal)
+{
 }
 
- SpreadsheetCell SomeClass::getSpreadsheetCellinstance()
- {
-     return mCell;
- }
+SpreadsheetCell SomeClass::getSpreadsheetCellinstance()
+{
+    return mCell;
+}

@@ -8,7 +8,6 @@ class SpreadsheetCell
 public:
     SpreadsheetCell();
     SpreadsheetCell(double initialValue);
-
     SpreadsheetCell(std::string_view initialValue);
    
     void setValue(double mValue);
