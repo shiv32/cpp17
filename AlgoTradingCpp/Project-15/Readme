@@ -1,0 +1,16 @@
+ Indicators in trading
+
+    Console-based C++17 visualization example of a RSI (Relative Strength Index) trading indicator.
+
+    Momentum Indicators
+        Measure the speed of price movement.
+ 
+        eg. RSI (Relative Strength Index)	
+                Measures overbought/oversold (70 = overbought, 30 = oversold).
+
+            RSI Calculation Basics
+
+                RSI = 100 - (100 / (1 + RS))
+
+                    RS = Average Gain / Average Loss (over N periods)
+
