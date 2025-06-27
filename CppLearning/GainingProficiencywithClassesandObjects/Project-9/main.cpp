@@ -12,6 +12,7 @@ g++ -std=c++17 *.cpp -o test
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
     //------------------ Using Smart Pointer --------------------------------------------------
     auto myCellp3 = std::make_unique<SpreadsheetCell>(3.7);
     // Equivalent to:

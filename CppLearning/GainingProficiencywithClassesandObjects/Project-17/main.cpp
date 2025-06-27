@@ -9,6 +9,8 @@ g++ -std=c++17 *.cpp -o test
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     SomeClass sc(78.5);
 
     std::cout << "cell 1: " << sc.getSpreadsheetCellinstance().getValue() << std::endl;

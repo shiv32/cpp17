@@ -12,6 +12,7 @@ g++ -std=c++17 *.cpp -o test
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
     SpreadsheetCell myCell(5), anotherCell(4);
     std::cout << "cell 1: " << myCell.getValue() << std::endl;
     std::cout << "cell 2: " << anotherCell.getValue() << std::endl;

@@ -12,6 +12,8 @@ g++ -std=c++17 *.cpp -o test
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     auto smartCellp = std::make_unique<SpreadsheetCell>(40);
 
     // ... do something with the cell, no need to delete the smart pointer

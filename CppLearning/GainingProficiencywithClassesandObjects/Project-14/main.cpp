@@ -11,6 +11,8 @@ g++ -std=c++17 *.cpp -o test
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     SpreadsheetCell myCell;
     myCell.setValue(16);
 
