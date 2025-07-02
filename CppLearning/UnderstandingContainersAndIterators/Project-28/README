@@ -1,0 +1,12 @@
+map
+    A map, defined in the <map> header file, stores key/value pairs instead of just single values.
+    The term map comes from the conceptual understanding that the container “maps” keys to values.
+
+Constructing maps
+    The map class template takes four types: 
+    the key type, 
+    the value type, 
+    the comparison type,
+    allocator type. 
+
+
