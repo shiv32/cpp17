@@ -1,0 +1,95 @@
+The note you mentioned:
+
+> **"Haru can use only TrueType fonts which has cmap of unicode and following tables:
+> "OS/2", "cmap", "cvt ", "fpgm", "glyf", "head", "hhea", "hmtx", "loca", "maxp", "name", "post", "prep""**
+
+…means the following:
+
+---
+
+## ✅ What it **means** in simple terms:
+
+LibHaru can **embed** and **use** external **TrueType fonts (.ttf)**, but:
+
+* The font must include a **Unicode character map (`cmap`)** — so it can match characters like `Ω`, `π`, `ä`, `ç`, etc.
+* And the font file must contain a specific set of internal **TrueType font tables**.
+
+These tables are **standard binary structures inside `.ttf` files** used by renderers to understand how to draw and position glyphs.
+
+---
+
+## 📄 Required TrueType Tables Explained
+
+| Table  | Purpose                                                                                     |
+| ------ | ------------------------------------------------------------------------------------------- |
+| `cmap` | **Character to glyph index mapping** (must include Unicode encoding — e.g., format 4 or 12) |
+| `glyf` | **Glyph shapes** — vector outlines of each character                                        |
+| `loca` | Offsets to locate each glyph in the `glyf` table                                            |
+| `head` | Font header — general font info                                                             |
+| `hhea` | Horizontal header — line spacing, ascent/descent                                            |
+| `hmtx` | **Horizontal metrics** — width and left side bearing of each glyph                          |
+| `maxp` | Maximum profile — number of glyphs, points, contours                                        |
+| `name` | **Font naming** information                                                                 |
+| `OS/2` | Style and metric information, Unicode and code page ranges                                  |
+| `post` | PostScript information — e.g., italic angle                                                 |
+| `prep` | Instructions run before rendering a glyph                                                   |
+| `cvt ` | Control Value Table — used for hinting and positioning                                      |
+| `fpgm` | Font program — bytecode for hinting instructions                                            |
+
+> Fonts missing any of these tables might fail to **load**, **embed**, or **render correctly** in LibHaru.
+
+---
+
+## 💡 Why this matters
+
+Some TrueType fonts (especially **stripped-down**, **web-optimized**, or **emoji** fonts) remove certain tables to reduce file size. LibHaru **requires full-format fonts** because it uses its own low-level rendering logic to embed fonts into PDFs.
+
+---
+
+## ✅ What you should do
+
+To safely use a `.ttf` with LibHaru:
+
+1. Make sure it supports **Unicode** (`cmap` table must include platformID 3, encodingID 1 or 10).
+2. Make sure the font is **not subsetted or stripped** (e.g., avoid `.woff`, `.woff2`, and some Google Fonts exports).
+3. Use full-featured TTFs like:
+
+   * **DejaVu Sans**
+   * **FreeSerif**
+   * **Arial Unicode MS**
+   * **Noto fonts** from Google (download `.ttf` from GitHub, not `.woff2`)
+
+---
+
+## 🔧 How to check a font’s tables
+
+Use the `ttx` tool from [FontTools](https://github.com/fonttools/fonttools):
+
+```bash
+ttx -l yourfont.ttf
+```
+
+Output:
+
+```
+Listing table info for "yourfont.ttf":
+  - OS/2
+  - cmap
+  - cvt 
+  - fpgm
+  - glyf
+  - head
+  - hhea
+  - hmtx
+  - loca
+  - maxp
+  - name
+  - post
+  - prep
+```
+
+✅ If all those are listed, it’s compatible with LibHaru.
+
+---
+
+Would you like a verified list of free Unicode-compatible TTF fonts known to work well with LibHaru?
