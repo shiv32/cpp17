@@ -1,0 +1,22 @@
+map
+
+Inserting Elements
+
+    NOTE 
+    
+        map and the other ordered associative containers do provide a version of insert() that takes an iterator position. 
+        However, that position is only a “hint” to the container as to the correct position. 
+        The container is not required to insert the element at that position.
+
+    The insert() Method
+
+        The insert() method can be used to add elements to a map, and has the advantage of allowing
+        you to detect if a key already exists. 
+        insert() does not overwrite an element value if one already exists with the specified key. 
+
+    The insert_or_assign() Method
+
+        insert_or_assign() has a similar return type as insert(). 
+        insert_or_assign() overwrites the old value with the new value.
+
+
