@@ -74,7 +74,7 @@ namespace X::Y::Z
 void do_something()
 {
     std::clog << __PRETTY_FUNCTION__ << std::endl;
-    
+
     X::Y::Z::value = 1;
     X::Y::Z::value2 = 1;
 }
