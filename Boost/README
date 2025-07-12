@@ -1,4 +1,4 @@
-Boost C++ Libraries
+Boost C++ Libraries Ubuntu 18
 
 Install Boost Development Libraries
 
@@ -14,3 +14,16 @@ The Boost headers are typically installed in
 /usr/include/boost, and 
 
 the libraries are in /usr/lib.
+
+--------------------------------------------
+
+In (Manjaro/Arch) Linux -->
+
+    sudo pacman -S boost
+
+ List Installed Boost Files
+
+    pacman -Ql boost | grep include
+    pacman -Ql boost | grep lib
+
+--------------------------------------------
