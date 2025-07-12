@@ -16,3 +16,17 @@ Check if the Poco header files and libraries are installed in
 check version
     dpkg -l | grep libpoco
 
+--------------------------------------------
+Manjaro(arch) Linux -->
+
+    sudo pacman -S poco
+
+Verify Installation
+    Check headers and libraries
+
+        pacman -Ql poco | grep include
+        pacman -Ql poco | grep lib
+----------------------------------------------
+
+
+
