@@ -1,0 +1,2 @@
+This is often used in the Non-Virtual Interface (NVI) idiom, 
+where a public non-virtual method calls a private virtual method.
