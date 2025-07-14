@@ -1,0 +1,36 @@
+GTK (GIMP Toolkit)
+    Originally developed for the GIMP image editor (GNU Image Manipulation Program)
+    Now a general-purpose GUI toolkit for building graphical Linux/Unix applications
+    Written in C using GObject for object-oriented programming
+
+gtkmm
+    GTK + mm, where mm stands for "C++ bindings" (by C++ naming convention)
+    The "mm" naming comes from the convention for C++ wrappers (like glibmm, cairomm, sigc++)
+    gtkmm is the official C++ interface to GTK
+    gtkmm is the official C++ binding for the GTK (GIMP Toolkit), 
+    allowing developers to build graphical user interfaces (GUIs) using C++ in an object-oriented way.
+    gtkmm is the official C++ wrapper for GTK
+    it provides an idiomatic, object-oriented C++ API over GTK (GObject).
+    
+Key Features
+    C++ wrapper for GTK (written in C)
+    Fully object-oriented, uses C++ classes, signals, and inheritance
+    Follows standard C++ idioms (RAII, STL)
+    Provides classes for:
+        Windows, Buttons, Labels, Menus
+        Layouts, Dialogs, Events, Custom widgets
+
+Advantages
+    Native C++ syntax (vs GObject macros in C)
+    Safer and cleaner code (RAII)
+    Actively maintained
+
+Limitations
+    Heavier than plain GTK (due to C++ abstraction)
+
+Install on Manjaro/Arch Linux
+    sudo pacman -S gtkmm3
+
+Compile and run
+    g++ main.cpp -o app `pkg-config gtkmm-3.0 --cflags --libs` && ./app && rm app
+
