@@ -1,0 +1,4 @@
+map
+
+map Iterators
+    iterators refer to key/value pairs instead of just the values.
