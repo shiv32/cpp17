@@ -2,3 +2,9 @@ map
 
 map Iterators
     iterators refer to key/value pairs instead of just the values.
+
+WARNING 
+    You can modify element values through non- const iterators,
+    but the compiler will generate an error if you try to modify the key of an element,
+    even through a non- const iterator, because it would destroy the sorted order of
+    the elements in the map.
