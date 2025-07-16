@@ -1,0 +1,10 @@
+map
+
+operator[]
+    Method to insert elements into a map is through the overloaded operator[]. 
+    Less efficient than insert().
+
+Emplace Methods
+    emplace() 
+    emplace_hint() 
+    try_emplace() (C++ 17)
