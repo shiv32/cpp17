@@ -1,0 +1,4 @@
+map
+
+Looking Up Elements
+    A map provides logarithmic lookup of elements based on a supplied key.
