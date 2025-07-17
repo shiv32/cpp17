@@ -1,0 +1,5 @@
+map
+
+Removing Elements
+    A map allows you to remove an element at a specific iterator position or 
+    to remove all elements in a given iterator range, in amortized constant and logarithmic time, respectively. 
