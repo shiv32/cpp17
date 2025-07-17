@@ -14,7 +14,7 @@
 
 class Data final
 {
-  public:
+public:
     explicit Data(int value = 0) : mValue(value) {}
     int getValue() const
     {
@@ -25,7 +25,7 @@ class Data final
         mValue = value;
     }
 
-  private:
+private:
     int mValue;
 };
 
@@ -34,8 +34,7 @@ void printMap(const std::map<int, Data> &dataMap)
     // Print keys and values
     for (const auto &pair : dataMap)
     {
-        std::cout << "Key: " << pair.first << ", Value: " << pair.second.getValue() <<
-                  std::endl;
+        std::cout << "Key: " << pair.first << ", Value: " << pair.second.getValue() << std::endl;
     }
 }
 
@@ -50,27 +49,27 @@ int main()
     printMap(dataMap);
 
     std::cout << "iterate : " << std::endl;
-    //iterate through the map
+    // iterate through the map
     for (auto iter = cbegin(dataMap); iter != cend(dataMap); ++iter)
     {
         std::cout << iter->second.getValue() << std::endl;
-        //or
+        // or
         std::cout << (*iter).second.getValue() << std::endl;
     }
 
     std::cout << "range-based for loop : " << std::endl;
-    //range-based for loop
-    for (const auto& p : dataMap)
+    // range-based for loop
+    for (const auto &p : dataMap)
     {
         std::cout << p.second.getValue() << std::endl;
     }
 
     std::cout << "structured bindings : " << std::endl;
     // combination of a range-based for loop and C++17 structured bindings
-    for (const auto& [key, data] : dataMap)
+    for (const auto &[key, data] : dataMap)
     {
         std::cout << data.getValue() << std::endl;
     }
-    
+
     return 0;
 }
