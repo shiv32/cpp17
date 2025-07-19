@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdint> //uint32_t, uint16_t, etc. are fixed-width integer types
 
 // Namespace for the microcontroller abstraction layer.
 namespace mcal
