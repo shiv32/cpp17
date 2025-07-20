@@ -1,0 +1,20 @@
+Rule of Zero
+
+    "Classes that manage resources should not need to implement special member functions at all."
+
+You delegate resource management to RAII classes like std::string, std::vector, std::unique_ptr, etc., 
+and let the compiler generate:
+
+    Constructor
+    Destructor
+    Copy/move constructor
+    Copy/move assignment
+
+Thus, you write zero of the "big five".
+
+
+Follows Rule of Zero: no user-defined special member functions.
+Safer, cleaner, more maintainable — leverages RAII and STL types.
+Use this approach unless:
+    You're managing raw resources (e.g. raw pointers, file handles).
+    You need custom copy/move behavior.

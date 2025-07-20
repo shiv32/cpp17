@@ -1,12 +1,13 @@
 
 C++(11/14/17) interview questions:
 
-1. Types of constructors.
-2. Shalllow copy and deep copy (Prototype in C++).
-3. Smart pointers.
-4. RAII.
-5. S.O.L.I.D. Principles.
-6. Design Patterns
+==> Types of constructors.
+==> Rule of five/zero
+==> Shalllow copy and deep copy (Prototype in C++).
+==> Smart pointers.
+==> RAII.
+==> S.O.L.I.D. Principles.
+==> Design Patterns
     
         Creational (flexible ways to create objects)
                 Singleton, Factory, Abstract factory, Prototype

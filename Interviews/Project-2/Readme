@@ -1,0 +1,13 @@
+ Rule of Five
+
+    Interview Points to Explain
+        Follows Rule of Five: implements destructor, copy/move constructors, and copy/move assignment operators.
+        Prevents resource leaks by managing dynamic memory.
+        Uses noexcept in move operations (good practice in C++11 and beyond).
+        delete[] is called only on owned memory to avoid double delete.
+
+        Uses std::unique_ptr<std::string> to manage dynamic memory safely.
+        Still follows Rule of Five, but
+            Move constructor and assignment are marked as = default because unique_ptr handles them correctly.
+            Copy operations are manually implemented for deep copies.
+        Clean, exception-safe, and no manual memory management.
