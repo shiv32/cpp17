@@ -39,6 +39,7 @@ public:
             name = new char[strlen(other.name) + 1];
             strcpy(name, other.name);
         }
+
         std::cout << "Copy Assignment\n";
         return *this;
     }
@@ -60,6 +61,7 @@ public:
             name = other.name;
             other.name = nullptr;
         }
+
         std::cout << "Move Assignment\n";
         return *this;
     }
@@ -83,7 +85,7 @@ int main()
 
     d = b;            // Copy assignment
     d = std::move(c); // Move assignment
-    
+
     d.greet();
 
     return 0;

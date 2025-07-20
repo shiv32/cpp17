@@ -9,15 +9,13 @@ private:
 
 public:
     // 1. Constructor
-    Person(const std::string &n)
-        : name(std::make_unique<std::string>(n))
+    Person(const std::string &n) : name(std::make_unique<std::string>(n))
     {
         std::cout << "Constructor\n";
     }
 
     // 2. Copy Constructor (Deep Copy)
-    Person(const Person &other)
-        : name(std::make_unique<std::string>(*other.name))
+    Person(const Person &other) : name(std::make_unique<std::string>(*other.name))
     {
         std::cout << "Copy Constructor\n";
     }
@@ -29,6 +27,7 @@ public:
         {
             name = std::make_unique<std::string>(*other.name);
         }
+
         std::cout << "Copy Assignment\n";
         return *this;
     }
