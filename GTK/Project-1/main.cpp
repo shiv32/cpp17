@@ -3,34 +3,35 @@
 
 class HelloWindow : public Gtk::Window
 {
-  public:
-    HelloWindow()
-    {
-        set_title("GTKmm Example");
+public:
+  HelloWindow()
+  {
+    set_title("GTKmm Example");
 
-        set_default_size(300, 100);
+    set_default_size(300, 100);
 
-        button.set_label("Click Me");
+    button.set_label("Click Me");
 
-        button.signal_clicked().connect([]
-        {
-            std::cout << "Button clicked!\n";
-        });
+    button.signal_clicked().connect([this]
+                                    { std::cout << "Button clicked " << i++ << " times" << "\n"; });
 
-        add(button);
+    add(button);
 
-        show_all_children();
-    }
+    show_all_children();
+  }
 
-  private:
-    Gtk::Button button;
+private:
+  Gtk::Button button;
+  int i{0};
 };
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-    auto app = Gtk::Application::create(argc, argv, "org.example.hello");
+  system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    HelloWindow window;
-    
-    return app->run(window);
+  auto app = Gtk::Application::create(argc, argv, "org.example.hello");
+
+  HelloWindow window;
+
+  return app->run(window);
 }

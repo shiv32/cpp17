@@ -1,1 +1,4 @@
 Test gtkmm3
+
+-------------------------------------------
+sudo pacman -S fontconfig
