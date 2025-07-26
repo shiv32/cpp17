@@ -1,0 +1,6 @@
+C++17 Network Monitor (CLI)
+    A simple console app (like a lightweight bmon) that shows real‑time upload/download speed for all network interfaces.
+
+
+Reference:
+https://github.com/tgraf/bmon
