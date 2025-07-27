@@ -3,7 +3,7 @@ C++(11/14/17) interview questions:
 
 ==> Types of constructors.
 ==> Rule of five/zero
-==> Shalllow copy and deep copy (Prototype in C++).
+==> Shalllow copy and deep copy (Prototype design pattern in C++).
 ==> Smart pointers.
 ==> RAII.
 ==> S.O.L.I.D. Principles.
