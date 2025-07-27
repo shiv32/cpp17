@@ -1,0 +1,32 @@
+Shallow copy/Deep copy/Prototype design pattern
+
+Shallow copy:   Copies the pointer value only → both objects share the same memory.
+Deep copy:      Creates a new copy of the data → each object has its own memory.
+----------------------------
+The output looks same, but behavior differs:
+    Shallow copy:   shares the same buffer → double-delete problem when destructors run.
+                                            (free(): double free detected in tcache 2)
+
+    Deep copy:      allocates new memory → safe and independent.
+---------------------------
+Always be explicit whether you want shallow or deep copy.
+The Prototype pattern uses clone() to return a deep copy so that the clone is independent of the original.
+-------------------------
+In demo:
+    shallowCopy shares the same raw pointer buffer with original.
+    When main() ends:
+        original destructor deletes buffer.
+        shallowCopy destructor tries to delete the same buffer → double free → crash.
+
+        In deep copy (clone()), we allocated a new independent buffer, so each object frees its own memory safely.
+-----------------------
+How to fix if you want shallow copy but avoid double free?
+
+    If you intentionally want shallow copy, don’t free the shared memory in both objects.
+    Use smart pointers (std::shared_ptr) for shared ownership.
+
+    For safe cloning (Prototype), always prefer deep copy.
+---------------------
+Raw pointers + shallow copy ⇒ double free risk
+Prototype pattern prefers deep copy (via clone())
+Use std::shared_ptr or std::unique_ptr for safety
