@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add executable
-add_executable(sysmonitor main9.cpp)
+add_executable(sysmonitor main10.cpp)
 
