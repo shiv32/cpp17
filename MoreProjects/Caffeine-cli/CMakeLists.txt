@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add executable
-add_executable(Caffeine-CLI main.cpp)
+add_executable(Caffeine-CLI main3.cpp)
 

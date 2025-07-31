@@ -1,0 +1,31 @@
+How caffeine‑ng detects activity
+
+From reading its code and documentation:
+
+    MPRIS players
+    Uses playerctl/D‑Bus to check if any media player reports "Playing".
+
+    X11 user activity
+    Uses X11 APIs (via python‑xlib) to detect mouse/keyboard input and idle time.
+
+    CPU / fullscreen fallback
+    If a window is fullscreen or CPU is busy, caffeine‑ng may stay awake.
+
+    Combination of signals
+    If any of these signals are positive, it inhibits suspend using D‑Bus (org.freedesktop.ScreenSaver.Inhibit or environment-specific interfaces).
+
+Translating this concept to a C++17 console app:
+
+For Linux/XFCE:
+
+    Step 1: Use playerctl (MPRIS).
+    Step 2: Fallback to CPU activity if no video detected.
+    Step 3: Use dbus-send (or D-Bus API) to inhibit/resume suspend.
+    Print messages on transitions.
+
+We cannot fully replicate X11 idle detection here without pulling in xcb or X11 libraries, so we’ll base it on caffeine-ng’s core idea:
+
+    If a video is playing or CPU is busy, keep system awake.
+-------------------------------------------------------------------------------
+Once the systemd-inhibit process is started, it will keep the system awake until uninhibit() kills it.
+If your CPU never goes idle for 3 cycles and no player is detected, the inhibit stays.
