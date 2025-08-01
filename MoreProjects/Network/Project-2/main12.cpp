@@ -22,7 +22,7 @@ struct CpuTimes
 };
 struct MemInfo
 {
-    long memTotal = 0, memFree = 0, swapTotal = 0, swapFree = 0;
+    long memTotal = 0, memFree = 0, MemAvailable = 0, Buffers = 0, Cached = 0, swapTotal = 0, swapFree = 0;
 };
 struct NetStats
 {
@@ -82,6 +82,12 @@ MemInfo readMemInfo()
             mi.memTotal = value;
         else if (key == "MemFree:")
             mi.memFree = value;
+        else if (key == "MemAvailable:")
+            mi.MemAvailable = value;
+        else if (key == "Buffers:")
+            mi.Buffers = value;
+        else if (key == "Cached:")
+            mi.Cached = value;
         else if (key == "SwapTotal:")
             mi.swapTotal = value;
         else if (key == "SwapFree:")
@@ -240,8 +246,11 @@ int main()
         vector<CpuTimes> nowCpuAll = readAllCpuTimes();
         double totalCpuUsage = calcCpuUsage(prevCpuAll[0], nowCpuAll[0]);
 
+        auto toGB = [](double kb)
+        { return kb / 1048576.0; };
+
         MemInfo mi = readMemInfo();
-        double memUsed = mi.memTotal - mi.memFree;
+        double memUsed = mi.memTotal - mi.memFree - mi.Buffers - mi.Cached;
         double memPercent = memUsed * 100.0 / mi.memTotal;
         double swapUsed = mi.swapTotal - mi.swapFree;
         double swapPercent = (mi.swapTotal > 0) ? swapUsed * 100.0 / mi.swapTotal : 0.0;
@@ -343,7 +352,7 @@ int main()
         // Memory, Swap, Net
         {
             ostringstream mem;
-            mem << (memUsed / 1024) << " MB / " << (mi.memTotal / 1024) << " MB ("
+            mem << fixed << setprecision(1) << toGB(memUsed) << " GB / " << toGB(mi.memTotal) << " GB ("
                 << fixed << setprecision(2) << memPercent << "%)";
             oss << left << setw(labelWidth) << "Memory:" << mem.str();
             lines.push_back(oss.str());
