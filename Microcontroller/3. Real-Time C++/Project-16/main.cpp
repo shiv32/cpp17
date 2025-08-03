@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cstdint>
 
-// Simulated memory array for testing in Desktop C++
+// Simulated memory array for testing
+// The size of the array is specified as 256,
+// meaning it can hold 256 individual 8-bit unsigned integers (or bytes).
+// Simulated memory buffer with 256 bytes, initialized to 0
 std::uint8_t simulated_memory[256] = {0};
 
 constexpr std::uint8_t one = UINT8_C(0b1);
