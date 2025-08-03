@@ -15,7 +15,7 @@ void do_something()
     // The address of the portb register.
     constexpr std::uint8_t portb = UINT8_C(0x25);
 
-    std::clog << "portb = " << static_cast<int>(simulated_memory[portb]) << '\n';
+    std::clog << "portb value : " << static_cast<int>(simulated_memory[portb]) << '\n';
 
     /*
     Embedded C++: You can safely do this because the MCU memory map is fixed and you have direct access.
@@ -25,7 +25,7 @@ void do_something()
     //*reinterpret_cast<volatile std::uint8_t *>(portb) |= UINT8_C(0b0010'0000);
     *reinterpret_cast<volatile std::uint8_t *>(&simulated_memory[portb]) |= UINT8_C(0b0010'0000);
 
-    std::clog << "portb = " << static_cast<int>(simulated_memory[portb]) << '\n';
+    std::clog << "portb value : " << static_cast<int>(simulated_memory[portb]) << '\n';
 }
 
 int main()
