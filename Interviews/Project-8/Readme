@@ -1,0 +1,7 @@
+Illustrates the 5 SOLID principles (SRP, OCP, LSP, ISP, DIP)
+
+    SRP – InvoiceData handles data; InvoicePrinter handles printing.
+    OCP – New shapes can be added without modifying totalArea.
+    LSP – Sparrow can replace Bird.
+    ISP – Separate small interfaces (printer vs scanner).
+    DIP – Notification depends on IMessageSender, not a concrete sender.

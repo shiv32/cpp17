@@ -1,0 +1,34 @@
+Demonstrates the 11 classic behavioral design patterns
+
+Chain of Responsibility
+    Passes a request along a chain of handlers until one handles it.
+
+Command
+    Encapsulates a request as an object, letting you parameterize and queue actions.
+
+Interpreter
+    Defines a simple grammar and evaluates expressions based on it.
+
+Iterator
+    Provides a way to sequentially access elements in a collection without exposing its structure.
+
+Mediator
+    Central object that controls communication between other objects (colleagues) to reduce direct dependencies.
+
+Memento
+    Captures and restores an object’s internal state without violating encapsulation.
+
+Observer
+    Defines a one‑to‑many dependency so that when one object changes state, all its dependents are notified.
+
+State
+    Allows an object to change its behavior when its internal state changes.
+
+Strategy
+    Defines a family of interchangeable algorithms and lets you switch them at runtime.
+
+Template Method
+    Defines the skeleton of an algorithm in a base class, letting subclasses redefine specific steps.
+
+Visitor
+    Separates operations from the objects on which they operate; adds new operations without modifying those classes.

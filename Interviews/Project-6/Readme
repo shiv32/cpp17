@@ -1,0 +1,9 @@
+Demonstrates all 7 classic structural design patterns
+
+Adapter     – Wraps old interface to match a new one.
+Bridge      – Separates abstraction (Shape) from implementation (DrawingAPI).
+Composite   – Tree structure where leaf and container are treated uniformly.
+Decorator   – Adds behavior dynamically to an object.
+Facade      – Simplified interface to a complex system.
+Flyweight   – Shares objects to reduce memory.
+Proxy       – Controls access to another object.

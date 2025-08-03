@@ -6,6 +6,7 @@ C++(11/14/17) interview questions:
 ==> Shalllow copy and deep copy (Prototype design pattern in C++).
 ==> Smart pointers.
 ==> RAII.
+==> Thread basic.
 ==> S.O.L.I.D. Principles.
 ==> Design Patterns
     

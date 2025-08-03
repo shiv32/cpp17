@@ -1,0 +1,9 @@
+Demonstrates all 5 classic creational design patterns 
+(Singleton, Factory Method, Abstract Factory, Builder, Prototype).
+
+    Singleton           – Ensures only one instance.
+    Factory Method      – Subclass decides which product to create.
+    Abstract Factory    – Produces families of related objects.
+    Builder             – Step-by-step construction of complex objects.
+    Prototype           – Cloning existing objects.
+
