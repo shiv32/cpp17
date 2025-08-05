@@ -1,0 +1,13 @@
+multimap
+    A multimap is a map that allows multiple elements with the same key.
+
+NOTE 
+    multimaps allow you to insert identical key/value pairs. 
+    If you want to avoid this redundancy, you must check explicitly before inserting a new element.
+
+    The lower_bound(), upper_bound(), and equal_range() methods exist for maps as well, 
+    but their usefulness is limited because a map cannot have multiple elements with the same key.
+
+multimap Example: Buddy Lists
+    Most of the numerous online chat programs allow users to have a “buddy list” or list of friends.
+    One way to implement the buddy lists for an online chat program is to store the information in a multimap.
