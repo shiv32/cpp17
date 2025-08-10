@@ -1,0 +1,104 @@
+**C++ Developer’s Crash Course in Assembly** 
+
+We’ll keep it *practical* so you can understand what the compiler produces without drowning in full assembly programming.
+
+---
+
+## **1. What Assembly Is**
+
+* Assembly is a **human-readable** form of machine instructions.
+* Each line is an **instruction** that directly corresponds to a CPU operation.
+* It’s CPU-specific (x86, ARM, RISC-V all have different instructions).
+
+Example (x86-64):
+
+```asm
+mov eax, 5    ; Move the value 5 into register eax
+add eax, 3    ; Add 3 to eax
+```
+
+---
+
+## **2. Registers**
+
+Registers are like *variables inside the CPU*. Common 64-bit x86 registers:
+
+* **rax** — general-purpose, often used for return values.
+* **rbx, rcx, rdx** — general-purpose registers.
+* **rsi, rdi** — usually used for function arguments.
+* **rsp** — stack pointer (points to top of the stack).
+* **rbp** — base pointer (marks start of current stack frame).
+
+---
+
+## **3. Stack Frames (Functions in Assembly)**
+
+When you call a C++ function:
+
+1. Arguments are passed (some in registers, some on stack).
+2. Return address is pushed to stack.
+3. Local variables are stored on the stack.
+
+Example:
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+Compiler output (`g++ -O0 -S`):
+
+```asm
+add:
+    push rbp           ; Save old base pointer
+    mov rbp, rsp       ; New stack frame
+    mov DWORD PTR [rbp-4], edi ; a
+    mov DWORD PTR [rbp-8], esi ; b
+    mov eax, DWORD PTR [rbp-4]
+    add eax, DWORD PTR [rbp-8]
+    pop rbp
+    ret
+```
+
+**Translation:**
+
+* Save old frame → setup new frame.
+* Store arguments (`a`, `b`).
+* Do the addition in `eax`.
+* Return.
+
+---
+
+## **4. Common Instructions**
+
+* `mov dest, src` — copy value from src to dest.
+* `add dest, src` — dest = dest + src.
+* `sub dest, src` — dest = dest - src.
+* `cmp a, b` — compare a and b (sets flags).
+* `jmp label` — jump to a label unconditionally.
+* `je label` — jump if equal (conditional).
+* `call func` — call a function.
+* `ret` — return from a function.
+
+---
+
+## **5. How This Helps in C++**
+
+* You can see **why** some code is faster/slower (compiler optimizations).
+* You can debug when only assembly is available.
+* You can inspect inline assembly in C++ (`asm("mov eax, 1");`).
+* You understand pointer arithmetic and memory layout better.
+
+---
+
+💡 **Pro Tip:** Try this command to see your C++ turn into assembly:
+
+```bash
+g++ -std=c++17 -O0 -S example.cpp -o example.s
+```
+
+Open `example.s` and match it with your C++ code line by line.
+
+---
+

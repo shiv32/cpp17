@@ -1,0 +1,161 @@
+**C++ ↔ Assembly Side-by-Side Cheat Sheet** 🛠️
+We’ll use **x86-64 GCC output** with no optimizations (`-O0`) so the mapping is clearer.
+
+---
+
+## **1. Variables & Assignment**
+
+**C++:**
+
+```cpp
+int x = 5;
+```
+
+**Assembly:**
+
+```asm
+mov DWORD PTR [rbp-4], 5   ; store 5 into local variable x
+```
+
+💡 Local variables are stored relative to `rbp` (base pointer).
+
+---
+
+## **2. Simple Arithmetic**
+
+**C++:**
+
+```cpp
+int a = 3, b = 4;
+int c = a + b;
+```
+
+**Assembly:**
+
+```asm
+mov eax, DWORD PTR [rbp-4]   ; load a into eax
+add eax, DWORD PTR [rbp-8]   ; eax += b
+mov DWORD PTR [rbp-12], eax  ; store result in c
+```
+
+💡 `eax` is a common register for integer results.
+
+---
+
+## **3. If Statements**
+
+**C++:**
+
+```cpp
+if (x == 10) {
+    y = 1;
+} else {
+    y = 2;
+}
+```
+
+**Assembly:**
+
+```asm
+mov eax, DWORD PTR [rbp-4]   ; load x
+cmp eax, 10                  ; compare x with 10
+jne .Lelse                   ; jump if not equal
+mov DWORD PTR [rbp-8], 1     ; y = 1
+jmp .Lend
+.Lelse:
+mov DWORD PTR [rbp-8], 2     ; y = 2
+.Lend:
+```
+
+💡 `cmp` sets flags, `jne` jumps if not equal.
+
+---
+
+## **4. Loops**
+
+**C++:**
+
+```cpp
+for (int i = 0; i < 3; i++) {
+    sum += i;
+}
+```
+
+**Assembly:**
+
+```asm
+mov DWORD PTR [rbp-4], 0    ; i = 0
+.Lloop_start:
+cmp DWORD PTR [rbp-4], 3    ; compare i with 3
+jge .Lloop_end              ; if i >= 3, exit
+add DWORD PTR [rbp-8], DWORD PTR [rbp-4] ; sum += i
+add DWORD PTR [rbp-4], 1    ; i++
+jmp .Lloop_start
+.Lloop_end:
+```
+
+💡 Loops are just jumps with conditions.
+
+---
+
+## **5. Function Calls**
+
+**C++:**
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+int main() {
+    int result = add(2, 3);
+}
+```
+
+**Assembly for `main`:**
+
+```asm
+mov edi, 2         ; first argument (a)
+mov esi, 3         ; second argument (b)
+call add           ; jump to function
+mov DWORD PTR [rbp-4], eax ; store return value
+```
+
+💡 First arguments go in `rdi`, `rsi`, `rdx`, etc. Return value is in `rax`/`eax`.
+
+---
+
+## **6. Return Values**
+
+**C++:**
+
+```cpp
+return x + 1;
+```
+
+**Assembly:**
+
+```asm
+mov eax, DWORD PTR [rbp-4] ; load x
+add eax, 1                 ; eax = x + 1
+ret
+```
+
+💡 The result must be in `eax` before `ret`.
+
+---
+
+## **Quick Register Map**
+
+| Register | Purpose (x86-64 calling convention) |
+| -------- | ----------------------------------- |
+| `rax`    | Return value                        |
+| `rdi`    | 1st argument                        |
+| `rsi`    | 2nd argument                        |
+| `rdx`    | 3rd argument                        |
+| `rcx`    | 4th argument                        |
+| `r8`     | 5th argument                        |
+| `r9`     | 6th argument                        |
+| `rsp`    | Stack pointer                       |
+| `rbp`    | Base pointer                        |
+
+---
