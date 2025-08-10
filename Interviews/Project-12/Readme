@@ -1,0 +1,5 @@
+RAII
+
+FileRAII        – opens a file in the constructor, writes to it, and automatically closes it in the destructor.
+IntArrayRAII    – allocates dynamic memory in the constructor and frees it automatically in the destructor.
+No explicit delete or close calls in main() — cleanup happens automatically when objects go out of scope.
