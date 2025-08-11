@@ -179,14 +179,17 @@ class Circle : public Shape
 public:
     int radius;
     Circle(int r) : radius(r) {}
+
     std::unique_ptr<Shape> clone() const override
     {
         return std::make_unique<Circle>(*this);
     }
+
     void draw() const override
     {
         std::cout << "Drawing Circle with radius " << radius << "\n";
     }
+    
 };
 
 //-------------------------------------------------------------
