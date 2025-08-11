@@ -216,6 +216,7 @@ public:
     {
         std::cout << "Loading " << filename << "\n";
     }
+
     void display() override { std::cout << "Displaying " << filename << "\n"; }
 };
 
@@ -226,10 +227,12 @@ class ProxyImage : public Image
 
 public:
     ProxyImage(std::string f) : filename(std::move(f)) {}
+
     void display() override
     {
         if (!real)
             real = std::make_unique<RealImage>(filename);
+            
         real->display();
     }
 };
