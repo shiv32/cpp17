@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 4.0)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the project name
-project(ExtendingClasses)
+project(Localization)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
@@ -12,4 +12,4 @@ set(SOURCES
 )
 
 # Add an executable with the above sources
-add_executable(ExtendingClasses ${SOURCES})
+add_executable(Localization ${SOURCES})
