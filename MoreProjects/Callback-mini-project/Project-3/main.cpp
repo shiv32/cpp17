@@ -129,8 +129,10 @@ bool OnExit()
 int main()
 {
     Menu menu{};
+
     menu.RegisterPersistentHandler(OnDisplay);
     menu.RegisterExitHandler(OnExit);
+
     menu.RegisterMenuItem("Generate random numbers", OnGenerateRandom);
     menu.RegisterMenuItem("Add a number", OnAdd);
     menu.RegisterMenuItem("Update a number", OnUpdate);
@@ -138,6 +140,7 @@ int main()
     menu.RegisterMenuItem("Remove a number", OnRemove);
     menu.RegisterMenuItem("Remove all numbers", OnRemoveAll);
     // menu.RegisterMenuItem("Display all numbers", OnDisplay);
+    
     menu.Run();
 
     return 0;

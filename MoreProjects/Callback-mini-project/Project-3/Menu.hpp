@@ -23,6 +23,7 @@ class Menu
 public:
     using EventHandler = void (*)(int);
     using ExitHandler = bool (*)();
+
     void RegisterMenuItem(const std::string &optionName, EventHandler handler)
     {
         m_MenuItems.emplace_back(optionName, handler);
@@ -52,7 +53,7 @@ public:
 
             DisplayMenuItem();
 
-            if (int choise = getUserChoice(); choise == 0)
+            if (int choice = getUserChoice(); choice == 0)
             {
                 if (CheckExit())
                 {
@@ -61,7 +62,7 @@ public:
             }
             else
             {
-                InvokeHandler(choise);
+                InvokeHandler(choice);
             }
 
             WaitForEnter();

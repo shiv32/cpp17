@@ -62,13 +62,13 @@ public:
             ClearScreen();
             DisplayMenuItem();
 
-            if (int choise = getUserChoice(); choise == 0)
+            if (int choice = getUserChoice(); choice == 0)
             {
                 return;
             }
             else
             {
-                InvokeHandler(choise);
+                InvokeHandler(choice);
             }
 
             WaitForEnter();
