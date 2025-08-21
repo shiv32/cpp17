@@ -1,0 +1,16 @@
+"Multi-Paradigm Programming with Modern C++" means that C++ (especially from C++11 onward, often called Modern C++) 
+supports and encourages using multiple programming paradigms (styles or approaches) in a single language and even 
+within the same project.
+
+Single short C++17/20 program that mixes multiple paradigms 
+so you can see multi-paradigm programming in action.
+
+What this program shows:
+    Procedural:         add function.
+    OOP:                Shape + Circle.
+    Generic:            multiply template.
+    Functional:         printSquares with lambda.
+    Metaprogramming:    constexpr factorial.
+    Concurrency:        std::async + std::future.
+
+“Multi-Paradigm Programming with Modern C++” means — one language, many paradigms, working together.
