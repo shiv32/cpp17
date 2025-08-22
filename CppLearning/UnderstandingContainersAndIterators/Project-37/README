@@ -1,0 +1,13 @@
+set
+    A set, defined in <set>, is very similar to a map.
+    In sets the key is the value. 
+    sets are useful for storing information in which there is no explicit key, 
+    but which you want to have in sorted order without any duplicates, with quick insertion, lookup, and deletion.
+
+set Example: Access Control List
+    One way to implement basic security on a computer system is through access control lists. 
+    A set provides a nice way to represent the access control list.
+
+multiset
+    A multiset is to a set what a multimap is to a map.
+    It allows multiple elements that are equal to each other to be stored in the container simultaneously.
