@@ -79,3 +79,17 @@ Use external libraries when:
 📚 Good Practice: **Start with standard C++**, then **bring in libraries only when needed**.
 
 ---
+Practical Rule of Thumb
+
+For Core/Business Logic (non-UI):
+➝ Prefer standard C++ (std::optional, std::variant, STL containers).
+✅ Keeps logic portable and testable, independent of Qt.
+
+For UI / Qt Integration (QML, Models, Signals/Slots):
+➝ Use Qt wrappers (QString, QVariant, QVector).
+✅ Plays nicely with QML and Qt’s reflection system.
+
+Boundary Layer:
+➝ Write conversion utilities (QString <-> std::string, QDateTime <-> std::chrono).
+✅ This keeps your “core” in modern C++, while UI-facing code stays Qt-friendly.
+----
