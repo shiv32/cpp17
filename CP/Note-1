@@ -1,0 +1,89 @@
+In **competitive programming (CP)** your primary goal is **speed of solving and correctness under time pressure**, 
+not building large maintainable software. 
+That influences whether design patterns or procedural style make sense.
+
+---
+
+## **Do you need design patterns in CP?**
+
+* **Generally no.**
+  Design patterns like Singleton, Factory, Observer, Strategy, etc. are intended for *large software projects* to improve maintainability and collaboration over months or years.
+  In CP, solutions are often small (20–100 lines), written once, and judged automatically — there’s no long-term maintenance.
+* Most top CP coders write code that is **straightforward and procedural**, with some modularization to reduce repetition.
+
+---
+
+## **What is actually useful in CP code structure?**
+
+Instead of formal design patterns, focus on:
+
+1. **Reusable snippets / templates**
+   *Write small reusable functions* for common tasks:
+
+   ```cpp
+   ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
+   ll modexp(ll a, ll b, ll m) { ll res = 1; while(b){ if(b&1) res = res*a % m; a = a*a % m; b >>= 1; } return res; }
+   ```
+
+   Having a personal “library” of tested functions saves time.
+
+2. **Structured procedural code**
+
+   * Use helper functions (e.g., `solve()` for each test case).
+   * Keep main clean:
+
+     ```cpp
+     void solve() {
+         int n; cin >> n;
+         vector<int> a(n);
+         for (auto &x : a) cin >> x;
+         sort(a.begin(), a.end());
+         cout << a.back() - a.front() << "\n";
+     }
+
+     int main() {
+         ios::sync_with_stdio(false); cin.tie(nullptr);
+         int t; cin >> t;
+         while(t--) solve();
+     }
+     ```
+
+3. **Occasional OOP if it simplifies**
+   Rarely, if a problem involves simulation with entities (like robots, grids, graphs), you may wrap logic in a class for clarity — but you don’t need heavy patterns.
+
+4. **Use STL effectively**
+   Learn containers and algorithms: `vector`, `map`, `priority_queue`, `sort`, `lower_bound`, etc.
+
+---
+
+## **Why procedural is preferred in CP?**
+
+* **Time constraints:** Less time to over-engineer.
+* **Judging style:** Once you submit, code is not maintained.
+* **Short code:** Most solutions are just one file; procedural is easier and faster.
+
+---
+
+## **What about design pattern thinking?**
+
+Even if you don’t apply GoF patterns directly, the *thinking* behind patterns helps:
+
+* Break problems into smaller functions (modularity).
+* Choose the right data structure (strategy-like decisions).
+* Write reusable templates (generic programming).
+
+For example:
+
+* A **Segment Tree** class is reusable across problems (some CPers keep a template).
+* A **DSU (Disjoint Set Union)** structure can be implemented as a class template for reuse.
+
+But you still wouldn’t do a full-blown Factory or Observer pattern in contests.
+
+---
+
+## **Conclusion:**
+
+* **For CP:** Use procedural or lightweight modular code; focus on algorithms, not design patterns.
+* **For software projects:** Learn design patterns for maintainability.
+
+---
