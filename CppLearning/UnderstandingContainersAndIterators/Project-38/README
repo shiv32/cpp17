@@ -1,0 +1,20 @@
+UNORDERED ASSOCIATIVE CONTAINERS OR HASH TABLES
+
+    unordered_map, 
+    unordered_multimap, 
+    unordered_set,
+    unordered_multiset.
+
+The map, multimap, set, and multiset containers sort their elements, 
+while these unordered variants do not sort their elements.
+
+Hash Functions
+    The unordered associative containers are also called hash tables. 
+    That is because the implementation makes use of so-called hash functions.
+
+Project 
+    Code demonstrates how to write a custom hash function. 
+    This implementation simply forwards the request to one of the available standard hash functions.
+    operator== compares the wrapped integers.
+    std::hash<IntWrapper> uses std::hash<int> internally to hash the wrapped value.
+    Now unordered_set and unordered_map can store and find IntWrapper objects correctly.
