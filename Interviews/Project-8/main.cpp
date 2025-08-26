@@ -9,7 +9,11 @@
 class InvoiceData
 {
 public:
-    void addItem(const std::string &item) { items.push_back(item); }
+    void addItem(const std::string &item) 
+    { 
+        items.push_back(item); 
+    }
+    
     void print() const
     {
         for (auto &i : items)
