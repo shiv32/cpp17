@@ -1,0 +1,34 @@
+Overriding Methods
+               The main reasons to inherit from a class are to add or replace functionality.
+               In many cases, you will want to modify the behavior of a class by replacing,
+                or overriding, a method.
+
+          How I Learned to Stop Worrying and Make Everything virtual
+                Methods that are declared as virtual in the base class can be overridden properly
+                by derived classes.
+
+                eg. virtual void someMethod();
+ 
+
+                A good rule of thumb is to just make all of your methods virtual.
+                That way, you won’t have to worry about whether or not overriding the method will
+                work.
+                The only drawback is a very tiny performance hit.
+
+                The same holds for the Derived class.
+
+                eg. virtual void someOtherMethod();
+
+                NOTE:   As a rule of thumb, make all your methods virtual (including the
+                        destructor, but not constructors) to avoid problems associated with omission
+                        of the virtual keyword. Note that the compiler-generated destructor is not
+                        virtual!
+
+            Syntax for Overriding a Method
+                To override a method, you redeclare it in the derived class definition exactly as it was declared in
+                the base class, and you add the override keyword.
+                In the derived class’s implementation file, you provide the new definition.
+
+            A Client’s View of Overridden Methods
+                The method could be called on an object of class Base or an object of class Derived.
+                The behavior of someMethod() varies based on the class of the object.
