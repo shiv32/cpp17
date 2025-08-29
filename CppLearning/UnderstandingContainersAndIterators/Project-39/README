@@ -1,0 +1,18 @@
+unordered_map
+    The unordered_map container is defined in <unordered_map> as a class template.
+
+unordered_map Example: Phone Book
+    Example uses an unordered_map to represent a phone book.
+    
+unordered_multimap
+    An unordered_multimap is an unordered_map that allows multiple elements with the same key.
+
+    NOTE 
+        unordered_multimaps allow you to insert identical key/value pairs. 
+        If you want to avoid this redundancy, 
+        you must check explicitly before inserting a new element.
+
+unordered_set/unordered_multiset
+    The <unordered_set> header file defines unordered_set and unordered_multiset, 
+    which are very similar to set and multiset, respectively, except that 
+    they do not sort their keys but they use a hash function.
