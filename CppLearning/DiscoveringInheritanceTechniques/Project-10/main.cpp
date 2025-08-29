@@ -1,46 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief   Referring to Parent Names part 1
-                When you override a method in a derived class, you are effectively replacing 
-                the original as far as other code is concerned.
-                However, that parent version of the method still exists and you may want
-                to make use of it. 
-
-                eg. 
-                    Take a look at the getTemperature() method in the WeatherPrediction class 
-                    that returns a string representation of the current temperature.
-
-                    virtual std::string getTemperature() const;
-
-                    override this method in the MyWeatherPrediction class.
-
-                    virtual std::string getTemperature() const override;
-
-                    Suppose the derived class wants to add °F to the string by first calling the base class 
-                    getTemperature() method and then adding °F to the string.
-
-                    return getTemperature() + "\u00B0F";  //bug
-
-                    However, this does not work because, under the rules of name resolution for C++.
-                    It first resolves against the local scope, 
-                    then the class scope, 
-                    and as a consequence ends up calling MyWeatherPrediction::getTemperature(). 
-
-                    This results in an infinite recursion until you run out of stack space
-                    (some compilers detect this error and report it at compile time).
-
-                    To make this work, you need to use the scope resolution operator.
-
-                    return WeatherPrediction::getTemperature() + "\u00B0F";
-
-                    NOTE:   Microsoft Visual C++ supports the __super keyword (with two underscores). 
-                            This allows you to write the following:
-                            return __super::getTemperature() + "\u00B0F";
-
-                
-   
-
+ * @brief Referring to Parent Names part 1
  * @version 0.1
  * @date 2024-08-26
  *
