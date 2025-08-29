@@ -39,7 +39,7 @@ namespace std
 
         result_type operator()(const argument_type &f) const
         {
-            std::clog << __PRETTY_FUNCTION__ << std::endl;
+            // std::clog << __PRETTY_FUNCTION__ << std::endl;
             return std::hash<int>()(f.getValue());
         }
     };
@@ -67,9 +67,13 @@ int main()
     m[IntWrapper{2}] = "two";
 
     std::cout << "unordered_map contents:\n";
-    for (const auto &kv : m)
+    // for (const auto &kv : m)
+    // {
+    //     std::cout << kv.first.getValue() << " => " << kv.second << '\n';
+    // }
+    for (const auto &[key, value] : m) // C++ structured bindings
     {
-        std::cout << kv.first.getValue() << " => " << kv.second << '\n';
+        std::cout << key.getValue() << " => " << value << '\n';
     }
 
     // Looking up values
@@ -77,7 +81,12 @@ int main()
     auto it = m.find(key);
     if (it != m.end())
     {
-        std::cout << "Found key " << it->first.getValue() << " with value " << it->second << '\n';
+        // std::cout << "Found key " << it->first.getValue() << " with value " << it->second << '\n';
+
+        // or
+        const auto &[key, value] = *it; // C++ structured binding
+        std::cout << "Found key " << key.getValue()
+                  << " with value " << value << '\n';
     }
 
     return 0;
