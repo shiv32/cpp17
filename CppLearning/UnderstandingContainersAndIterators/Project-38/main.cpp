@@ -71,6 +71,8 @@ int main()
     // {
     //     std::cout << kv.first.getValue() << " => " << kv.second << '\n';
     // }
+
+    //or
     for (const auto &[key, value] : m) // C++ structured bindings
     {
         std::cout << key.getValue() << " => " << value << '\n';
