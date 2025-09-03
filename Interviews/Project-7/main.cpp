@@ -255,17 +255,19 @@ public:
 class StateB : public State
 {
 public:
-    void handle(Context &ctx) override
-    {
-        std::cout << "StateB handling\n";
-        ctx.setState(std::make_unique<StateA>());
-    }
+    void handle(Context &ctx) override;
 };
 
 void StateA::handle(Context &ctx)
 {
     std::cout << "StateA handling\n";
     ctx.setState(std::make_unique<StateB>());
+}
+
+void StateB::handle(Context &ctx)
+{
+    std::cout << "StateB handling\n";
+    ctx.setState(std::make_unique<StateA>());
 }
 
 //-------------------------------------------------------------
