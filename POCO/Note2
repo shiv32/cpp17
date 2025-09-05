@@ -1,0 +1,128 @@
+Since POCO is a large framework, 
+I will give you a **focused study path**: 6 carefully chosen classes/components to learn from in sequence. 
+Each one illustrates important C++ techniques and design patterns.
+
+---
+
+# 📚 Study Path for Learning C++ from POCO Source Code
+
+## 1. **`Poco::Logger` (Foundation)**
+
+* **Why study it?**
+
+  * Shows Singleton usage (`Logger::root()` and `Logger::get()`).
+  * Demonstrates flexible API design (log levels, formatters, channels).
+  * Illustrates separation of concerns (message formatting vs output destination).
+* **Where:**
+
+  * `Foundation/include/Poco/Logger.h`
+  * `Foundation/src/Logger.cpp`
+
+👉 *Lesson:* Learn how a Singleton can be combined with Strategy (formatters, channels).
+
+---
+
+## 2. **`Poco::File` (Foundation)**
+
+* **Why study it?**
+
+  * Encapsulation of OS file system APIs.
+  * Cross-platform handling (Windows, POSIX).
+  * RAII and exception safety.
+* **Where:**
+
+  * `Foundation/include/Poco/File.h`
+  * `Foundation/src/File_WIN32.cpp`
+  * `Foundation/src/File_UNIX.cpp`
+
+👉 *Lesson:* Understand how to build a platform abstraction layer.
+
+---
+
+## 3. **`Poco::Thread` & `Poco::Runnable` (Foundation)**
+
+* **Why study it?**
+
+  * Wraps system threads in an OO API.
+  * Uses RAII for thread lifecycle.
+  * Demonstrates how to separate execution logic (`Runnable`) from threading (`Thread`).
+* **Where:**
+
+  * `Foundation/include/Poco/Thread.h`
+  * `Foundation/include/Poco/Runnable.h`
+  * `Foundation/src/Thread_POSIX.cpp`
+
+👉 *Lesson:* Learn threading abstraction and dependency inversion.
+
+---
+
+## 4. **`Poco::NotificationCenter` (Foundation)**
+
+* **Why study it?**
+
+  * Clean implementation of the **Observer pattern**.
+  * Shows thread-safe event subscription and delivery.
+  * Useful for decoupled communication in real projects.
+* **Where:**
+
+  * `Foundation/include/Poco/NotificationCenter.h`
+  * `Foundation/src/NotificationCenter.cpp`
+
+👉 *Lesson:* Learn how Observer pattern is implemented in production C++.
+
+---
+
+## 5. **`Poco::Timer` & `Poco::TimerCallback` (Foundation)**
+
+* **Why study it?**
+
+  * Combines threading, callbacks, and Observer pattern.
+  * Shows RAII with background execution.
+  * Demonstrates function object design before `std::function`.
+* **Where:**
+
+  * `Foundation/include/Poco/Timer.h`
+  * `Foundation/src/Timer.cpp`
+
+👉 *Lesson:* See how to implement recurring tasks using C++ classes.
+
+---
+
+## 6. **`Poco::HTTPClientSession` (Net)**
+
+* **Why study it?**
+
+  * High-level class using lower-level socket classes.
+  * Demonstrates layering, modularity, and exception handling.
+  * Shows how a client library encapsulates protocol logic.
+* **Where:**
+
+  * `Net/include/Poco/Net/HTTPClientSession.h`
+  * `Net/src/HTTPClientSession.cpp`
+
+👉 *Lesson:* Learn how a real network client is designed around streams, requests, and responses.
+
+---
+
+# 🔄 Suggested Study Order
+
+1. Logger → Singleton + Strategy
+2. File → OS abstraction
+3. Thread + Runnable → threading + RAII
+4. NotificationCenter → Observer pattern
+5. Timer → scheduling + callbacks
+6. HTTPClientSession → layering & networking
+
+---
+
+# 🏗 How to Study Each
+
+For each class:
+
+1. **Run the sample** (from `samples/` folder).
+2. **Trace the header file** (API design, patterns, exceptions).
+3. **Read implementation** (focus on RAII, error handling, cross-platform details).
+4. **Rebuild a mini version yourself** (your own Logger, Thread wrapper, Observer, etc).
+5. **Compare with modern C++** (replace POCO code with `std::thread`, `std::filesystem`, etc).
+
+---
