@@ -1,0 +1,24 @@
+Build a tiny C++ microservice example using POCO C++ Libraries (popular for HTTP/REST).
+
+This service will expose a REST API:
+GET /hello → responds with "Hello from C++ microservice!"
+
+---------------------------------------------
+Compile and run:
+g++ main.cpp -o microservice -lPocoNet -lPocoUtil -lPocoFoundation
+./microservice
+
+
+Run:
+curl http://localhost:9090/hello
+
+Output:
+{"message": "Hello from C++ microservice!"}
+
+-----------------------------------------
+
+You now have a working C++ REST microservice.
+From here, you can expand:
+    Add more endpoints (/status, /users).
+    Communicate with other services (via REST/gRPC).
+    Package into Docker → deploy with Kubernetes.
