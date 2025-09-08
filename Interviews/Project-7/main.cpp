@@ -183,6 +183,7 @@ class Originator
 public:
     void setState(const std::string &s) { state = s; }
     std::string getState() const { return state; }
+    
     Memento save() { return Memento(state); }
     void restore(const Memento &m) { state = m.getState(); }
 };
