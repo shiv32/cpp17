@@ -91,7 +91,10 @@ class Number : public Expression
 
 public:
     Number(int v) : val(v) {}
-    int interpret() override { return val; }
+    int interpret() override 
+    { 
+        return val; 
+    }
 };
 
 class Add : public Expression
@@ -100,8 +103,16 @@ class Add : public Expression
 
 public:
     Add(std::unique_ptr<Expression> l, std::unique_ptr<Expression> r)
-        : left(std::move(l)), right(std::move(r)) {}
-    int interpret() override { return left->interpret() + right->interpret(); }
+    : left(std::move(l)), 
+      right(std::move(r)) 
+    {
+
+    }
+
+    int interpret() override 
+    { 
+        return left->interpret() + right->interpret(); 
+    }
 };
 
 //-------------------------------------------------------------
