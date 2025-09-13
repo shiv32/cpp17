@@ -17,7 +17,10 @@ Just make sure your Yocto build includes:
     libc (for the POSIX calls—already present in any normal image)
     iproute2 utilities if you want to actually change the network settings.
 
-
+--------------------------------------------------
+Design patterns: 
+    Singleton ensures a single, shared configuration object.
+    Facade hides the OS-specific details.
 ------------------------------------------------------
 g++ -std=c++17 main.cpp NetworkConfig.cpp -o netconfig
 sudo ./netconfig      # needs root to change settings
