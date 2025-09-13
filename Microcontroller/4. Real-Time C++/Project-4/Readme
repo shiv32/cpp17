@@ -1,0 +1,18 @@
+The Real Overhead of Dynamic Polymorphism
+Pure Virtual and Abstract
+
+-------------------------------
+In general English
+
+"Abstract" = existing in thought or as an idea, not in concrete/physical form.
+Example: “Freedom” is an abstract concept.
+
+In OOP, abstract = incomplete blueprint.
+It defines what derived classes must implement, but not how.
+-------------------------------
+
+Interface class = abstract class only pure virtual methods, typically no data, no implemented methods.
+
+Abstract class  = can mix pure virtual, virtual-with-default, and even fully implemented methods and data members.
+
+-------------------------------
