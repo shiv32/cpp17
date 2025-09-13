@@ -36,7 +36,10 @@ public:
 protected:
     bool is_on;
     // A protected default constructor.
-    led_base() : is_on(false) {}
+    led_base() : is_on(false) 
+    {
+        TRACE
+    }
 
 private:
     // Private non-implemented copy constructor.
