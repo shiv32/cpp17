@@ -1,0 +1,37 @@
+Change IP of Linux/yocto system.
+
+--------------------------------------------------
+In this example no external (third-party) library is used.
+Everything comes from:
+    C++17 standard library headers
+        <string>, <iostream>, <sstream>, <fstream>, <cstring>
+
+    POSIX / Linux system headers
+        <sys/ioctl.h>, <net/if.h>, <arpa/inet.h>, <unistd.h>
+
+    The Linux ip command (invoked through std::system)
+        This is part of the iproute2 package that’s present on almost all Linux/Yocto systems.
+
+So you don’t need to install any special C++ library.
+Just make sure your Yocto build includes:
+    libc (for the POSIX calls—already present in any normal image)
+    iproute2 utilities if you want to actually change the network settings.
+
+
+------------------------------------------------------
+g++ -std=c++17 main.cpp NetworkConfig.cpp -o netconfig
+sudo ./netconfig      # needs root to change settings
+
+------------------------------------------------------
+$ ethtool eth0 | grep "Link detected"
+        Link detected: yes
+
+
+Continuous Monitoring
+
+watch command
+watch -n1 cat /sys/class/net/eth0/carrier
+
+NetworkManager tools (if your Yocto image includes it)
+nmcli device status
+--------------------------------------------------------
