@@ -1,0 +1,14 @@
+Why this template is useful
+   Clean separation of startup (main) from application logic (MyApp::run).
+   Unit-test friendly - you can test MyApp directly without invoking the actual executable.
+   Scalable - easy to add libraries, more source files, or submodules as the project grows.
+
+Directory layout
+
+   myapp/
+   ├─ CMakeLists.txt
+   ├─ include/
+   │  └─ MyApp.hpp
+   └─ src/
+      ├─ MyApp.cpp
+      └─ main.cpp
