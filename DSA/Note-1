@@ -1,0 +1,62 @@
+**Key difference in a nutshell:**
+
+* **Data Structures** are **containers**—they define *how* data is stored and organized.
+* **Algorithms** are **recipes**—they define *how* data is processed or manipulated to solve a problem.
+
+---
+
+### 1. Definition
+
+| Aspect      | Data Structures                                     | Algorithms                                                             |
+| ----------- | --------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Purpose** | Organize and store data efficiently.                | Provide a step-by-step procedure to perform a task or solve a problem. |
+| **Focus**   | *What* form the data takes (layout, relationships). | *How* to operate on that data (logic, sequence of steps).              |
+
+---
+
+### 2. Examples
+
+* **Data Structures:**
+
+  * Arrays, Linked Lists, Stacks, Queues
+  * Trees (Binary, AVL), Graphs
+  * Hash Tables, Heaps
+
+* **Algorithms:**
+
+  * Searching (Binary Search, DFS, BFS)
+  * Sorting (Quick Sort, Merge Sort, Heap Sort)
+  * Shortest Path (Dijkstra, A\*)
+  * Dynamic Programming techniques
+
+---
+
+### 3. Relationship
+
+* They complement each other.
+
+  * Choosing the right **data structure** can make an **algorithm** faster or simpler.
+  * Example:
+
+    * **Stack (data structure)** + **DFS (algorithm)** → Graph traversal.
+    * **Priority Queue (data structure)** + **Dijkstra’s algorithm** → Shortest path.
+
+---
+
+### 4. Analogy
+
+Think of building a house:
+
+* **Data Structure = Storage** (rooms, cupboards, layout).
+* **Algorithm = Method** (the order and technique you follow to build, paint, or furnish).
+
+---
+
+### 5. Practical Takeaway
+
+When solving problems:
+
+1. **Model the data** with a suitable data structure.
+2. **Design an algorithm** that operates on it efficiently in terms of **time** and **space complexity**.
+
+In short, **data structures are about *representation*, algorithms are about *computation*.**
