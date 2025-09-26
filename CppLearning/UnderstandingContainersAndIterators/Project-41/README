@@ -1,0 +1,6 @@
+Strings
+    string is a sequential container of characters.
+    The string interface is actually quite a good example of a cluttered interface, one of the design pitfalls.
+
+Streams
+    Input and output streams are not containers in the traditional sense because they do not store elements.

@@ -1,0 +1,9 @@
+OTHER CONTAINERS
+    standard C-style arrays, strings, streams, and bitset.
+
+Standard C-Style Arrays
+
+    WARNING 
+        Functions such as std::begin() and std::end() only work on statically allocated C-style arrays 
+        not accessed through pointers. 
+        They do not work if pointers are involved, or with dynamically allocated C-style arrays.

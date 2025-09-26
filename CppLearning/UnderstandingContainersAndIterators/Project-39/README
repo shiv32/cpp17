@@ -14,5 +14,5 @@ unordered_multimap
 
 unordered_set/unordered_multiset
     The <unordered_set> header file defines unordered_set and unordered_multiset, 
-    which are very similar to set and multiset, respectively, except that 
-    they do not sort their keys but they use a hash function.
+    which are very similar to set and multiset, respectively, 
+    except that they do not sort their keys but they use a hash function.
