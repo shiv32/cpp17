@@ -1,0 +1,45 @@
+Object-oriented programming (OOP) languages are those that support the four core OOP principles—**encapsulation, inheritance, polymorphism, and abstraction**—often through the use of **classes** and **objects**.
+Below are some of the most widely used OOP-based languages, grouped by category:
+
+---
+
+### 1. **General-Purpose / Widely Used**
+
+| Language   | Key Notes                                                                                                           |
+| ---------- | ------------------------------------------------------------------------------------------------------------------- |
+| **C++**    | Multi-paradigm: supports OOP and procedural. Strong performance, used for systems, games, and embedded development. |
+| **Java**   | “Write once, run anywhere” with the JVM. Heavy use in enterprise, Android, and backend systems.                     |
+| **C#**     | Microsoft’s flagship OOP language for .NET; used in Windows apps, enterprise software, and Unity game development.  |
+| **Python** | Dynamically typed, supports OOP and functional styles; very flexible and popular for data science and web apps.     |
+| **Ruby**   | Pure OOP philosophy; everything is an object. Widely used in web development (Rails).                               |
+
+---
+
+### 2. **Modern / Emerging**
+
+| Language                        | Key Notes                                                                           |
+| ------------------------------- | ----------------------------------------------------------------------------------- |
+| **Kotlin**                      | JVM language fully interoperable with Java; concise syntax and null-safety.         |
+| **Swift**                       | Apple’s language for iOS/macOS; combines OOP and protocol-oriented programming.     |
+| **Rust**                        | Primarily systems language; supports traits and encapsulation for OOP-style design. |
+| **Go** (with structs & methods) | Not class-based, but supports composition and interfaces for OOP-like patterns.     |
+
+---
+
+### 3. **Specialized / Domain-Specific**
+
+| Language          | Domain                                                             |
+| ----------------- | ------------------------------------------------------------------ |
+| **Objective-C**   | Older iOS/macOS development before Swift.                          |
+| **PHP**           | Popular for web backends; OOP features since PHP 5.                |
+| **Perl 6 / Raku** | Strong OOP features, multi-paradigm scripting.                     |
+| **Smalltalk**     | One of the earliest “pure” OOP languages—historically influential. |
+
+---
+
+### Key Takeaways
+
+* **Pure OOP** (everything is an object): Smalltalk, Ruby.
+* **Multi-paradigm** (OOP + procedural/functional): C++, Python, JavaScript, Rust.
+* Choose a language based on ecosystem and performance needs rather than OOP alone—most modern languages blend paradigms.
+
