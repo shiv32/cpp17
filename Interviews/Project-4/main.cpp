@@ -52,7 +52,10 @@ public:
         std::cout << buffer << "\n";
     }
 
-    ~Data() { delete[] buffer; }
+    ~Data() 
+    { 
+        delete[] buffer; 
+    }
 };
 
 int main()
