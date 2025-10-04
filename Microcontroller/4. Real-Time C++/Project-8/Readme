@@ -1,0 +1,4 @@
+Static Constant Integral Members 
+    static constant integral members of class types are compile-time constants.
+
+Class Friends
