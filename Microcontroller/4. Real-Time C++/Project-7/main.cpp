@@ -90,7 +90,7 @@ bool login2(communication &com)
 {
     TRACE
 
-    // OK. Call the const send_byte on a const reference.
+    // OK. Call the const send_byte on a reference.
     const bool wakeup_is_ok = com.send_byte(0x12U);
 
     if (wakeup_is_ok)
