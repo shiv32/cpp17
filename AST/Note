@@ -1,0 +1,95 @@
+you can *see* how C++ member functions are transformed internally (including the hidden `this` pointer).
+
+Here are **3 best online tools** you can use — no installation needed 👇
+
+---
+
+## 🧠 1. **Compiler Explorer (godbolt.org)**
+
+🔗 **[https://godbolt.org/](https://godbolt.org/)**
+
+### ✅ Steps:
+
+1. Go to **[https://godbolt.org/](https://godbolt.org/)**
+2. In the left panel, write your C++ code:
+
+   ```cpp
+   class ForwardList {
+   public:
+       void push_front(int value);
+       void push_front_const(int value) const;
+   };
+
+   void ForwardList::push_front(int value) {}
+   void ForwardList::push_front_const(int value) const {}
+   ```
+3. Choose **Clang** as the compiler (top left dropdown).
+4. In the **compiler options**, add:
+
+   ```
+   -std=c++17 -Xclang -ast-dump -fsyntax-only
+   ```
+5. The **right panel** will show the **AST (Abstract Syntax Tree)**, where you’ll see lines like:
+
+   ```
+   CXXMethodDecl 0x... push_front 'void (int)'
+     (ImplicitParamDecl 0x... implicit this 'ForwardList *const')
+   CXXMethodDecl 0x... push_front_const 'void (int) const'
+     (ImplicitParamDecl 0x... implicit this 'const ForwardList *const')
+   ```
+
+✅ That confirms:
+
+* `ForwardList *const this` for non-const member functions
+* `const ForwardList *const this` for const member functions
+
+---
+
+## ⚙️ 2. **Godbolt LLVM IR View**
+
+If you just want to see the **low-level function signature**, switch the **output type**:
+
+1. Same site: [https://godbolt.org/](https://godbolt.org/)
+2. Use Clang and set flags:
+
+   ```
+   -std=c++17 -S -emit-llvm
+   ```
+3. You’ll see something like:
+
+   ```llvm
+   define dso_local void @_ZN11ForwardList10push_frontEi(%class.ForwardList* nonnull %this, i32 %value) {
+   ```
+
+   → `%this` is your implicit `this` pointer.
+
+---
+
+## 🪄 3. **Compiler Explorer (Assembly View)**
+
+If you prefer assembly instead of AST:
+
+1. On [https://godbolt.org/](https://godbolt.org/)
+2. Use:
+
+   ```
+   -std=c++17 -O0
+   ```
+3. Observe how `this` is passed through registers:
+
+   * `rdi` → `this` pointer
+   * `esi` → first explicit argument (`int value`)
+
+---
+
+### 🔍 Tip:
+
+You can open **multiple panels** on godbolt:
+
+* One showing **AST dump**
+* One showing **LLVM IR**
+* One showing **assembly**
+
+That lets you trace the same `this` parameter across all compiler layers!
+
+---
