@@ -1,0 +1,86 @@
+**`printf()`** and **`scanf()`** families in C and C++ **do not provide type safety**.
+
+Let’s break down *why* 👇
+
+---
+
+### ⚙️ 1. What Type Safety Means
+
+**Type safety** means the compiler can **check at compile time** that:
+
+* The type of data you pass matches the type expected.
+* You’re not mixing up integers, floats, pointers, etc.
+
+Example (type-safe):
+
+```cpp
+std::cout << 42;     // compiler knows 42 is int
+std::cout << 3.14;   // compiler knows it's double
+```
+
+The compiler checks everything before the program runs. ✅
+
+---
+
+### ⚠️ 2. Why `printf()` and `scanf()` Are *Not* Type Safe
+
+C-style I/O functions like:
+
+```c
+printf("%d", x);
+scanf("%f", &y);
+```
+
+use **format strings** to describe what types are expected.
+But the compiler **cannot verify** that the format string matches the arguments’ types — it trusts you blindly.
+
+Example:
+
+```c
+printf("%d", 3.14);  // WRONG type, expects int but got double!
+```
+
+✅ Compiles fine
+❌ Prints garbage or causes undefined behavior at runtime
+
+Because `printf()` is declared as:
+
+```c
+int printf(const char* format, ...);
+```
+
+That `...` means **variadic arguments** — the compiler does not know how many or what types of arguments are passed.
+
+So there’s no way for the compiler to type-check them.
+
+---
+
+### 🧩 3. C++ Type-Safe Alternatives
+
+C++ fixes this problem by using **type-safe streams**:
+
+```cpp
+int i = 42;
+double d = 3.14;
+std::cout << i << " " << d;  // fully type safe
+```
+
+* `operator<<` and `operator>>` are **overloaded** for every type.
+* The compiler checks type compatibility at compile time.
+
+---
+
+### 🧠 Summary
+
+| Function Family         | Type Safety | Reason                                                   |
+| ----------------------- | ----------- | -------------------------------------------------------- |
+| `printf()`, `scanf()`   | ❌ No        | Variadic arguments (`...`) → compiler can’t verify types |
+| `std::cout`, `std::cin` | ✅ Yes       | Overloaded operators → compiler checks types             |
+
+---
+
+### 🧠 In short:
+
+> `printf()` and `scanf()` are *not type-safe* because the **format string** and **actual arguments** are not verified by the compiler.
+
+---

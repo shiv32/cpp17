@@ -1,0 +1,19 @@
+
+Declarations and definitions ->
+
+C++ separates:
+    Declarations (what exists — in header files .h or .hpp)
+    Definitions (how it works — in source files .cpp)
+
+| Language | Declarations Separate? | Typical File Split | Linking Model  |
+| -------- | ---------------------- | ------------------ | -------------- |
+| **C++**  | Yes                    | `.h` + `.cpp`      | Compile → Link |
+| **Java** | No                     | `.java` only       | Managed by JVM |
+| **C#**   | No                     | `.cs` only         | Managed by CLR |
+
+
+C++ uses a compile-link model — each .cpp is compiled independently, and the linker connects them later.
+
+Virtual machine ->
+CLR -> Common Language Runtime.
+JVM -> Java Virtual Machine
