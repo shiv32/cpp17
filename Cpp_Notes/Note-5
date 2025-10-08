@@ -1,0 +1,160 @@
+In **C++**, a **literal** is a *fixed value* written directly in the code — it represents a constant value of a particular type.
+
+You can think of **literals** as **hard-coded values** that don’t change during program execution.
+
+---
+
+## 🧩 Types of Literals in C++
+
+### 1. **Integer Literals**
+
+Used for whole numbers.
+
+```cpp
+int a = 42;       // decimal literal
+int b = 052;      // octal (base 8) → value = 42
+int c = 0x2A;     // hexadecimal (base 16) → value = 42
+int d = 0b101010; // binary (C++14) → value = 42
+```
+
+📘 **Suffixes**:
+
+* `u` or `U` → unsigned
+* `l` or `L` → long
+* `ll` or `LL` → long long
+
+Example:
+
+```cpp
+unsigned long long big = 42ULL;
+```
+
+---
+
+### 2. **Floating-Point Literals**
+
+Used for real numbers (numbers with decimal points).
+
+```cpp
+double x = 3.14;
+float y = 3.14f;     // suffix f → float
+long double z = 3.14L; // suffix L → long double
+```
+
+You can also use **scientific notation**:
+
+```cpp
+double e = 1.5e3;  // 1.5 × 10³ = 1500
+```
+
+---
+
+### 3. **Character Literals**
+
+Represent a single character enclosed in single quotes.
+
+```cpp
+char c = 'A';
+char newline = '\n'; // escape sequence
+```
+
+📘 **Types of character literals**:
+
+| Type   | Example | Meaning           |
+| ------ | ------- | ----------------- |
+| Normal | `'A'`   | `char`            |
+| Wide   | `L'A'`  | `wchar_t`         |
+| UTF-8  | `u8'A'` | `char8_t` (C++20) |
+| UTF-16 | `u'A'`  | `char16_t`        |
+| UTF-32 | `U'A'`  | `char32_t`        |
+
+---
+
+### 4. **String Literals**
+
+Sequence of characters enclosed in double quotes.
+
+```cpp
+const char* s = "Hello";
+```
+
+📘 **Types of string literals**:
+
+| Type   | Example     | Meaning             |
+| ------ | ----------- | ------------------- |
+| Normal | `"Hello"`   | `const char[6]`     |
+| Wide   | `L"Hello"`  | `const wchar_t[6]`  |
+| UTF-8  | `u8"Hello"` | `const char8_t[6]`  |
+| UTF-16 | `u"Hello"`  | `const char16_t[6]` |
+| UTF-32 | `U"Hello"`  | `const char32_t[6]` |
+
+You can also use **raw string literals** (C++11):
+
+```cpp
+std::string path = R"(C:\Program Files\MyApp)";
+```
+
+---
+
+### 5. **Boolean Literals**
+
+```cpp
+bool flag1 = true;
+bool flag2 = false;
+```
+
+---
+
+### 6. **Pointer Literal**
+
+```cpp
+int* p = nullptr;  // represents null pointer (C++11)
+```
+
+Older versions used `NULL` or `0`.
+
+---
+
+### 7. **User-Defined Literals (C++11 and later)**
+
+You can define your own literal suffixes!
+
+Example:
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std::string_literals;
+
+int main() {
+    std::string s = "Hello"s;   // user-defined literal
+    std::cout << s.size();      // 5
+}
+```
+
+Or your own numeric literal:
+
+```cpp
+constexpr long double operator"" _deg(long double deg) {
+    return deg * 3.14159L / 180; // degrees → radians
+}
+
+double angle = 90.0_deg; // 1.5708 radians
+```
+
+---
+
+### 🧠 Summary Table
+
+| Type         | Example                  | Type/Use                         |
+| ------------ | ------------------------ | -------------------------------- |
+| Integer      | `42`, `0x2A`, `0b101010` | `int`, `unsigned`, etc.          |
+| Floating     | `3.14`, `2e5`            | `float`, `double`, `long double` |
+| Character    | `'A'`, `'\n'`            | `char`, `wchar_t`, etc.          |
+| String       | `"Hello"`, `R"(text)"`   | `char[]`, UTF variants           |
+| Boolean      | `true`, `false`          | `bool`                           |
+| Pointer      | `nullptr`                | Null pointer constant            |
+| User-defined | `"hi"s`, `90.0_deg`      | Custom literal operators         |
+
+---
+
