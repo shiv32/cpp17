@@ -11,10 +11,12 @@ public:
     FileRAII(const std::string &filename)
     {
         file.open(filename);
+
         if (!file.is_open())
         {
             throw std::runtime_error("Failed to open file: " + filename);
         }
+
         std::cout << "File opened: " << filename << "\n";
     }
 
@@ -23,8 +25,9 @@ public:
         file << text << "\n";
     }
 
+    // Automatically releases the resource
     ~FileRAII()
-    { // Automatically releases the resource
+    {
         if (file.is_open())
         {
             file.close();
@@ -42,10 +45,16 @@ class IntArrayRAII
 public:
     IntArrayRAII(std::size_t n) : size(n)
     {
-        data = new int[size]{};
+        data = new int[size]{};//value-initialize all elements, all initialized to 0.
+
         std::cout << "Allocated " << size << " integers.\n";
     }
-    int &operator[](std::size_t index) { return data[index]; }
+
+    int &operator[](std::size_t index) 
+    { 
+        return data[index]; 
+    }
+    
     ~IntArrayRAII()
     {
         delete[] data;
@@ -71,15 +80,19 @@ int main()
         // Memory automatically freed at scope end
         {
             IntArrayRAII arr(5);
+
             for (std::size_t i = 0; i < 5; ++i)
             {
                 arr[i] = static_cast<int>(i * 10);
             }
+
             std::cout << "Array contents: ";
+
             for (std::size_t i = 0; i < 5; ++i)
             {
                 std::cout << arr[i] << " ";
             }
+            
             std::cout << "\n";
         }
     }
@@ -89,5 +102,6 @@ int main()
     }
 
     std::cout << "Program finished.\n";
+
     return 0;
 }
