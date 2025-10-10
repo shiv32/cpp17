@@ -3,4 +3,5 @@ Smart pointers
     std::unique_ptr – sole ownership, move semantics.
     std::shared_ptr – shared ownership, reference counting.
     std::weak_ptr   – non-owning reference, detecting expiration.
+    
     Custom deleter for unique_ptr.
