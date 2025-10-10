@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/shiv/Projects/cpp17/Interviews/Project-14/build",
-  "command": "/usr/bin/g++ -g -o CMakeFiles/cppInterview.dir/main.cpp.o -c /home/shiv/Projects/cpp17/Interviews/Project-14/main.cpp",
-  "file": "/home/shiv/Projects/cpp17/Interviews/Project-14/main.cpp",
-  "output": "/home/shiv/Projects/cpp17/Interviews/Project-14/build/CMakeFiles/cppInterview.dir/main.cpp.o"
-}
-]

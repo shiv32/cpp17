@@ -1,3 +1,0 @@
-/home/shiv/Projects/cpp17/Interviews/Project-14/build/CMakeFiles/cppInterview.dir
-/home/shiv/Projects/cpp17/Interviews/Project-14/build/CMakeFiles/edit_cache.dir
-/home/shiv/Projects/cpp17/Interviews/Project-14/build/CMakeFiles/rebuild_cache.dir
