@@ -1,46 +1,46 @@
 
 
-## 🧠 Why Still Code in **Standard C++** (Without External Libraries)?
+##  Why Still Code in **Standard C++** (Without External Libraries)?
 
 Even with many powerful C++ libraries available (like Boost, Qt, POCO, etc.), coding in **standard C++ (ISO C++)** has **important benefits** — especially in real-world development:
 
 ---
 
-### ✅ 1. **Portability**
+###  1. **Portability**
 
 * Standard C++ runs anywhere a compliant compiler is available (GCC, Clang, MSVC).
 * No extra build steps, dependencies, or runtime requirements.
 
-📌 *Example:* Embedded systems, IoT devices, or restricted environments often **only allow standard C++**.
+ *Example:* Embedded systems, IoT devices, or restricted environments often **only allow standard C++**.
 
 ---
 
-### ✅ 2. **Stability & Longevity**
+###  2. **Stability & Longevity**
 
 * ISO C++ features are standardized, consistent, and evolve with care.
 * Unlike third-party libraries that may break compatibility or get deprecated.
 
-📌 *Example:* `std::filesystem` replaced many Boost filesystem use cases in C++17.
+ *Example:* `std::filesystem` replaced many Boost filesystem use cases in C++17.
 
 ---
 
-### ✅ 3. **Zero Dependencies**
+###  3. **Zero Dependencies**
 
 * Fewer headaches with builds, CI/CD, cross-platform support, and licensing.
 * Easier onboarding for teams — no external setup.
 
-📌 *Ideal for:* Simple tools, student projects, interviews, and teaching.
+ *Ideal for:* Simple tools, student projects, interviews, and teaching.
 
 ---
 
-### ✅ 4. **Performance & Control**
+### 4. **Performance & Control**
 
 * Standard C++ gives **fine-grained control** over memory, types, and behavior.
 * STL containers and algorithms are highly optimized and often outperform hand-written code.
 
 ---
 
-### ✅ 5. **Learn Core Language Concepts**
+### 5. **Learn Core Language Concepts**
 
 * You master:
 
@@ -51,11 +51,11 @@ Even with many powerful C++ libraries available (like Boost, Qt, POCO, etc.), co
   * Standard algorithms
   * Multithreading (via `std::thread`, `std::async`, etc.)
 
-📌 *Boost and Qt are great — but they often abstract or hide these core principles.*
+ *Boost and Qt are great — but they often abstract or hide these core principles.*
 
 ---
 
-### ✅ 6. **C++ Keeps Evolving**
+### 6. **C++ Keeps Evolving**
 
 Modern C++ versions (C++17, C++20, C++23) have added:
 
@@ -68,7 +68,7 @@ Modern C++ versions (C++17, C++20, C++23) have added:
 
 ---
 
-## 🚀 When to Use External Libraries
+## When to Use External Libraries
 
 Use external libraries when:
 
@@ -83,13 +83,13 @@ Practical Rule of Thumb
 
 For Core/Business Logic (non-UI):
 ➝ Prefer standard C++ (std::optional, std::variant, STL containers).
-✅ Keeps logic portable and testable, independent of Qt.
+  Keeps logic portable and testable, independent of Qt.
 
 For UI / Qt Integration (QML, Models, Signals/Slots):
 ➝ Use Qt wrappers (QString, QVariant, QVector).
-✅ Plays nicely with QML and Qt’s reflection system.
+  Plays nicely with QML and Qt’s reflection system.
 
 Boundary Layer:
 ➝ Write conversion utilities (QString <-> std::string, QDateTime <-> std::chrono).
-✅ This keeps your “core” in modern C++, while UI-facing code stays Qt-friendly.
+  This keeps your “core” in modern C++, while UI-facing code stays Qt-friendly.
 ----
