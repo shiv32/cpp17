@@ -1,0 +1,2 @@
+Forgot the self-assignment check inside the copy assignment operator.
+    --> Causes undefined behavior
