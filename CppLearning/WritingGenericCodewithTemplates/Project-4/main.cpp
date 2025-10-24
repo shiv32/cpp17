@@ -32,7 +32,7 @@ int main()
     chessBoard.at(0, 0) = std::make_unique<ChessPiece>();
 
     std::cout << "----------------(3)----------------------" << std::endl;
-    chessBoard.at(0, 1) = std::make_unique<TicTacToePiece>();
+    chessBoard.at(0, 1) = std::make_unique<TicTacToePiece>(); //issue, chessBoard not seems to accept TicTacToePiece
 
     return 0;
 }

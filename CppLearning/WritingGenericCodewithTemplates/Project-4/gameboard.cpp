@@ -1,7 +1,8 @@
 #include "gameboard.hpp"
 
 GameBoard::GameBoard(size_t width, size_t height)
-    : mWidth(width), mHeight(height)
+    : mWidth(width), 
+    mHeight(height)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
@@ -40,6 +41,7 @@ void GameBoard::verifyCoordinate(size_t x, size_t y) const
 void swap(GameBoard &first, GameBoard &second) noexcept
 {
     using std::swap;
+    
     swap(first.mWidth, second.mWidth);
     swap(first.mHeight, second.mHeight);
     swap(first.mCells, second.mCells);
