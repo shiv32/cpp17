@@ -40,8 +40,8 @@ int main()
     //---------- Using the Grid Template ---------------
 
     /*
-     Grid test; // WILL NOT COMPILE
-     Grid<> test; // WILL NOT COMPILE
+     Grid test;     // WILL NOT COMPILE
+     Grid<> test;   // WILL NOT COMPILE
     */
 
     Grid<int> myIntGrid; // declares a grid that stores ints,
@@ -95,7 +95,7 @@ int main()
     //------------------------------------------------------------------
 
     Grid<ChessPiece> chessBoard(8, 8);
-    
+
     ChessPiece king("King");
     ChessPiece queen("Queen");
 
@@ -104,6 +104,8 @@ int main()
 
     std::cout << "chessBoard value at (0,0) : " << chessBoard.at(0, 0).value().getValue() << std::endl;
     std::cout << "chessBoard value at (1,1) : " << chessBoard.at(1, 1).value().getValue() << std::endl;
+
+    // chessBoard.at(0, 0) = 5; //compiler error type mismatch
 
     return 0;
 }

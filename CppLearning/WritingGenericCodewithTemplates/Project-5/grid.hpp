@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <optional>
+#include <utility>
 
 //----------- The Grid Class Definition ---------------
 
@@ -42,10 +43,11 @@ private:
 
 template <typename T>
 Grid<T>::Grid(size_t width, size_t height)
-    : mWidth(width), mHeight(height)
+    : mWidth(width),
+      mHeight(height)
 {
     mCells.resize(mWidth);
-    
+
     for (auto &column : mCells)
     {
         // Equivalent to:
