@@ -25,6 +25,14 @@ T findMax(T a, T b)
     return (a > b) ? a : b;
 }
 
+template <>
+std::string findMax<std::string>(std::string a, std::string b)
+{
+    std::clog << "specialization called." << std::endl;
+
+    return (a > b) ? a : b;
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -35,7 +43,9 @@ int main()
 
     std::cout << findMax('A', 'B') << std::endl;
 
-    std::cout << findMax("A", "B") << std::endl;//wrong return
+    std::cout << findMax("A", "B") << std::endl; // wrong return
+
+    std::cout << findMax<std::string>("A", "B") << std::endl;
 
     return 0;
 }

@@ -37,7 +37,7 @@ int main()
 
     std::cout << findMax('h', 'e') << std::endl;
 
-    std::cout << findMax("L", "N") << std::endl; //wrong result L
+    std::cout << findMax("L", "N") << std::endl; //wrong result L, solution given in Project-2.
     std::cout << findMax('L', 'N') << std::endl;
 
     return 0;
