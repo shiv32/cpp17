@@ -1,0 +1,9 @@
+Composition vs Aggregation vs Association
+
+Composition – strong ownership
+Aggregation – shared but independent ownership
+Association – no ownership, just usage
+
+Composition	    Car → Engine	    Strong (Car owns Engine)	    Engine destroyed with Car
+Aggregation	    Driver → Car	    Weak (Driver uses Car)	        Car can outlive Driver
+Association	    Mechanic → Car	    No ownership	                Independent objects
