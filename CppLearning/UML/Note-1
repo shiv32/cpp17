@@ -21,23 +21,26 @@ Let's understand these one by one.
 1. In composition, one object is part of the other and is composed inside. 
 The composed object(part) shares its lifetime with the outer object and cannot exist without it.  
 It is a physical & strong form of containment where the "part" object is an integral part of the whole object. 
+
 e.g., a window contains a button. The button is created and destroyed with the window. 
 Or think of an engine inside a car. The engine cannot exist without the car and cannot be shared or reused 
 independently. 
+
 In C++, this is typically modelled by a defined an object of a class as member of another class as a value type.
 
         class Window{
-        Button btn ;//Composition
+                Button btn ;//Composition
         } ;
 
 2. Aggregation is a weaker form of containment and signifies logical containment. 
-This means a part can exist on its own because its existence is not controlled by the "whole" object. 
+This means a part can exist on its own because its existence is not controlled by the "whole" object.
+
 An example is a book that is a part of a library, but can be shared outside it. 
 Another example is where the students are part of a training, but can attend other training programs as well. 
 It is often implemented through pointers (or shared_ptr) in C++.
 
         class Library{
-        std::vector<std::shared_ptr<Book>> books ;
+                std::vector<std::shared_ptr<Book>> books ;
         } ;
 
 3. Association is a type of aggregation, but there is no logical containment. 
@@ -48,7 +51,7 @@ e.g., An employee may use the services of a chartered accountant to file returns
 This will be represented as:
 
         class Employee{
-        std::weak_ptr<CA> ca ;
+                std::weak_ptr<CA> ca ;
         } ;
 
 See? There is no ownership, just a simple "uses" relationship. 
@@ -56,13 +59,13 @@ Another example is where a person "uses" a car.
 This is also association because the person will drive the car to commute or travel.
 
         class Person{
-        Car *c ;
+                Car *c ;
         public:
-        void Drive(){
-        c->Accelerate() ;
-        c->Brake() ;
-        c->Steer() ;
-        //etc
+                void Drive(){
+                c->Accelerate() ;
+                c->Brake() ;
+                c->Steer() ;
+                //etc
         } ;
 
 Or a person booking a cab to commute. This is also an association.
@@ -70,13 +73,14 @@ Or a person booking a cab to commute. This is also an association.
 4. Dependency is similar to association except the object is NOT a member of the class. 
 It is passed as an argument to a member function of a class where its services are used briefly. 
 So, its scope is limited within a function. The class does not retain a long term link to the object, 
-unlike in previous relationships. For example, during online purchases, you will temporarily use the payment gateway. 
+unlike in previous relationships. 
+For example, during online purchases, you will temporarily use the payment gateway. 
 This is dependency and can be represented as:
 
         class Order{
         public:
-        void PlaceOrder(PaymentGateway *p)//UPI, Cards, EMI, etc
-        p->InitiatePayment() ;
-        p->ValidatePayment() ;
-        //If successful, send acknowledgement to user
+                void PlaceOrder(PaymentGateway *p)//UPI, Cards, EMI, etc
+                        p->InitiatePayment() ;
+                        p->ValidatePayment() ;
+                        //If successful, send acknowledgement to user
         } ;

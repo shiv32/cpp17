@@ -1,0 +1,142 @@
+Let’s clearly differentiate **Dependency**, **Association**, **Aggregation**, and **Composition** in **C++**, 
+since these are fundamental object-oriented relationship types often confused with each other 👇
+
+---
+
+## 🔹 1. **Dependency ("uses-a")**
+
+A **temporary relationship** — one class **depends** on another *just to perform some task*.
+It’s not stored as a member; it’s usually passed as a parameter or used locally.
+
+### Example:
+
+```cpp
+class Engine {
+public:
+    void start() { std::cout << "Engine started\n"; }
+};
+
+class Car {
+public:
+    void drive(Engine& engine) {  // uses Engine temporarily
+        engine.start();
+        std::cout << "Car is driving\n";
+    }
+};
+```
+
+### Key points:
+
+* Lifetime **not managed** by `Car`
+* Exists only **during function call**
+* Weakest relationship
+
+🟩 **Type:** Dependency
+🕒 **Lifetime:** Short-term (local or parameter)
+
+---
+
+## 🔹 2. **Association ("knows-a")**
+
+A **long-term logical relationship** — one class **has a reference or pointer** to another, but does **not own** it.
+
+### Example:
+
+```cpp
+class Driver {
+    std::string name;
+public:
+    Driver(std::string n) : name(n) {}
+    void drive() { std::cout << name << " is driving\n"; }
+};
+
+class Car {
+    Driver* driver;  // associated but not owned
+public:
+    Car(Driver* d) : driver(d) {}
+    void startTrip() { driver->drive(); }
+};
+```
+
+### Key points:
+
+* `Car` **knows** a `Driver`
+* `Car` doesn’t control driver’s lifetime
+* Bidirectional association is also possible
+
+🟩 **Type:** Association
+🕒 **Lifetime:** Independent
+
+---
+
+## 🔹 3. **Aggregation ("has-a")**
+
+A **“whole–part”** relationship — the *whole* has *parts*, but parts **can exist independently**.
+
+### Example:
+
+```cpp
+class Engine {
+public:
+    void start() { std::cout << "Engine started\n"; }
+};
+
+class Car {
+    Engine* engine;  // owned reference, but engine can exist outside
+public:
+    Car(Engine* e) : engine(e) {}
+    void start() { engine->start(); }
+};
+```
+
+### Key points:
+
+* Engine can exist **before or after** Car
+* Car **uses** Engine but **doesn’t delete** it
+* Represented by a **hollow diamond** in UML
+
+🟩 **Type:** Aggregation
+🕒 **Lifetime:** Shared (no ownership)
+
+---
+
+## 🔹 4. **Composition ("owns-a")**
+
+A **strong form of aggregation** — the *whole* **owns** the *part*, and destroys it when destroyed.
+
+### Example:
+
+```cpp
+class Engine {
+public:
+    void start() { std::cout << "Engine started\n"; }
+};
+
+class Car {
+    Engine engine;  // Car owns Engine
+public:
+    void start() { engine.start(); }
+};
+```
+
+### Key points:
+
+* Engine’s lifetime **tied to Car**
+* Automatically constructed/destructed with Car
+* Represented by a **filled diamond** in UML
+
+🟩 **Type:** Composition
+🕒 **Lifetime:** Same (ownership)
+
+---
+
+## 🔸 Summary Table
+
+| Relationship    | Description          | Member Type         | Ownership | Lifetime    |
+| --------------- | -------------------- | ------------------- | --------- | ----------- |
+| **Dependency**  | Uses temporarily     | Local var / param   | ❌         | Short       |
+| **Association** | Knows another object | Pointer / reference | ❌         | Independent |
+| **Aggregation** | Whole-part (shared)  | Pointer / reference | ⚪ Partial | Shared      |
+| **Composition** | Whole-part (owned)   | Direct member       | ✅         | Same        |
+
+---

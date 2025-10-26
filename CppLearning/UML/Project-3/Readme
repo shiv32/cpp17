@@ -1,0 +1,15 @@
+Model a Library Management System.
+
+Relationship            Type	                                                        Example	Description
+Dependency	            Librarian depends on Book temporarily (e.g., for issuing)	    A “uses” relationship (short-term, no ownership)
+Association	            Member ↔ Book (borrows/returns)	                                A “knows-a” relationship (long-term reference, not ownership)
+Aggregation	            Library has many Books	                                        Whole–part relationship, but Books can exist outside the Library
+Composition	            Library has Sections	                                        Strong ownership — Sections are destroyed when Library is destroyed
+
+
+Relationship Summary
+Relationship	    Between	                Type	                Lifetime Ownership
+Dependency	        Librarian → Book	    "Uses-a"	            Temporary
+Association	        Member ↔ Book	        "Knows-a"	            Independent
+Aggregation	        Library → Book	        "Has-a" (non-owning)	Shared lifetime
+Composition	        Library → Section	    "Owns-a" (strong)	    Same lifetime
