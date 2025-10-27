@@ -1,0 +1,107 @@
+let’s see how **`.inl` files are commonly used with templates**, which is where they shine the most in real-world C++ projects (like STL-style containers or math libraries).
+
+---
+
+## 🧩 Example: `Vector<T>` Template Class Using `.inl`
+
+### 📁 File Structure
+
+```
+Vector.h
+Vector.inl
+main.cpp
+```
+
+---
+
+### **Vector.h**
+
+```cpp
+#pragma once
+#include <vector>
+#include <iostream>
+
+// Template declaration only — no function bodies here
+template <typename T>
+class Vector {
+public:
+    Vector();
+    void add(const T& value);
+    void print() const;
+    size_t size() const;
+
+private:
+    std::vector<T> data_;
+};
+
+// include .inl file to make definitions visible to all T types
+#include "Vector.inl"
+```
+
+---
+
+### **Vector.inl**
+
+```cpp
+// Inline definitions for template class
+
+template <typename T>
+inline Vector<T>::Vector() {
+    data_.reserve(10);
+}
+
+template <typename T>
+inline void Vector<T>::add(const T& value) {
+    data_.push_back(value);
+}
+
+template <typename T>
+inline void Vector<T>::print() const {
+    for (const auto& v : data_)
+        std::cout << v << ' ';
+    std::cout << '\n';
+}
+
+template <typename T>
+inline size_t Vector<T>::size() const {
+    return data_.size();
+}
+```
+
+---
+
+### **main.cpp**
+
+```cpp
+#include "Vector.h"
+
+int main() {
+    Vector<int> numbers;
+    numbers.add(10);
+    numbers.add(20);
+    numbers.add(30);
+
+    numbers.print();  // Output: 10 20 30
+    std::cout << "Size: " << numbers.size() << '\n';
+}
+```
+
+---
+
+## ⚙️ Why use `.inl` here?
+
+| Without `.inl`                                                  | With `.inl`                                                            |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| All template definitions must stay in `.h` (can make it messy). | Clean separation of declaration (`.h`) and implementation (`.inl`).    |
+| Harder to maintain and read.                                    | Easier to manage and consistent with normal class split (like `.cpp`). |
+| Still must be included in header (not compiled separately).     | `.inl` acts as a "private .cpp" for templates.                         |
+
+---
+
+### 🧠 Key Notes
+
+* `.inl` files **must** be included in the header (not the `.cpp`) because templates need their definitions visible during **compilation**.
+* You can think of `.inl` files as **“inline implementation headers”**.
+* This pattern is used in **Boost**, **Eigen**, and **STL-like libraries**.
+
+---

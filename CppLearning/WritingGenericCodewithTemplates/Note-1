@@ -1,0 +1,97 @@
+In C++, a **`.inl` (inline)** file is typically used to store **inline function definitions** — especially for **template classes** or **small functions** that must be included in multiple translation units but can’t be put directly into a `.cpp` file.
+
+Let’s break it down 👇
+
+---
+
+### 🧩 **Purpose of `.inl` files**
+
+`.inl` files are used to:
+
+1. **Keep header files clean** – move bulky inline implementations out of `.hpp`/`.h`.
+2. **Support templates** – templates must have full definitions visible to all translation units.
+3. **Encourage inlining** – functions marked `inline` or defined in the `.inl` file can be inlined by the compiler.
+
+---
+
+### 🗂️ **Typical Structure**
+
+Example project file layout:
+
+```
+MyClass.h
+MyClass.inl
+MyClass.cpp
+```
+
+**MyClass.h**
+
+```cpp
+#pragma once
+#include <string>
+
+class MyClass {
+public:
+    MyClass(const std::string& name);
+
+    inline const std::string& getName() const;
+    void print() const;
+
+private:
+    std::string name_;
+};
+
+#include "MyClass.inl" // include inline definitions
+```
+
+**MyClass.inl**
+
+```cpp
+inline const std::string& MyClass::getName() const {
+    return name_;
+}
+```
+
+**MyClass.cpp**
+
+```cpp
+#include "MyClass.h"
+#include <iostream>
+
+MyClass::MyClass(const std::string& name) : name_(name) {}
+
+void MyClass::print() const {
+    std::cout << "Name: " << name_ << '\n';
+}
+```
+
+---
+
+### 🧠 **When to use `.inl`**
+
+✅ Use `.inl` files for:
+
+* Template function or class definitions (instead of `.cpp`)
+* Short inline methods (getters/setters)
+* Performance-critical small functions
+* Code you want to **include** from a header (not compiled separately)
+
+❌ Don’t use `.inl` for:
+
+* Large function bodies
+* Functions not declared `inline`
+* Code that should be compiled only once (use `.cpp` instead)
+
+---
+
+### ⚙️ **Include pattern**
+
+You usually include `.inl` at the **end of the header** file:
+
+```cpp
+#include "MyClass.inl"
+```
+
+This ensures the inline implementations are visible wherever the header is included.
+
+---
