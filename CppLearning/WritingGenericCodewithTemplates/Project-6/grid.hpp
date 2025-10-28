@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <optional>
+#include <utility>
 
 template <typename T>
 class Grid
@@ -24,8 +25,17 @@ public:
     std::optional<T> &at(size_t x, size_t y);
     const std::optional<T> &at(size_t x, size_t y) const;
 
-    size_t getHeight() const { return mHeight; }
-    size_t getWidth() const { return mWidth; }
+    size_t getHeight() const
+    {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        return mHeight;
+    }
+
+    size_t getWidth() const
+    {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        return mWidth;
+    }
 
     static const size_t kDefaultWidth = 10;
     static const size_t kDefaultHeight = 10;
@@ -64,6 +74,8 @@ Grid<T>::Grid(size_t width, size_t height)
 template <typename T>
 void Grid<T>::verifyCoordinate(size_t x, size_t y) const
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    
     if (x >= mWidth || y >= mHeight)
     {
         throw std::out_of_range("");

@@ -53,8 +53,8 @@ int main()
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     // Implicit Requirements (Duck Typing)
-    printDouble(5);    // Works (int supports `operator*`)
-    printDouble(3.14); // Works (double supports `operator*`)
+    // printDouble(5);    // Works (int supports `operator*`)
+    // printDouble(3.14); // Works (double supports `operator*`)
     // printDouble("Hi"); //Compilation error: `operator*` not defined for strings
 
     // std::enable_if (SFINAE)
@@ -63,9 +63,9 @@ int main()
     // printSquare("Hi"); //Error: std::enable_if prevents this instantiation
 
     // Type Traits
-    // checkType<int>();         // Output: T is an integer type.
+    //checkType<int>();         // Output: T is an integer type.
     // checkType<double>();      // Output: T is a floating-point type.
-    // checkType<std::string>(); // Output: T is neither integer nor floating point.
+     checkType<std::string>(); // Output: T is neither integer nor floating point.
 
     return 0;
 }
