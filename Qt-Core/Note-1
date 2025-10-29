@@ -1,0 +1,60 @@
+
+Qt Widgets vs QML
+
+---
+
+## 🧱 Qt Widgets — Still Used or Outdated?
+
+### ✅ **Still Used in Industry (and Actively Maintained)**
+
+Qt **Widgets** are **not outdated** — they’re **still widely used** in professional desktop applications.
+They are part of Qt’s **core module** and still maintained by **The Qt Company**.
+
+Qt Widgets are ideal for:
+
+* Traditional **desktop UIs** (Windows, Linux, macOS)
+* **Industrial tools**, dashboards, and control panels
+* **Engineering and scientific** applications
+* **Embedded systems** with simple UIs (no GPU-heavy animation)
+
+---
+
+### 🧰 Examples of Real-World Use
+
+Many large and niche products use **Qt Widgets**:
+
+* **Autodesk Maya**, **VirtualBox**, **Wireshark**, **Qt Creator IDE**, **FreeCAD**, **Krita**
+* **Automotive and medical device UIs**
+* Many **internal enterprise tools** and **embedded GUIs**
+
+---
+
+### 🚀 When NOT to Use Qt Widgets
+
+If you want:
+
+* **Modern mobile-style UI** (animations, fluid transitions, touch-friendly)
+* **Cross-platform mobile + desktop** in one codebase
+  → Then **QML / Qt Quick** is preferred.
+
+Widgets are **pixel-based and static**, while **QML** is **scene-graph (GPU)-based**, allowing rich graphics.
+
+---
+
+### ⚖️ Summary
+
+| Use Case                                            | Recommended UI                 |
+| --------------------------------------------------- | ------------------------------ |
+| Classic desktop apps (tools, IDEs, internal apps)   | **Qt Widgets** ✅               |
+| Modern animated UIs, mobile apps, HMI, touchscreens | **QML / Qt Quick** ✅           |
+| Embedded low-resource device                        | **Qt Widgets (lightweight)** ✅ |
+| Mixed (Widgets + QML hybrid)                        | **Possible but complex** ⚠️    |
+
+---
+
+### 💡 Developer Tip
+
+If you’re building **C++-centric** apps (not UI-heavy), Qt Widgets are perfect —
+stable, fast, easy to integrate with backend C++ logic, and have long-term support.
+
+---

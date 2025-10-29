@@ -1,0 +1,57 @@
+**clear comparison** of **Qt Widgets vs Qt QML (Qt Quick)** — as of **2025**, focused on **desktop and embedded development**.
+
+---
+
+## ⚔️ Qt Widgets vs QML (Qt Quick)
+
+| Feature                  | **Qt Widgets**                                | **Qt QML / Qt Quick**                                  |
+| ------------------------ | --------------------------------------------- | ------------------------------------------------------ |
+| **Purpose**              | Traditional, native-looking desktop UIs       | Modern, animated, fluid UIs (mobile & embedded)        |
+| **Technology Base**      | C++ (imperative, event-driven)                | JavaScript + QML (declarative, GPU-rendered)           |
+| **Rendering Engine**     | CPU-based (raster paint engine)               | GPU-based (scene graph, OpenGL / Vulkan)               |
+| **Performance**          | Fast for static UIs, low CPU usage            | Smooth animations, better for visual effects           |
+| **Look & Feel**          | Native desktop widgets (buttons, menus, etc.) | Custom-styled, flexible components                     |
+| **Ease of Design**       | Designed via Qt Designer (`.ui` files)        | Designed via Qt Design Studio or QML files             |
+| **Coding Style**         | C++ imperative code                           | Declarative QML + JS logic + C++ backend               |
+| **Integration with C++** | Direct (widgets are C++ classes)              | Through C++ bindings (`QQmlContext`, `QObject`)        |
+| **Animation Support**    | Basic (QPropertyAnimation)                    | Built-in, fluid animations (`Behavior`, `Transitions`) |
+| **Mobile Support**       | Limited / Not ideal                           | Excellent (Android, iOS, embedded touch)               |
+| **Theming / Styling**    | Uses native OS style or QStyle                | Full custom design via QML                             |
+| **Memory Usage**         | Lower                                         | Higher (because of QML engine + scene graph)           |
+| **Learning Curve**       | Easy for C++ devs                             | Easy for web devs / designers                          |
+| **Tooling**              | Qt Designer (for `.ui`)                       | Qt Design Studio (for `.qml`)                          |
+| **Examples of Use**      | Qt Creator, Wireshark, FreeCAD, Maya          | Automotive HMIs, mobile apps, kiosks, dashboards       |
+| **Best For**             | Desktop utilities, IDEs, control panels       | Modern UIs, touchscreens, animations                   |
+
+---
+
+## 💡 When to Choose Which
+
+| Situation                                    | Recommendation       |
+| -------------------------------------------- | -------------------- |
+| You’re building a **C++ desktop tool**       | ✅ **Qt Widgets**     |
+| You need **animations / touch / mobile**     | ✅ **QML**            |
+| You want **maximum stability & speed**       | ✅ **Qt Widgets**     |
+| You want **modern design flexibility**       | ✅ **QML**            |
+| You’re on **embedded hardware with GPU**     | ✅ **QML (Qt Quick)** |
+| You’re on **embedded with no GPU / low RAM** | ✅ **Qt Widgets**     |
+
+---
+
+### 🧠 Developer Insight
+
+In 2025, **Qt Widgets** remain the **industry standard** for:
+
+* Internal tools
+* Device control panels
+* Classic desktop software
+
+While **QML** dominates in:
+
+* Consumer-facing UI
+* Touch interfaces
+* Automotive HMIs
+
+---
+
+Would you like me to show a **side-by-side code example** — “Hello World” in both **Qt Widgets** and **QML** — to visualize the difference?
