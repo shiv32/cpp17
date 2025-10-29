@@ -29,8 +29,8 @@ int main()
     Grid<std::vector<int>> myVectorIntGrid;
 
     //------------- Not allowed types -------------------------
-    // Grid<char> myCharGrid;  //Compilation error char not allowed
-    // Grid<std::vector<double>> myVectorDoubleGrid;  //Compilation error std::vector<double> not allowed
+    // Grid<char> myCharGrid;  //Compilation error undefined reference char not allowed
+    // Grid<std::vector<double>> myVectorDoubleGrid;  //Compilation error undefined reference std::vector<double> not allowed
 
     return 0;
 }
