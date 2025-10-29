@@ -36,13 +36,17 @@ int main()
     std::cout << anotherGrid.at(2, 3).value_or(0) << std::endl;
 
     //------------------
+    //size_t height = 10;
+    //Grid<int, 10, height> testGrid; // DOES NOT COMPILE
+
     const size_t height = 10;
     Grid<int, 10, height> testGrid; // Compiles and work
+
     testGrid.at(2, 3) = 43;
     std::cout << testGrid.at(2, 3).value_or(0) << std::endl;
 
     //---------------------
-    Grid<double, 2, getHeight()> myDoubleGrid;  // Compiles and work
+    Grid<double, 2, getHeight()> myDoubleGrid; // Compiles and work
     myDoubleGrid.at(1, 3) = 44.5;
     std::cout << myDoubleGrid.at(1, 3).value_or(0) << std::endl;
 
