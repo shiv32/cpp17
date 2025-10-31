@@ -23,6 +23,14 @@ int main()
 
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
+    /*
+        since gcc 11 below syntax will work,
+        gcc 9 to 10 it will not work,
+        in C++ 17 compilation failed,
+        https://gcc.gnu.org/projects/cxx-status.html
+    */
+    // Grid defaultGrid;
+
     Grid<> defaultGrid;
     defaultGrid.at(5, 5) = 67;
 

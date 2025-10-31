@@ -22,19 +22,19 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    Grid<int> defaultGrid1(67); // default value in each cell is 67 (ie int)
+    Grid<int> defaultGrid1(67); // default value in each cell is 67 (i.e. int)
     std::cout << defaultGrid1.at(5, 5).value_or(0) << std::endl;
 
-    Grid defaultGrid2(67); // default value in each cell is 67 (ie int)
+    Grid defaultGrid2(67); // default value in each cell is 67 (i.e. int)
     std::cout << defaultGrid2.at(5, 6).value_or(0) << std::endl;
 
-    Grid<double> defaultGrid3(67.6); // default value in each cell is 67.6 (ie double)
+    Grid<double> defaultGrid3(67.6); // default value in each cell is 67.6 (i.e. double)
     std::cout << defaultGrid3.at(3, 5).value_or(0) << std::endl;
 
-    Grid defaultGrid4(67.6); // default value in each cell is 67.6 (ie double)
+    Grid defaultGrid4(67.6); // default value in each cell is 67.6 (i.e. double)
     std::cout << defaultGrid4.at(3, 6).value_or(0) << std::endl;
 
-    Grid<int> defaultGrid5(67.6); // default value in each cell is 67 (ie int)
+    Grid<int> defaultGrid5(67.6); // default value in each cell is 67 (i.e. int)
     std::cout << defaultGrid5.at(3, 7).value_or(0) << std::endl;
 
     //----------------------------
