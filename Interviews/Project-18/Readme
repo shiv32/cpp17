@@ -1,0 +1,6 @@
+stack unwinding demo
+
+Explanation
+    When the exception is thrown in func3, C++ unwinds the stack:
+    It destroys all local objects (a3, a2, a1) in reverse order of construction.
+    After destructors finish, control passes to the catch block in main().
