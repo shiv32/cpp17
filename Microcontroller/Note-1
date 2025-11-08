@@ -1,0 +1,9 @@
+
+Within the STM32MP1 series, you’ll find variants. Some options:
+
+STM32MP151: Single Cortex-A7 core + M4. 
+STM32MP153: Dual Cortex-A7 + M4. 
+STM32MP157: Dual A7 cores + M4 + possibly GPU/display features. 
+
+Recommendation: If you want maximum flexibility (Linux plus MCU plus possibly graphics/display) go for the MP157 variant. 
+		        If you want simpler/cheaper, MP151 is fine.
