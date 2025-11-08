@@ -1,0 +1,16 @@
+Heap basic
+
+----------------------------------
+Here's the precedence order for these operators from highest to lowest:
+
+. (member access operator) - Highest precedence
+-> (member access through pointer) - Same precedence as .
+* (dereference operator) - Lower precedence
+
+
+Associativity
+. and -> operators:         Left to right associativity
+* (dereference) operator:   Right to left associativity
+
+Note:   Associativity determines the order of evaluation when operators of 
+        the same precedence appear in an expression.
