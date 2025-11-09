@@ -7,6 +7,10 @@
 class NetworkError : public std::runtime_error
 {
 public:
+    /*
+      “Inheriting Constructors”
+      Inside a derived class to automatically inherit all constructors from the base class.
+    */
     using std::runtime_error::runtime_error;
 };
 
