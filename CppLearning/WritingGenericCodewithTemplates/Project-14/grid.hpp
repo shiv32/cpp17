@@ -8,9 +8,7 @@ template <typename T>
 class Grid
 {
 public:
-    explicit Grid(size_t width = kDefaultWidth,
-                  size_t height = kDefaultHeight);
-
+    explicit Grid(size_t width = kDefaultWidth, size_t height = kDefaultHeight);
     virtual ~Grid();
 
     //-------------------------(Method templates)-----------------------------------------------
