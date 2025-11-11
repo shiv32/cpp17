@@ -12,4 +12,18 @@ NOTE
     Use inheritance for extending implementations and for polymorphism.
     Use specialization for customizing implementations for particular types.
 
+----------------------------------
+Template instantiation creates distinct types:
+
+GameBoard<GamePiece>
+GameBoard<ChessPiece>
+
+These are completely unrelated template instantiations — even though ChessPiece inherits from GamePiece.
+
+So C++ does not consider
+GameBoard<ChessPiece> -> GameBoard<GamePiece>
+a valid conversion.
+
+This is called invariant templates (C++ templates are not covariant).
+
 */

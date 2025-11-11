@@ -38,6 +38,11 @@ int main()
 
     Grid<const char *> stringGrid2(stringGrid1);
 
+    std::cout << "stringGrid1 Value at (0,0) : " << stringGrid1.at(0, 0).value_or("") << std::endl;
+    std::cout << "stringGrid1 Value at (0,1) : " << stringGrid1.at(0, 1).value_or("") << std::endl;
+    std::cout << "stringGrid1 Value at (1,0) : " << stringGrid1.at(1, 0).value_or("") << std::endl;
+    std::cout << "stringGrid1 Value at (1,1) : " << stringGrid1.at(1, 1).value_or("") << std::endl;
+    std::cout << "-----------------------" << std::endl;
     std::cout << "stringGrid2 Value at (0,0) : " << stringGrid2.at(0, 0).value_or("") << std::endl;
     std::cout << "stringGrid2 Value at (0,1) : " << stringGrid2.at(0, 1).value_or("") << std::endl;
     std::cout << "stringGrid2 Value at (1,0) : " << stringGrid2.at(1, 0).value_or("") << std::endl;

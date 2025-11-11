@@ -1,9 +1,4 @@
-
-template <typename T>
-Grid<T>::~Grid()
-{
-    //std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+#include <utility>
 
 template <typename T>
 Grid<T>::Grid(size_t width, size_t height)
@@ -18,6 +13,12 @@ Grid<T>::Grid(size_t width, size_t height)
         // for (std::vector<std::optional<T>>& column : mCells) {
         column.resize(mHeight);
     }
+}
+
+template <typename T>
+Grid<T>::~Grid()
+{
+    //std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>

@@ -8,4 +8,32 @@ Class Template Specialization
     When you specialize a template, you don’t “inherit” any code: 
     Specializations are not like derivations. 
 
+
+---------------------------------------
+Grid(const Grid &src) = default;
+
+If all members are value types (like int, double, std::string, std::vector, etc.),
+→ this behaves like a deep copy (since those types manage their own memory safely).
+
+struct Grid {
+    std::vector<int> data;
+    Grid(const Grid&) = default;
+};
+
+Here std::vector handles memory internally.
+So copying Grid duplicates all elements — deep copy.
+
+If the class has raw pointers,
+→ this performs a shallow copy — only the pointer values are copied, not the data they point to.
+
+struct Grid {
+    int* data;
+    int size;
+    Grid(const Grid&) = default; // shallow copy!
+};
+
+Here the default copy constructor copies only the pointer value.
+Both objects point to the same memory — shallow copy.
+If one deletes or modifies data, the other breaks.
+
 */

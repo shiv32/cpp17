@@ -24,12 +24,14 @@ private:
 };
 
 //---------- Alias Templates -------------------
-using MyInt = int;
+using MyInt = int; //C++11+
+//typedef int MyInt;  //old style
 
 using OtherName = MyTemplateClass<int, double>;
 
+// This is called an alias template.
 template <typename T1>
-using OtherName2 = MyTemplateClass<T1, double>;
+using OtherName2 = MyTemplateClass<T1, double>; //This is something you cannot do with a typedef.
 
 int main()
 {
