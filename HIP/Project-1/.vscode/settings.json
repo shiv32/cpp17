@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.hip": "cpp"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true
+    },
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "C_Cpp.intelliSenseEngineFallback": "disabled",
+    "C_Cpp.errorSquiggles": "enabled",
+    "editor.semanticHighlighting.enabled": true
+}
