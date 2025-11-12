@@ -1,0 +1,89 @@
+Nginx is **extremely lightweight** compared to most web servers, but the *minimum system requirements* depend on **how you plan to use it** (static files, proxy, or high-load API gateway).
+
+Let’s break it down clearly 👇
+
+---
+
+## 🧩 1. **Absolute Minimum (for learning or small local use)**
+
+You can run Nginx even on **tiny systems**.
+
+| Resource       | Minimum                                                            |
+| -------------- | ------------------------------------------------------------------ |
+| **CPU**        | 1 core (x86, ARM, etc.)                                            |
+| **RAM**        | 64 MB (bare minimum)                                               |
+| **Disk space** | ~5 MB for binary + 10–20 MB for logs/config                        |
+| **OS**         | Any Linux (Ubuntu, Debian, Alpine, CentOS), BSD, macOS, or Windows |
+
+💡 Even **OpenWRT routers** and **Raspberry Pi Zero** can run Nginx.
+
+Example (Alpine Linux + Nginx):
+
+```bash
+apk add nginx
+```
+
+This installs it in < 3 MB.
+
+---
+
+## ⚙️ 2. **Recommended for small production usage**
+
+If you plan to serve light websites or reverse proxy to one backend:
+
+| Resource    | Recommended                  |
+| ----------- | ---------------------------- |
+| **CPU**     | 1–2 cores                    |
+| **RAM**     | 256–512 MB                   |
+| **Disk**    | 100 MB+ (for logs and cache) |
+| **Network** | 1 Gbps or less               |
+
+That’s enough for **hundreds to thousands of requests/sec** if configured well.
+
+---
+
+## 🚀 3. **For moderate / high-load servers**
+
+| Resource    | Recommended                               |
+| ----------- | ----------------------------------------- |
+| **CPU**     | 2–4 cores (modern CPU)                    |
+| **RAM**     | 1–2 GB (depends on connections & buffers) |
+| **Disk**    | 1 GB+ (for caching & logs)                |
+| **Network** | 1–10 Gbps                                 |
+
+This can handle **tens of thousands of concurrent users** — typical for medium web apps, API gateways, or reverse proxies.
+
+---
+
+## 🧠 4. **Performance scaling factors**
+
+Performance depends on:
+
+* **Number of worker processes** (`worker_processes auto;`)
+* **Open file limits** (`worker_connections`)
+* **Whether SSL is enabled** (TLS adds CPU cost)
+* **Cache usage** (RAM or disk)
+* **Static vs proxy traffic**
+
+---
+
+## 🧱 5. **Example lightweight environments**
+
+| Device                      | Works with Nginx? | Note                                         |
+| --------------------------- | ----------------- | -------------------------------------------- |
+| Raspberry Pi Zero W         | ✅                 | Great for experiments or local reverse proxy |
+| VPS 512 MB RAM              | ✅                 | Suitable for small web server                |
+| OpenWRT router              | ⚠️ Possible       | Must cross-compile, tight space              |
+| Cloud VM (1 vCPU, 1 GB RAM) | ✅                 | Perfect for production starter server        |
+
+---
+
+### ✅ Summary
+
+| Use Case              | CPU       | RAM        | Notes                    |
+| --------------------- | --------- | ---------- | ------------------------ |
+| Learning / Testing    | 1 core    | 64 MB      | Even on old Pi or router |
+| Small Website / Proxy | 1–2 cores | 256–512 MB | Common VPS setup         |
+| Medium Load Server    | 2–4 cores | 1–2 GB     | Can handle 10k+ users    |
+
+---
