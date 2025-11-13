@@ -1,1 +1,6 @@
 AMD GPU HIP C++ programming
+
+ref:
+https://rocm.docs.amd.com/projects/HIP/en/docs-develop/what_is_hip.html
+https://rocm.docs.amd.com/projects/HIP/en/latest/understand/programming_model.html
+https://rocm.docs.amd.com/projects/HIP/en/latest/
