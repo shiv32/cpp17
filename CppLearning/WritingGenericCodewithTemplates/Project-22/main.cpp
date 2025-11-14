@@ -12,16 +12,14 @@
 #include <iostream>
 #include "funtemplate.hpp"
 
-using namespace std;
-
 using optionalValue = std::optional<size_t>;
 
 void printValue(const optionalValue &res)
 {
     if (res.has_value())
-        cout << "index : " << res.value() << endl;
+        std::cout << "index : " << res.value() << std::endl;
     else
-        cout << "Not found" << endl;
+        std::cout << "Not found" << std::endl;
 }
 
 int main()
@@ -32,7 +30,7 @@ int main()
     const char *words[] = {"one", "two", "three", "four"};
     const size_t sizeWords = std::size(words);
 
-    optionalValue res;
+    optionalValue res{};
 
     res = Find<const char *>(word, words, sizeWords); // Calls const char* specialization
 

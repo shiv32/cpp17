@@ -6,4 +6,37 @@ std::optional<size_t> version
 
 g++ -std=c++17 *.cpp -o test
 
+--------------------------------
+const char* → “pointer to constant char”
+
+const char* p = "hello";
+p = "world";    // ✔ allowed (pointer changed)
+p[0] = 'H';     // ❌ not allowed (data is const)
+
+--------------------------------
+char* const → “constant pointer to char”
+
+char text[] = "hello";
+char* const p = text;
+p = anotherText;  // ❌ not allowed (pointer is const)
+p[0] = 'H';       // ✔ allowed (data is modifiable)
+-----------------------------------
+const T&
+
+When T = const char* 
+
+const (const char*) & = const char* const&
+---------------------------------
+const T& value
+
+ T = const char*
+
+ const (const char*) &value = const char* const &value
+ -------------------------------
+ const T* arr
+
+ T = const char*
+
+ const (const char*) * arr = const char* const* arr
+
 */

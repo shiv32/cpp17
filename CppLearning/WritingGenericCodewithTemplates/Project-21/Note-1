@@ -1,0 +1,181 @@
+This is one of the **most important and confusing rules** of C/C++ syntax:
+
+# 🔥 Rule of `const` placement in C/C++
+
+> **`const` applies to whatever is immediately to its left.
+> If there is nothing on the left, it applies to what is immediately to its right.**
+
+This rule determines whether the **data is const**, or the **pointer is const**, or both.
+
+Let’s understand it clearly.
+
+---
+
+# ✅ 1. `const` has something on its LEFT → applies to LEFT
+
+### Example 1:
+
+```cpp
+int* const p;
+```
+
+Look at `const` → it has `*` on the left.
+
+So it applies to:
+
+```
+*p   (the pointer itself)
+```
+
+Meaning:
+
+* pointer is const
+* data is NOT const
+
+👉 "const pointer to int"
+
+---
+
+### Example 2:
+
+```cpp
+char* const ptr;
+```
+
+`const` applies to the `*`
+
+* pointer is const
+* data can change
+
+---
+
+# ✅ 2. `const` has NOTHING on the left → applies to RIGHT
+
+### Example:
+
+```cpp
+const int* p;
+```
+
+Here, `const` has nothing to its left, so it applies to `int`.
+
+So:
+
+* data (`int`) is const
+* pointer can change
+
+👉 "pointer to const int"
+
+---
+
+# ⚡ How this explains the tricky case:
+
+### Primary template:
+
+```cpp
+const T& value
+```
+
+Now specialize with:
+
+```
+T = const char*
+```
+
+Substitute:
+
+```
+const (const char*) &value
+```
+
+Rewrite:
+
+```
+(const char*) const &value
+```
+
+Now apply the rule:
+
+### There are **two consts**:
+
+* First `const` → applies to `char`
+* Second `const` → applies to the pointer (`*`)
+
+So final type:
+
+```
+const char* const& value
+```
+
+Meaning:
+
+* `char` is const
+* pointer is const
+* reference to that pointer
+
+---
+
+# 🎯 Visual Breakdown
+
+```
+const char* const & value
+|---------| |----|   |
+   data      ptr   ref
+   const     const
+```
+
+---
+
+# 🔥 More examples to make it crystal clear
+
+### A: Data const, pointer not const
+
+```cpp
+const int* p;
+```
+
+* const applies to `int`.
+
+### B: Pointer const, data modifiable
+
+```cpp
+int* const p;
+```
+
+* const applies to `*`.
+
+### C: Both const
+
+```cpp
+const int* const p;
+```
+
+* First const → data
+* Second const → pointer
+
+---
+
+# 🧠 Extra Tip
+
+This rule is why many people prefer writing:
+
+```
+int const* p;
+```
+
+Because then `const` is always on the right and always applies to the left — consistent.
+
+---
+
+# ✔ Final Summary
+
+| Syntax             | What const applies to | Meaning                    |
+| ------------------ | --------------------- | -------------------------- |
+| `const int*`       | right side → int      | pointer to const int       |
+| `int* const`       | left side → pointer   | const pointer to int       |
+| `const int* const` | both                  | const pointer to const int |
+| `const T&`         | T                     | reference to const T       |
+| `const T*`         | T                     | pointer to const T         |
+
+---
+

@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <cstring>
+#include <iostream>
 
 template <typename T>
 std::optional<size_t> Find(const T &value, const T *arr, size_t size)

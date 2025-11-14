@@ -1,9 +1,5 @@
-
-template <typename T>
-Grid<T>::~Grid()
-{
-    // std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+#include <utility>
+#include <iostream>
 
 template <typename T>
 Grid<T>::Grid(size_t width, size_t height)
@@ -18,6 +14,12 @@ Grid<T>::Grid(size_t width, size_t height)
         // for (std::vector<std::optional<T>>& column : mCells) {
         column.resize(mHeight);
     }
+}
+
+template <typename T>
+Grid<T>::~Grid()
+{
+    // std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
@@ -71,5 +73,6 @@ Grid<T> operator+(const Grid<T> &lhs, const Grid<T> &rhs)
                 result.at(x, y) = leftElement.value() + rightElement.value();
         }
     }
+
     return result;
 }

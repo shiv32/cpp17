@@ -22,21 +22,21 @@ int main()
     const char *words[] = {"one", "two", "three", "four"};
     const size_t sizeWords = std::size(words);
 
-    std::optional<size_t> res;
+    std::optional<size_t> res{};
 
     res = Find<const char *>(word, words, sizeWords); // Calls const char* specialization explicitly
 
     if (res.has_value())
-        cout << "index : " << res.value() << endl;
+        cout << "word index : " << res.value() << endl;
     else
-        cout << "Not found" << endl;
+        cout << "word Not found" << endl;
 
     res = Find(word, words, sizeWords); // Calls const char* specialization, by deduction
 
     if (res.has_value())
-        cout << "index : " << res.value() << endl;
+        cout << "word index : " << res.value() << endl;
     else
-        cout << "Not found" << endl;
+        cout << "word Not found" << endl;
 
     return 0;
 }

@@ -8,7 +8,8 @@
 //friend function in C++ can access private and protected members of a class.
 
 // Forward declare Grid template
-template <typename T> class Grid;
+template <typename T> 
+class Grid;
 
 // Prototype for templatized operator+
 template <typename T>
