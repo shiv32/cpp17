@@ -1,0 +1,15 @@
+In C++ delete Vs malloc
+
+The difference is that the Foo object pointed to by myFoo isn’t a proper object because 
+it was never constructed. 
+The malloc() function only sets aside a piece of memory of a certain size. 
+It doesn’t know about or care about objects. 
+With free(), the object’s destructor is not called. 
+
+The call to new allocates the appropriate size of memory and also calls an appropriate 
+constructor to construct the object.
+With delete, the destructor is called and the object is properly cleaned up.
+
+WARNING 
+        You should never use malloc() and free() in C++. 
+        Use only new and delete.
