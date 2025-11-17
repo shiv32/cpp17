@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  valkey:
+    image: valkey:latest
+    container_name: project-valkey
+    ports:
+      - "6379:6379"
+    volumes:
+      - valkey-data:/data
+    command: valkey-server --appendonly yes
+    networks:
+      - project-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  nginx:
+    image: nginx:latest
+    container_name: project-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - nginx-logs:/var/log/nginx
+    depends_on:
+      - valkey
+    networks:
+      - project-network
+    restart: unless-stopped
+
+volumes:
+  valkey-data:
+  nginx-logs:
+
+networks:
+  project-network:
+    driver: bridge
