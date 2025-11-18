@@ -1,0 +1,120 @@
+Here is a **clean and correct explanation** of **function template specialization** and **partial specialization** in C++17 — with examples that compile.
+
+---
+
+# ✅ 1. **Function Template Specialization**
+
+Function templates **support full specialization**.
+
+✔ You can specialize for **one exact type**
+❌ You cannot partially specialize function templates (C++ does NOT allow this)
+
+---
+
+## 🔹 **Example — Primary function template**
+
+```cpp
+template <typename T>
+void func(T value) {
+    std::cout << "Primary template: " << value << "\n";
+}
+```
+
+## 🔹 **Full specialization (for `int`)**
+
+```cpp
+template <>
+void func<int>(int value) {
+    std::cout << "Specialized for int: " << value << "\n";
+}
+```
+
+## ✔ Usage:
+
+```cpp
+func(3.14);  // Primary template
+func(10);    // Specialized version for int
+```
+
+---
+
+# ❌ 2. **Function Templates Do NOT Support Partial Specialization**
+
+C++ **does not allow**:
+
+```cpp
+template <typename T>
+void func(T* value);   // ❌ illegal partial specialization
+```
+
+This is invalid because **function templates only support full specialization**, not partial.
+
+---
+
+# ⭐ So how do we achieve partial specialization-like behavior for functions?
+
+C++ uses a **helper class template with partial specialization**, then calls the function through it.
+
+---
+
+# ✅ 3. **Simulating Partial Specialization using a Class Template**
+
+### Step 1: Create a class template
+
+```cpp
+template <typename T>
+struct FuncHelper {
+    static void run(T value) {
+        std::cout << "Primary helper\n";
+    }
+};
+```
+
+### Step 2: Partial specialization for pointer types
+
+```cpp
+template <typename T>
+struct FuncHelper<T*> {
+    static void run(T* value) {
+        std::cout << "Pointer specialization\n";
+    }
+};
+```
+
+### Step 3: Function template dispatches to helper
+
+```cpp
+template <typename T>
+void func(T value) {
+    FuncHelper<T>::run(value);
+}
+```
+
+### ✔ Usage:
+
+```cpp
+int x = 5;
+
+func(10);   // Primary helper
+func(&x);   // Pointer specialization
+```
+
+---
+
+# 🔍 Why is this needed?
+
+Because **C++ does not support partial specialization of function templates**, but **does support partial specialization of class templates**.
+
+We use the **class template specialization** to choose the correct behavior.
+
+---
+
+# ✔ Summary Table
+
+| Feature                | Class Template | Function Template             |
+| ---------------------- | -------------- | ----------------------------- |
+| Full Specialization    | ✔ Allowed      | ✔ Allowed                     |
+| Partial Specialization | ✔ Allowed      | ❌ Not allowed                 |
+| Workaround             | —              | Use class template dispatcher |
+
+---
