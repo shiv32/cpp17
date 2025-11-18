@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "myvartemplate.hpp"
 
