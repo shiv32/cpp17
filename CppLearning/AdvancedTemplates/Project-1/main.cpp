@@ -15,6 +15,10 @@
 #include <iostream>
 #include "grid.hpp"
 
+class SpreadsheetCell
+{
+};
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
@@ -31,8 +35,7 @@ int main()
     Grid<int, std::vector<std::optional<int>>> grid2(myIntVectorGrid);
     grid2 = myIntVectorGrid;
 
-    //Grid<int, int> test; // WILL NOT COMPILE
-
+    // Grid<int, int> test; // WILL NOT COMPILE
     //----------
     Grid<int, std::deque<std::optional<int>>> myDequeGrid;
     Grid<int, std::vector<std::optional<int>>> myVectorGrid;
@@ -40,6 +43,11 @@ int main()
 
     Grid<int> myVectorGrid2(myVectorGrid); // template parameters default values
     std::cout << myVectorGrid2.at(3, 4).value_or(0) << std::endl;
+
+    //----------
+    Grid<int, std::vector<std::optional<SpreadsheetCell>>> myTestGrid;
+    // myTestGrid.at(3, 4) = 5;// mismatched types compile time error
+    myTestGrid.at(3, 4) = SpreadsheetCell();
 
     return 0;
 }

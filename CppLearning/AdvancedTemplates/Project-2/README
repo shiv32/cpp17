@@ -1,0 +1,18 @@
+Introducing Template Template Parameters
+
+The syntax rule for a template template parameter
+
+    template <..., template <TemplateTypeParams> class ParameterName, ...>
+    
+    or
+
+    template <..., template <TemplateTypeParams> typename ParameterName, ...>
+
+
+ vector and deque have a template parameter list 
+
+    template <typename E, typename Allocator = std::allocator<E>>
+    class vector
+    {
+    // Vector definition
+    };
