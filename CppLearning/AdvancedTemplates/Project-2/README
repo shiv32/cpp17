@@ -14,5 +14,5 @@ The syntax rule for a template template parameter
     template <typename E, typename Allocator = std::allocator<E>>
     class vector
     {
-    // Vector definition
+      // Vector definition
     };
