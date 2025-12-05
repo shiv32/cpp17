@@ -53,7 +53,7 @@ int main()
 
     // SpreadsheetCell defaultCell(1.2); //C++17, most compilers do not implement those rules yet.
     // Grid<SpreadsheetCell, defaultCell> mySpreadsheet;
-    Grid<SpreadsheetCell, defaultCell> mySpreadsheet(3,3);
+    Grid<SpreadsheetCell, defaultCell> mySpreadsheet(3, 3); // 3X3 grid
 
     std::cout << myIntGrid.at(1, 2).value_or(0) << std::endl;
     std::cout << mySpreadsheet.at(1, 2).value_or(SpreadsheetCell(0.0)).getValue() << std::endl;
