@@ -1,0 +1,6 @@
+More about Non-type Template Parameters
+  You might want to allow the user to specify a default element used to initialize each cell in the grid.
+
+  WARNING 
+          Non-type parameters cannot be objects, or even doubles or floats.
+          They are restricted to integral types, enums, pointers, and references.
