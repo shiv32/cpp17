@@ -1,0 +1,4 @@
+CLASS TEMPLATE PARTIAL SPECIALIZATION
+
+  Full class template specialization, specializes the Grid template for every template parameter.
+  Partial class specialization, specialize some template parameters but not others. 
