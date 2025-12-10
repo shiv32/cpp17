@@ -12,20 +12,20 @@
  *
  */
 
-#include <iostream>
-// #include "grid.hpp"
-// #include "gridPsV1.hpp"
-#include "gridPsV2.hpp"
+#include "grid-v1-Ps-v1.hpp"
+#include "grid-v2-Ps-v2.hpp"
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    // Grid<int, 2, 2> myIntGrid; // Uses the original Grid
+    // using namespace gridv1;
+    // Grid<int, 2, 2> myIntGrid;             // Uses the original Grid
     // Grid<const char *, 2, 2> myStringGrid; // Uses the partial specialization
-    // //Grid<2, 3> test; // DOES NOT COMPILE! No type specified.
+    // // Grid<2, 3> test; // DOES NOT COMPILE! No type specified.
 
     //--------------
+    using namespace gridv2;
     Grid<int> myIntGrid;      // Uses the non-specialized grid
     Grid<int *> psGrid(2, 2); // Uses the partial specialization for pointer types
 
