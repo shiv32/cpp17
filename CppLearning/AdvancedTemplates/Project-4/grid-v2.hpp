@@ -36,17 +36,15 @@ namespace gridv2
 
     private:
         void verifyCoordinate(size_t x, size_t y) const;
-
         std::vector<std::vector<std::optional<T>>> mCells;
-
-        size_t mWidth, mHeight;
+        size_t mWidth{}, mHeight{};
     };
 
-    //------- Definition ---------------
+    //------- Definition --------------------------------------
     template <typename T>
     Grid<T>::Grid(size_t width, size_t height) : mWidth(width), mHeight(height)
     {
-        // std::cout << __PRETTY_FUNCTION__ << std::endl;
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
 
         mCells.resize(mWidth);
         for (auto &column : mCells)

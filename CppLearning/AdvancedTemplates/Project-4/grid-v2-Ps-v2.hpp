@@ -33,14 +33,16 @@ namespace gridv2
     private:
         void verifyCoordinate(size_t x, size_t y) const;
         std::vector<std::vector<std::unique_ptr<T>>> mCells;
-        size_t mWidth = 0, mHeight = 0;
+        // size_t mWidth = 0, mHeight = 0;
+        size_t mWidth{}, mHeight{};
     };
 
-    //------- Definition ---------------
+    //------- Definition ----------------------------------------------
     template <typename T>
     Grid<T *>::Grid(size_t width, size_t height) : mWidth(width), mHeight(height)
     {
-        // std::cout << __PRETTY_FUNCTION__ << std::endl;
+        std::cout << "Partial speciliazation" << std::endl;
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
 
         mCells.resize(mWidth);
         for (auto &column : mCells)
@@ -74,31 +76,31 @@ namespace gridv2
     template <typename T>
     Grid<T *> &Grid<T *>::operator=(const Grid &rhs)
     {
-        if (this == &rhs)
-            return *this;
-
-        // Resize if needed
-        mWidth = rhs.mWidth;
-        mHeight = rhs.mHeight;
-        mCells.resize(mWidth);
-
-        for (size_t i = 0; i < mWidth; ++i)
-            mCells[i].resize(mHeight);
-
-        // Deep copy each cell
-        for (size_t i = 0; i < mWidth; i++)
+        if (this != &rhs)
         {
-            for (size_t j = 0; j < mHeight; j++)
+            // Resize if needed
+            mWidth = rhs.mWidth;
+            mHeight = rhs.mHeight;
+
+            mCells.resize(mWidth);
+            for (size_t i = 0; i < mWidth; ++i)
+                mCells[i].resize(mHeight);
+
+            // Deep copy each cell
+            for (size_t i = 0; i < mWidth; i++)
             {
-                if (rhs.mCells[i][j])
+                for (size_t j = 0; j < mHeight; j++)
                 {
-                    // Create new object via copy-constructor
-                    mCells[i][j] = std::make_unique<T>(*(rhs.mCells[i][j]));
-                }
-                else
-                {
-                    // null stays null
-                    mCells[i][j].reset();
+                    if (rhs.mCells[i][j])
+                    {
+                        // Create new object via copy-constructor
+                        mCells[i][j] = std::make_unique<T>(*(rhs.mCells[i][j]));
+                    }
+                    // else
+                    // {
+                    //     // null stays null
+                    //     // mCells[i][j].reset();
+                    // }
                 }
             }
         }

@@ -24,7 +24,7 @@ int main()
     // Grid<const char *, 2, 2> myStringGrid; // Uses the partial specialization
     // // Grid<2, 3> test; // DOES NOT COMPILE! No type specified.
 
-    //--------------
+    //-------------------------------------------------------------------------------
     using namespace gridv2;
     Grid<int> myIntGrid;      // Uses the non-specialized grid
     Grid<int *> psGrid(2, 2); // Uses the partial specialization for pointer types
@@ -35,6 +35,7 @@ int main()
 
     Grid<int *> psGrid2(psGrid);
     Grid<int *> psGrid3;
+
     psGrid3 = psGrid2;
 
     auto &element = psGrid2.at(1, 0);

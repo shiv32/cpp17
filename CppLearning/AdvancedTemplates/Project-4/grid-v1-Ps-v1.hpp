@@ -12,6 +12,7 @@ namespace gridv1
         // Grid() = default;
         Grid()
         {
+            std::clog <<"Partial Specialization"<< std::endl;
             std::clog << __PRETTY_FUNCTION__ << std::endl;
         }
 
@@ -48,6 +49,7 @@ namespace gridv1
         verifyCoordinate(x, y);
         return mCells[x][y];
     }
+
     template <size_t WIDTH, size_t HEIGHT>
     std::optional<std::string> &Grid<const char *, WIDTH, HEIGHT>::at(size_t x, size_t y)
     {
