@@ -1,3 +1,10 @@
 EMULATING FUNCTION PARTIAL SPECIALIZATION WITH OVERLOADING
   The C++ standard does not permit partial template specialization of functions. 
   Instead, you can overload the function with another template. 
+
+  NOTE 
+    Between all overloaded versions, function template specializations, and
+    specific function template instantiations, the compiler always chooses the 
+    “most specific” one to call. 
+    If a non-template version is just as specific as a function template instantiation, 
+    then the compiler prefers the non-template version.
