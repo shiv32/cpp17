@@ -1,0 +1,3 @@
+EMULATING FUNCTION PARTIAL SPECIALIZATION WITH OVERLOADING
+  The C++ standard does not permit partial template specialization of functions. 
+  Instead, you can overload the function with another template. 
