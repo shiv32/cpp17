@@ -1,0 +1,118 @@
+Here are **good C++ projects on GitHub that are 100% non-GUI (CLI / system / library focused)**. 
+These are *real-world style*, not toy apps — perfect if you want to master **pure C++** 👇
+---
+## 🔹 Beginner–Intermediate (Console / Core C++)
+
+Good for understanding **clean design, STL, file handling, OOP**
+
+1. **CLI Todo App**
+
+   * `CLI11` (library)
+   * Repo: `CLIUtils/CLI11`
+   * Shows argument parsing, clean C++ API design
+
+2. **C++ JSON Library**
+
+   * Repo: `nlohmann/json`
+   * Header-only, modern C++, no GUI
+   * Excellent example of templates & operator overloading
+
+3. **spdlog**
+
+   * Repo: `gabime/spdlog`
+   * Fast logging library used in production
+   * Pure C++, no GUI
+
+---
+
+## 🔹 Intermediate (System / Performance / Tools)
+
+4. **ripgrep (C++ parts & inspiration)**
+
+   * Repo: `BurntSushi/ripgrep`
+   * Though Rust-based, C++ devs often re-implement parts as practice
+
+5. **C++ HTTP Server (CLI)**
+
+   * Repo: `yhirose/cpp-httplib`
+   * Header-only HTTP library
+   * Great networking + threading example
+
+6. **SQLite**
+
+   * Repo: `sqlite/sqlite`
+   * One of the **most famous C projects**, but heavily used in C++
+   * Console-based database engine
+
+---
+
+## 🔹 Advanced / Hardcore C++ (No GUI, Industry Level)
+
+7. **LLVM**
+
+   * Repo: `llvm/llvm-project`
+   * Compiler infrastructure
+   * Massive C++ codebase
+
+8. **Redis (C core, C++ inspired tools exist)**
+
+   * Repo: `redis/redis`
+   * Learn networking, memory, performance concepts
+
+9. **Catch2**
+
+   * Repo: `catchorg/Catch2`
+   * Unit testing framework in modern C++
+
+---
+
+## 🔹 Game / Simulation (Console Only)
+
+10. **Rogue-like Console Games**
+
+* Repo: `libtcod/libtcod`
+* Console-based game logic
+* No GUI windows required
+
+11. **Dwarf Fortress (logic inspiration)**
+
+* ASCII-based simulation style (conceptual learning)
+
+---
+
+## 🔹 Build Systems / Tooling (Very Important)
+
+12. **CMake**
+
+* Repo: `Kitware/CMake`
+* Learn professional project structure
+
+13. **Ninja**
+
+* Repo: `ninja-build/ninja`
+* Fast build system written in C++
+
+---
+
+## 🔹 If You Want to Build Your OWN GitHub Project (Recommended)
+
+Since you already focus on **console C++ projects**, here are **excellent project ideas** you should put on GitHub:
+
+* ✔️ File Search Tool (like `find`)
+* ✔️ Log Analyzer
+* ✔️ Text-based Database (SQLite-style)
+* ✔️ Network Packet Analyzer (pcap)
+* ✔️ Git-like Version Control Tool
+* ✔️ Task Scheduler (cron-like)
+* ✔️ Shell / Command Interpreter
+* ✔️ System Monitor (CPU, RAM via `/proc`)
+
+---
+
+## 🔥 Truth (Important for Your Career)
+
+> **Top C++ developers mostly work on non-GUI code**
+> OS, databases, compilers, engines, servers, finance systems — all console or library based.
+
+
+
