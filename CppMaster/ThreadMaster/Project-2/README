@@ -1,0 +1,11 @@
+Project 
+
+    A console task scheduler that:
+        Accepts tasks (functions)
+        Executes them using a thread pool
+        Prints which thread executed which task
+
+    This simulates:
+        Job schedulers
+        Server request handling
+        Background workers

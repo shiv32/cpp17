@@ -1,0 +1,5 @@
+Mini Project: Multithreaded Log Processing System
+    Simulates how servers process logs in parallel
+
+Core Design Pattern
+    Producer–Consumer (with Blocking Queue)
