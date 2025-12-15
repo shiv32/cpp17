@@ -1,3 +1,6 @@
 Examples of how to use variadic templates
 
 Type-Safe Variable-Length Argument Lists
+
+Perfect forwarding means that if an rvalue is passed to process­Values(), it is forwarded as an rvalue reference. 
+If an lvalue or lvalue reference is passed, it is forwarded as an lvalue reference.
