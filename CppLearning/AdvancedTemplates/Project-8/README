@@ -1,0 +1,8 @@
+VARIADIC TEMPLATES
+    Variadic templates can take a variable number of template parameters.
+
+    NOTE 
+        The three dots following typename are not an error. 
+        This is the syntax to define a parameter pack for variadic templates. 
+        A parameter pack is something that can accept a variable number of arguments. 
+        You are allowed to put spaces before and after the three dots.
