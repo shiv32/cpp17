@@ -1,0 +1,13 @@
+Examples of how to use variadic templates
+
+    Variable Number of Mixin Classes
+
+    -----------------------------------------------------------------
+    MyClass<Mixin1, Mixin2> a(Mixin1(11), Mixin2(22));
+
+    Compiler sees this:
+
+    MyClass(Mixin1 const& m1, Mixin2 const& m2): Mixin1(m1), Mixin2(m2)
+    {
+
+    }
