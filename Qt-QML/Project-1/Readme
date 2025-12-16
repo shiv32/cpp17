@@ -1,0 +1,9 @@
+
+Qt qml pdf viewer
+
+---------------------------------------------------------
+sudo apt install libpoppler-qt5-dev qtdeclarative5-dev
+sudo apt install libpoppler-qt5-dev qtdeclarative5-dev qtquickcontrols2-5-dev
+sudo apt install qtdeclarative5-dev-tools
+
+

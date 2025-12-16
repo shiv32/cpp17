@@ -1,19 +1,26 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
-#include "pdfitem.h"
-#include <QDir>
+#include <QCoreApplication>
+#include <QCommandLineParser>
+#include <QDebug>
 
-int main(int argc, char* argv[]) {
-    QGuiApplication app(argc, argv);
-    qmlRegisterType<PdfItem>("CustomPdf", 1, 0, "PdfItem");
+int main(int argc, char *argv[])
+{
+    QCoreApplication app(argc, argv);
 
-     QQmlApplicationEngine engine;
-    // engine.load(QUrl::fromLocalFile("qml/main.qml"));
+    QCoreApplication::setApplicationName("Qt5CLIApp");
+    QCoreApplication::setApplicationVersion("1.0");
+    QCommandLineParser parser;
 
-    engine.load(QUrl::fromLocalFile(
-    QDir(QCoreApplication::applicationDirPath()).filePath("qml/main.qml")));
+    parser.setApplicationDescription("Qt 5.15.2 CLI Example");
+    parser.addHelpOption();
+    parser.addVersionOption();
 
+    QCommandLineOption nameOption({"n", "name"}, "Your name", "name");
 
-    return app.exec();
+    parser.addOption(nameOption);
+    parser.process(app);
+
+    QString name = parser.value(nameOption);
+    qInfo() << "Hello," << (name.isEmpty() ? "Qt User" : name);
+    
+    return 0;
 }
