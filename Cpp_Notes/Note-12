@@ -1,0 +1,155 @@
+Here is a **clean list of EXISTING, well-known OPEN-SOURCE C++ projects that are NON-GUI** (console tools, servers, engines, libraries).
+These are **real-world, production-grade** systems.
+
+---
+
+## 🔥 Databases / Storage Engines (C++)
+
+* **LevelDB** – Embedded key-value store
+  [https://github.com/google/leveldb](https://github.com/google/leveldb)
+
+* **RocksDB** – High-performance DB (used by Meta)
+  [https://github.com/facebook/rocksdb](https://github.com/facebook/rocksdb)
+
+* **ClickHouse** – Column-oriented analytical DB
+  [https://github.com/ClickHouse/ClickHouse](https://github.com/ClickHouse/ClickHouse)
+
+* **MongoDB (core engine)**
+  [https://github.com/mongodb/mongo](https://github.com/mongodb/mongo)
+
+---
+
+## 🌐 Networking / Servers (No GUI)
+
+* **Envoy Proxy** – Cloud-native proxy
+  [https://github.com/envoyproxy/envoy](https://github.com/envoyproxy/envoy)
+
+* **Proxygen** – HTTP framework (Meta)
+  [https://github.com/facebook/proxygen](https://github.com/facebook/proxygen)
+
+* **Seastar** – High-performance async framework
+  [https://github.com/scylladb/seastar](https://github.com/scylladb/seastar)
+
+* **gRPC (C++ core)**
+  [https://github.com/grpc/grpc](https://github.com/grpc/grpc)
+
+---
+
+## ⚙️ Compilers / Toolchains
+
+* **LLVM / Clang**
+  [https://github.com/llvm/llvm-project](https://github.com/llvm/llvm-project)
+
+* **GCC**
+  [https://github.com/gcc-mirror/gcc](https://github.com/gcc-mirror/gcc)
+
+* **MLIR**
+  [https://github.com/llvm/llvm-project/tree/main/mlir](https://github.com/llvm/llvm-project/tree/main/mlir)
+
+---
+
+## 🧠 System / OS-Level Projects
+
+* **systemd** (mostly C, concepts apply)
+  [https://github.com/systemd/systemd](https://github.com/systemd/systemd)
+
+* **Zephyr RTOS (C++ supported)**
+  [https://github.com/zephyrproject-rtos/zephyr](https://github.com/zephyrproject-rtos/zephyr)
+
+* **FreeBSD kernel (C/C++)**
+  [https://github.com/freebsd/freebsd-src](https://github.com/freebsd/freebsd-src)
+
+---
+
+## 🧵 Concurrency / Performance Libraries
+
+* **Intel TBB (oneTBB)**
+  [https://github.com/oneapi-src/oneTBB](https://github.com/oneapi-src/oneTBB)
+
+* **Folly** – Meta’s C++ utility library
+  [https://github.com/facebook/folly](https://github.com/facebook/folly)
+
+* **Abseil** – Google’s C++ common libs
+  [https://github.com/abseil/abseil-cpp](https://github.com/abseil/abseil-cpp)
+
+---
+
+## 🧪 Testing / Tooling
+
+* **CMake** – Build system
+  [https://github.com/Kitware/CMake](https://github.com/Kitware/CMake)
+
+* **Ninja** – Build tool
+  [https://github.com/ninja-build/ninja](https://github.com/ninja-build/ninja)
+
+* **Catch2** – Testing framework
+  [https://github.com/catchorg/Catch2](https://github.com/catchorg/Catch2)
+
+* **GoogleTest**
+  [https://github.com/google/googletest](https://github.com/google/googletest)
+
+---
+
+## 📂 Filesystem / CLI Tools
+
+* **rsync** (C, but classic system tool)
+  [https://github.com/RsyncProject/rsync](https://github.com/RsyncProject/rsync)
+
+* **ripgrep** (Rust, but popular C++ re-implementation target)
+  [https://github.com/BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
+
+* **aria2** – Download manager (C++)
+  [https://github.com/aria2/aria2](https://github.com/aria2/aria2)
+
+---
+
+## 🎮 Simulation / Console-Based Engines
+
+* **OpenTTD** – Transport simulation
+  [https://github.com/OpenTTD/OpenTTD](https://github.com/OpenTTD/OpenTTD)
+
+* **Angband** – ASCII roguelike
+  [https://github.com/angband/angband](https://github.com/angband/angband)
+
+* **NetHack**
+  [https://github.com/NetHack/NetHack](https://github.com/NetHack/NetHack)
+
+---
+
+## 💰 Finance / Trading (Open Source)
+
+* **QuickFIX** – Financial messaging engine
+  [https://github.com/quickfix/quickfix](https://github.com/quickfix/quickfix)
+
+* **QuantLib** – Quantitative finance library
+  [https://github.com/lballabio/QuantLib](https://github.com/lballabio/QuantLib)
+
+---
+
+## 🏆 MOST VALUED BY C++ INTERVIEWERS
+
+If you **study or contribute** to any of these, it’s huge:
+
+1. LLVM
+2. RocksDB
+3. ClickHouse
+4. Envoy
+5. LevelDB
+6. Folly
+7. oneTBB
+
+---
+
+## 🎯 If your goal is to BUILD something similar
+
+Best projects to **re-implement (learning version)**:
+
+* SQLite-like DB
+* Redis-like cache
+* Thread pool + scheduler
+* Log processing engine
+* File indexing/search tool
+
+These are **perfect GitHub portfolio projects**.
+
+---
