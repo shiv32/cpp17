@@ -1,0 +1,3 @@
+Using a Compile-Time Integer Sequence with Folding
+    C++ supports compile-time integer sequences using std::integer_sequence, 
+    which is defined in <utility>.

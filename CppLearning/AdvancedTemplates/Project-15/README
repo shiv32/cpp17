@@ -1,0 +1,3 @@
+constexpr if
+    C++17 introduced constexpr if. 
+    These are if statements executed at compile time, not at run time.
