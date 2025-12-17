@@ -1,0 +1,10 @@
+METAPROGRAMMING
+    The goal of template metaprogramming is to perform some computation at compile time instead of at run time. 
+    It is basically a programming language on top of C++.
+
+Factorial at Compile Time
+
+    NOTE 
+        It is important to keep in mind that the factorial calculation is happening at compile time. 
+        At run time, you simply access the compile-time calculated value through ::val, 
+        which is just a static constant value.
