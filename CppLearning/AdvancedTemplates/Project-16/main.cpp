@@ -22,6 +22,8 @@ unary right fold expression
 
 (((cout << get<0>(t) << endl),((cout << get<1>(t) << endl),((cout << get<2>(t) << endl),(cout << get<3>(t) << endl)))));
 
+( ((0), ((1), ((2),(3)) ) ) );
+ 
 */
 
 template <typename... Args>
