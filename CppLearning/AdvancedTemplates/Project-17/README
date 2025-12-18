@@ -1,0 +1,11 @@
+Type Traits
+    Type traits allow you to make decisions based on types at compile time.
+    All type traits-related functionality is defined in the <type_traits> header file.
+
+Using Type Categories
+
+    nameless parameter
+        They are nameless because they don’t use those parameters inside their function body. 
+        These parameters are only used for function overload resolution.
+
+Using Type Relations
