@@ -1,0 +1,8 @@
+Using enable_if
+    The use of enable_if is based on a feature called Substitution Failure Is Not An Error (SFINAE),
+    a complicated feature of C++.
+
+    WARNING 
+        Relying on SFINAE is tricky and complicated. 
+        If your use of SFINAE and enable_if selectively disables the wrong overloads in your overload set, 
+        you will get cryptic compiler errors, which will be hard to track down.
