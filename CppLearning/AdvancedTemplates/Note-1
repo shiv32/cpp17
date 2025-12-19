@@ -1,0 +1,32 @@
+Templates & Template Metaprogramming
+
+Templates (Normal Templates)
+    Templates are a compile-time code generation mechanism.
+        “Write once, generate type-specific code.”
+    They are mainly about generic programming.
+
+Template Metaprogramming (TMP)
+    Template Metaprogramming is using templates as a programming language that runs at compile time.
+        “Compute values, make decisions, and enforce rules at compile time.”
+
+Real-World Analogy
+    Templates: Blueprint
+        “This works for any type.”
+
+    Template Metaprogramming: Compile-time brain
+        “Decide, calculate, and validate before the program exists.”
+
+Use Templates when:
+    ✔ You want generic containers
+    ✔ You want reusable algorithms
+    ✔ You want zero-cost abstractions
+
+Use TMP when:
+    ✔ You want compile-time validation
+    ✔ You want to remove runtime branches
+    ✔ You want static configuration systems
+    ✔ You build frameworks / engines / libraries
+
+One-Line Difference (Exam / Interview)
+                   Templates = generic code generation
+    Template metaprogramming = compile-time programming using templates
