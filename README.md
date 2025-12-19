@@ -99,5 +99,9 @@ https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/
 
     https://www.open-std.org/jtc1/sc22/wg21/docs/standards
 
+11. C++ Standard Evolution Viewer
+
+    https://cppevo.dev
+
 
     [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
