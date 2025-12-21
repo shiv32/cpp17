@@ -53,6 +53,33 @@ namespace messaging
     };
 }
 
+// The sender class
+namespace messaging
+{
+    class sender
+    {
+        queue *q; // 1 sender is a wrapper around the queue pointer.
+
+    public:
+        sender() : q(nullptr) // 2 Default-constructed sender has no queue
+        {
+        }
+
+        explicit sender(queue *q_) : q(q_) // 3 Allow construction from pointer to queue
+        {
+        }
+
+        template <typename Message>
+        void send(Message const &msg)
+        {
+            if (q)
+            {
+                q->push(msg); // 4 Sending pushes message on the queue
+            }
+        }
+    };
+}
+
 int main(int argc, char *argv[])
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
