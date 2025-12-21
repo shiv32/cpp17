@@ -1,0 +1,225 @@
+
+                "Never assign the result of a resource allocation to a dumb pointer.
+                Whatever resource allocation method you use, always immediately store the resource pointer in a smart pointer, 
+                either unique_ptr or shared_ptr, or use other RAII classes."
+
+
+This rule is **core modern C++ wisdom**, especially relevant to the kind of **console / systems-style C++ projects** you work on.
+
+Let’s break it down **slowly, practically, and with examples**.
+
+---
+
+## What is a “dumb pointer”?
+
+A **dumb pointer** = a raw pointer (`T*`) that **does not manage lifetime**.
+
+```cpp
+int* p = new int(42);   // dumb pointer
+```
+
+It:
+
+* Does **not** delete automatically
+* Can be leaked
+* Can be double-deleted
+* Has no ownership semantics
+
+---
+
+## What is “resource allocation”?
+
+Anything that **acquires a resource**:
+
+* `new`
+* `new[]`
+* `malloc`
+* `fopen`
+* `sqlite3_open`
+* `pthread_mutex_init`
+* file descriptors
+* sockets
+* memory buffers
+
+Example:
+
+```cpp
+Widget* w = new Widget();   // resource allocation
+```
+
+---
+
+## The Rule Explained (Plain English)
+
+> **Never let a newly allocated resource live even briefly in a raw pointer.**
+
+Why?
+
+Because **between allocation and ownership**, anything can go wrong:
+
+* Exception thrown
+* Early return
+* Future code change
+* Forgotten `delete`
+
+That tiny gap is where **bugs are born**.
+
+---
+
+## ❌ BAD: Assigning allocation to a dumb pointer
+
+```cpp
+Widget* w = new Widget();   // ❌ resource owned by no one
+do_something();             // ❌ may throw
+use(w);
+delete w;
+```
+
+### What can go wrong?
+
+* `do_something()` throws → **memory leak**
+* Someone adds a `return` later → **leak**
+* Someone deletes `w` twice → **UB**
+* Ownership unclear → **design smell**
+
+---
+
+## ✅ GOOD: Immediately store in a smart pointer
+
+```cpp
+auto w = std::make_unique<Widget>();  // ✅ ownership established immediately
+do_something();
+use(*w);
+```
+
+Now:
+
+* Automatic cleanup
+* Exception safe
+* Ownership explicit
+* No leaks
+
+---
+
+## Why “immediately” matters
+
+❌ Still wrong:
+
+```cpp
+Widget* raw = new Widget();              // ❌ danger window
+std::unique_ptr<Widget> w(raw);          // too late
+```
+
+If **anything** happens between those two lines → leak.
+
+---
+
+## ✅ Correct patterns
+
+### 1️⃣ Preferred: `make_unique`
+
+```cpp
+auto ptr = std::make_unique<MyClass>(arg1, arg2);
+```
+
+✔ No raw pointer ever exists
+✔ Exception safe
+✔ Short and expressive
+
+---
+
+### 2️⃣ Shared ownership: `make_shared`
+
+```cpp
+auto ptr = std::make_shared<MyClass>();
+```
+
+Use **only when ownership is truly shared**.
+
+---
+
+### 3️⃣ Non-memory resources → RAII wrappers
+
+```cpp
+std::ifstream file("data.txt");   // file closes automatically
+std::lock_guard<std::mutex> lock(mtx);
+```
+
+Or custom RAII:
+
+```cpp
+class File {
+public:
+    explicit File(const char* name) {
+        f = std::fopen(name, "r");
+    }
+    ~File() {
+        if (f) std::fclose(f);
+    }
+private:
+    FILE* f;
+};
+```
+
+---
+
+## When raw pointers ARE allowed
+
+Raw pointers are fine for **non-owning access**:
+
+```cpp
+void process(const Widget* w);   // observer only
+```
+
+Key rule:
+
+> **Raw pointers observe; smart pointers own.**
+
+---
+
+## Why this rule exists (Real-world reason)
+
+Large C++ systems fail because:
+
+* Ownership is unclear
+* Exception paths leak resources
+* Maintenance introduces bugs
+
+This rule **eliminates an entire class of bugs**.
+
+That’s why:
+
+* Bjarne Stroustrup
+* Herb Sutter
+* C++ Core Guidelines
+
+all push this rule hard.
+
+---
+
+## Mental Model (Important)
+
+> **If you see `new`, you should immediately see a smart pointer.**
+
+If not → 🚨 design issue.
+
+---
+
+## Summary
+
+✔ Never do:
+
+```cpp
+T* p = new T;
+```
+
+✔ Always do:
+
+```cpp
+auto p = std::make_unique<T>();
+```
+
+✔ Use RAII for **everything**
+✔ Raw pointers = **non-owning only**
+
+---
