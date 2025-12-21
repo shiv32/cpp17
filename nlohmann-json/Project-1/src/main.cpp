@@ -1,14 +1,17 @@
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 
 using json = nlohmann::json;
+
+namespace fs = std::filesystem;
 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    std::string jsonFile{"/home/shiv/Projects/cpp17/nlohmann-json/Project-1/test_file/example.json"};
+    std::string jsonFile{"../test_file/example.json"};
 
     json j;
 
