@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/shiv/Projects/cpp17/nlohmann-json/Project-1/build/_deps/nlohmann_json-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

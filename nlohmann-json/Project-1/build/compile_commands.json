@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/shiv/Projects/cpp17/nlohmann-json/Project-1/build",
+  "command": "/usr/bin/g++ -I/home/shiv/Projects/cpp17/nlohmann-json/Project-1/build/_deps/nlohmann_json-src/include -g -std=gnu++17 -o CMakeFiles/json_demo.dir/src/main.cpp.o -c /home/shiv/Projects/cpp17/nlohmann-json/Project-1/src/main.cpp",
+  "file": "/home/shiv/Projects/cpp17/nlohmann-json/Project-1/src/main.cpp",
+  "output": "/home/shiv/Projects/cpp17/nlohmann-json/Project-1/build/CMakeFiles/json_demo.dir/src/main.cpp.o"
+}
+]
