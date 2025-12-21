@@ -55,7 +55,6 @@ namespace messaging
 
 int main(int argc, char *argv[])
 {
-
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     return 0;
