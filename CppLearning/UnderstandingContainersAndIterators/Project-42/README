@@ -1,0 +1,7 @@
+bitset
+    A bitset is a fixed-length abstraction of a sequence of bits.
+
+bitset Basics
+    A bitset, defined in <bitset>, is templatized on the number of bits it stores.
+
+Bitwise Operators

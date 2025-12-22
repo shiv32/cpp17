@@ -1,0 +1,3 @@
+bitset Example: Representing Cable Channels
+    One possible use of bitsets is tracking channels of cable subscribers.
+    CableCompany class is a simple example of this model.
