@@ -4,15 +4,13 @@
  * @brief Factory + Strategy in C++
  * @version 0.1
  * @date 2025-04-21
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 
 #include <iostream>
 #include <memory>
-#include <string>
-#include <unordered_map>
 
 // -------------------- Strategy Interface --------------------
 class SensorHandler
@@ -55,7 +53,8 @@ enum class SensorType
 {
     Temperature,
     Pressure,
-    Humidity
+    Humidity,
+    Unknown
 };
 
 class SensorHandlerFactory
@@ -87,8 +86,9 @@ int main()
     float sensorValue = 101.5;
 
     SensorType type = SensorType::Pressure;
-    //SensorType type = SensorType::Humidity;
-    //SensorType type = SensorType::Temperature;
+    // SensorType type = SensorType::Humidity;
+    // SensorType type = SensorType::Temperature;
+    // SensorType type = SensorType::Unknown;
 
     auto handler = SensorHandlerFactory::create(type);
 
@@ -98,7 +98,7 @@ int main()
     }
     else
     {
-        std::cout << "Unknown sensor type!\n";
+        std::cout << "Unknown sensor type !\n";
     }
 
     return 0;
