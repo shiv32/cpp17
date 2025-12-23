@@ -82,8 +82,7 @@ void CableCompany::deleteCustomer(std::string_view name)
 
 const std::bitset<kNumChannels> &CableCompany::getCustomerChannels(std::string_view name) const
 {
-    // Use const_cast() to forward to getCustomerChannelsHelper()
-    // to avoid code duplication.
+    // Use const_cast() to forward to getCustomerChannelsHelper() to avoid code duplication.
     return const_cast<CableCompany *>(this)->getCustomerChannelsHelper(name);
 }
 
