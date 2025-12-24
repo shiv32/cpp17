@@ -1,0 +1,4 @@
+STD::FUNCTION
+    std::function, defined in the <functional> header file, 
+    can be used to create a type that can point to a function, 
+    a function object, or a lambda expression — basically anything that is callable.

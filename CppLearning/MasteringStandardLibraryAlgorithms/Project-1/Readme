@@ -1,0 +1,16 @@
+OVERVIEW OF ALGORITHMS
+
+The find and find_if Algorithms
+    find() looks for a specific element in an iterator range.
+
+    WARNING
+        If find() fails to find an element, 
+        it returns an iterator equal to the end iterator specified in the function call, 
+        not the end iterator of the underlying container.
+
+        If a container provides a method with the same functionality as a generic algorithm, 
+        you should use the method instead, because it’s faster. 
+        For example, the generic find() algorithm runs in linear time, even on a map, 
+        while the find() method on a map runs in logarithmic time.
+
+    find_if() is similar to find(), except that it accepts a predicate function callback instead of a simple element to match.
