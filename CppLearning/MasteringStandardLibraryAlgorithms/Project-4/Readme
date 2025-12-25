@@ -1,6 +1,9 @@
 LAMBDA EXPRESSIONS
+
     Lambda expressions allow you to write anonymous functions inline, 
     removing the need to write a separate function or a function object.
+
+Syntax
 
     Note
         When using a capture default, 
