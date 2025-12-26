@@ -19,8 +19,7 @@
 namespace GLE
 {
     // Define a generic lambda to find values > 100.
-    auto isGreaterThan100 = [](auto i)
-    { return i > 100; };
+    auto isGreaterThan100 = [](auto i){ return i > 100; };
 
     void genericLambdaExpressions1()
     {
@@ -60,8 +59,9 @@ namespace LCE
     void lambdaCaptureExpressions2()
     {
         auto myPtr = std::make_unique<double>(3.1415);
-        auto myLambda = [p = std::move(myPtr)]
-        { std::cout << *p; };
+        // This supress the clang warning
+        // NOLINTNEXTLINE(clang-analyzer-cplusplus.NewDeleteLeaks)
+        auto myLambda = [p = std::move(myPtr)]{std::cout << *p;}; 
         myLambda();
         std::cout << std::endl;
     }
@@ -70,8 +70,9 @@ namespace LCE
     {
         auto myPtr = std::make_unique<double>(3.1415);
         // not recommended, to have the same name for the capture variable as the name in the enclosing scope.
-        auto myLambda = [myPtr = std::move(myPtr)]
-        { std::cout << *myPtr; };
+        // This supress the clang warning
+        // NOLINTNEXTLINE(clang-analyzer-cplusplus.NewDeleteLeaks)
+        auto myLambda = [myPtr = std::move(myPtr)]{ std::cout << *myPtr; };
         myLambda();
         std::cout << std::endl;
     }
