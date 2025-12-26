@@ -77,8 +77,7 @@ namespace example
         std::cout << std::endl;
 
         int sum = 0;
-        process(vec, [&sum](int num)
-                { sum += num; });
+        process(vec, [&sum](int num){ sum += num; });
         // processTemplate(vec, [&sum](int num){ sum += num; });
         std::cout << "sum = " << sum << std::endl;
     }
