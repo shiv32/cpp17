@@ -23,7 +23,7 @@ int main()
     spData.reset(); // Data still alive
 
     // std::cout << *spX << '\n'; // still valid
-    std::cout << *aliasing << '\n'; // 10
+    std::cout << *aliasing << '\n'; // still valid
 
     return 1;
 }
