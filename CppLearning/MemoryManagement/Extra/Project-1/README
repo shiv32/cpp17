@@ -1,0 +1,25 @@
+A shared_ptr support so-called aliasing.
+
+    Aliasing allows a std::shared_ptr to share ownership of one object 
+    while pointing to a different (related) object.
+
+    One control block, different pointer.
+
+
+Sometimes you want:
+
+    Shared ownership of a whole object
+    But access only to a subobject (member, element, base class)
+
+Without aliasing, you’d risk:
+
+    Double deletion
+    Dangling pointers
+    Incorrect ownership
+
+Aliasing solves this safely.
+
+Quick rule of thumb
+    Need shared ownership? → shared_ptr
+    Need to point to part of owned object? → aliasing
+    Need sole ownership? → unique_ptr
