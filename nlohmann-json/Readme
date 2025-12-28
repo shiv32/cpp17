@@ -1,3 +1,15 @@
 JSON for Modern C++ 
 
 nlohmann::json
+
+
+-----------------
+Before nlohmann/json, read:
+
+    fmt (clean, modern)
+    spdlog
+    range-v3
+    tinyxml2
+    inih
+
+Then come back.

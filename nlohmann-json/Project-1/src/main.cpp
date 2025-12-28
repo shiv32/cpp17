@@ -21,14 +21,14 @@ int main()
 
     std::cout << j.dump(4) << '\n';
 
-    try
-    {
-        std::ifstream f(jsonFile);
-        json data = json::parse(f);
-        std::cout << data.dump(4) << '\n';
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    // try
+    // {
+    //     std::ifstream f(jsonFile);
+    //     json data = json::parse(f);
+    //     std::cout << data.dump(4) << '\n';
+    // }
+    // catch (const std::exception &e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
 }
