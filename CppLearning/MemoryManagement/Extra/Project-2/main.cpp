@@ -20,7 +20,6 @@ public:
 
 namespace Wrong
 {
-
     std::ifstream &GetStreamInfo()
     {
         auto settings = std::make_shared<Settings>(filePath.c_str());
@@ -35,6 +34,7 @@ namespace Wrong
         }
         return stream;
     }
+
     void Main()
     {
         auto &stream = GetStreamInfo();
