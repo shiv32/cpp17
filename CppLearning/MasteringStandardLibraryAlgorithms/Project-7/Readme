@@ -1,0 +1,33 @@
+FUNCTION OBJECTS
+    You can overload the function call operator in a class such that objects of the class can be used in place of function pointers. 
+    These objects are called function objects, or just functors.
+    C++ provides several predefined functor classes, 
+    defined in the <functional> header file, 
+    that perform the most commonly used callback operations.
+
+    Note
+        It is recommended to use lambda expressions, 
+        if possible, instead of small function objects because lambda expressions are easier to use, read, and understand.
+
+Arithmetic Function Objects
+
+    Warning
+        The arithmetic function objects are just wrappers around the arithmetic operators. 
+        If you use the function objects as callbacks in algorithms, 
+        make sure that the objects in your container implement the appropriate operation, 
+        such as operator* or operator+.
+
+Transparent Operator Functors
+    Note
+        It’s recommended to always use the transparent operator functors.
+
+Comparison Function Objects
+
+Logical Function Objects
+    Note
+    The allTrue() and anyTrue() functions are just given as examples. 
+    In fact, the Standard Library provides the std::all_of() and any_of() algorithms 
+    that perform the same operations, but that have the benefit of short-circuiting, 
+    so they are more performant.
+
+Bitwise Function Objects
