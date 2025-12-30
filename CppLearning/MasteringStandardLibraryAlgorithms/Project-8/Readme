@@ -1,0 +1,11 @@
+Adaptor Function Objects
+    The adaptors provide a modicum of support for functional composition, that is, 
+    to combine functions together to create the exact behavior you need.
+
+Binders
+    Binders can be used to bind parameters of callables to certain values.
+
+    WARNING
+        Before C++11 there was bind2nd() and bind1st(). 
+        Both are deprecated since C++11, and are actually removed from the C++17 standard. 
+        Use lambda expressions or bind() instead.
