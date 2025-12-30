@@ -103,5 +103,9 @@ https://raw.githubusercontent.com/shiv32/cpp17/refs/heads/master/DesignPatterns/
 
     https://cppevo.dev
 
+12. MC++ 
+
+    https://www.modernescpp.com/index.php/table-of-content/
+
 
     [![Youtube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ShivMLinux)
