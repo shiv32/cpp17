@@ -1,0 +1,11 @@
+Negators
+    not_fn
+        Negators are similar to binders but they complement the result of a callable.
+        
+    not1 and not2
+
+    NOTE
+        not1() and not2() have been deprecated by the C++17 standard. 
+        Both unary_function and binary_function are deprecated since C++11, 
+        and are officially removed from C++17. 
+        You should avoid using any of this functionality in new code.
