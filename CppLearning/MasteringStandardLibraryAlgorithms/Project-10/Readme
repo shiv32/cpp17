@@ -1,0 +1,7 @@
+Calling Member Functions
+    If you have a container of objects, 
+    you sometimes want to pass a pointer to a class method as the callback to an algorithm.
+
+Invokers
+    Call any callable object with a set of parameters.
+    It is very useful in templated code where you need to invoke some arbitrary callable object.
