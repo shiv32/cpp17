@@ -1,0 +1,9 @@
+POCO HTTP REST Microservice (Single Endpoint)
+    Runs an HTTP server on port 8080
+    Exposes a REST API
+
+Run & Test
+    ./rest_server
+
+In another terminal:
+    curl http://localhost:8080/api/health
