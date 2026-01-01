@@ -1,0 +1,7 @@
+ALGORITHM DETAILS
+Iterators
+    Iterators that satisfy the requirements for output iterators are called mutable iterators; 
+    otherwise they are called constant iterators
+
+Non-modifying Sequence Algorithms
+    Search Algorithms
