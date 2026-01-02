@@ -23,6 +23,7 @@ void PersonDAO::deletePerson(int id)
 std::vector<Person> PersonDAO::listPeople()
 {
     std::vector<Person> people;
+    
     std::string query = "SELECT id, name, mobile FROM person;";
     sqlite3_stmt *stmt;
 

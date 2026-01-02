@@ -14,7 +14,6 @@ Database::Database()
     {
         execute("CREATE TABLE IF NOT EXISTS person (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, mobile TEXT);");
     }
-
 }
 
 Database::~Database()
@@ -47,5 +46,4 @@ void Database::execute(const std::string &query)
         std::cerr << "SQL error: " << errMsg << std::endl;
         sqlite3_free(errMsg);
     }
-    
 }
