@@ -1,0 +1,83 @@
+
+1. Association ( “uses / knows about” ): One class has a reference to another. “has-a”
+
+        A ────── B
+        Car ─── Engine
+
+        class Engine {};
+
+        class Car {
+            Engine* engine;   // NOT owned
+            //Engine& engine;
+        };
+
+2. Dependency ( “temporarily uses” ): One class uses another only inside a function. “needs briefly”
+
+        A - - - - > B
+
+        class Logger {};
+
+        class Service {
+        public:
+            void process(Logger& logger) {
+                logger.log("processing");
+            }
+        };
+
+3. Aggregation ( weak ownership ): One class contains another, but does NOT own lifetime. “has-a, but not responsible”
+
+        Whole ◇──── Part
+
+
+        class Player {};
+
+        class Team {
+            std::vector<Player*> players;  // Team does not own players
+        };
+
+4. Composition ( strong ownership ): One class owns another’s lifetime. “owns-a”
+
+        Whole ◆──── Part
+        Car ◆── Engine
+
+        class Engine {};
+
+        class Car {
+            Engine engine;  // Engine dies with Car
+        };
+
+5. Inheritance ( “is-a” ) : One class is a specialized form of another. “is-a”
+
+        Derived ──▷ Base
+
+        class Shape {
+        public:
+            virtual void draw();
+        };
+
+        class Circle : public Shape {
+        };
+
+6. Interface Realization ( C++ style ): Class implements behavior contract. “can-do”
+
+        Concrete - - - - - - - ▷ <<interface>>
+
+        class Storage {
+        public:
+            virtual void save() = 0;
+            virtual ~Storage() = default;
+        };
+
+        class FileStorage : public Storage {
+        public:
+            void save() override {}
+        };
+
+---------------------------------------------------------
+Ask this:
+
+    If I destroy object A, should object B die automatically?
+
+                Yes → Composition
+                No → Association
+---------------------------------------------------------
