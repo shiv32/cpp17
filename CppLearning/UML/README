@@ -1,26 +1,28 @@
-/*
+
 
 UML 2 supports six different kinds of relationships between classes.
 
-    1. Inheritance
+    1. Inheritance (A ──▷B)
         A derived class inherits from a base class, can override methods, and may add new functionality.
 
-    2. Realization/Implementation
+    2. Realization/Implementation (A - - - - - - - ▷B<<interface>>)
         A class implements an interface (abstract class).
         
-    3. Aggregation (Weak Ownership)
+    3. Aggregation (Weak Ownership) (A◇──── B)
         A class contains another class, but does not own it (objects can exist independently).
         The contained object can exist without the parent.
             eg. A Car has a Driver, but the Driver can exist without the Car.
     
-    4. Composition(Strong Ownership)
+    4. Composition(Strong Ownership) (A◆──── B)
         A class contains and owns another class. The contained object is destroyed with the parent.
             eg. A Human has a Heart, but the Heart cannot exist without the Human.
 
-    5. Dependency
+    5. Dependency (A - - - - > B)
         A class temporarily uses another class but does not own it permanently.
 
-    6. Association
+    6. Association (A ────── B)
         One class has a reference to another (e.g., composition, aggregation).
 
-    */
+---------------------------------------------------------------------------------------------
+Ref:
+https://www.drawio.com/blog/uml-class-diagrams
