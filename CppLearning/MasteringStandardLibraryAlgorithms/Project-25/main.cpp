@@ -119,7 +119,7 @@ namespace exchange
         Foo foo{new int(32)};
         Foo foo2{new int()};
 
-        foo2 = std::move(foo);
+        foo2 = std::move(foo);//call move assignment operator
 
         std::cout << foo2.getValue() << std::endl;
     }
