@@ -4,6 +4,6 @@ project(cppInterview)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCES main.cpp)
+set(SOURCES main3.cpp)
 
 add_executable(cppInterview ${SOURCES})
