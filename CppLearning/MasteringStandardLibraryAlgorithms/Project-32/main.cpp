@@ -19,7 +19,7 @@
 using VotersMap = std::map<std::string, std::vector<std::string>>;
 using DistrictPair = std::pair<const std::string, std::vector<std::string>>;
 
-namespace version1
+namespace avr1
 {
     // Returns a set of all names that appear in more than one vector in the map.
     std::set<std::string> getDuplicates(const VotersMap &votersByDistrict)
@@ -83,7 +83,7 @@ namespace version1
 
 }
 
-namespace version2
+namespace avr2
 {
     // Returns a set of all names that appear in more than one vector in the map.
     // uses C++17 structured bindings
@@ -167,8 +167,8 @@ int main()
     }
     std::cout << std::endl;
 
-    version1::auditVoterRolls(voters, felons);
-    // version2::auditVoterRolls(voters, felons);
+    avr1::auditVoterRolls(voters, felons);
+    // avr2::auditVoterRolls(voters, felons);
 
     std::cout << "After Audit:" << std::endl;
     for (const auto &district : voters)
