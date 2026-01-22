@@ -1,0 +1,10 @@
+Customizing and Extending the Standard Library
+
+    ALLOCATORS
+
+        template <class T, class Allocator = allocator<T>> 
+        class vector;
+
+    STREAM ITERATORS
+        Output Stream Iterator
+        Input Stream Iterator
