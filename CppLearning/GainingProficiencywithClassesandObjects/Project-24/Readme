@@ -1,0 +1,8 @@
+   Object Destruction
+
+   When an object is destroyed, two events occur:
+
+   1) The object’s destructor method is called.
+   2) The memory it was taking up is freed.
+
+   g++ -std=c++17 *.cpp -o test

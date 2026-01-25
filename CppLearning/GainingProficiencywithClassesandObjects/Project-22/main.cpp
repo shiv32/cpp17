@@ -1,14 +1,10 @@
-/*
-Initializer-List Constructors
-
-g++ -std=c++17 *.cpp -o test
-*/
-
 #include <iostream>
 #include "EvenSequence.hpp"
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     // EvenSequence p1 = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
     EvenSequence p1{1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
 

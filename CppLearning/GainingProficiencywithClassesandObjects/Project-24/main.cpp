@@ -1,19 +1,10 @@
-/*
-   Object Destruction
-
-   When an object is destroyed, two events occur:
-
-   1) The object’s destructor method is called.
-   2) The memory it was taking up is freed.
-
-   g++ -std=c++17 *.cpp -o test
-*/
-
 #include <iostream>
 #include "SpreadsheetCell.hpp"
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     //-------------------------------- case 1 ------------------------------------------
     /*
    SpreadsheetCell myCell(5);
