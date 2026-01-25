@@ -1,14 +1,10 @@
-/*
-Explicitly Defaulted and Deleted Copy Constructor
-
-g++ -std=c++17 *.cpp -o test
-*/
-
 #include <iostream>
 #include "SpreadsheetCell.hpp"
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     SpreadsheetCell myCell(61.8);
     SpreadsheetCell myCell2(myCell); // myCell2 has the same values as myCell
 

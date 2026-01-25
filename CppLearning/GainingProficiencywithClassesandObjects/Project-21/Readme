@@ -1,0 +1,3 @@
+Explicitly Defaulted and Deleted Copy Constructor
+
+g++ -std=c++17 *.cpp -o test
