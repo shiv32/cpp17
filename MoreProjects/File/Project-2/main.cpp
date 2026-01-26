@@ -76,6 +76,7 @@ private:
         ss >> entry.date;
         ss >> entry.time;
         ss >> levelStr;
+
         getline(ss, entry.message);
 
         entry.level = parseLevel(levelStr);
@@ -105,7 +106,7 @@ public:
 
     void generateReport(const string& outputFile) const 
     {
-        ofstream report(outputFile, ios::trunc);
+        ofstream report(outputFile, ios::trunc);//truncate mode, rewrite the entire file
 
         if (!report) {
             cerr << "Failed to write report file" << endl;
@@ -149,7 +150,7 @@ int main(int argc, char* argv[])
 {
     if (argc < 3) {
         cout << "Usage: " << argv[0] << " <log_file> <report_file>\n";
-        return 1;
+        return EXIT_FAILURE;
     }
 
     string logFile = argv[1];
@@ -159,7 +160,7 @@ int main(int argc, char* argv[])
 
     if (logs.empty()) {
         cerr << "No logs to analyze." << endl;
-        return 1;
+        return EXIT_FAILURE;
     }
 
     LogAnalyzer analyzer(logs);
