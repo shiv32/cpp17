@@ -1,14 +1,10 @@
-/*
-   Distinguishing Copying from Assignment
-
-    g++ -std=c++17 *.cpp -o test
-*/
-
 #include <iostream>
 #include "SpreadsheetCell.hpp"
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     SpreadsheetCell myCell(5);
 
     // Constructed with the copy constructor, because this is a declaration.

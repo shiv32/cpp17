@@ -1,0 +1,6 @@
+
+    Assigning to Objects
+    Explicitly Defaulted and Deleted Assignment Operator
+    Compiler-Generated Copy Constructor and Copy Assignment Operator
+
+    g++ -std=c++17 *.cpp -o test

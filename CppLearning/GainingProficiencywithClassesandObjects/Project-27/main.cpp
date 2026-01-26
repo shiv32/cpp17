@@ -1,14 +1,10 @@
-/*
-    Objects as Return Values
-
-    g++ -std=c++17 *.cpp -o test
-*/
-
 #include <iostream>
 #include "SpreadsheetCell.hpp"
 
 int main()
 {
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+    
     SpreadsheetCell myCell2(5);
     std::string s1;
     s1 = myCell2.getString(); // invokes the copy constructor and the assignment operator (for two different objects).
