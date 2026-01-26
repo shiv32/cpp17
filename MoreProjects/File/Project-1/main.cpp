@@ -37,7 +37,8 @@ vector<Contact> loadContacts()
 
 void saveContacts(const vector<Contact>& contacts) 
 {
-    ofstream file(DB_FILE, ios::trunc);
+    ofstream file(DB_FILE, ios::trunc);//truncate mode, rewrite the entire file
+
     for (const auto& c : contacts) {
         file << c.name << ","
              << c.phone << ","
@@ -57,7 +58,7 @@ void addContact()
     cout << "Email  : ";
     getline(cin, c.email);
 
-    ofstream file(DB_FILE, ios::app);
+    ofstream file(DB_FILE, ios::app);// append mode, add new records, preserve old data
     file << c.name << "," << c.phone << "," << c.email << "\n";
 
     cout << "✔ Contact added successfully\n";
@@ -66,6 +67,7 @@ void addContact()
 void viewContacts() 
 {
     auto contacts = loadContacts();
+
     cout << "\n---- Contact List ----\n";
     for (const auto& c : contacts) {
         cout << "Name  : " << c.name << "\n";
@@ -79,6 +81,7 @@ void searchContact()
 {
     auto contacts = loadContacts();
     string name;
+
     cout << "Enter name to search: ";
     getline(cin, name);
 
@@ -93,6 +96,7 @@ void searchContact()
             break;
         }
     }
+
     if (!found)
         cout << "❌ Contact not found\n";
 }
@@ -101,6 +105,7 @@ void deleteContact()
 {
     auto contacts = loadContacts();
     string name;
+
     cout << "Enter name to delete: ";
     getline(cin, name);
 
