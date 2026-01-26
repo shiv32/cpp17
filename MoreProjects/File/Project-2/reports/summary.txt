@@ -1,0 +1,12 @@
+Log Summary Report
+==================
+
+Total Entries : 4
+
+By Level:
+INFO  : 2
+WARN  : 1
+ERROR : 1
+
+Error Frequency:
+1x - Database connection failed

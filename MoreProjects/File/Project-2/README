@@ -1,0 +1,16 @@
+File-Based Log Analyzer (C++17)
+Real-world console project
+
+Build:
+    g++ -std=gnu++17 main.cpp -o log_analyzer
+Run:
+    ./log_analyzer ../data/app.log ../reports/summary.txt
+
+
+Sample data/app.log
+-------------------
+2025-01-25 10:01:02 INFO User login success user=shiv
+2025-01-25 10:02:10 ERROR Database connection failed
+2025-01-25 10:03:45 WARN Disk usage high
+2025-01-25 10:04:01 INFO User logout user=shiv
+
