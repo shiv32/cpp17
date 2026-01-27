@@ -1,0 +1,11 @@
+ITERATOR ADAPTORS
+    Reverse Iterators
+
+        //Iterating over a collection from the beginning to the end 
+        for (auto iter = begin(collection); iter != end(collection); ++iter) {}
+
+        //Iterating over the elements in the collection from the end to the beginning 
+        for (auto iter = rbegin(collection); iter != rend(collection); ++iter) {}
+
+    Insert Iterators
+    Move Iterators
