@@ -1,0 +1,52 @@
+
+👉 Qt does NOT replace OpenCV
+👉 Qt replaces Python / Java GUI frameworks
+
+So the real comparison is:
+	C++ + OpenCV (engine)
+	C++ + Qt (UI + system glue)
+
+Camera → OpenCV (processing) → Qt (display + controls)
+-----------------------
+OpenCV = vision engine
+Qt = UI layer
+-----------------------
+OpenCV as a Console App
+
+Very common in C++.
+	Examples:
+		Batch image processing
+		Video analysis from files
+		Image format conversion
+		Face detection on stored images
+		CCTV backend processing
+		ML inference pipelines
+---------------------------------
+eg.
+    ./vision_app input.jpg output.jpg
+
+    int main(int argc, char** argv) {
+        cv::Mat img = cv::imread("img.jpg");
+        cv::Mat gray;
+        cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
+        cv::imwrite("out.jpg", gray);
+    }
+
+No window, no mouse, no GUI.
+----------------------------------------
+Headless OpenCV (real-world usage)
+
+In production systems:
+	No monitor
+	No keyboard
+	Runs as a service
+
+Used in:
+	Traffic cameras
+	Surveillance servers
+	Factory inspection systems
+	Robotics pipelines
+	Cloud vision services
+
+This is pure console / service mode.
+--------------------------------------------
