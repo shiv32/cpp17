@@ -1,0 +1,19 @@
+Test project OpenCV
+
+---------------------------------
+OS: manjaro linux(arch)
+
+Install OpenCV
+    sudo pacman -Syu
+    sudo pacman -S opencv
+
+Verify installation
+    pkg-config --modversion opencv4
+
+----------------------------------
+g++ -std=c++17 main.cpp -o opencv_demo -I/usr/include/opencv4 -lopencv_core -lopencv_imgproc -lopencv_imgcodecs
+
+./opencv_demo input.jpg output.jpg
+
+output.jpg → grayscale image
+----------------------------------

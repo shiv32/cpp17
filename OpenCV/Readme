@@ -1,4 +1,11 @@
 
+OpenCV is an open-source, cross-platform C++ computer vision and image processing library.
+It provides optimized algorithms for image processing, video analysis, object detection, 
+and machine learning, and is widely used in real-time systems.
+
+OpenCV is a C++-based computer vision library with bindings for Python, Java, and other languages.
+OpenCV is CPU-based by default and becomes GPU-accelerated only when explicitly built and used with CUDA or OpenCL APIs.
+-----------------------------------
 👉 Qt does NOT replace OpenCV
 👉 Qt replaces Python / Java GUI frameworks
 
@@ -50,3 +57,19 @@ Used in:
 
 This is pure console / service mode.
 --------------------------------------------
+Why HFT does NOT use OpenCV
+
+HFT (High-Frequency Trading) is about:
+	Nanoseconds / microseconds latency
+	Deterministic execution
+	Zero unnecessary dependencies
+
+OpenCV is for computer vision:
+	Images, video, frames
+	Heavy memory usage
+	CPU/GPU intensive
+	Not latency-deterministic
+
+➡️ There is no image/video data in HFT
+➡️ So OpenCV has no role.
+-------------------------------------------

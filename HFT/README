@@ -1,1 +1,34 @@
  High-Frequency Trading (HFT) 
+ 
+ HFT runs on Linux only.
+
+ Production HFT = Linux
+ Windows/macOS = no
+ 
+ Linux knowledge is mandatory
+
+----------------------------------
+Must-learn
+    Modern C++ (move, allocators, cache)
+    Linux internals
+    Networking (UDP/TCP, multicast)
+    Lock-free programming
+    CPU & memory optimization
+    Order book design
+
+Mini HFT-style projects
+    Market data feed parser
+    In-memory order book
+    Event-driven trading simulator
+    Latency benchmark tool
+
+👉 No OpenCV needed at all.
+------------------------------------
+What You DON’T Need (initially)
+    ❌ OpenCV
+    ❌ Qt
+    ❌ GUI
+    ❌ Web frameworks
+    ❌ Heavy STL usage
+    ❌ Garbage collectors
+-----------------------------------
