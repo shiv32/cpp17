@@ -1,0 +1,9 @@
+OpenCV Test project "Convert gray image to color image"
+
+----------------------------------
+g++ -std=c++17 main.cpp -o opencv_demo -I/usr/include/opencv4 -lopencv_core -lopencv_imgproc -lopencv_imgcodecs
+
+./opencv_demo input.jpg output.jpg
+
+----------------------------------
+
