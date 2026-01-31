@@ -1,1 +1,8 @@
 Algorithms trading using C++
+
+---------------------------------------------------------------------------
+Data Needed
+
+    Backtesting (daily / swing / positional)    → OHLC + Volume
+    Intraday strategies                         → OHLC + Volume (smaller timeframe)
+    HFT                                         → Tick / L2 data
