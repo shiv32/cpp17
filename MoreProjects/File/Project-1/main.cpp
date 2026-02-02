@@ -8,7 +8,8 @@ using namespace std;
 
 const string DB_FILE = "../db/contacts.db";
 
-struct Contact {
+struct Contact 
+{
     string name;
     string phone;
     string email;
@@ -22,7 +23,8 @@ vector<Contact> loadContacts()
     ifstream file(DB_FILE);
     string line;
 
-    while (getline(file, line)) {
+    while (getline(file, line)) 
+    {
         stringstream ss(line);
         Contact c;
         getline(ss, c.name, ',');
@@ -32,6 +34,7 @@ vector<Contact> loadContacts()
         if (!c.name.empty())
             contacts.push_back(c);
     }
+
     return contacts;
 }
 
@@ -39,10 +42,9 @@ void saveContacts(const vector<Contact>& contacts)
 {
     ofstream file(DB_FILE, ios::trunc);//truncate mode, rewrite the entire file
 
-    for (const auto& c : contacts) {
-        file << c.name << ","
-             << c.phone << ","
-             << c.email << "\n";
+    for (const auto& c : contacts) 
+    {
+        file << c.name << ","<< c.phone << ","<< c.email << "\n";
     }
 }
 
@@ -51,10 +53,13 @@ void saveContacts(const vector<Contact>& contacts)
 void addContact() 
 {
     Contact c;
+
     cout << "Name   : ";
     getline(cin, c.name);
+    
     cout << "Phone  : ";
     getline(cin, c.phone);
+    
     cout << "Email  : ";
     getline(cin, c.email);
 
@@ -69,7 +74,8 @@ void viewContacts()
     auto contacts = loadContacts();
 
     cout << "\n---- Contact List ----\n";
-    for (const auto& c : contacts) {
+    for (const auto& c : contacts) 
+    {
         cout << "Name  : " << c.name << "\n";
         cout << "Phone : " << c.phone << "\n";
         cout << "Email : " << c.email << "\n";
@@ -86,8 +92,10 @@ void searchContact()
     getline(cin, name);
 
     bool found = false;
-    for (const auto& c : contacts) {
-        if (c.name == name) {
+    for (const auto& c : contacts) 
+    {
+        if (c.name == name) 
+        {
             cout << "\nFound Contact:\n";
             cout << "Name  : " << c.name << "\n";
             cout << "Phone : " << c.phone << "\n";
@@ -109,16 +117,23 @@ void deleteContact()
     cout << "Enter name to delete: ";
     getline(cin, name);
 
-    auto it = remove_if(contacts.begin(), contacts.end(),
-        [&](const Contact& c) {
-            return c.name == name;
-        });
+    // auto it = remove_if(contacts.begin(), contacts.end(),
+    //     [&](const Contact& c) { //bad practise [&]
+    //         return c.name == name;
+    //     });
 
-    if (it != contacts.end()) {
+    auto it = remove_if(contacts.begin(), contacts.end(),
+    [name](const Contact& c) {
+        return c.name == name;
+    });
+
+    if (it != contacts.end()) 
+    {
         contacts.erase(it, contacts.end());
         saveContacts(contacts);
         cout << "✔ Contact deleted\n";
-    } else {
+    } else 
+    {
         cout << "❌ Contact not found\n";
     }
 }
@@ -126,7 +141,8 @@ void deleteContact()
 // ---------------- Main Menu ----------------
 
 int main() {
-    while (true) {
+    while (true) 
+    {
         cout << "\n==== Contact Management System ====\n";
         cout << "1. Add Contact\n";
         cout << "2. View Contacts\n";
@@ -139,12 +155,13 @@ int main() {
         cin >> choice;
         cin.ignore(); // clear newline
 
-        switch (choice) {
+        switch (choice) 
+        {
             case 1: addContact(); break;
             case 2: viewContacts(); break;
             case 3: searchContact(); break;
             case 4: deleteContact(); break;
-            case 5: return 0;
+            case 5: return EXIT_SUCCESS;
             default: cout << "Invalid choice\n";
         }
     }
