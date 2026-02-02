@@ -1,1 +1,12 @@
 Test SFML Installation
+
+-------------------------------
+Install SFML 2 (LTS) from AUR
+
+    yay -S sfml2
+
+
+This installs:
+
+    SFML 2.6.x
+
