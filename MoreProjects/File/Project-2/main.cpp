@@ -19,7 +19,8 @@ enum class LogLevel
 
 string toString(LogLevel level) 
 {
-    switch (level) {
+    switch (level) 
+    {
         case LogLevel::INFO: return "INFO";
         case LogLevel::WARN: return "WARN";
         case LogLevel::ERROR: return "ERROR";
@@ -53,16 +54,19 @@ public:
         ifstream file(filename);
         vector<LogEntry> logs;
 
-        if (!file) {
+        if (!file) 
+        {
             cerr << "Failed to open log file: " << filename << endl;
             return logs;
         }
 
         string line;
-        while (getline(file, line)) {
+        while (getline(file, line)) 
+        {
             if (line.empty()) continue;
             logs.push_back(parseLine(line));
         }
+        
         return logs;
     }
 
@@ -93,12 +97,19 @@ private:
 class LogAnalyzer 
 {
 public:
-    explicit LogAnalyzer(const vector<LogEntry>& logs) : logs(logs) {}
+    explicit LogAnalyzer(const vector<LogEntry>& logs) : logs(logs) 
+    {
 
-    void analyze() {
-        for (const auto& log : logs) {
+    }
+
+    void analyze() 
+    {
+        for (const auto& log : logs) 
+        {
             levelCount[log.level]++;
-            if (log.level == LogLevel::ERROR) {
+
+            if (log.level == LogLevel::ERROR) 
+            {
                 errorFrequency[log.message]++;
             }
         }
@@ -108,7 +119,8 @@ public:
     {
         ofstream report(outputFile, ios::trunc);//truncate mode, rewrite the entire file
 
-        if (!report) {
+        if (!report) 
+        {
             cerr << "Failed to write report file" << endl;
             return;
         }
@@ -124,10 +136,14 @@ public:
         report << "ERROR : " << getCount(LogLevel::ERROR) << "\n\n";
 
         report << "Error Frequency:\n";
-        if (errorFrequency.empty()) {
+        if (errorFrequency.empty()) 
+        {
             report << "No errors found.\n";
-        } else {
-            for (const auto& [msg, count] : errorFrequency) {
+        } 
+        else 
+        {
+            for (const auto& [msg, count] : errorFrequency) 
+            {
                 report << count << "x - " << msg << "\n";
             }
         }
@@ -135,6 +151,7 @@ public:
 
 private:
     const vector<LogEntry>& logs;
+
     map<LogLevel, int> levelCount;
     map<string, int> errorFrequency;
 
@@ -148,7 +165,8 @@ private:
 // ---------------- Main ----------------
 int main(int argc, char* argv[]) 
 {
-    if (argc < 3) {
+    if (argc < 3) 
+    {
         cout << "Usage: " << argv[0] << " <log_file> <report_file>\n";
         return EXIT_FAILURE;
     }
@@ -158,7 +176,8 @@ int main(int argc, char* argv[])
 
     auto logs = LogParser::parseFile(logFile);
 
-    if (logs.empty()) {
+    if (logs.empty()) 
+    {
         cerr << "No logs to analyze." << endl;
         return EXIT_FAILURE;
     }
