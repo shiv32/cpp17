@@ -1,0 +1,37 @@
+Sean Baxter is a well-known C++ developer and language innovator, especially famous in modern C++ circles.
+
+Sean Baxter works almost entirely in the headless / non-GUI domain.
+His work is compiler + language tooling, not GUI apps.
+
+What domain Sean Baxter actually works in
+
+    Primary domain
+        Compilers
+        Language tooling
+        Static analysis
+        Code generation
+        Metaprogramming
+        Build-time systems
+
+    This is pure headless C++:
+        No windows
+        No buttons
+        No UI frameworks
+        Mostly CLI tools and compiler pipelines
+
+Think:
+    source code → compiler → AST → codegen → binary
+That’s his world
+
+What he does NOT focus on
+    Game GUIs
+    Qt / SFML / Unreal UI
+    Desktop apps
+    Web frontends
+
+Not because they’re bad — just not his problem space.
+
+ref:
+https://www.circle-lang.org/resume.pdf
+https://www.linkedin.com/in/sean-baxter-28b73245/
+https://grokipedia.com/page/Sean_Baxter
