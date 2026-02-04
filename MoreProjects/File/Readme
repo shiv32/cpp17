@@ -1,1 +1,77 @@
-C++17 file based project
+C++17 file+STL based project
+
+-----------------------------------------
+STL Short Notes
+
+Containers
+    vector          – Dynamic array, fast access, slow middle insert
+    array           – Fixed-size, stack allocated, safer C array
+    deque           – Fast push/pop front & back
+    list            – Doubly linked, fast insert/delete, no random access
+    forward_list    – Singly linked, low memory
+    set             – Sorted unique values (RB-tree)
+    multiset        – Sorted, allows duplicates
+    unordered_set   – Hash set, fast lookup, no order
+    map             – Sorted key-value pairs
+    multimap        – Sorted map, duplicate keys
+    unordered_map   – Hash map, fastest key lookup
+    stack           – LIFO container adapter
+    queue           – FIFO container adapter
+    priority_queue  – Heap, fast max/min access
+
+Iterators
+    Input           – Read once (streams)
+    Forward         – Multi-pass forward
+    Bidirectional   – Forward & backward
+    Random access   – [], +, - (vector, deque)
+
+Algorithms
+    find        – Linear search
+    find_if     – Search with condition
+    count_if    – Count matching elements
+    sort        – Fast sort (O(n log n))
+    stable_sort – Sort preserving order
+    transform   – Apply function on range
+    accumulate  – Reduce values
+    copy        – Copy range
+    remove_if   – Logical delete (needs erase)
+    unique      – Remove consecutive duplicates
+    lower_bound – First ≥ value (sorted)
+    upper_bound – First > value
+
+Utilities
+    pair        – Two related values
+    tuple       – Multiple heterogenous values
+    optional    – Value or nothing
+    variant     – One of many types
+    any         – Any type (avoid in systems)
+    function    – Callable wrapper
+    bind        – Function binding (old style)
+
+Time & Threads
+    chrono      – Type-safe time
+    thread      – OS thread
+    mutex       – Mutual exclusion
+    lock_guard  – RAII lock
+    future      – Async result
+
+Filesystem (C++17)
+    path                – Portable file path
+    directory_iterator  – Traverse directory
+    exists              – Check file existence
+
+Memory
+    unique_ptr  – Exclusive ownership
+    shared_ptr  – Reference counted
+    weak_ptr    – Non-owning observer
+
+Functions
+    Lambda  – Inline anonymous function
+    Functor – Object callable
+
+Interview Fast Recall
+    Cache           → list + unordered_map
+    Fast lookup     → unordered_map
+    Ordered data    → map / set
+    Scheduler       → priority_queue
+    Optional value  → std::optional
