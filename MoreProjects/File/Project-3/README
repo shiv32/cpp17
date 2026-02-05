@@ -1,0 +1,12 @@
+Song playlist manager project
+
+C++17, file + std::list, Command pattern
+
+Playlist Manager using Command Pattern
+    Design
+        Receiver            → Playlist
+        Command interface   → Command
+        Concrete commands   → Add, Remove, Next, Prev, Play
+        Invoker             → Menu loop
+        Storage             → File (playlist.txt)
+        Container           → std::list
