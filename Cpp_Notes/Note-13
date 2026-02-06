@@ -1,0 +1,20 @@
+Where standard/modern C++ is NOT enough (needs external libs) 
+
+    Database access                     → no SQL / DB API in standard C++
+    Networking (TCP/HTTP/WebSocket)     → no sockets / HTTP in STL
+    JSON / XML / YAML parsing           → no data format parsers
+    GUI / Desktop UI                    → no windows, buttons, events
+    Image / Video / Audio               → no multimedia support
+    Logging systems                     → cout is not a logger
+    Serialization (object ↔ bytes)      → no built-in serializer
+    Unit testing                        → no test framework
+    Compression                         → no zip / lz support
+    Cryptography / SSL                  → intentionally excluded
+    REST / Microservices                → no HTTP server/client
+    Game engines / Physics / Rendering  → no graphics or physics
+    Cloud / AWS / GCP SDKs              → no cloud APIs
+    Machine learning / AI               → no ML framework
+    Package management                  → no standard package manager
+
+Rule of thumb:
+👉 If it talks to network, UI, DB, cloud, media, or security → external lib needed.
