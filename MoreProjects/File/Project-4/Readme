@@ -1,0 +1,35 @@
+file io text and bin mode
+-----------------------------------------
+Text files
+    Config → .txt, .ini
+    Logs → .log
+    Data → .csv, .json
+    Docs → .md
+    Scripts → .sh, .py
+
+Binary files
+    Game saves → .sav, .bin
+    Database → .db
+    Cache → .cache, .dat
+    Media → .png, .mp3, .mp4
+    System → .exe, .o, .so
+
+Rule:
+    Readable = text | ⚙️ Fast/compact = binary
+
+-------------------------------------------
+One-line takeaway
+    C++ gives power, not convenience.
+    Parsers are built, not gifted.
+-------------------------------------------
+ini/cfg file: motive is same, style is different 
+
+INI = organized & readable
+CFG = simple & efficient
+
+Why C++ devs like CFG
+    Easier to parse
+    Faster
+    Less syntax rules
+    Customizable
+----------------------------------------------
