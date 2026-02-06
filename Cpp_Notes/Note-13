@@ -1,3 +1,28 @@
+Where modern C++ IS enough (no external libs)
+You do NOT need external libs for:
+
+    ✅ Data structures
+    ✅ Algorithms
+    ✅ Multithreading (std::thread, mutex)
+    ✅ File I/O
+    ✅ Memory management
+    ✅ RAII
+    ✅ Generic programming
+    ✅ Performance-critical core logic
+    ✅ System-level engines
+    ✅ Embedded logic
+
+This is why in HFT, OS, DB engines, compilers, the core is pure C++, and libs are used only at the edges.
+
+Mental model (important)
+    C++ standard    = language + core tools
+    Libraries       = domain power
+
+Modern C++ is strong at “how” things work, not “what” domain you work in.
+For anything beyond CPU + memory + files → external libs are normal and expected.
+
+----------------------------------------------------------------------------------------
+
 Where standard/modern C++ is NOT enough (needs external libs) 
 
     Database access                     → no SQL / DB API in standard C++
@@ -18,3 +43,4 @@ Where standard/modern C++ is NOT enough (needs external libs)
 
 Rule of thumb:
 👉 If it talks to network, UI, DB, cloud, media, or security → external lib needed.
+
