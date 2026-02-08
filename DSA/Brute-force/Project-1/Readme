@@ -1,0 +1,30 @@
+Brute force solution
+
+In C++ (or any language), a brute-force solution simply means:
+
+    Solve the problem by trying all possible solutions directly, without clever optimizations.
+
+C++ is just the tool — brute force is a problem-solving approach, not a language feature.
+
+Brute force = “try everything, no shortcuts.”
+Simple, correct, but often slow.
+
+-----------------------------------------------
+eg. Problem
+    Given an array, check if there exists a pair whose sum = target.
+
+    Array: {2, 7, 11, 15}
+    Target: 9
+-----------------------------------------------
+
+“Brute force checks all combinations; 
+optimized solutions reduce work using data structures or math.”
+
+Real interview rule 
+    1️⃣ Explain brute force first
+    2️⃣ State its complexity
+    3️⃣ Improve it using:
+        STL containers
+        sorting
+        hashing
+        DP / greedy
