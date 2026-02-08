@@ -1,4 +1,8 @@
-C++17 file+STL based project
+C++ file streams close themselves automatically when they go out of scope.
+This is called RAII.
+In modern C++, scope = lifetime = cleanup.
+
+C++17 file io + STL based project
 
 -----------------------------------------
 STL Short Notes
