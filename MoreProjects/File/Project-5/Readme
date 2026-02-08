@@ -1,0 +1,10 @@
+Project
+
+Student Course Registry
+    One student → multiple courses
+    Stored in a text file
+    
+Uses
+    std::multimap
+    fstream
+    C++17 only

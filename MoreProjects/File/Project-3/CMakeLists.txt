@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 4.0)
 
-project(playlist)
+project(fileProject)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(playlist main.cpp)
+add_executable(fileProject main.cpp)
