@@ -1,0 +1,25 @@
+Nintendo Tank Console Game
+
+How to Play – Nintendo Tank (Console)
+
+Goal
+    Destroy all enemy tanks to win.
+    If your tank is hit → Game Over.
+
+Controls
+    W → Move Up
+    S → Move Down
+    A → Move Left
+    D → Move Right
+    F → Fire in the last moved direction
+    Q → Quit the game
+
+Symbols
+    P → Player tank
+    E → Enemy tank
+    * → Bullet
+    . → Empty space
+
+Win / Lose
+    Win: All enemies destroyed
+    Lose: Enemy bullet hits you
