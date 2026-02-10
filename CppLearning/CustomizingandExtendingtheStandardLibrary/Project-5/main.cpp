@@ -64,7 +64,11 @@ int main()
 
     // Test std::swap().
     hm::hash_map<int, int> other(std::equal_to<>(), 11);
+    cout << "before swap other.bucketSize() : " << other.bucketSize() << endl;
+    cout << "before swap myHash.bucketSize() : " << myHash.bucketSize() << endl;
     swap(other, myHash);
+    cout << "after swap other.bucketSize() : " << other.bucketSize() << endl;
+    cout << "after swap myHash.bucketSize() : " << myHash.bucketSize() << endl;
 
     // Test copy construction and copy assignment.
     hm::hash_map<int, int> myHash2(other);

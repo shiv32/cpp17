@@ -7,6 +7,8 @@ using namespace std;
 
 namespace hm
 {
+    #define LOG clog<<__PRETTY_FUNCTION__<<endl;
+
     template <typename Key, typename T, typename KeyEqual = std::equal_to<>, typename Hash = hash<Key>>
     class hash_map
     {
@@ -54,6 +56,9 @@ namespace hm
 
         // Swaps two hash_maps.
         void swap(hash_map<Key, T, KeyEqual, Hash> &other) noexcept;
+
+        //bucket size
+        size_t bucketSize(){return mBuckets.size();}
 
     private:
         using ListType = std::list<value_type>;
@@ -174,12 +179,15 @@ namespace hm
         {
             bucket.clear();
         }
+
         mSize = 0;
     }
 
     template <typename Key, typename T, typename KeyEqual, typename Hash>
     void hash_map<Key, T, KeyEqual, Hash>::swap(hash_map<Key, T, KeyEqual, Hash> &other) noexcept
     {
+        //LOG
+
         using std::swap;
 
         swap(mBuckets, other.mBuckets);
@@ -191,12 +199,16 @@ namespace hm
     template <typename Key, typename T, typename KeyEqual, typename Hash>
     void swap(hash_map<Key, T, KeyEqual, Hash> &first, hash_map<Key, T, KeyEqual, Hash> &second) noexcept
     {
+        //LOG
+
         first.swap(second);
     }
 
     template <typename Key, typename T, typename KeyEqual, typename Hash>
     hash_map<Key, T, KeyEqual, Hash> &hash_map<Key, T, KeyEqual, Hash>::operator=(const hash_map<Key, T, KeyEqual, Hash> &rhs)
     {
+        //LOG
+
         // check for self-assignment
         if (this == &rhs)
         {
@@ -212,6 +224,8 @@ namespace hm
     template <typename Key, typename T, typename KeyEqual, typename Hash>
     hash_map<Key, T, KeyEqual, Hash> &hash_map<Key, T, KeyEqual, Hash>::operator=(hash_map<Key, T, KeyEqual, Hash> &&rhs) noexcept
     {
+        //LOG 
+
         swap(rhs);
         return *this;
     }
