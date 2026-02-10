@@ -42,6 +42,7 @@ public:
     {
         ifstream in(DB_FILE);
         string student, course;
+
         auto &db = Database::instance().getData();
 
         while (in >> student >> course)
@@ -53,6 +54,7 @@ public:
     void save()
     {
         ofstream out(DB_FILE, ios::trunc);
+
         auto &db = Database::instance().getData();
 
         for (const auto &[student, course] : db)
@@ -69,6 +71,7 @@ public:
     void show(const string &student)
     {
         auto &db = Database::instance().getData();
+        
         auto range = db.equal_range(student);
 
         if (range.first == range.second)
@@ -94,6 +97,7 @@ int main()
     repo.load();
 
     int choice;
+
     do
     {
         cout << "\n1. Add entry\n2. Show courses\n3. Save & Exit\nChoice: ";
@@ -102,17 +106,22 @@ int main()
         if (choice == 1)
         {
             string student, course;
+
             cout << "Student: ";
             cin >> student;
+
             cout << "Course: ";
             cin >> course;
+
             repo.add(student, course);
         }
         else if (choice == 2)
         {
             string student;
+
             cout << "Student name: ";
             cin >> student;
+
             repo.show(student);
         }
 

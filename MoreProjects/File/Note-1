@@ -1,0 +1,31 @@
+STL Short Notes
+
+-----------------------------------------------------------------------
+    Mental shortcut
+        Need sorted + unique?                   → set
+        Need sorted + duplicates?               → multiset
+        Need fast lookup, order doesn’t matter? → unordered_set
+
+    Real-world examples
+        set             → leaderboard ranks (unique scores, sorted)
+        multiset        → inventory with duplicate items
+        unordered_set   → “already seen IDs” / cache / fast membership test
+
+    One-liner summary
+        Tree-based containers (set, multiset) care about order.
+        Hash-based containers (unordered_set) care about speed.
+-------------------------------------------------------------------------
+    Mental shortcut
+        Sorted + unique keys            → map
+        Sorted + duplicate keys         → multimap
+        Fast lookup, order irrelevant   → unordered_map
+
+    Real-world examples
+        map             → configuration settings (unique keys, ordered)
+        multimap        → student → multiple courses
+        unordered_map   → caches, symbol tables, lookup tables
+
+    One-liner summary
+        Tree maps care about order.
+        Hash maps care about speed.
+--------------------------------------------------------------------------
