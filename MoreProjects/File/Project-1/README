@@ -4,3 +4,7 @@ Contact Management System project
 using a file as database (CSV text file).
 
 It’s single-file, clean, and easy to extend.
+
+uses
+    File io
+    vector

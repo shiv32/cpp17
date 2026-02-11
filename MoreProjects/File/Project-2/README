@@ -14,3 +14,9 @@ Sample data/app.log
 2025-01-25 10:03:45 WARN Disk usage high
 2025-01-25 10:04:01 INFO User logout user=shiv
 
+------------------------
+uses
+    File io
+    vector
+
+
