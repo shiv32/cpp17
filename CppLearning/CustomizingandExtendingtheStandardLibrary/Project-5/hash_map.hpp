@@ -61,6 +61,7 @@ namespace hm
         size_t bucketSize(){return mBuckets.size();}
 
     private:
+        // The Type Aliases
         using ListType = std::list<value_type>;
 
         std::vector<ListType> mBuckets;
@@ -163,6 +164,7 @@ namespace hm
     {
         // First, try to find the element.
         auto [it, bucket] = findElement(k);
+        
         if (it != end(mBuckets[bucket]))
         {
             // The element exists -- erase it.
