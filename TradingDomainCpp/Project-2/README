@@ -1,0 +1,22 @@
+Complete CRTP Engine Example
+    We’ll simulate:
+            Engine calls onTick()
+            Strategy defines its own behavior
+            No virtual functions
+            Compile-time polymorphism
+
+Why This Is Powerful in Trading
+    In low-latency systems:
+        No virtual
+        No vtable
+        Fully inlined
+        Zero runtime polymorphism cost
+
+    This pattern is common in:
+        Matching engines
+        Strategy engines
+        Risk engines
+        Logging frameworks
+-------------------------------------------------------
+Engine* e = new PrintStrategy(); // ❌  runtime polymorphism
+CRTP = compile-time polymorphism.

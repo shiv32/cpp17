@@ -1,0 +1,38 @@
+CRTP = Curiously Recurring Template Pattern
+
+
+------------------------------------------------
+template<typename Derived>
+class Base 
+{
+    // use static_cast to call derived
+};
+
+class Derived : public Base<Derived> 
+{
+    //
+};
+-------------------------------------------------
+Why Use CRTP?
+    Compile-time polymorphism Instead of virtual functions (runtime polymorphism)
+
+    No vtable
+    No virtual call overhead
+    Better inlining
+    Faster (important in trading systems)
+------------------------------------------------------
+Real Trading Example Use
+
+    template<typename Strategy>
+    class Engine 
+    {
+    public:
+        void run() 
+        {
+            static_cast<Strategy*>(this)->onTick();
+        }
+    };
+
+    Each strategy implements onTick().
+    No virtual call in hot path.
+---------------------------------------------------------
