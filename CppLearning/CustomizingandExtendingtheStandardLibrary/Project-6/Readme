@@ -1,0 +1,30 @@
+Making hash_map a Standard Library Container
+
+    Required Type Aliases
+        value_type
+        reference
+        const_reference	
+        iterator
+        const_iterator
+        size_type
+        difference_type	
+
+    Required Methods
+        Default constructor
+        Copy constructor
+        Move constructor
+        Copy assignment operator
+        Move assignment operator
+        Destructor
+        iterator begin()
+        const_iterator begin() const
+        iterator end()
+        const_iterator end() const
+        const_iterator cbegin() const
+        const_iterator cend() const
+        operator==
+        operator!=
+        void swap(Container&) noexcept
+        size_type size() const
+        size_type max_size() const
+        bool empty() const
