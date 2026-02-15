@@ -1,0 +1,11 @@
+shiv 94
+umesh 90
+shiv 85
+shiv 80
+shiv 80
+doe 70
+amit 60
+manoj 50
+jhon 30
+vijay 4
+jais 0

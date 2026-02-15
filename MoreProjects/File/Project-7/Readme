@@ -1,0 +1,15 @@
+Project: Student Exam Ranking System
+(C++17 + File I/O + std::multiset)
+
+Real-World Use Case
+    A coaching center wants to:
+        Store student name + score
+        Automatically maintain sorted ranking
+        Handle duplicate scores
+        Persist data to file
+        Load data on program restart
+
+Why multiset?
+    Keeps data automatically sorted
+    Allows duplicate marks
+    Better than vector + sort for continuous insertion

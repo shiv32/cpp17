@@ -79,3 +79,11 @@ Interview Fast Recall
     Ordered data    → map / set
     Scheduler       → priority_queue
     Optional value  → std::optional
+-----------------------------------------------------------
+Covered:
+
+File io +   vector , p-1,2
+            list, p-3
+            multimap, p-5
+            unordered_map, p-6
+            multiset, p-7
