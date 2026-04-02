@@ -1,0 +1,31 @@
+Mini Project: Simple Order Matching Engine (C++17)
+This is exactly the kind of logic used in trading systems, just simplified.
+
+What You Will Build
+
+A console-based engine that:
+    Accepts BUY / SELL orders
+    Matches them based on:
+        Price priority
+        Time priority
+    Prints executed trades
+
+Concepts Covered
+    STL (priority_queue, vector)
+    Custom comparator (important!)
+    Basic system design thinking
+    Real-world trading logic
+
+Why This Project Matters
+This small project shows:
+    You understand order matching (core trading concept)
+    You can use STL efficiently
+    You think in systems, not just syntax
+
+Next Upgrade (Very Important)
+If you want to impress recruiters, extend it:
+    Add order cancellation
+    Add order IDs lookup (unordered_map)
+    Add multi-threading (producer-consumer)
+    Measure latency using chrono
+    Use lock-free queue (advanced)
