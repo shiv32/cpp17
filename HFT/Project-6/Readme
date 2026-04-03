@@ -1,0 +1,38 @@
+Project: Market Data Feed Handler (Streaming Engine)
+    This is VERY relevant to trading firms
+    They process live market data streams continuously
+
+What You Will Build
+    A system that:
+        Reads tick-by-tick market data
+        Processes it in real-time
+        Calculates:
+            Last price
+            Moving average
+            Price updates
+
+Concepts You Will Learn
+    File streaming (like real-time feed)
+    Efficient data handling
+    Sliding window (important in trading)
+    Clean architecture
+
+Why This Project Matters
+This shows:
+    You understand data streaming (core in trading)
+    You can handle continuous input
+    You apply efficient algorithms (sliding window)
+
+This is directly relevant to market data systems
+
+Next Upgrades (IMPORTANT)
+    Turn this into a strong project:
+    Level 2:
+        Add multi-symbol support (map)
+        Store latest price per symbol
+    Level 3:
+        Add multi-threading
+            Thread 1 → read data
+            Thread 2 → process data
+    Level 4:
+        Replace file with TCP socket feed
