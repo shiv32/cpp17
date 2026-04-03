@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 4.0)
 
 # Set the compiler
 set(CMAKE_CXX_STANDARD 17)
@@ -7,9 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 project(HFT)
 
 # Create a sources variable with a link to all cpp files to compile
-set(SOURCES
-    main.cpp
-)
+set(SOURCES main.cpp)
 
 # Add an executable with the above sources
 add_executable(HFT ${SOURCES})
