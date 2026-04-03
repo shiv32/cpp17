@@ -12,6 +12,7 @@ struct BuyComparator
     {
         if (a.price == b.price)
             return a.timestamp > b.timestamp;
+
         return a.price < b.price;
     }
 };
@@ -23,6 +24,7 @@ struct SellComparator
     {
         if (a.price == b.price)
             return a.timestamp > b.timestamp;
+
         return a.price > b.price;
     }
 };
@@ -47,6 +49,13 @@ public:
     }
 
 private:
+
+    /*
+        It tries to match a BUY order with existing SELL orders
+        Rule:
+            Buyer wants lowest sell price
+            Trade happens if: sell.price ≤ buy.price
+    */
     void matchBuy(Order &buy)
     {
         while (!sellOrders.empty() && buy.quantity > 0)
@@ -62,8 +71,7 @@ private:
             buy.quantity -= tradedQty;
             topSell.quantity -= tradedQty;
 
-            std::cout << "TRADE: BUY " << tradedQty
-                      << " @ " << topSell.price << "\n";
+            std::cout << "TRADE: BUY " << tradedQty << " @ " << topSell.price << "\n";
 
             if (topSell.quantity > 0)
                 sellOrders.push(topSell);
@@ -73,6 +81,12 @@ private:
             buyOrders.push(buy);
     }
 
+    /*
+        It tries to match a SELL order with existing BUY orders
+        Rule:
+            Seller wants highest possible price
+            Trade happens if: buy.price ≥ sell.price
+    */
     void matchSell(Order &sell)
     {
         while (!buyOrders.empty() && sell.quantity > 0)
@@ -88,8 +102,7 @@ private:
             sell.quantity -= tradedQty;
             topBuy.quantity -= tradedQty;
 
-            std::cout << "TRADE: SELL " << tradedQty
-                      << " @ " << topBuy.price << "\n";
+            std::cout << "TRADE: SELL " << tradedQty << " @ " << topBuy.price << "\n";
 
             if (topBuy.quantity > 0)
                 buyOrders.push(topBuy);
