@@ -1,0 +1,10 @@
+std::priority_queue
+
+Real Use Cases
+    Trading Engine
+        Buy orders → max heap (highest price first)
+        Sell orders → min heap (lowest price first)
+    Task Scheduler
+        Highest priority task executes first
+    Dijkstra Algorithm
+        Min heap for shortest path
