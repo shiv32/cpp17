@@ -29,7 +29,7 @@ public:
         window.push(tick.price);
         sum += tick.price;
 
-        if (window.size() > windowSize)
+        if (window.size() > windowSize) //sliding window
         {
             sum -= window.front();
             window.pop();
