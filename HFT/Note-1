@@ -1,0 +1,195 @@
+For **trading C++ role**.
+Below is a **clean list of core projects** that directly map to what trading firms build. 
+---
+
+#Core Trading Projects in C++17
+
+---
+
+# 1️⃣ Order Matching Engine
+
+### Purpose
+
+Core of any exchange
+
+### Concepts
+
+* `std::priority_queue`
+* Price-time priority
+* Partial fills
+
+---
+
+# 2️⃣ Market Data Feed Handler
+
+### Purpose
+
+Process live market data (tick-by-tick)
+
+### Concepts
+
+* Streaming data
+* Sliding window
+* `std::queue`, `std::unordered_map`
+
+---
+
+# 3️⃣ Limit Order Book (Advanced Version)
+
+### Purpose
+
+Maintain full bid/ask book (like real exchange)
+
+### Concepts
+
+* `std::map` / `std::unordered_map`
+* Price levels
+* Aggregation
+
+Upgrade from your current engine
+
+---
+
+# 4️⃣ Trade Execution Simulator
+
+### Purpose
+
+Simulate order execution strategies
+
+### Concepts
+
+* Strategy pattern
+* Latency simulation
+* Slippage calculation
+
+---
+
+# 5️⃣ Backtesting Engine
+
+### Purpose
+
+Test trading strategies on historical data
+
+### Concepts
+
+* File I/O optimization
+* Data replay
+* Performance tuning
+
+---
+
+# 6️⃣ Low Latency Logger
+
+### Purpose
+
+Fast logging without blocking system
+
+### Concepts
+
+* Lock-free queue
+* Producer-consumer
+* `std::atomic`, `std::thread`
+
+VERY IMPORTANT for trading roles
+
+---
+
+# 7️⃣ Multi-threaded Market Pipeline
+
+### Purpose
+
+Simulate real system pipeline
+
+### Concepts
+
+* Thread 1 → receive data
+* Thread 2 → process
+* Thread 3 → execute
+
+👉 Use:
+
+* `std::thread`
+* `condition_variable`
+
+---
+
+# 8️⃣ Risk Management System
+
+### Purpose
+
+Check if trades are allowed
+
+### Concepts
+
+* Position limits
+* Exposure calculation
+* Fast lookup (`std::unordered_map`)
+
+---
+
+# 9️⃣ FIX Protocol Simulator (Advanced)
+
+### Purpose
+
+Communicate with exchanges
+
+### Concepts
+
+* String parsing
+* Networking (TCP)
+* Protocol design
+
+---
+
+# TCP Market Data Server
+
+### Purpose
+
+Send/receive live data over network
+
+### Concepts
+
+* Socket programming
+* Async I/O
+* Serialization
+
+---
+
+# ⚡ Most Important Projects (Focus First)
+
+If you want job-ready:
+
+MUST HAVE:
+
+1. Order Matching Engine
+2. Market Data Handler
+3. Limit Order Book
+4. Low Latency Logger
+
+---
+
+# What Recruiters Look For
+
+Not just projects—they check:
+
+* Performance awareness
+* Clean design
+* STL mastery
+* Multithreading basics
+
+---
+
+# Ideal Learning Path
+
+Order Matching Engine
+        ↓
+Market Data Handler
+        ↓
+Limit Order Book
+        ↓
+Multi-threading + Logger
+        ↓
+Networking (TCP / FIX)
+
+---
+
