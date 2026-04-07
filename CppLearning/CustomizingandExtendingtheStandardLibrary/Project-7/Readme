@@ -1,0 +1,9 @@
+Writing an Iterator
+    The most important container requirement is the iterator. 
+    In order to work with the generic algorithms, 
+    every container must provide an iterator for accessing the elements in the container.
+
+    A container needs to provide both a const iterator and a non-const iterator.
+
+The const_hash_map_iterator Class
+The const_hash_map_iterator Method Implementations
