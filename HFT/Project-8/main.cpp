@@ -32,6 +32,7 @@ struct SellCompare
 std::priority_queue<Order, std::vector<Order>, BuyCompare> buyOrders;
 std::priority_queue<Order, std::vector<Order>, SellCompare> sellOrders;
 
+// Matching Engine (Core Logic)
 void matchSell(Order &sell)
 {
     while (!buyOrders.empty() && sell.quantity > 0)
@@ -59,7 +60,6 @@ void matchSell(Order &sell)
         sellOrders.push(sell);
 }
 
-// Matching Engine (Core Logic)
 void matchBuy(Order &buy)
 {
     while (!sellOrders.empty() && buy.quantity > 0)
