@@ -1,0 +1,24 @@
+A Limit Order Book (LOB) is the heart of most trading systems (like stock exchanges).
+
+Limit Order
+    Buy or sell at a specific price
+    Example:
+        Buy 100 shares at ₹50 → only execute at 50 or better
+
+Order Book Structure
+
+    Two sides:
+
+    BUY SIDE (Bids)        SELL SIDE (Asks)
+    -----------------      -----------------
+    Price: 50 Qty: 100     Price: 52 Qty: 200
+    Price: 49 Qty: 150     Price: 53 Qty: 300
+
+    Buy     → highest price first
+    Sell    → lowest price first
+
+Core C++ Concepts
+    STL (priority_queue)
+    Custom comparators
+    Value semantics
+    Struct design
