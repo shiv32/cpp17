@@ -46,8 +46,7 @@ void matchSell(Order &sell)
 
         int tradedQty = std::min(topBuy.quantity, sell.quantity);
 
-        std::cout << "Trade: "
-                  << tradedQty << " @ " << topBuy.price << "\n";
+        std::cout << "Sell Trade: " << tradedQty << " @ " << topBuy.price << "\n";
 
         topBuy.quantity -= tradedQty;
         sell.quantity -= tradedQty;
@@ -73,8 +72,7 @@ void matchBuy(Order &buy)
 
         int tradedQty = std::min(topSell.quantity, buy.quantity);
 
-        std::cout << "Trade: "
-                  << tradedQty << " @ " << topSell.price << "\n";
+        std::cout << "Buy Trade: " << tradedQty << " @ " << topSell.price << "\n";
 
         topSell.quantity -= tradedQty;
         buy.quantity -= tradedQty;
