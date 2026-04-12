@@ -126,9 +126,11 @@ public:
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
     LockFreeQueue<int> queue;
 
     // Example usage: Producer and Consumer
+
     // Producer thread
     std::thread producer([&queue]()
                          {
@@ -141,6 +143,7 @@ int main()
     std::thread consumer([&queue]()
                          {
         int value;
+        
         for (int i = 0; i < 10; ++i) {
             while (!queue.dequeue(value)) {
                 // Spin until data is available
