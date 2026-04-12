@@ -165,6 +165,12 @@ private:
     }
 
 public:
+    ~MatchingEngine()
+    {
+        // std::cout<<__PRETTY_FUNCTION__<<std::endl;
+        delete strategy;
+    }
+
     static MatchingEngine &getInstance()
     {
         static MatchingEngine instance;
@@ -215,7 +221,7 @@ public:
     }
 };
 
-// Console UI (Menu-Based)
+// Console UI 
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
