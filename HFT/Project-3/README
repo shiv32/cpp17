@@ -4,7 +4,7 @@ It focuses on logic — not real trading speed — so it's safe for beginners.
 
 📈 HFT Mini Project in C++17 – "MicroTrader Sim"
 
-✅ Features:
+Features:
     Simulates price feed (like a market tick stream)
     Uses a basic moving average strategy
     Executes "buy" or "sell" signals

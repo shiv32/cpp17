@@ -64,6 +64,7 @@ public:
     std::string generateSignal(double price) override
     {
         window.push_back(price);
+
         if (window.size() > period)
             window.pop_front();
 
@@ -129,8 +130,7 @@ public:
         if (type == "MA")
         {
             return std::make_unique<MovingAverageStrategy>(3);
-        }
-        // Future: add more strategies
+        }   // Future: add more strategies
         else
         {
             throw std::invalid_argument("Unknown strategy type");

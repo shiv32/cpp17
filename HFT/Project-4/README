@@ -1,7 +1,7 @@
 
 ⚡ Project: HFT Signal Engine Simulator
 
-🎯 Goal: Build a low-latency simulation engine that:
+Goal: Build a low-latency simulation engine that:
             Receives real-time market data
             Computes simple signals (like momentum or mean-reversion)
             Sends orders based on strategy
