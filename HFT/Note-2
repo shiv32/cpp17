@@ -1,0 +1,291 @@
+*feel the domain* of a trading system
+
+---
+
+# The Story: “A Day Inside a Stock Exchange”
+
+Imagine you built your own exchange called **FastTrade (written in C++)**.
+
+People across the country are trading a stock: **ABC Ltd.**
+
+---
+
+# 1. Market Opens
+
+At 9:15 AM, the market opens.
+
+Thousands of traders (apps, brokers, algorithms) connect to your system.
+
+👉 Your system is now live and ready to process **orders**.
+
+---
+
+# 2. Order Comes In
+
+A trader named Ravi uses his app and sends:
+
+> “Buy 100 shares of ABC at ₹500”
+
+This travels:
+
+Trader App → Broker → Exchange (your C++ system)
+
+👉 This request is called an **Order**
+
+---
+
+## Order contains:
+
+* Type: BUY / SELL
+* Price: ₹500
+* Quantity: 100
+* Time: now
+
+---
+
+# 3. Risk & Validation Layer
+
+Before accepting:
+
+* Does Ravi have money?
+* Is the order valid?
+
+If yes → accept
+If no → reject
+
+👉 This is **Risk Management**
+
+---
+
+# 4. Order Book (The Waiting Room)
+
+Now the order enters the system.
+
+Inside your engine:
+
+BUY SIDE (Bids)        SELL SIDE (Asks)
+₹500 (Ravi)            ₹505
+₹495                   ₹510
+
+👉 Orders are stored in a structure called the **Order Book**
+
+---
+
+## Key Rule
+
+* Buyers sorted **highest price first**
+* Sellers sorted **lowest price first**
+
+---
+
+# 5. Matching Engine (The Brain)
+
+Now your core logic runs:
+
+👉 “Can any BUY match with any SELL?”
+
+Condition:
+
+Buy Price >= Sell Price
+
+---
+
+### Case 1: Match Found
+
+Seller Sita already placed:
+
+> Sell 100 shares at ₹498
+
+Now:
+
+* Ravi wants ₹500
+* Sita wants ₹498
+
+👉 Match happens!
+
+---
+
+# 6. Trade Execution
+
+System executes trade:
+
+> 100 shares traded at ₹498 (or exchange rule price)
+
+👉 This is a **Trade**
+
+---
+
+## After Trade:
+
+* Ravi gets shares
+* Sita gets money
+* Both orders removed
+
+---
+
+# 7. Partial Matching (Realistic Case)
+
+Ravi wants:
+
+* 100 shares
+
+But market has:
+
+* 40 shares @ ₹498
+* 60 shares @ ₹499
+
+👉 System does:
+
+1. Match 40 @ ₹498
+2. Match 60 @ ₹499
+
+👉 Multiple trades for one order
+
+---
+
+## Terms:
+
+* **Partial Fill**
+* **Multiple Executions**
+
+---
+
+# 8. No Match Scenario
+
+If:
+
+* Ravi wants ₹500
+* All sellers want ₹510
+
+👉 No trade
+
+Order stays in book.
+
+---
+
+# 9. Market Order (Aggressive Trader)
+
+Another trader says:
+
+> “Buy 100 shares at ANY price”
+
+👉 System immediately matches:
+
+* Best available sellers
+
+---
+
+## Terms:
+
+* **Limit Order** → fixed price
+* **Market Order** → instant execution
+
+---
+
+# 10. Market Data Broadcast
+
+After every trade:
+
+Your system sends updates:
+
+* Latest price
+* Volume
+* Order book changes
+
+👉 Sent to:
+
+* Apps
+* Charts
+* Algorithms
+
+---
+
+# This is called:
+
+* **Market Data Feed**
+
+---
+
+# 11. High Frequency Reality
+
+In real systems:
+
+* Millions of orders per second
+* Microsecond decisions
+
+Your C++ system must be:
+
+* Fast
+* Deterministic
+* Memory efficient
+
+---
+
+# 12. Clearing & Settlement (After Trade)
+
+After trade:
+
+* Exchange ensures:
+
+  * Buyer pays
+  * Seller delivers shares
+
+👉 Happens later (T+1, T+2)
+
+---
+
+## Terms:
+
+* **Clearing**
+* **Settlement**
+
+---
+
+# 13. Full System Picture
+
+Trader → Broker → Risk Check → Order Book → Matching Engine → Trade → Market Data → Settlement
+
+---
+
+# Real Intuition
+
+Think of your system as:
+
+> “A super-fast machine that continuously tries to match buyers and sellers based on price and time.”
+
+---
+
+# Domain Keywords (Now You Understand)
+
+* Order
+* Order Book
+* Bid / Ask
+* Matching Engine
+* Trade / Execution
+* Market Data
+* Risk Management
+* Settlement
+
+---
+
+# C++ Perspective (Important Insight)
+
+In your code:
+
+* Order → struct
+* Book → priority_queue
+* Matching → tight loop
+* Events → Observer pattern
+
+---
+
+# Final Visualization
+
+Imagine:
+
+* Thousands of people shouting prices
+* Your system silently organizing them
+* Matching instantly
+* Broadcasting results
+
+---

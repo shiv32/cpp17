@@ -1,0 +1,58 @@
+let’s build a **very small Proof of Concept (PoC)** showing how:
+
+> ⚡ HFT system → sends orders → your Trading Engine → matches → sends market data back
+
+Keep it **simple, fast, and realistic in structure** (not production-level).
+
+---
+
+# Architecture (Mental Model)
+
+    HFT Algo → Order Queue → Matching Engine → Market Data → HFT reacts again
+
+---
+
+# Key Idea
+    * HFT runs in a loop (fast)
+    * Trading engine processes orders
+    * Engine publishes trades
+    * HFT reacts to trades
+---
+
+# What Happens (Flow)
+    1. Initial orders create book
+    2. One trade happens
+    3. Engine publishes trade
+    4. HFT receives trade
+    5. HFT sends new order
+    6. Engine processes again
+
+    Loop continues
+
+---
+
+# What You Learned
+    * HFT is just a **fast event-driven client**
+    * Trading engine is **pure matching logic**
+    * Communication via:
+        * callbacks (Observer pattern)
+        * queues (real systems)
+
+---
+
+# Real-World Upgrade Path
+To make it realistic:
+    * Replace callback → lock-free queue
+    * Multi-thread:
+        * HFT thread
+        * Engine thread
+    * Add timestamps (latency measurement)
+    * Use `std::chrono` for microseconds
+    * Avoid heap allocations
+
+---
+
+# One-Line Takeaway
+> “HFT reacts to market events instantly and feeds new orders back into the matching engine in a tight loop.”
+
+---

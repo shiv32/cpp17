@@ -1,0 +1,230 @@
+**real business question** behind all this engineering.
+
+Let’s continue the same story but from the **company’s point of view**.
+
+---
+
+# Story: How “ABC Ltd.” benefits from trading
+
+You built the exchange. People are trading **ABC Ltd. shares** every second.
+
+But ABC Ltd. is *not directly involved in these daily trades*.
+
+So how do they benefit?
+
+---
+
+# 1. First Big Moment — IPO (Direct Benefit)
+
+At the beginning:
+
+ABC Ltd. says:
+
+> “We want to raise money from public”
+
+They do an **IPO (Initial Public Offering)**.
+
+---
+
+## What happens?
+
+* Company sells shares to public
+* People buy shares
+
+Company receives **real money**
+
+---
+
+### Example
+
+* ABC sells 1 lakh shares @ ₹100
+  Company gets ₹1 crore
+
+---
+
+## Insight
+
+> This is the **only time company directly gets money from trading**
+
+---
+
+# 2. After IPO — Secondary Market (Your System)
+
+Now trading happens daily:
+
+* Ravi buys
+* Sita sells
+
+👉 Money flows between **traders**, NOT company
+
+---
+
+## Important Truth
+
+> Company does NOT earn from daily buy/sell trades
+
+---
+
+# Then why trading matters?
+
+This is the real benefit 
+
+---
+
+# 3. Share Price = Company Value (Indirect Benefit)
+
+If price goes up:
+
+* ₹100 → ₹500
+
+Company valuation increases
+
+---
+
+## Story
+
+People believe:
+
+> “ABC Ltd. is growing”
+
+So they buy more → price rises
+
+---
+
+## Benefit
+
+* Company becomes **more valuable**
+* Easier to:
+
+  * Attract investors
+  * Take loans
+  * Expand business
+
+---
+
+# 4. Easier Fund Raising (Huge Advantage)
+
+Later, ABC Ltd. can:
+
+### Issue more shares (FPO / Rights Issue)
+
+If price is high:
+
+* Sell new shares at higher price
+
+👉 Raise more money
+
+---
+
+## Example
+
+* Old price: ₹100
+* New price: ₹500
+
+👉 Company can raise 5x more money
+
+---
+
+# 5. Founders & Employees Benefit
+
+* Founders hold shares
+* Employees have ESOPs(Employee Stock Ownership Plan)
+    “ESOP gives employees a chance to buy company shares at a fixed (usually lower) price and benefit if the market price rises.”
+
+If price rises:
+Their wealth increases
+
+---
+
+## Story
+
+Founder:
+
+* Had 10% shares
+* Price ₹100 → ₹500
+
+Personal wealth ↑ 5x
+
+---
+
+# 6. Market Signal (Very Important)
+
+Trading system tells:
+
+> “What market thinks about this company”
+
+---
+
+## 📉 If price falls:
+
+* Something wrong
+* Company must improve
+
+## 📈 If price rises:
+
+* Market confidence high
+
+---
+
+# 7. Liquidity (Hidden Power)
+
+Because of trading:
+
+* Investors can buy/sell anytime
+
+This makes stock attractive
+
+---
+
+## Without trading:
+
+* No one would invest
+* Money gets locked
+
+---
+
+# Full Picture
+
+## Direct Benefit
+
+* IPO / New share issuance → money to company
+
+## Indirect Benefits
+
+* Higher valuation
+* Easier fundraising
+* Founder wealth
+* Market visibility
+* Liquidity
+
+---
+
+# One Big Truth
+
+> “Trading system doesn’t give money daily to company — it gives VALUE and TRUST.”
+
+---
+
+# C++ System Role (Your Engine)
+
+Your system:
+
+* Matches orders
+* Decides price
+* Broadcasts data
+
+That price becomes:
+
+> “Market’s opinion about company”
+
+---
+
+# Final Intuition
+
+Think like this:
+
+* Trading system = **mirror**
+* Price = **market opinion**
+* Company = **real business**
+
+---

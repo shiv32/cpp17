@@ -1,0 +1,188 @@
+The **capital raising side** of the market. 
+Let’s explain it with a simple story.
+
+---
+
+# Story: Company Needs More Money
+
+Your company **ABC Ltd.** already did an IPO.
+
+Now business is growing and they need:
+
+* New factory 🏭
+* Expansion 🌍
+
+👉 They need more money again.
+
+---
+
+# Option: Issue More Shares
+
+Instead of taking a loan, company says:
+
+> “Let’s sell more shares to raise money”
+
+This is called:
+
+* **FPO (Follow-on Public Offering)**
+* **Rights Issue**
+
+---
+
+# 1. FPO (Follow-on Public Offering)
+
+## Story
+
+ABC Ltd. share price in market = ₹500
+
+Company announces:
+
+> “We will sell new shares at ₹480”
+
+---
+
+## What happens?
+
+* Public can buy new shares
+* Company gets money
+
+---
+
+### Example
+
+* 1 lakh new shares @ ₹480
+    Company gets ₹4.8 crore
+
+---
+
+## Why price is lower than market?
+
+To attract buyers quickly
+
+---
+
+## Who can buy?
+
+* Anyone (public, institutions)
+
+---
+
+# 2. Rights Issue
+
+This is more interesting 
+
+---
+
+## Story
+
+Company says ONLY to existing shareholders:
+
+> “You already own shares, so you get priority to buy more”
+
+---
+
+### Example
+
+You own 100 shares
+
+Company offers:
+
+> “Buy 1 new share for every 2 shares you own at ₹300”
+
+---
+
+## What happens?
+
+* You can buy 50 new shares @ ₹300
+* Market price may be ₹500
+
+👉 You get discount
+
+---
+
+## Why company does this?
+
+* Reward loyal investors
+* Raise money faster
+* Avoid dilution complaints
+
+---
+
+# Key Difference
+
+| Feature     | FPO             | Rights Issue           |
+| ----------- | --------------- | ---------------------- |
+| Who can buy | Public          | Existing shareholders  |
+| Price       | Slight discount | Bigger discount        |
+| Purpose     | Raise capital   | Raise capital + reward |
+
+---
+
+# 📉 Important Concept: Dilution
+
+When company issues new shares:
+
+👉 Total shares increase
+
+---
+
+## Example
+
+Before:
+
+* 100 shares total
+* You own 10 → 10%
+
+After issuing 100 more:
+
+* Total = 200 shares
+* You still have 10 → 5%
+
+👉 Your ownership reduces
+
+---
+
+## This is called:
+
+> **Dilution**
+
+---
+
+# Why Rights Issue Helps
+
+You can buy more shares to:
+    Maintain your ownership %
+
+---
+
+# 📊 Connection to Trading System
+
+When FPO / Rights announced:
+
+* Price may drop (more supply)
+* Volume increases (more activity)
+
+Your system handles:
+
+* New orders
+* Price adjustments
+
+---
+
+# Final Intuition
+
+## FPO
+
+> Company raises money from public again
+
+## Rights Issue
+
+> Company raises money from existing investors
+
+---
+
+# One-Line Memory
+
+> “Company prints new shares to raise money — FPO for public, Rights for existing shareholders.”
+
+---

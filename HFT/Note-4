@@ -1,0 +1,224 @@
+Let’s walk a **step-by-step story** showing exactly how price moves **up and down**.
+
+---
+
+# Scene: Market Starts (ABC Stock)
+
+Initial order book:
+
+BUY (Bids)          SELL (Asks)
+₹99 (100)           ₹101 (100)
+₹98 (200)           ₹102 (200)
+
+👉 No trade yet
+👉 Latest Price = (last traded earlier, assume ₹100)
+
+---
+
+# STEP 1: Buyer Becomes Aggressive → Price Goes UP
+
+### Ravi says:
+
+> “Buy 100 shares at ₹101”
+
+---
+
+## What happens?
+
+* Best SELL = ₹101
+* Ravi is ready to pay ₹101
+
+👉 Match happens!
+
+---
+
+## Trade:
+
+* 100 shares @ ₹101
+
+👉 **Latest Price = ₹101**
+
+---
+
+## Why price went UP?
+
+Because:
+
+> Buyer accepted higher price
+
+---
+
+# STEP 2: More Aggressive Buyers → Price keeps rising
+
+### Another buyer:
+
+> “Buy 200 shares at ₹102”
+
+---
+
+## Match:
+
+* 100 shares @ ₹102
+* Remaining 100 shares also matched at ₹102
+
+👉 **Latest Price = ₹102**
+
+---
+
+## Insight
+
+> Buyers are “lifting” prices by accepting higher asks
+
+---
+
+# STEP 3: Seller Becomes Aggressive → Price Goes DOWN
+
+Now situation changes.
+
+### Sita says:
+
+> “Sell 150 shares at ₹99”
+
+---
+
+## What happens?
+
+* Best BUY = ₹99
+* Sita agrees to ₹99
+
+👉 Match!
+
+---
+
+## Trade:
+
+* 150 shares @ ₹99
+
+👉 **Latest Price = ₹99**
+
+---
+
+## Why price went DOWN?
+
+Because:
+
+> Seller accepted lower price
+
+---
+
+# STEP 4: Panic Selling → Price Drops Fast
+
+### Many sellers:
+
+> “Sell at ANY price” (market orders)
+
+---
+
+## Matching:
+
+* Match with ₹99
+* Then ₹98
+* Then ₹97 (if exists)
+
+---
+
+👉 Trades happen at lower and lower prices
+
+👉 **Price keeps falling**
+
+---
+
+## Insight
+
+> Aggressive sellers push price DOWN
+
+---
+
+# STEP 5: Balanced Market → Price Stable
+
+If:
+
+* Buyers at ₹100
+* Sellers at ₹101
+
+👉 No one agrees
+
+👉 No trades
+
+👉 Price stays around last value
+
+---
+
+# CORE TRUTH (Very Important)
+
+Price does NOT move randomly
+It moves because of:
+
+Aggressive Buyers → Price UP
+Aggressive Sellers → Price DOWN
+
+---
+
+# Full Micro Flow (Real Engine View)
+
+### Case: Price goes UP
+
+New BUY order (high price)
+→ Matches SELL
+→ Trade at higher price
+→ LTP increases
+
+---
+
+### Case: Price goes DOWN
+
+New SELL order (low price)
+→ Matches BUY
+→ Trade at lower price
+→ LTP decreases
+
+---
+
+# Visual Intuition
+
+## 📈 Price goes UP when:
+
+* Buyers say: “I’ll pay MORE”
+
+## Price goes DOWN when:
+
+* Sellers say: “I’ll accept LESS”
+
+---
+
+# One-Line Memory
+
+> “Price moves in the direction of urgency — whoever is more desperate controls the price.”
+
+---
+
+# C++ Mental Mapping
+
+In your engine:
+
+if (buy.price >= sell.price) {
+    trade.price = sell.price; // or matching rule
+    lastPrice = trade.price;
+}
+
+👉 That single line is what moves the market.
+
+---
+
+# Final Story Picture
+
+Imagine:
+
+* Buyers chasing stock → price climbs
+* Sellers dumping stock → price falls
+* Your engine just **matches orders neutrally**
+
+---
+
+
+

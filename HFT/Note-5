@@ -1,0 +1,133 @@
+
+Meaning of volume += trade.quantity;
+
+---
+
+# Short Answer
+
+In your code:
+
+lastPrice = trade.price;
+volume += trade.quantity;
+
+**`volume` here means TOTAL traded volume (usually for the day)**
+
+---
+
+# Let’s break it with story
+
+## Trades happening one by one
+
+### Trade 1
+
+* 100 shares traded
+
+volume = 100;
+
+---
+
+### Trade 2
+
+* 50 shares traded
+
+volume = 100 + 50 = 150;
+
+---
+
+### Trade 3
+
+* 200 shares traded
+
+volume = 150 + 200 = 350;
+
+---
+
+👉 Final:
+
+> **Volume = 350 shares (total traded so far)**
+
+---
+
+# So what is `trade.quantity`?
+
+👉 That is **per trade volume**
+
+Trade t{price, quantity};
+
+* This `quantity` = **volume of that single trade**
+
+---
+
+# Two Different Meanings (Important)
+
+## 1. Per Trade Volume
+
+* Quantity in one trade
+* Example: 100 shares
+
+trade.quantity
+
+---
+
+## 2. Total Volume (Market Volume)
+
+* Sum of all trades
+* Example: 10,00,000 shares in a day
+
+volume += trade.quantity;
+
+---
+
+# Real Market Meaning
+
+When you see:
+
+> “Volume = 5,00,000”
+
+It means:
+
+> **Total shares traded today so far**
+
+---
+
+# Bonus: Different Volume Types in Real Systems
+
+## Day Volume
+
+* Reset every day (most common)
+
+## Interval Volume
+
+* Last 1 minute / 5 minutes (used for charts)
+
+## Trade Volume
+
+* Single trade quantity
+
+---
+
+# Clean C++ Design (Better Naming)
+
+To avoid confusion:
+
+int lastTradeQty;   // per trade
+int totalVolume;    // cumulative
+
+lastPrice = trade.price;
+lastTradeQty = trade.quantity;
+totalVolume += trade.quantity;
+
+---
+
+# Final Intuition
+
+* **trade.quantity** → “this deal size”
+* **volume** → “how much market traded overall”
+
+---
+
+# One-Line Memory
+
+> “Each trade has quantity, volume is the sum of all quantities.”
+
+---

@@ -1,0 +1,236 @@
+This is where the **market feels alive**. 
+Let’s continue the same story and focus only on:
+
+👉 **Latest Price**
+👉 **Volume**
+👉 **Order Book Changes**
+
+---
+
+# Scene: After a Trade Happens
+
+You already saw:
+
+* Ravi (BUY ₹500)
+* Sita (SELL ₹498)
+
+They match → **Trade executed**
+
+Now your system must **tell the world what just happened**
+
+---
+
+# 1. Latest Price — “Last Deal Price”
+
+## Story
+
+Whenever a trade happens, the price at which it happens becomes:
+
+> **Latest Price (Last Traded Price / LTP)**
+
+---
+
+### Example
+
+* Trade 1 → ₹498
+* Trade 2 → ₹499
+* Trade 3 → ₹497
+
+Latest price = **₹497** (most recent trade)
+
+---
+
+## Key Insight
+
+* It is NOT average
+* It is NOT best price
+* It is simply:
+
+> **“Price of the most recent trade”**
+
+---
+
+## Intuition
+
+Think of it like:
+
+> “Last agreed deal between buyer and seller”
+
+---
+
+# 2. Volume — “How Much Traded”
+
+## Story
+
+Every time a trade happens, quantity is added to **Volume**
+
+---
+
+### Example
+
+Trades:
+
+* 100 shares
+* 50 shares
+* 200 shares
+
+Total Volume = **350 shares**
+
+---
+
+## Types of Volume
+
+### 1. Total Volume (Day)
+
+* Total traded today
+
+### 2. Per Trade Volume
+
+* Quantity in one trade
+
+---
+
+## Intuition
+
+> “How busy the market is”
+
+* High volume → active market
+* Low volume → quiet market
+
+---
+
+# 3. Order Book Changes — “Market Depth Updates”
+
+Even after a trade, your **order book changes**
+
+---
+
+## Story Example
+
+Before trade:
+
+BUY                SELL
+₹500 (100)         ₹498 (100)
+
+After trade:
+
+BUY                SELL
+(empty)            (empty)
+
+---
+
+### Partial Case
+
+Before:
+
+BUY                SELL
+₹500 (100)         ₹498 (40)
+                   ₹499 (60)
+
+After:
+
+BUY                SELL
+(empty)            (empty)
+
+👉 Because everything matched
+
+---
+
+## Another Case (remaining order)
+
+If:
+
+* Ravi buys 100
+* Only 60 available
+
+After:
+
+BUY                SELL
+₹500 (40 left)     (empty)
+
+👉 Remaining stays in book
+
+---
+
+## Intuition
+
+> “Order book is constantly changing as trades happen”
+
+---
+
+# 4. Market Data Broadcast (Your System Speaks)
+
+After each trade, your system sends:
+
+Latest Price = 497
+Volume = 350
+Order Book = updated
+
+---
+
+## Who receives this?
+
+* Trading apps
+* Charts
+* Algo traders
+* Brokers
+
+---
+
+# Real-Time Flow (Important)
+
+Every trade triggers:
+
+Trade → Update LTP → Add Volume → Update Book → Broadcast
+
+---
+
+# Important Insight (Very Powerful)
+
+👉 **Price is NOT decided by system**
+
+👉 It is decided by:
+
+> “Agreement between buyer and seller”
+
+---
+
+## So:
+
+* If buyers are aggressive → price goes up
+* If sellers are aggressive → price goes down
+
+---
+
+# Final Mental Model
+
+## Latest Price
+
+> Last deal price
+
+## Volume
+
+> Total traded quantity
+
+## Order Book
+
+> Remaining unmatched orders
+
+---
+
+# C++ Thinking (Quick Mapping)
+
+After match:
+
+lastPrice = trade.price;
+volume += trade.quantity;
+orderBook.update();
+publishMarketData();
+
+---
+
+# One-Line Summary
+
+> “Every trade updates price, increases volume, and reshapes the order book — then the system tells everyone.”
+
+---
