@@ -1,0 +1,258 @@
+These three are **fundamental trading styles**, 
+and the difference between them is mainly about **risk** and **how they use “hedging.”**
+
+Let’s break them with real intuition + how you’d implement them in C++.
+
+---
+
+# 1. Market Making → always hedge
+
+## Idea
+
+A **market maker** continuously places:
+
+* BUY (bid)
+* SELL (ask)
+
+👉 Makes money from the **spread**
+
+---
+
+## Example
+
+Bid: 100   | Ask: 101
+
+You place:
+
+BUY @ 100
+SELL @ 101
+
+---
+
+## What happens?
+
+### Case 1: Buy gets filled
+
+You bought at 100
+Position = +1
+
+⚠ Risk: price may fall
+
+👉 So you hedge by:
+
+* Selling immediately (or adjusting quotes)
+
+---
+
+### Case 2: Sell gets filled
+
+You sold at 101
+Position = -1
+
+⚠ Risk: price may rise
+
+👉 Hedge by buying
+---
+
+## Why ALWAYS hedge?
+
+Because:
+
+* Market makers don’t predict direction
+* They want **neutral position**
+* Profit = spread, not price movement
+
+---
+
+## 💻 C++ Thinking
+
+if (fill.side == BUY) {
+    position += fill.qty;
+
+    // hedge by selling
+    sendSell(fill.qty);
+}
+else {
+    position -= fill.qty;
+
+    // hedge by buying
+    sendBuy(fill.qty);
+}
+
+---
+
+## Core mindset
+
+👉 “I don’t care where price goes. I just capture spread.”
+
+---
+
+# 2. Arbitrage → always hedge
+
+## Idea
+
+Exploit **price difference** between markets
+
+---
+
+## Example
+
+Exchange A: 100
+Exchange B: 101
+
+---
+
+## Strategy
+
+BUY at A (100)
+SELL at B (101)
+
+---
+
+## What happens?
+
+You MUST do both:
+
+* Buy → gets filled
+* Sell → hedge immediately
+
+---
+
+## Why ALWAYS hedge?
+
+Because:
+
+* Profit = price difference
+* If you don’t hedge → you take risk
+
+---
+
+## ⚠ Dangerous scenario
+
+Buy filled at 100
+Sell NOT executed
+
+Now:
+Position = +1 (unhedged)
+
+❌ You are exposed → not arbitrage anymore
+
+---
+
+## 💻 C++ Thinking
+
+if (buyFilled) {
+    // must hedge immediately
+    sendSellOrder(otherExchange);
+}
+
+---
+
+## Core mindset
+
+👉 “Lock profit instantly. No exposure.”
+
+---
+
+# 3. Directional Trading → may NOT hedge
+
+## Idea
+
+You **predict price movement**
+
+---
+
+## Example
+
+You think price will go up
+
+You do:
+
+BUY @ 100
+
+---
+
+## What happens?
+
+Position = +1
+
+👉 You WAIT
+
+Sell later at 110
+
+Profit:
++10
+
+---
+
+## Why NOT hedge?
+
+Because:
+
+* You WANT exposure
+* You are betting on direction
+
+---
+
+## When hedging is optional
+
+You may hedge:
+
+* To reduce risk
+* To protect profit
+
+Example:
+
+Buy stock + sell futures (partial hedge)
+
+---
+
+## 💻 C++ Thinking
+
+if (signal == STRONG_BUY) {
+    sendBuy();
+    // no hedge → hold position
+}
+
+---
+
+## Core mindset
+
+👉 “I believe price will move in my favor.”
+
+---
+
+# Side-by-side comparison
+
+| Strategy            | Goal             | Hedge?     | Risk Level |
+| ------------------- | ---------------- | ---------- | ---------- |
+| Market Making       | Spread profit    | ✅ Always   | Low        |
+| Arbitrage           | Price mismatch   | ✅ Always   | Very Low   |
+| Directional Trading | Predict movement | ❌ Optional | High       |
+
+---
+
+# ⚡ Final Intuition (very important)
+
+* **Market Maker** → earns from *activity*
+* **Arbitrageur** → earns from *inefficiency*
+* **Directional Trader** → earns from *prediction*
+
+---
+
+# Connect to your C++ project
+
+You can implement all 3 as **Strategy Pattern**:
+
+class Strategy {
+public:
+    virtual void onMarketData(...) = 0;
+};
+
+class MarketMaking : public Strategy {};
+class Arbitrage : public Strategy {};
+class Directional : public Strategy {};
+
+---
+
+

@@ -1,0 +1,166 @@
+Two terms are **core trading concepts**, especially in HFT. 
+Let’s make them crystal clear with real intuition + C++ thinking.
+
+---
+
+# 1. What is “Filled” (Order Fill)?
+
+**Filled = your order got executed (matched) in the exchange**
+
+### Example
+
+You send:
+
+BUY 10 shares @ ₹100
+
+If someone is selling at ₹100 → match happens.
+
+Result:
+
+Order Filled: 10 shares bought
+
+---
+
+## Types of Fill
+
+### 1. Full Fill
+
+You: BUY 10
+Matched: 10
+
+Fully completed
+
+---
+
+### 2. Partial Fill
+
+You: BUY 10
+Matched: 4
+Remaining: 6
+
+Still pending in order book
+
+---
+
+## In your C++ Matching Engine
+
+You already simulate this:
+
+int tradedQty = std::min(buy.quantity, sell.quantity);
+
+buy.quantity -= tradedQty;
+sell.quantity -= tradedQty;
+
+👉 That `tradedQty` = **Filled quantity**
+
+---
+
+# 2. What is “Hedge Position”?
+
+Now this is where real trading becomes interesting.
+
+👉 **Hedging = reducing risk after a trade**
+
+---
+
+## Simple Meaning
+
+If you buy something → you take risk (price may go down)
+
+So you **hedge** by taking an opposite position.
+
+---
+
+## Example (HFT style)
+
+### Step 1: You get Filled
+
+BUY 100 shares of INFY @ ₹100
+
+Now you hold:
+
+Position = +100 (long)
+
+⚠ Risk: price may fall
+
+---
+
+### Step 2: Hedge Position
+
+You immediately do:
+
+SELL 100 shares in another market (or futures)
+
+Now:
+
++100 (buy) + (-100 sell) = 0 net position
+
+✔ Risk removed
+
+---
+
+# ⚡ Real HFT Example
+
+HFT sees:
+
+Exchange A: ₹100
+Exchange B: ₹101
+
+### Strategy:
+
+1. BUY at A (₹100) → gets **FILLED**
+2. SELL at B (₹101) → **HEDGE**
+
+👉 Profit = ₹1 per share
+👉 Risk = almost zero
+
+---
+
+# Flow Together
+
+Order Sent → Order Filled → Hedge Position → Risk Neutral
+
+---
+
+# 💻 C++ Thinking (POC)
+
+void onExecution(const ExecutionReport& er) {
+    if (er.side == BUY) {
+        position += er.qty;
+
+        // Hedge immediately
+        Order hedge;
+        hedge.side = SELL;
+        hedge.qty = er.qty;
+        hedge.price = market.getBestBid();
+
+        gateway.send(hedge);
+    }
+}
+
+---
+
+# Key Insight
+
+* **Filled = action happened**
+* **Hedge = risk management after action**
+
+---
+
+# ⚠️ Important Reality
+
+Not all strategies hedge:
+
+* Market Making → always hedge
+* Arbitrage → always hedge 
+    (the practice of buying something, for example foreign money, in one place and selling it in another place where the price is higher)
+* Directional Trading → may NOT hedge
+
+---
+
+# Intuition in one line
+
+👉 **Fill = you got the trade**
+👉 **Hedge = you protect yourself after the trade**
+
+---
