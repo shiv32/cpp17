@@ -1,0 +1,153 @@
+For **algo trading**, your CSV file is basically your **market data feed in offline form**.
+What you include depends on how advanced your strategy is.
+
+Let’s build this step-by-step 
+
+---
+
+# 1. Minimum CSV (Start Here)
+
+If you're a beginner, this is **enough to build real strategies**:
+
+### OHLCV Data (Standard Format)
+
+timestamp,open,high,low,close,volume
+2024-01-01 09:15:00,100,105,99,104,1500
+2024-01-01 09:16:00,104,106,103,105,1200
+2024-01-01 09:17:00,105,107,104,106,1800
+
+---
+
+## What Each Field Means
+
+* **timestamp** → When this candle happened
+* **open** → First price
+* **high** → Max price
+* **low** → Min price
+* **close** → Final price
+* **volume** → Total traded quantity
+
+👉 This is called **candlestick data**
+
+---
+
+## Why This Is Enough
+
+With just this, you can build:
+
+* Moving Average strategy
+* Breakout strategy
+* RSI / MACD indicators
+* Basic backtesting engine
+
+---
+
+# 2. Better CSV (Intermediate Level)
+
+Add more realism:
+
+timestamp,open,high,low,close,volume,vwap
+2024-01-01 09:15:00,100,105,99,104,1500,103.2
+
+### Extra Fields:
+
+* **VWAP** → Volume-weighted average price
+* Helps in institutional-style strategies
+
+---
+
+# 3. Advanced CSV (Closer to Real Trading)
+
+If you want to simulate real trading system:
+
+timestamp,bid,ask,last_price,last_qty,volume
+2024-01-01 09:15:00,103.9,104.1,104,50,1500
+
+---
+
+## New Fields:
+
+* **bid** → Best buy price
+* **ask** → Best sell price
+* **last_price** → Last traded price
+* **last_qty** → Trade size
+
+Now you can simulate:
+
+* Spread
+* Slippage
+* Order execution
+
+---
+
+# 4. HFT-Level Data (Future, not now)
+
+timestamp,price,quantity,side
+2024-01-01 09:15:00.123456,104,10,BUY
+
+This is:
+
+* Tick-by-tick data
+* Every trade recorded
+
+👉 Needed for:
+
+* Order book simulation
+* HFT-style logic
+
+---
+
+# What YOU Should Use (Important)
+
+Since you are building:
+
+* C++ trading system
+* Limit Order Book
+
+👉 Start with:
+
+## OHLCV (1-minute data)
+
+Why:
+
+* Easy to handle
+* Enough for real strategies
+* Perfect for backtesting engine
+
+---
+
+# Pro Tip (Very Important)
+
+Your CSV must be:
+
+* **Sorted by timestamp**
+* No missing data
+* Same time interval (1 min / 5 min)
+
+---
+
+# How It Connects to Your C++ Code
+
+Your system will do:
+
+while (readCSV(row)) {
+    marketData.update(row);
+    strategy.onData(row);
+    orderManager.process();
+}
+
+👉 CSV = your “fake exchange feed”
+
+---
+
+# Final Summary
+
+| Level        | Data Type | Use Case               |
+| ------------ | --------- | ---------------------- |
+| Beginner     | OHLCV     | Backtesting strategies |
+| Intermediate | + VWAP    | Better signals         |
+| Advanced     | Bid/Ask   | Execution simulation   |
+| Expert       | Tick Data | HFT / order book       |
+
+---
+
