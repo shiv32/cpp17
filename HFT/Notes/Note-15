@@ -27,7 +27,7 @@ timestamp,open,high,low,close,volume
 * **close** → Final price
 * **volume** → Total traded quantity
 
-👉 This is called **candlestick data**
+This is called **candlestick data**
 
 ---
 
