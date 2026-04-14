@@ -1,0 +1,98 @@
+The difference between **Algorithmic Trading (Algo Trading)** and **High-Frequency Trading (HFT)** is mainly about **speed, scale, and purpose**. 
+Think of HFT as a *special, extreme subset* of algo trading.
+
+---
+
+## 1. Algorithmic Trading (Algo Trading)
+
+**Definition:**
+Using programmed rules (algorithms) to automatically place trades.
+
+### ✔️ Key Characteristics:
+
+* Based on logic: price, volume, indicators, arbitrage, etc.
+* Speed: **milliseconds to seconds**
+* Can run on:
+
+  * Your PC
+  * VPS / cloud
+* Trade frequency: **low to medium**
+* Holding time: seconds → days
+
+### Example:
+
+* Buy when price crosses moving average
+* Sell when RSI > 70
+* Arbitrage between two exchanges
+
+👉 Your typical C++ trading system or bot = **Algo Trading**
+
+---
+
+## 2. High-Frequency Trading (HFT)
+
+**Definition:**
+Ultra-fast algorithmic trading focused on executing **thousands to millions of trades in microseconds**.
+
+### Key Characteristics:
+
+* Speed: **microseconds (μs) or nanoseconds (ns)**
+* Infrastructure:
+
+  * Co-located servers near exchange
+  * FPGA / ultra-low latency C++
+* Trade frequency: **extremely high**
+* Holding time: **microseconds to seconds**
+* Profit per trade: **very small (but huge volume)**
+
+### Example:
+
+* Market making (continuously placing buy/sell)
+* Latency arbitrage
+* Order book imbalance exploitation
+
+👉 HFT firms: **specialized, not retail-friendly**
+
+---
+
+## Core Differences (Simple Table)
+
+| Feature        | Algo Trading        | HFT                             |
+| -------------- | ------------------- | ------------------------------- |
+| Speed          | ms → sec            | μs → ns                         |
+| Trades         | Few → thousands/day | Millions/day                    |
+| Infrastructure | Normal PC / VPS     | Co-location + ultra-low latency |
+| Strategy       | Indicators, logic   | Microstructure, latency edge    |
+| Holding Time   | Seconds → days      | Microseconds → seconds          |
+| Accessibility  | Retail traders      | Big firms only                  |
+
+---
+
+## Simple Analogy
+
+* **Algo Trading** = Driving a car using GPS
+* **HFT** = Formula 1 racing car with a supercomputer
+
+---
+
+## Important Insight (for you as C++ dev)
+
+Since you're building trading systems:
+
+* Your **Limit Order Book project = foundation for BOTH**
+* If you add:
+
+  * Multithreading
+  * Lock-free queues
+  * Low latency networking
+
+👉 You move closer to **HFT-style system design**
+
+---
+
+## Key Takeaway
+
+* **All HFT is Algo Trading**
+* But **not all Algo Trading is HFT**
+
+---

@@ -1,0 +1,211 @@
+To start **Algorithmic Trading in C++**, don’t think in terms of tools first—think in terms of **system pieces**. 
+Algo trading is basically a **mini trading system you build yourself**.
+
+Let’s break it down practically (from a C++ developer mindset)
+
+---
+
+# 1. Core Knowledge You Need
+
+## Trading Concepts (Must-have)
+
+You already started this, but you need clarity on:
+
+* Order types: Market, Limit
+* Order lifecycle: NEW → FILLED → CANCELLED
+* PnL calculation
+* Spread, Bid/Ask
+* Slippage
+* Basic strategies:
+
+  * Momentum
+  * Mean Reversion
+  * Arbitrage
+
+👉 Without this, code = meaningless
+
+---
+
+## C++ Skills (Important)
+
+You don’t need everything—focus on:
+
+* STL (`vector`, `map`, `priority_queue`)
+* OOP + Design Patterns (you’re already doing this 👍)
+* File handling (CSV market data)
+* Multithreading (`std::thread`)
+* Basic networking (later stage)
+
+---
+
+# 2. Minimum System You Must Build
+
+Think of algo trading as **5 components**
+
+---
+
+## 1. Market Data Handler
+
+Reads price data
+
+* From:
+
+  * CSV file (start here)
+  * API (later)
+
+struct Tick {
+    double price;
+    int volume;
+    long timestamp;
+};
+
+---
+
+## 2. Strategy Engine
+
+Your “brain”
+
+if (price > movingAverage)
+    signal = BUY;
+else
+    signal = SELL;
+
+---
+
+## 3. Order Manager
+
+Handles orders
+
+* Create order
+* Track status
+* Cancel/modify
+
+---
+
+## 4. Execution Simulator (Very Important)
+
+Since you’re not connected to exchange:
+
+* Simulate fills
+* Simulate slippage
+
+---
+
+## 5. PnL Tracker
+
+Track profit/loss
+
+pnl = (sell_price - buy_price) * quantity;
+
+---
+
+# 3. Step-by-Step Roadmap (Follow This)
+
+## Step 1: Offline Backtesting System
+
+* Read historical data (CSV)
+* Run strategy
+* Print profit
+
+👉 This is your **first real algo system**
+
+---
+
+## Step 2: Add Indicators
+
+* Moving Average
+* RSI
+* VWAP
+
+---
+
+## Step 3: Improve Design
+
+Use patterns:
+
+* Strategy Pattern → different trading strategies
+* Observer → market data updates
+* Singleton → config
+
+---
+
+## Step 4: Paper Trading (Simulation with live data)
+
+* Connect to broker API (later)
+* No real money
+
+---
+
+## Step 5: Live Trading
+
+* Real orders
+* Risk management needed
+
+---
+
+# 4. Tools You Need
+
+## Data Source
+
+* Free:
+
+  * Yahoo Finance (CSV)
+  * Alpha Vantage API
+
+---
+
+## Broker API (India examples)
+
+* Zerodha Kite API
+* Upstox API
+
+---
+
+## Build System
+
+* CMake 
+
+---
+
+# 5. Reality Check (Very Important)
+
+* You **CANNOT do HFT from home PC**
+* But you **CAN do algo trading easily**
+* Most profitable retail traders use:
+
+  * Low-frequency strategies
+  * Smart risk management
+
+---
+
+# 6. Perfect First C++ Project for You
+
+Since already working on:
+
+* Limit Order Book
+* Trading system concepts
+
+Build this:
+
+## “Simple Backtesting Engine”
+
+Features:
+
+* Load CSV price data
+* Moving average strategy
+* Simulated trades
+* Final PnL report
+
+---
+
+# Final Mindset
+
+Algo trading is NOT:
+
+> “write code → make money”
+
+It is:
+
+> “build system → test → fail → improve → repeat”
+
+---
