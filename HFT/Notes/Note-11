@@ -14,7 +14,7 @@ A **market maker** continuously places:
 * BUY (bid)
 * SELL (ask)
 
-👉 Makes money from the **spread**
+Makes money from the **spread**
 
 ---
 
@@ -38,7 +38,7 @@ Position = +1
 
 ⚠ Risk: price may fall
 
-👉 So you hedge by:
+So you hedge by:
 
 * Selling immediately (or adjusting quotes)
 
@@ -49,9 +49,9 @@ Position = +1
 You sold at 101
 Position = -1
 
-⚠ Risk: price may rise
+Risk: price may rise
 
-👉 Hedge by buying
+Hedge by buying
 ---
 
 ## Why ALWAYS hedge?
@@ -83,7 +83,7 @@ else {
 
 ## Core mindset
 
-👉 “I don’t care where price goes. I just capture spread.”
+“I don’t care where price goes. I just capture spread.”
 
 ---
 
@@ -127,7 +127,7 @@ Because:
 
 ---
 
-## ⚠ Dangerous scenario
+## Dangerous scenario
 
 Buy filled at 100
 Sell NOT executed
@@ -150,7 +150,7 @@ if (buyFilled) {
 
 ## Core mindset
 
-👉 “Lock profit instantly. No exposure.”
+“Lock profit instantly. No exposure.”
 
 ---
 
@@ -176,7 +176,7 @@ BUY @ 100
 
 Position = +1
 
-👉 You WAIT
+You WAIT
 
 Sell later at 110
 
@@ -218,7 +218,7 @@ if (signal == STRONG_BUY) {
 
 ## Core mindset
 
-👉 “I believe price will move in my favor.”
+“I believe price will move in my favor.”
 
 ---
 
@@ -232,7 +232,7 @@ if (signal == STRONG_BUY) {
 
 ---
 
-# ⚡ Final Intuition (very important)
+# Final Intuition (very important)
 
 * **Market Maker** → earns from *activity*
 * **Arbitrageur** → earns from *inefficiency*
