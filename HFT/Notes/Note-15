@@ -90,7 +90,7 @@ This is:
 * Tick-by-tick data
 * Every trade recorded
 
-👉 Needed for:
+Needed for:
 
 * Order book simulation
 * HFT-style logic
@@ -104,7 +104,7 @@ Since you are building:
 * C++ trading system
 * Limit Order Book
 
-👉 Start with:
+Start with:
 
 ## OHLCV (1-minute data)
 
@@ -136,7 +136,7 @@ while (readCSV(row)) {
     orderManager.process();
 }
 
-👉 CSV = your “fake exchange feed”
+CSV = your “fake exchange feed”
 
 ---
 
