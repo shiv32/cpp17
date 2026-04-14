@@ -106,7 +106,7 @@ Simulate real system pipeline
 * Thread 2 → process
 * Thread 3 → execute
 
-👉 Use:
+Use:
 
 * `std::thread`
 * `condition_variable`
@@ -155,7 +155,7 @@ Send/receive live data over network
 
 ---
 
-# ⚡ Most Important Projects (Focus First)
+# Most Important Projects (Focus First)
 
 If you want job-ready:
 
