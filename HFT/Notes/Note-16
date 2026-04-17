@@ -1,0 +1,171 @@
+How operator buy and sell stock and make impact on stock price?
+
+Think of the stock market like a **live auction** where buyers and sellers continuously compete. 
+The price you see is **not fixed** — it moves based on who is more aggressive: buyers or sellers.
+
+Let’s break it step by step
+
+---
+
+# 1. Basic Idea: Demand vs Supply
+
+* **More buyers → price goes UP 📈**
+* **More sellers → price goes DOWN 📉**
+
+This is the core of everything.
+
+---
+
+# 2. How Orders Actually Work (Real Mechanism)
+
+Inside the exchange, there is something called an **order book**.
+
+### Two sides:
+
+* **Buy Orders (Bids)** → “I want to buy at this price”
+* **Sell Orders (Asks)** → “I want to sell at this price”
+
+Example:
+
+| Buyers (Bid) | Sellers (Ask) |
+| ------------ | ------------- |
+| ₹99          | ₹101          |
+| ₹98          | ₹102          |
+
+No trade yet because prices don’t match.
+
+---
+
+# 3. When Trade Happens (Price Moves)
+
+### Case 1: Aggressive Buyer (Market Buy)
+
+Someone says:
+
+> “I’ll buy at ANY available price”
+
+They hit the lowest seller (₹101)
+
+Trade happens at ₹101
+**Price moves UP**
+
+---
+
+### Case 2: Aggressive Seller (Market Sell)
+
+Someone says:
+
+> “Sell immediately at any price”
+
+They hit highest buyer (₹99)
+
+Trade happens at ₹99
+**Price moves DOWN**
+
+---
+
+# 4. Why Big Orders Move Price Fast
+
+If a **large buyer** comes in:
+
+Example:
+
+* 100 shares at ₹101
+* 200 shares at ₹102
+* 500 shares at ₹103
+
+If someone buys **1000 shares**, they will:
+
+* consume ₹101 ✔
+* consume ₹102 ✔
+* consume ₹103 ✔
+
+Final price becomes ₹103
+This is called **slippage**
+
+---
+
+# 5. Market Participants (Operators)
+
+### Retail Traders
+
+* Small orders
+* Minimal impact
+
+### Institutions (Operators / Smart Money)
+
+* Huge orders (crores worth)
+* Can move price significantly
+
+---
+
+# 6. How Operators Influence Price (Important)
+
+Operators don’t just randomly buy/sell. They use strategy:
+
+### Accumulation Phase
+
+* Slowly buy without moving price too much
+* Create illusion: “Nothing happening”
+
+### Markup Phase
+
+* Start aggressive buying
+* Price rises → attracts retail traders
+
+### Distribution Phase
+
+* Sell at high prices to retail traders
+* Price looks strong, but smart money exits
+
+### Markdown Phase
+
+* Heavy selling
+* Price crashes
+
+---
+
+# 7. Real Story of Price Movement
+
+Imagine:
+
+1. Operator buys quietly at ₹100
+2. Retail sees breakout at ₹110 → starts buying
+3. Operator sells at ₹120
+4. No more buyers → price falls to ₹90
+
+Retail buys high, sells low
+Operator buys low, sells high
+
+---
+
+# 8. In C++ Trading System Terms (You’ll Like This)
+
+This is what happens internally:
+
+    lastPrice = trade.price;
+    volume += trade.quantity;
+    orderBook.update();
+    publishMarketData();
+
+Price changes ONLY when a trade executes
+Not when order is placed
+
+---
+
+# Key Insight (Most Important)
+
+**Orders don’t move price — executed trades do**
+
+* Limit orders → sit in book (no impact yet)
+* Market orders → consume liquidity → move price
+
+---
+
+# 9. Simple Mental Model
+
+Think like this:
+
+> Price moves when someone is **impatient enough** to accept the other side’s price.
+
+---

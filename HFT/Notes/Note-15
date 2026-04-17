@@ -1,3 +1,5 @@
+For algo trading what data needed in CSV file?
+
 For **algo trading**, your CSV file is basically your **market data feed in offline form**.
 What you include depends on how advanced your strategy is.
 

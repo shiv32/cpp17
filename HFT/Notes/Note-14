@@ -1,6 +1,8 @@
-To start **Algorithmic Trading in C++**, don’t think in terms of tools first—think in terms of **system pieces**. 
-Algo trading is basically a **mini trading system you build yourself**.
+How to do Algorithmic Trading in C++?
 
+To start **Algorithmic Trading in C++**, 
+don’t think in terms of tools first—think in terms of **system pieces**. 
+Algo trading is basically a **mini trading system you build yourself**.
 Let’s break it down practically (from a C++ developer mindset)
 
 ---

@@ -1,0 +1,233 @@
+Is there any way to know operator is buying or selling?
+
+Short answer: **you can’t directly see “operator is buying/selling”** — but you *can infer it* from price, volume, and order flow patterns.
+
+Let’s make it clear and practical
+
+---
+
+# First Truth (Important)
+
+There is **no label in the market saying**:
+
+> “Operator bought here” ❌
+
+All you see is:
+
+* price
+* volume
+* order book (sometimes)
+
+👉 You must **read behavior**, not identity.
+
+---
+
+# 1. Biggest Clue = Volume + Price Together
+
+## Case A: Price ↑ + Volume ↑
+
+👉 Strong buying
+
+BUT:
+
+* Could be operator buying
+* OR operator selling to buyers
+
+So we need deeper clues
+
+---
+
+# 2. Accumulation Pattern (Operator Buying)
+
+### Story:
+
+* Price stays in a range (₹100–₹105)
+* Volume is high
+* Price **does NOT fall much**
+
+👉 What it means:
+
+> Someone is absorbing all selling
+
+Interpretation:
+Operator is quietly buying
+
+---
+
+### Visual idea:
+
+* Sellers keep selling
+* Price not dropping
+
+Someone big is buying everything
+
+---
+
+# 3. Distribution Pattern (Operator Selling)
+
+### Story:
+
+* Price is near top (₹150)
+* Volume high
+* Price **not going higher**
+
+👉 What it means:
+
+> Someone is selling into buyers
+
+Interpretation:
+Operator is exiting
+
+---
+
+### Visual:
+
+* Buyers excited
+* Price stuck
+
+Smart money is selling
+
+---
+
+# 4. Sudden Big Moves (Breakout / Breakdown)
+
+## Breakout with high volume
+
+* Price breaks resistance
+* Volume spikes
+
+👉 Likely operator buying aggressively
+
+---
+
+## Breakdown with high volume
+
+* Price breaks support
+* Volume spikes
+
+👉 Likely operator selling aggressively
+
+---
+
+# 5. Order Book Clues (Advanced)
+
+If you watch Level 2 / DOM:
+
+                Level 2 = Full order book (multiple price levels)
+                Instead of just one price, you see:
+                    many buyers
+                    many sellers
+                    at different prices
+                Level 1	Last price, best bid, best ask
+                Level 2	Full depth of market
+                This is Level 2 data
+                | Buyers (Bids) | Qty  | Sellers (Asks) | Qty |
+                | ------------- | ---- | -------------- | --- |
+                | ₹100          | 500  | ₹101           | 300 |
+                | ₹99           | 800  | ₹102           | 600 |
+                | ₹98           | 1200 | ₹103           | 900 |
+
+
+                What is DOM (Depth of Market)?
+                DOM = Visual representation of Level 2
+                It’s basically:
+                A live screen showing buyers & sellers fighting in real time
+                How DOM looks (conceptually)
+
+                SELLERS (ASK)
+                ₹103 |  900
+                ₹102 |  600
+                ₹101 |  300   ← current selling pressure
+
+                -------------------
+                LAST TRADE: ₹101
+                -------------------
+
+                ₹100 |  500   ← current buying pressure
+                ₹99  |  800
+                ₹98  | 1200
+                BUYERS (BID)
+
+### Signs of buying
+
+* Large buy orders appear
+* Sell orders get eaten quickly
+
+---
+
+### Signs of selling
+
+* Large sell orders appear
+* Buy orders disappear fast
+---
+
+# 6. Absorption (VERY IMPORTANT CONCEPT)
+
+This is how pros detect operators:
+
+### Example:
+
+* Huge selling happening
+* But price not falling
+
+👉 Means:
+
+> Someone is absorbing sells
+
+Strong buyer (operator)
+
+---
+
+# 7. Fake Moves (Trap)
+
+Operators also trick:
+
+### Fake breakout
+
+* Price goes up slightly
+* Retail buys
+* Then sharp fall
+
+👉 Operator was selling
+
+---
+
+# 8. Simple Detection Cheat Sheet
+
+| Situation                        | Likely Truth           |
+| -------------------------------- | ---------------------- |
+| Price flat + high volume         | Accumulation (buying)  |
+| Price high + stuck + high volume | Distribution (selling) |
+| Fast up move + volume            | Aggressive buying      |
+| Fast down move + volume          | Aggressive selling     |
+| Selling but price not falling    | Hidden buyer           |
+| Buying but price not rising      | Hidden seller          |
+
+---
+
+# C++ Thinking (How HFT Sees It)
+
+They track:
+
+    if (volumeHigh && priceStable)
+        signal = "absorption";
+
+    if (aggressiveBuys > aggressiveSells)
+        signal = "buy_pressure";
+
+👉 It’s all **pattern detection**
+
+---
+
+# Final Truth
+
+> You never “know” operator action
+> You only **read footprints**
+
+Like a detective:
+
+* Price = result
+* Volume = effort
+* Order flow = intent
+
+---

@@ -1,0 +1,212 @@
+How price go up and down in Stock?
+
+let’s make this **super clear using a simple story**. 
+No theory, just a real-life style flow
+
+---
+
+# STORY: How Price Moves (Step by Step)
+
+## Morning: Stock opens at ₹100
+
+Order book looks like this:
+
+| Buyers (want to buy) | Sellers (want to sell) |
+| -------------------- | ---------------------- |
+| ₹99 (100 shares)     | ₹101 (100 shares)      |
+
+👉 No trade yet → price stays ₹100
+
+---
+
+# Person A enters (buyer)
+
+He says:
+
+> “I want shares NOW, I don’t care price”
+
+This is a **market buy**
+He buys from seller at ₹101
+
+Trade happens at ₹101
+Price moves **UP → ₹101**
+
+---
+
+# Person B enters (another buyer)
+
+He also wants urgently:
+Buys next available seller at ₹102
+
+Trade at ₹102
+Price moves **UP → ₹102**
+
+---
+
+# Now momentum starts
+
+Other traders see:
+
+> “Price is going UP! Let’s buy!”
+
+More buyers come:
+
+* ₹103 ✔
+* ₹104 ✔
+* ₹105 ✔
+
+Price keeps rising
+
+This is **FOMO (fear of missing out)**
+
+---
+
+# Now Operator enters (Smart Money)
+
+Operator already bought earlier at ₹100 quietly.
+
+Now price = ₹105
+
+He thinks:
+
+> “Good profit, time to sell”
+
+---
+
+# Operator starts selling
+
+He places big sell orders:
+
+* 500 shares at ₹105
+* 1000 shares at ₹106
+
+Buyers are still strong → price stays high for now
+
+---
+
+# Turning Point
+
+Suddenly:
+
+* Buyers slow down
+* Selling pressure increases
+
+---
+
+# Person C (panic seller)
+
+He says:
+
+> “Sell NOW at any price”
+
+Market sell
+
+He sells at best buyer:
+
+* ₹104
+
+Trade at ₹104
+Price goes DOWN
+
+---
+
+# Panic spreads
+
+Others think:
+
+> “Price falling! Sell fast!”
+
+More market sells:
+
+* ₹103 ❌
+* ₹102 ❌
+* ₹101 ❌
+
+Price keeps dropping
+
+---
+
+# Crash moment
+
+Now:
+
+* No buyers at high price
+* Only low bids exist
+
+Operator already sold at top (₹105–₹106)
+
+Retail is now:
+
+* Buying high ❌
+* Selling low ❌
+
+---
+
+# FINAL TRUTH (VERY IMPORTANT)
+
+Price doesn’t move randomly
+It moves because of **aggressive actions**
+
+---
+
+# SIMPLE RULE
+
+### Price goes UP when:
+
+* Buyers are **more aggressive**
+* They accept higher prices
+
+---
+
+### Price goes DOWN when:
+
+* Sellers are **more aggressive**
+* They accept lower prices
+
+---
+
+# BEST WAY TO VISUALIZE
+
+Think like this:
+
+> Market = Tug of War
+
+* Buyers pull price UP
+* Sellers pull price DOWN
+
+👉 Whoever is stronger wins
+
+---
+
+# REAL INSIGHT (Operator Trick)
+
+Operators don’t chase price.
+
+They:
+
+1. Buy quietly when no one cares
+2. Let price rise with crowd
+3. Sell to excited buyers
+4. Let price fall
+
+---
+
+# Your C++ Mindset Version
+
+Inside engine:
+
+    if (marketBuy)
+        price = lowestSell;
+
+    if (marketSell)
+        price = highestBuy;
+
+👉 That’s it. That’s the whole market logic.
+
+---
+
+# One Line Summary
+
+> **Price moves when someone is desperate enough to accept a worse deal.**
+
+---
