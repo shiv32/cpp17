@@ -22,9 +22,8 @@ server {
 
 Now access:
 
-http://localhost/api?key=btc (not working)
-http://localhost:8080/?key=btc
-http://localhost:8080/?key=test
+http://localhost:8080/api?key=btc
+http://localhost:8080/api?key=test
 
 if nginx fail test by curl
 curl http://localhost:8080/api?key=test
