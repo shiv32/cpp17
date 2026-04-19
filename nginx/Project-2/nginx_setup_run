@@ -1,0 +1,126 @@
+**simple, practical guide** to run and configure NGINX on your system (Linux / Ubuntu / WSL).
+
+---
+
+# 1️⃣ Install NGINX
+
+sudo apt update
+sudo apt install nginx
+
+Check version:
+
+nginx -v
+
+---
+
+# 2️⃣ Start / Stop NGINX
+
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl restart nginx
+
+Enable auto-start:
+
+sudo systemctl enable nginx
+
+---
+
+# 3️⃣ Test It
+
+Open browser:
+
+http://localhost
+
+👉 You should see: **“Welcome to nginx!”**
+
+---
+
+# 4️⃣ Important Files
+
+| Purpose       | Path                          |
+| ------------- | ----------------------------- |
+| Main config   | `/etc/nginx/nginx.conf`       |
+| Site configs  | `/etc/nginx/sites-available/` |
+| Enabled sites | `/etc/nginx/sites-enabled/`   |
+
+---
+
+# 5️⃣ Create Your Config (Reverse Proxy)
+
+## Step A: Create new config
+## Step B: Enable it
+## Step C: Test config
+
+sudo nginx -t
+
+👉 If OK:
+syntax is ok
+test is successful
+
+---
+
+## Step D: Reload NGINX
+
+sudo systemctl reload nginx
+
+---
+
+# 6️⃣ Connect to Your C++ Server
+
+Run your C++ app on:
+
+http://localhost:8080
+
+Then access via NGINX:
+
+http://localhost/api?key=test
+
+---
+
+# ⚠️ Common Issues
+
+### ❌ Port already in use
+
+sudo lsof -i :80
+
+---
+
+### ❌ Permission denied
+
+Use `sudo` for config changes
+
+---
+
+### ❌ Config not applied
+
+Always run:
+
+sudo nginx -t
+sudo systemctl reload nginx
+
+---
+
+# Mental Model
+
+Client → NGINX (port 80) → C++ backend (port 8080)
+
+---
+
+# Pro Tips
+
+* Use different routes:
+
+/api  → C++ backend
+/static → files
+
+* Add logs:
+
+access_log /var/log/nginx/access.log;
+
+---
+
+# One-line summary
+
+Install → create config → enable → test → reload → done
+
+---

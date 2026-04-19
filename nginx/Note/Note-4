@@ -1,0 +1,112 @@
+What is mean by reverse proxy in nginx?
+
+A **reverse proxy** in NGINX is a server that sits **in front of your backend servers** and 
+handles requests from clients (like browsers), then forwards those requests to the appropriate backend service.
+
+---
+
+## Simple Meaning
+
+Instead of a client directly talking to your app/server:
+
+Client → Your App Server
+
+With a reverse proxy:
+
+Client → NGINX (Reverse Proxy) → Your App Server
+
+NGINX receives the request first, then decides **where to send it**.
+
+---
+
+## Why use Reverse Proxy?
+
+### 1. Load Balancing
+
+Distributes traffic across multiple servers:
+
+Client → NGINX → Server1 / Server2 / Server3
+
+---
+
+### 2. Security (Hide Backend)
+
+Clients never directly see your actual servers.
+
+---
+
+### 3. SSL Termination
+
+Handles HTTPS:
+
+* NGINX decrypts HTTPS
+* Backend can stay simple HTTP
+
+---
+
+### 4. Caching
+
+Stores responses → faster repeat requests
+
+---
+
+### 5. Routing (Smart Forwarding)
+
+Example:
+
+* `/api` → backend server
+* `/images` → static server
+
+---
+
+## Example NGINX Reverse Proxy Config
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}
+
+👉 Meaning:
+
+* User hits NGINX on port 80
+* NGINX forwards request to app running on port 3000
+
+---
+
+## Reverse Proxy vs Forward Proxy
+
+| Type          | Who it represents |
+| ------------- | ----------------- |
+| Forward Proxy | Client            |
+| Reverse Proxy | Server            |
+
+---
+
+## Real-world analogy
+
+Think of it like:
+
+* Reverse proxy = **receptionist**
+* Client = visitor
+* Backend servers = employees
+
+Visitor talks to receptionist → receptionist sends to correct employee → returns response.
+
+---
+
+## In your C++ context
+
+If you build a backend (say trading system API in C++):
+
+* NGINX sits in front
+* Your C++ app runs behind
+* NGINX handles:
+
+  * traffic
+  * security
+  * routing
+
+---

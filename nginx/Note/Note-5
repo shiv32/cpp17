@@ -1,0 +1,54 @@
+What is redis and how its work with nginx?
+
+## What is Redis?
+
+Redis is a **very fast in-memory key–value database** used to store data in RAM for quick access.
+
+---
+
+## How it works (simple)
+
+* Data stored as:
+
+  key → value
+  
+* Example:
+
+  "user:1" → "Shiv"
+
+* Since it runs in RAM → ⚡ extremely fast
+
+---
+
+## How it works with NGINX
+
+NGINX + Redis:
+
+Client → NGINX → Redis → Backend (if needed)
+
+### Flow:
+
+1. Request comes to NGINX
+2. NGINX checks Redis (cache):
+
+   * Found → return instantly
+   * ❌ Not found → call backend → store result in Redis
+
+---
+
+## Why use Redis with NGINX?
+
+* Faster responses (cache)
+* Reduce backend load
+* Share session data
+* Rate limiting support
+
+---
+
+## One-line idea
+
+👉 Redis = **fast memory storage**
+👉 NGINX = **traffic manager**
+👉 Together = **fast + scalable system**
+
+---

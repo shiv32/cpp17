@@ -1,9 +1,9 @@
 Usually — **most home routers do *not* use Nginx.**
-Let’s see why and what they actually use instead 👇
+Let’s see why and what they actually use instead
 
 ---
 
-## 🧩 1. Why routers usually don’t use Nginx
+## 1. Why routers usually don’t use Nginx
 
 Nginx is a **powerful general-purpose web server**, but:
 
@@ -15,7 +15,7 @@ So router firmware uses **very small, embedded web servers** designed for low-me
 
 ---
 
-## 🧱 2. What routers actually use instead
+## 2. What routers actually use instead
 
 | Router type                                | Common embedded web servers              |
 | ------------------------------------------ | ---------------------------------------- |
@@ -29,7 +29,7 @@ All of these are **tiny HTTP servers** — typically a few hundred KB in size.
 
 ---
 
-## 🧠 3. What they do (just like Nginx, but smaller)
+## 3. What they do (just like Nginx, but smaller)
 
 They still handle:
 
@@ -40,23 +40,19 @@ They still handle:
 
 Example on OpenWRT:
 
-```
 /usr/sbin/uhttpd
   ├── serves /www/index.html
   ├── handles /cgi-bin/luci
-```
 
 The **Luci** web interface uses Lua scripts as CGI handlers.
 
 ---
 
-## ⚙️ 4. Could a router use Nginx?
+## 4. Could a router use Nginx?
 
 Technically, yes — advanced routers or **x86-based systems (OpenWRT on PC)** can install Nginx:
 
-```bash
 opkg install nginx
-```
 
 Then it can serve a custom dashboard, API, or reverse proxy.
 
@@ -64,13 +60,13 @@ But most commercial routers (TP-Link, Netgear, etc.) use **lightweight servers**
 
 ---
 
-### ✅ In short
+### In short
 
 | Feature          | Nginx                   | Router Built-In (uhttpd, mini_httpd) |
 | ---------------- | ----------------------- | ------------------------------------ |
 | Size             | ~1–2 MB                 | < 300 KB                             |
 | Features         | Full web/proxy, caching | Simple config UI only                |
-| Used in routers  | ❌ Rare                  | ✅ Common                             |
+| Used in routers  | ❌ Rare                  | Common                               |
 | Performance goal | High concurrency        | Low footprint                        |
 
 ---

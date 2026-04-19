@@ -1,10 +1,11 @@
-Nginx is **extremely lightweight** compared to most web servers, but the *minimum system requirements* depend on **how you plan to use it** (static files, proxy, or high-load API gateway).
+Nginx is **extremely lightweight** compared to most web servers, 
+but the *minimum system requirements* depend on **how you plan to use it** (static files, proxy, or high-load API gateway).
 
-Let’s break it down clearly 👇
+Let’s break it down clearly
 
 ---
 
-## 🧩 1. **Absolute Minimum (for learning or small local use)**
+## 1. **Absolute Minimum (for learning or small local use)**
 
 You can run Nginx even on **tiny systems**.
 
@@ -15,19 +16,17 @@ You can run Nginx even on **tiny systems**.
 | **Disk space** | ~5 MB for binary + 10–20 MB for logs/config                        |
 | **OS**         | Any Linux (Ubuntu, Debian, Alpine, CentOS), BSD, macOS, or Windows |
 
-💡 Even **OpenWRT routers** and **Raspberry Pi Zero** can run Nginx.
+Even **OpenWRT routers** and **Raspberry Pi Zero** can run Nginx.
 
 Example (Alpine Linux + Nginx):
 
-```bash
 apk add nginx
-```
 
 This installs it in < 3 MB.
 
 ---
 
-## ⚙️ 2. **Recommended for small production usage**
+## 2. **Recommended for small production usage**
 
 If you plan to serve light websites or reverse proxy to one backend:
 
@@ -42,7 +41,7 @@ That’s enough for **hundreds to thousands of requests/sec** if configured well
 
 ---
 
-## 🚀 3. **For moderate / high-load servers**
+## 3. **For moderate / high-load servers**
 
 | Resource    | Recommended                               |
 | ----------- | ----------------------------------------- |
@@ -55,7 +54,7 @@ This can handle **tens of thousands of concurrent users** — typical for medium
 
 ---
 
-## 🧠 4. **Performance scaling factors**
+## 4. **Performance scaling factors**
 
 Performance depends on:
 
@@ -67,7 +66,7 @@ Performance depends on:
 
 ---
 
-## 🧱 5. **Example lightweight environments**
+## 5. **Example lightweight environments**
 
 | Device                      | Works with Nginx? | Note                                         |
 | --------------------------- | ----------------- | -------------------------------------------- |
@@ -78,7 +77,7 @@ Performance depends on:
 
 ---
 
-### ✅ Summary
+### Summary
 
 | Use Case              | CPU       | RAM        | Notes                    |
 | --------------------- | --------- | ---------- | ------------------------ |

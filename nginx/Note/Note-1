@@ -1,12 +1,12 @@
 
-## 🌐 What **Nginx** Is
+## What **Nginx** Is
 
 Nginx (pronounced *engine-x*) is a **high-performance web server and reverse proxy**.
 It’s designed for **speed, concurrency, and scalability**, not just simple serving like routers do.
 
 ---
 
-## ⚙️ 1. Where Nginx Is Commonly Used
+## 1. Where Nginx Is Commonly Used
 
 | Use Case                                         | Description                                                             | Example                                    |
 | ------------------------------------------------ | ----------------------------------------------------------------------- | ------------------------------------------ |
@@ -20,27 +20,24 @@ It’s designed for **speed, concurrency, and scalability**, not just simple ser
 
 ---
 
-## 🚀 2. Why Nginx Is Useful
+## 2. Why Nginx Is Useful
 
-✅ **Fast and event-driven** — handles thousands of connections with low memory.
-✅ **Asynchronous I/O** — unlike Apache’s per-thread model.
-✅ **Simple config** — everything controlled via `nginx.conf`.
-✅ **Reverse proxy + load balancing built in.**
-✅ **Security and reliability** — used by 30%+ of the world’s web servers.
+**Fast and event-driven** — handles thousands of connections with low memory.
+**Asynchronous I/O** — unlike Apache’s per-thread model.
+**Simple config** — everything controlled via `nginx.conf`.
+**Reverse proxy + load balancing built in.**
+**Security and reliability** — used by 30%+ of the world’s web servers.
 
 ---
 
-## 🧩 3. Example: Nginx as Reverse Proxy for a C++ App
+## 3. Example: Nginx as Reverse Proxy for a C++ App
 
 Let’s say you wrote a REST API in C++ (Poco, Boost.Beast, or Crow):
 
-```
 [C++ app] runs on 127.0.0.1:8080
-```
 
 You can use Nginx to expose it publicly:
 
-```nginx
 server {
     listen 80;
     server_name myapp.com;
@@ -49,7 +46,6 @@ server {
         proxy_pass http://127.0.0.1:8080;
     }
 }
-```
 
 Now Nginx:
 
@@ -57,11 +53,11 @@ Now Nginx:
 * Forwards them to your app
 * Handles SSL, compression, logging, caching, etc.
 
-Your app stays clean and lightweight. 💡
+Your app stays clean and lightweight.
 
 ---
 
-## 🧠 4. Where You’ll See It in Real Life
+## 4. Where You’ll See It in Real Life
 
 | Environment                             | Purpose                          |
 | --------------------------------------- | -------------------------------- |
@@ -74,7 +70,7 @@ Your app stays clean and lightweight. 💡
 
 ---
 
-## 🧱 5. Difference from Router Web Server
+## 5. Difference from Router Web Server
 
 | Feature     | Router HTTP Server   | Nginx                           |
 | ----------- | -------------------- | ------------------------------- |
@@ -86,7 +82,7 @@ Your app stays clean and lightweight. 💡
 
 ---
 
-### ✅ In Short
+### In Short
 
 > Routers use **tiny embedded servers** for simple local management.
 > Nginx is used in **servers, APIs, and cloud infrastructure** to handle **real web traffic, routing, security, and scalability**.
