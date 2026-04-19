@@ -1,0 +1,18 @@
+C++17 program that demonstrates almost all console I/O techniques.
+
+How to use this program
+    Run it step-by-step and observe:
+        Try different inputs
+        Comment/uncomment sections
+        Mix cin and scanf to see behavior
+        Modify buffer reads
+
+Key learning from this
+    This single file shows:
+        High-level → cin / cout
+        Mid-level → get / put / read / write
+        Parsing → stringstream
+        Formatting → iomanip
+        Low-level → getchar / putchar
+        Performance → fast I/O flags
+        UI tricks → \r, flush
