@@ -73,7 +73,7 @@ http://localhost:8080
 
 Then access via NGINX:
 
-http://localhost/api?key=test
+http://localhost:8080/api?key=test
 
 ---
 
