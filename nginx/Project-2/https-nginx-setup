@@ -1,0 +1,86 @@
+
+Your **NGINX** is only listening on:
+
+listen 80;
+
+👉 That’s **HTTP only**
+👉 No HTTPS (`443`) server is configured
+
+---
+
+# Fix: Enable HTTPS in NGINX
+
+## 1. Install SSL support (if not already)
+
+sudo pacman -S openssl
+
+---
+
+## 2. Generate self-signed certificate (for testing)
+
+sudo mkdir -p /etc/nginx/ssl
+
+sudo openssl req -x509 -nodes -days 365 \
+-newkey rsa:2048 \
+-keyout /etc/nginx/ssl/nginx.key \
+-out /etc/nginx/ssl/nginx.crt
+
+---
+
+## 3. Add HTTPS server block
+
+Edit config:
+
+sudo nano /etc/nginx/nginx.conf
+
+Add:
+
+server {
+    listen 443 ssl;
+    server_name localhost;
+
+    ssl_certificate     /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+
+    location /api {
+        proxy_pass http://127.0.0.1:8080;
+    }
+}
+
+---
+
+## 4. Reload NGINX
+
+sudo nginx -t
+sudo systemctl reload nginx
+
+---
+
+## 5. Test
+
+curl -k "https://localhost/api?key=test"
+
+👉 `-k` = ignore self-signed cert warning
+
+---
+
+# Optional (best practice)
+
+Redirect HTTP → HTTPS:
+
+server {
+    listen 80;
+    server_name localhost;
+
+    return 301 https://$host$request_uri;
+}
+
+---
+
+# Key concept
+
+* Port **80 → HTTP**
+* Port **443 → HTTPS (SSL/TLS)**
+* Without SSL config → HTTPS won’t work at all
+
+---

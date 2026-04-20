@@ -8,9 +8,9 @@ This is normal in some environments (WSL, custom builds, Arch, etc.)
 
 Since your `/etc/nginx/` does NOT have site folders, do this:
 
-## 1️⃣ Create a new config file
+## 1️⃣ add in config file
 
-sudo nano /etc/nginx/myapp.conf
+sudo nano /etc/nginx/nginx.conf
 
 Paste:
 
@@ -28,50 +28,23 @@ CTRL + O → Enter → CTRL + X
 
 ---
 
-## 2️⃣ Check if NGINX loads extra configs
-
-Open main config:
-
-sudo nano /etc/nginx/nginx.conf
-
-Look inside `http { ... }`
-
-You should see something like:
-
-include /etc/nginx/*.conf;
-
-OR
-
-include /etc/nginx/conf.d/*.conf;
-
----
-
-## If NOT present → add this inside `http {}`:
-
-include /etc/nginx/myapp.conf;
-
----
-
 ## 3️⃣ Test config
 
 sudo nginx -t
-
 ---
 
 ## 4️⃣ Reload NGINX
-
 sudo systemctl reload nginx
 
 ---
 
 # 5️⃣ Test your setup
-
 Run your C++ server on port `8080`, then:
 
+in browser
 http://localhost/api?key=test
 
 ---
-
 # What’s different in your system?
 
 Instead of:
@@ -80,28 +53,11 @@ sites-available → sites-enabled
 
 Your system uses:
 
-nginx.conf → include *.conf
-
-👉 Simpler but less modular
-
+nginx.conf 
 ---
-
-# Pro Tip (Cleaner setup)
-
-You can also create a folder:
-
-sudo mkdir /etc/nginx/conf.d
-sudo nano /etc/nginx/conf.d/myapp.conf
-
-Then in `nginx.conf`:
-
-include /etc/nginx/conf.d/*.conf;
-
----
-
 # Final mental model
 
-nginx.conf → loads → your myapp.conf → routes → C++ backend
+nginx.conf → loads → routes → C++ backend
 
 ---
 sudo nginx -T | grep proxy_pass
