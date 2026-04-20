@@ -1,0 +1,115 @@
+systemctl status redis
+
+this output tells something important:
+You are **NOT running Redis**, you are running:
+
+👉 **Valkey**
+
+---
+
+# What is Valkey?
+
+* Drop-in replacement for Redis
+* Same protocol (100% compatible for your use)
+* Created as open-source alternative
+* Works with:
+
+  * `redis-cli` 
+  * `hiredis` 
+  * Your C++ code 
+
+👉 So **you don’t need to change anything**
+
+---
+
+# Your system is already correct
+
+From your output:
+
+Active: active (running)
+Ready to accept connections tcp
+127.0.0.1:6379
+
+✔ Cache server running
+✔ Listening on port 6379
+✔ Ready for your POCO app
+
+---
+
+# Test it (same as Redis)
+redis-cli ping
+
+Even though backend is Valkey, client is still:
+👉 `redis-cli` (same protocol)
+
+---
+
+# Config file location (Valkey)
+
+Check:
+
+ls /etc/valkey/valkey.conf
+
+
+or:
+systemctl cat valkey
+
+You’ll see something like:
+
+/usr/bin/valkey-server /etc/valkey/valkey.conf
+
+
+---
+
+# Minimal config (optional)
+
+Edit:
+sudo nano /etc/valkey/valkey.conf
+
+Use:
+bind 127.0.0.1
+port 6379
+save ""
+appendonly no
+
+Restart:
+sudo systemctl restart valkey
+
+---
+
+# For YOUR C++ project
+
+👉 Nothing changes at all
+
+Your future code:
+redisConnect("127.0.0.1", 6379);
+
+✔ Works with Redis
+✔ Works with Valkey
+
+---
+
+# Architecture now
+NGINX → POCO C++ → Valkey (Redis-compatible cache)
+
+This is **real production-style backend design**
+
+---
+
+# Important insight
+
+* Redis = brand
+* Valkey = implementation
+* Protocol = same
+
+Your C++ talks protocol → doesn’t care which one
+
+---
+
+# Next step (high value for you)
+
+Now you’re ready for:
+    Replace `RedisMock` with real cache layer
+    Add TTL (expire keys)
+    Add connection reuse (important for performance)
+

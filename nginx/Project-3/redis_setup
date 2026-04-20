@@ -1,0 +1,74 @@
+Let’s set up **minimal Redis on Manjaro** and connect it later to your POCO server.
+
+---
+
+# 1. Install Redis (minimal)
+
+sudo pacman -S redis
+
+That’s all — **Redis** is lightweight.
+
+---
+
+# 2. Start Redis
+
+sudo systemctl start redis
+
+Enable on boot:
+
+sudo systemctl enable redis
+
+---
+
+# 3. Test Redis
+
+redis-cli ping
+
+Output:
+PONG
+
+---
+
+# 4. Try basic commands
+redis-cli
+
+Inside:
+SET mykey hello
+GET mykey
+
+---
+Restart:
+sudo systemctl restart redis
+
+---
+
+# 6. Connect Redis to your C++ (REAL upgrade)
+
+Right now you use:
+
+RedisMock redis;
+
+👉 Replace with real Redis client
+
+### Recommended library:
+
+* **hiredis**
+
+---
+
+# 7. Install hiredis
+sudo pacman -S hiredis
+---
+
+# Architecture (what you built)
+
+Client → NGINX → C++ POCO Server → Redis
+
+This is **real backend architecture**
+
+---
+# Minimal stack summary
+* NGINX → reverse proxy
+* C++ (POCO) → API server
+* Redis → cache
+---
