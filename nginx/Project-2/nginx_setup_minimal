@@ -1,0 +1,113 @@
+If you want a **minimal NGINX setup on Manjaro** (clean, no clutter, perfect for learning/reverse proxy), do this
+
+---
+
+# 1. Install only NGINX
+
+sudo pacman -S nginx
+
+That’s it — no extra packages needed.
+
+---
+
+# 2. Clean default config (make it minimal)
+
+Edit:
+
+sudo nano /etc/nginx/nginx.conf
+
+Replace EVERYTHING with this minimal config:
+
+events {}
+
+http {
+    server {
+        listen 80;
+
+        location /api {
+            proxy_pass http://127.0.0.1:8080;
+        }
+    }
+}
+
+---
+
+# ▶️ 3. Start NGINX
+
+sudo systemctl start nginx
+
+Enable on boot:
+sudo systemctl enable nginx
+
+---
+
+# 4. Test config
+sudo nginx -t
+---
+
+# 5. Test proxy
+
+curl "http://localhost/api?key=test"
+
+---
+
+# What this minimal setup includes
+
+✔ No static files
+✔ No MIME types
+✔ No logging config
+✔ Only reverse proxy
+
+Pure backend proxy 
+
+---
+
+# Even more minimal (extreme)
+
+events {}
+
+http {
+    server {
+        listen 80;
+        location / {
+            proxy_pass http://127.0.0.1:8080;
+        }
+    }
+}
+
+---
+
+# Key idea
+
+In **NGINX**:
+
+* Everything is optional except:
+
+  * `events {}`
+  * `http {}`
+  * `server {}`
+  * `location {}`
+
+---
+
+# For YOU (best setup)
+
+Since you’re building backend systems:
+
+* Keep NGINX minimal
+* Add features only when needed:
+
+  * logging
+  * SSL
+  * load balancing
+
+---
+
+# Next step (recommended)
+
+upgrade this minimal setup to:
+
+* Multi-service proxy (`/api`, `/auth`, `/metrics`)
+* Load balancing
+* Production-ready structure
+

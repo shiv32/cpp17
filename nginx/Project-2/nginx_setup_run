@@ -4,9 +4,6 @@
 
 # 1️⃣ Install NGINX
 
-sudo apt update
-sudo apt install nginx
-
 Check version:
 
 nginx -v
@@ -20,7 +17,6 @@ sudo systemctl stop nginx
 sudo systemctl restart nginx
 
 Enable auto-start:
-
 sudo systemctl enable nginx
 
 ---
@@ -40,8 +36,7 @@ http://localhost
 | Purpose       | Path                          |
 | ------------- | ----------------------------- |
 | Main config   | `/etc/nginx/nginx.conf`       |
-| Site configs  | `/etc/nginx/sites-available/` |
-| Enabled sites | `/etc/nginx/sites-enabled/`   |
+
 
 ---
 
@@ -60,7 +55,6 @@ test is successful
 ---
 
 ## Step D: Reload NGINX
-
 sudo systemctl reload nginx
 
 ---
