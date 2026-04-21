@@ -1,0 +1,36 @@
+Recommended Stack
+    C++17
+    POCO
+    NGINX
+    Redis
+
+Use this combo:
+    C++17
+    POCO (HTTP Server + Client)
+    Redis (cache, rate limit)
+    nlohmann/json (config + payload)
+    spdlog (logging)
+    OpenSSL (HTTPS)
+
+Example Architecture
+Client → NGINX → C++ API Gateway → Backend Services
+                     ↓
+        Auth (JWT)
+        Rate Limit (Redis)
+        Cache (Redis)
+        Routing (Config)
+
+Design Patterns to Use
+    Proxy Pattern → Forward requests
+    Strategy Pattern → Load balancing
+    Chain of Responsibility → Middleware (auth → logging → routing)
+    Singleton → Config manager
+    Factory → Route handlers
+
+Two Architectures (Important)
+
+    Option A: Pure C++ Gateway (Learning / Control)
+        Client → C++ API Gateway → Backend
+
+    Option B: Hybrid (REAL WORLD )
+        Client → NGINX → C++ API Gateway → Backend
