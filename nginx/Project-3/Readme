@@ -1,1 +1,40 @@
 C++17 + POCO + nginx + redis demo
+
+--------------------------------------
+Useful redis command
+
+Test redi
+$redis-cli ping
+
+$redis-cli
+>SET mykey hello
+>GET mykey
+
+exit from redi cli
+    $exit or ctrl+c
+
+To see persitent data dir
+    redis-cli CONFIG GET dir
+remove persistent data file
+    sudo rm /var/lib/valkey/dump.rdb
+    sudo systemctl restart redis
+
+after conf update 
+    sudo nano /etc/valkey/valkey.conf
+restart
+    sudo systemctl restart redis
+----------------------------------------
+sudo nano /etc/valkey/valkey.conf
+
+##### redis conf file setting ########
+bind 127.0.0.1
+port 6379
+#no data persistent
+save ""
+appendonly no
+
+#data persitent
+#appendonly yes
+#appendfsync everysec
+#save 60 1000
+########################################
