@@ -60,8 +60,21 @@ nginx.conf
 nginx.conf → loads → routes → C++ backend
 
 ---
-sudo nginx -T | grep proxy_pass
+To check proxy detail
+    sudo nginx -T | grep proxy_pass
 
 Restart nginx
     sudo nginx -t
     sudo systemctl restart nginx
+    
+Enable on boot
+    sudo systemctl enable nginx
+
+Disable on boot
+    sudo systemctl disable nginx
+
+Stop It Right Now (Optional)
+    sudo systemctl stop nginx
+Start    
+    sudo systemctl start nginx
+
