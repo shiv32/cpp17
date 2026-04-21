@@ -192,7 +192,7 @@ int main()
     server.start();
 
     std::cin.get();
-
     server.stop();
+    
     return 0;
 }
