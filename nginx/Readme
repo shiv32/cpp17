@@ -1,3 +1,5 @@
+C++17 + POCO + nginx + redis Project
+
 Recommended Stack
     C++17
     POCO
@@ -13,12 +15,12 @@ Use this combo:
     OpenSSL (HTTPS)
 
 Example Architecture
-Client → NGINX → C++ API Gateway → Backend Services
-                     ↓
-        Auth (JWT)
-        Rate Limit (Redis)
-        Cache (Redis)
-        Routing (Config)
+    Client(browser/app) → NGINX → C++ API Gateway → Backend Services
+                                        ↓
+                                Auth (JWT)
+                                Rate Limit (Redis)
+                                Cache (Redis)
+                                Routing (Config)
 
 Design Patterns to Use
     Proxy Pattern → Forward requests
@@ -30,7 +32,15 @@ Design Patterns to Use
 Two Architectures (Important)
 
     Option A: Pure C++ Gateway (Learning / Control)
-        Client → C++ API Gateway → Backend
+        Client(browser/app) → C++ API Gateway → Backend
 
     Option B: Hybrid (REAL WORLD )
-        Client → NGINX → C++ API Gateway → Backend
+        Client(browser/app) → NGINX → C++ API Gateway → Backend
+
+Easy Analogy
+    Think of it like food delivery:
+        Client → You (ordering food)
+        NGINX → Reception
+        Gateway → Manager
+        Backend services → Kitchen
+        Redis → Fast memory (repeat orders)
