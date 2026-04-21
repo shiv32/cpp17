@@ -1,0 +1,82 @@
+**single-file API gateway** to support full **CRUD operations** (Create, Read, Update, Delete) 
+
+We’ll keep it:
+
+* Simple (single file)
+* Realistic (API style)
+* Ready to plug Redis later (currently in-memory map)
+
+---
+
+# APIs You’ll Get
+
+| Method | Endpoint          | Description  |
+| ------ | ----------------- | ------------ |
+| POST   | `/api/order`      | Create order |
+| GET    | `/api/order?id=1` | Read one     |
+| GET    | `/api/orders`     | Read all     |
+| PUT    | `/api/order?id=1` | Update       |
+| DELETE | `/api/order?id=1` | Delete       |
+
+---
+
+# Test All CRUD
+
+## Create
+
+curl -X POST http://localhost:8080/api/order \
+-H "Content-Type: application/json" \
+-d '{"symbol":"AAPL","qty":10}'
+
+---
+
+## Read One
+
+curl "http://localhost:8080/api/order?id=1"
+
+---
+
+## Read All
+
+curl http://localhost:8080/api/orders
+
+---
+
+## Update
+
+curl -X PUT "http://localhost:8080/api/order?id=1" \
+-d '{"symbol":"AAPL","qty":50}'
+
+---
+
+## Delete
+
+curl -X DELETE "http://localhost:8080/api/order?id=1"
+
+---
+
+# Next Level (Important)
+
+Right now:
+    Data is in memory (lost on restart)
+
+Upgrade path:
+
+* Replace `OrderStore` with Redis:
+
+  * `SET order:1 {...}`
+  * `GET order:1`
+  * `DEL order:1`
+
+---
+
+# What You Just Built
+
+This is basically:
+
+* Mini backend
+* API gateway
+* CRUD service
+* Microservice base
+
+---
