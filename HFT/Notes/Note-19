@@ -1,0 +1,91 @@
+Market order buyers don’t show in the order book (market depth).
+
+---
+
+### Why market buyers are not visible
+
+1. **Order book shows only LIMIT orders**
+
+* The order book (bid/ask) displays **pending buy/sell orders at specific prices**
+* These are called **limit orders** ([Pomegra][1]) https://pomegra.io/learn/stock-market/chapter_02_how_stock_markets_work/the_order_book?utm_source=chatgpt.com
+
+Example:
+
+* Buy at ₹100 → shown in order book
+* Sell at ₹105 → shown
+
+---
+
+2. **Market orders are executed instantly**
+
+* A **market order = “buy at best available price right now”**
+* It does NOT wait → it gets matched immediately
+
+So it:
+
+* Comes → matches → disappears
+* That’s why you never see it in depth
+
+---
+
+3. **They only appear AFTER execution**
+
+* When a market order hits:
+
+  * It consumes existing sell orders (ask side)
+  * Trade happens
+* You only see it in **price movement / volume**, not in the book
+
+---
+
+4. **Order book is incomplete anyway**
+   Even beyond market orders:
+
+* Hidden / iceberg orders exist
+* Big players don’t show full quantity
+  ([m.Stock][2]) https://www.mstock.com/articles/what-is-market-depth?utm_source=chatgpt.com#limitations-of-market-depth
+
+---
+
+### Simple analogy
+
+Think of order book like a queue:
+
+* Limit order = standing in line → visible
+* Market order = cuts the queue → instantly buys → gone
+
+---
+
+### Example
+
+Order book:
+
+Sell: 100 shares @ ₹100
+Sell: 200 shares @ ₹101
+
+Now someone places **market buy 150 shares**:
+
+* 100 bought @ ₹100
+* 50 bought @ ₹101
+
+You will NOT see this buyer in book
+You will only see:
+
+* Price change
+* Volume increase
+
+---
+
+### Key takeaway
+
+* **Order book ≠ full market reality**
+* It shows:
+  ✔ Pending limit orders
+* It does NOT show:
+  ❌ Market orders
+  ❌ Hidden orders
+
+---
+Ref
+[1]: https://pomegra.io/learn/stock-market/chapter_02_how_stock_markets_work/the_order_book?utm_source=chatgpt.com "The Order Book: A Real-Time Map of Supply and Demand | Stock Market: From Zero to Hero"
+[2]: https://www.mstock.com/articles/what-is-market-depth?utm_source=chatgpt.com "Market Depth Meaning & Importance: Tips for Smart Order Placement | m.Stock"
