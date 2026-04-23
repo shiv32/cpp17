@@ -1,5 +1,10 @@
 #pragma once
 #include <functional> //std::equal_to<>, std::hash<>
+#include <iostream>
+#include <list>
+#include <vector>
+#include <algorithm>
+#include "hash_map_iterator.hpp"
 
 template <typename Key, typename T, typename KeyEqual = std::equal_to<>, typename Hash = std::hash<Key>>
 class hash_map
