@@ -1,0 +1,145 @@
+What do you mean by File handling?
+
+**File handling** in C++ simply means:
+
+👉 **Reading data from files and writing data to files using your program**
+
+Instead of only using console (`cin`, `cout`), your program can work with real files on disk.
+
+---
+
+# Why file handling matters (very practical)
+
+With just this skill, you can build:
+
+* Log analyzers
+* Data processors (CSV, text files)
+* Backup tools
+* Simple databases (file-based)
+
+This is how your “console C++” becomes useful in real work.
+
+---
+
+# Basic idea
+
+A file is just like:
+
+notes.txt
+data.csv
+log.txt
+
+Your C++ program can:
+
+* Open it
+* Read from it
+* Modify it
+* Write back to it
+
+---
+
+# Core components in C++
+
+You use the `<fstream>` library:
+
+* `std::ifstream` → read file
+* `std::ofstream` → write file
+* `std::fstream` → read + write
+
+---
+
+# Example 1: Write to a file
+
+#include <iostream>
+#include <fstream>
+
+int main() {
+    std::ofstream file("data.txt");  // create/open file
+
+    file << "Hello Shiv\n";
+    file << "C++ file handling\n";
+
+    file.close();  // always close
+}
+
+👉 This creates `data.txt` and writes content.
+
+---
+
+# Example 2: Read from a file
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    std::ifstream file("data.txt");
+
+    std::string line;
+    while (std::getline(file, line)) {
+        std::cout << line << std::endl;
+    }
+
+    file.close();
+}
+
+Reads line by line and prints to console.
+
+---
+
+# Example 3: Append to a file
+
+std::ofstream file("data.txt", std::ios::app);
+file << "New line added\n";
+
+👉 Adds without deleting old data.
+
+---
+
+# ⚙️ Real-world example (important for money)
+
+### Log Analyzer
+
+Imagine a file:
+
+log.txt
+ERROR: Disk full
+INFO: Started
+ERROR: Network down
+
+You can:
+
+* Count errors
+* Filter logs
+* Generate report
+
+This is **real freelance work**
+
+---
+
+# Common mistakes
+
+* Forgetting to close file
+* File not found
+* Wrong mode (read vs write)
+
+---
+
+# Simple project idea for you
+
+Build:
+👉 **“File-based Contact Manager”**
+
+* Save name + number in file
+* Read and display
+* Search contact
+
+You can actually sell this as a beginner project
+
+---
+
+# Simple definition
+
+> File handling = making your C++ program work with real files instead of just the console
+
+---
