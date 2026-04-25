@@ -1,0 +1,174 @@
+So what no. is acceptable in HRT for 
+CPU cycles
+instructions executed
+cache misses
+branch misses
+
+Short answer: there is **no fixed “acceptable number”** at firms like Hudson River Trading.
+
+If you’re hoping for something like:
+
+* “< X cycles = good”
+* “< Y cache misses = pass”
+
+👉 that’s not how HRT thinks.
+
+They care about **relative performance and bottlenecks**, not absolute numbers.
+
+---
+
+# 🧠 What HRT actually optimizes for
+
+They look at:
+
+👉 **latency per operation (ns / order)**
+👉 **throughput (ops/sec)**
+👉 **predictability (variance, jitter)**
+
+CPU metrics are just **tools to explain performance**, not targets.
+
+---
+
+# ⚙️ Still — here are REALISTIC reference ranges
+
+These are *practical mental benchmarks* (not rules):
+
+---
+
+## 🧮 CPU cycles
+
+* L1 cache access → ~4 cycles
+* L2 cache → ~12 cycles
+* L3 cache → ~40–70 cycles
+* RAM access → **200–300+ cycles** ❌ (very bad for HFT hot path)
+
+👉 HRT mindset:
+
+* Hot path should **stay in L1/L2 as much as possible**
+
+---
+
+## 📊 Instructions executed
+
+Typical good range:
+
+* Simple operation → ~1–5 instructions
+* Tight loop → ~1 instruction per cycle (IPC ≈ 1–4 depending CPU)
+
+👉 If you see:
+
+* too many instructions → compiler not optimizing well
+* redundant loads/stores → bad data layout
+
+---
+
+## 🧊 Cache misses (VERY IMPORTANT)
+
+### Rough interpretation:
+
+* **< 1% misses** → excellent ✅
+* **1–5%** → acceptable
+* **> 10%** → serious problem ❌
+
+👉 In HFT:
+
+* even small % hurts because latency spikes
+
+---
+
+## 🔀 Branch misses
+
+### Rough interpretation:
+
+* **< 1%** → excellent ✅
+* **1–3%** → okay
+* **> 5%** → bad ❌
+
+👉 Why?
+Branch misprediction = pipeline flush = ~15–20 cycles penalty
+
+---
+
+# ⚡ Example: What “good” looks like
+
+Let’s say your matching engine processes 1 order:
+
+* ~200–800 CPU cycles ✅
+* ~200–500 instructions ✅
+* cache misses < 1% ✅
+* branch misses < 1% ✅
+
+👉 That’s already quite strong for a beginner/intermediate
+
+Top-tier HFT systems can go even lower.
+
+---
+
+# 🚨 What matters MORE than numbers
+
+HRT will care about your **thinking**, not just metrics:
+
+---
+
+## ❌ Weak answer
+
+> “My program has 2% cache misses”
+
+---
+
+## ✅ Strong answer
+
+> “Cache misses were 8%, I changed data layout from vector of objects → struct of arrays, now 1.2%, latency dropped 30%”
+
+👉 THIS is what gets you hired.
+
+---
+
+# 🧠 Key insight (very important)
+
+You don’t optimize numbers directly.
+
+You optimize:
+
+* memory layout
+* branching behavior
+* data locality
+* concurrency model
+
+👉 metrics improve automatically.
+
+---
+
+# 🧪 How to judge your own project
+
+For your HRT-style project:
+
+### Good target:
+
+* Latency:
+
+  * < 1 microsecond per operation (aspirational)
+* Throughput:
+
+  * millions ops/sec
+* Cache misses:
+
+  * as low as possible (<2%)
+* Branch misses:
+
+  * near zero
+
+---
+
+# ⚡ Final reality check
+
+Even at HRT:
+
+* There is no “perfect number”
+* Engineers constantly trade off:
+
+  * speed vs complexity
+  * latency vs maintainability
+
+---
+

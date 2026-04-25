@@ -1,0 +1,210 @@
+"How the CPU executes your code C++" how to check?
+
+If you’re aiming for HRT-level C++, this is the exact right question.
+Because at that level, **you’re not writing C++ — you’re controlling the CPU indirectly.**
+
+Let’s make this practical, not theoretical.
+
+---
+
+# What “CPU executes your C++ code” really means
+
+Your C++ code goes through stages:
+
+C++ → Assembly → Machine Code → CPU executes instructions
+
+So if you want to “see what CPU does”, you must inspect:
+
+* Assembly
+* CPU behavior (cache, branches, cycles)
+
+---
+
+# 1. See how your C++ becomes assembly
+
+### Tool: Compiler Explorer
+
+👉 Paste C++ code → instantly see assembly output
+
+Example:
+
+int add(int a, int b) {
+    return a + b;
+}
+
+You’ll see something like:
+
+add:
+    lea eax, [rdi + rsi]
+    ret
+
+👉 This is what CPU actually runs.
+
+---
+
+## Local method (important for real work)
+
+Use `g++`:
+
+g++ -O2 -S main.cpp
+
+* `-S` → generate assembly
+* `-O2` → optimized (important!)
+
+---
+
+# 2. Check how CPU actually runs it (profiling)
+
+This is where real learning happens.
+
+---
+
+## Tool 1: perf (MUST learn)
+
+Run your program:
+
+perf stat ./a.out
+
+Output gives:
+
+* CPU cycles
+* instructions executed
+* cache misses
+* branch misses
+
+---
+
+### Example output:
+
+1,000,000 cycles
+800,000 instructions
+10,000 cache-misses
+
+Now you’re thinking like HRT engineer.
+
+---
+
+## Deep analysis:
+
+perf record ./a.out
+perf report
+
+👉 Shows:
+
+* which functions take time
+* hotspots
+
+---
+
+# 3. Check cache behavior (CRITICAL for HFT)
+
+CPU is fast, memory is slow.
+
+Use:
+
+perf stat -e cache-misses,cache-references ./a.out
+
+👉 If cache misses high → your design is bad
+
+---
+
+# 4. Inspect instruction-level behavior
+
+Use:
+
+### Tool: objdump
+
+objdump -d a.out
+
+Full disassembly of your binary
+
+---
+
+# 5. Understand CPU concepts (this is the real skill)
+
+When you look at assembly, think:
+
+### Key things:
+
+#### 1. Cache locality
+
+Bad:
+std::vector<std::vector<int>>
+
+Good:
+std::vector<int>
+
+👉 contiguous memory = faster
+
+---
+
+#### 2. Branch prediction
+
+Bad:
+if (random_condition)
+
+CPU mispredicts → pipeline stall
+
+---
+
+#### 3. Memory allocation
+
+Bad:
+new/delete inside loop
+very slow
+
+---
+
+#### 4. Data layout
+
+Structure matters more than algorithm sometimes.
+
+---
+
+# 6. Simple experiment (you should try)
+
+### Code 1 (cache friendly):
+
+for (int i = 0; i < N; i++)
+    sum += arr[i];
+
+### Code 2 (cache unfriendly):
+
+for (int i = 0; i < N; i++)
+    sum += arr[random_index[i]];
+
+Run both with `perf`
+
+👉 You’ll SEE:
+
+* more cache misses
+* slower execution
+
+---
+
+# 7. Best learning loop (HRT-style)
+
+Do this repeatedly:
+
+1. Write C++ code
+2. Compile with `-O2` or `-O3`
+3. Inspect assembly
+4. Run `perf`
+5. Optimize
+6. Repeat
+
+---
+
+# Reality check
+
+Most developers:
+
+* stop at “code works”
+
+HRT engineers:
+
+* ask: **how many CPU cycles did this cost?**
+
+---
+integrate this into your **order matching engine**
+

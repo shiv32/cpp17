@@ -1,0 +1,210 @@
+So what project should I start to make in C++ to get job at HRT.
+
+If your goal is HRT-level C++ roles, you need to be careful here:
+most “normal projects” (CRUD apps, REST APIs, even typical system design projects) won’t move the needle much.
+
+You need projects that **prove one thing clearly**:
+👉 *you can write extremely fast, low-level, performance-critical systems.*
+
+---
+
+# The right kind of project (HRT mindset)
+
+Instead of building many random projects, build **1–2 deep, hardcore systems projects**.
+
+Think in this direction:
+
+> “Can this system realistically exist inside a trading firm?”
+
+---
+
+# Project 1 (MOST IMPORTANT): Order Matching Engine
+
+### Why this?
+
+This is the **core of any exchange** (like NSE, NASDAQ).
+If you build this well → it screams “HRT-ready”.
+
+---
+
+## What to build
+
+A **high-performance order book + matching engine**
+
+Features:
+
+* Limit orders (buy/sell)
+* Price-time priority matching
+* Order cancellation/modification
+* Real-time trade execution
+
+---
+
+## Make it HRT-level (this is key)
+
+Don’t just implement logic — optimize it:
+
+### 1. Data structures (CRITICAL)
+
+* Use:
+
+  * `std::map` / custom tree OR
+  * flat arrays for price levels
+* Maintain:
+
+  * bid book (max side)
+  * ask book (min side)
+
+---
+
+### 2. Performance focus
+
+* Measure latency per order (ns/us)
+* Avoid heap allocations in hot path
+* Use memory pools
+* Cache-friendly layout
+
+---
+
+### 3. Multithreading (advanced)
+
+* Single-threaded matching (like real exchanges)
+* Separate threads for:
+
+  * input
+  * logging
+  * market data output
+
+---
+
+### 4. Benchmark it
+
+* Process **millions of orders**
+* Print:
+
+  * throughput (orders/sec)
+  * latency
+
+---
+
+This project alone can get you interviews if done right.
+
+---
+
+# Project 2: Market Data Feed Handler
+
+### What to build
+
+Simulate real-time market data:
+
+* Generate ticks (price updates)
+* Broadcast to subscribers
+* Handle high throughput
+
+---
+
+## Make it serious
+
+* Use:
+
+  * UDP / TCP sockets
+* Binary protocol (not JSON)
+* Lock-free queues
+* Ring buffers
+
+---
+
+👉 Bonus: integrate with your matching engine
+
+---
+
+# Project 3: Low-Latency Messaging System
+
+Think of a mini version of:
+
+* Kafka (but faster, simpler)
+
+---
+
+## Features
+
+* Producer → consumer system
+* Shared memory or TCP
+* Zero-copy design
+
+---
+
+## Advanced topics
+
+* Lock-free queues
+* Memory-mapped files
+* Backpressure handling
+
+---
+
+# What HRT actually looks for in your project
+
+They don’t care about UI or features. They care about:
+
+### Can you:
+
+* Explain cache misses?
+* Justify data structure choices?
+* Show benchmarks?
+* Reduce latency step by step?
+
+---
+
+# ❌ Avoid these (for HRT goal)
+
+* Todo apps
+* REST APIs
+* GUI apps
+* Database-heavy apps
+* “Design pattern only” projects
+
+These are good for general jobs, not HFT.
+
+---
+
+# Suggested roadmap for YOU (based on your C++ background)
+
+Since you're already doing:
+
+* C++17
+* Design patterns
+* Console apps
+
+Shift to:
+
+### Step 1
+
+Build:
+Order Matching Engine (single-threaded, fast)
+
+### Step 2
+
+Add:
+Benchmarking + profiling
+
+### Step 3
+
+Add:
+Multithreading + lock-free queues
+
+### Step 4
+
+Add:
+Market data simulator
+
+---
+
+# Reality check
+
+HRT-level engineering is:
+
+* less about “writing code”
+* more about **how the CPU executes your code**
+
+---
+
