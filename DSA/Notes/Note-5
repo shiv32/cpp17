@@ -1,0 +1,99 @@
+so all nXn matrix do operation with non zero value right?
+
+Not exactly — that statement is **partially true, but not always**. Let’s make it precise.
+
+---
+
+## ✅ When your idea is correct
+
+For a **sparse matrix**, many operations are designed to use **only non-zero values**.
+
+### Example: Sum of all elements
+
+* Dense → check all `n × n`
+* Sparse → just sum stored values
+
+👉 Here you *only use non-zero values* → efficient ✔️
+
+---
+
+## ⚠️ But not ALL operations work like that
+
+### 1. Matrix Addition
+
+If both matrices are sparse:
+
+* You mostly operate on **non-zero elements**
+* Missing entries are treated as `0`
+
+👉 Efficient, yes — mostly non-zero based ✔️
+
+---
+
+### 2. Matrix Multiplication (important case)
+
+This is where your statement breaks a bit.
+
+For multiplication:
+
+```
+C[i][j] = Σ A[i][k] * B[k][j]
+```
+
+Even if values are zero:
+
+* You **must consider positions**
+* But you can **skip computations where value is 0**
+
+👉 Optimized sparse multiplication:
+
+* Only multiply when both values are non-zero ✔️
+* But logic still depends on matrix structure ❗
+
+---
+
+### 3. Accessing a specific element
+
+If you ask:
+
+```cpp
+value at (1,1)?
+```
+
+* Sparse → search in stored elements
+* If not found → return `0`
+
+👉 So zeros are still *logically present*
+
+---
+
+## 🧠 Correct understanding
+
+Instead of saying:
+
+> “All operations use only non-zero values”
+
+Better say:
+
+> “Sparse matrix operations **avoid unnecessary work on zero values**, but still logically treat them as part of the matrix”
+
+---
+
+## ⚡ Simple analogy
+
+Think of it like:
+
+* You store only **occupied seats in a stadium**
+* But when needed, you still know:
+
+  * Empty seats exist (they’re just not stored)
+
+---
+
+## 🚀 Final takeaway
+
+* ✔ Storage → only non-zero
+* ✔ Many operations → mostly non-zero
+* ❗ Logic → still considers full matrix (including zeros)
+
+---

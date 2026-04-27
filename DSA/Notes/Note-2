@@ -1,0 +1,85 @@
+In C++ code implementation why 0 is useless in sparse matirx.
+
+In a **sparse matrix**, most of the elements are **0**, and that’s exactly why `0` becomes “less important” in C++ implementations.
+
+### The core idea
+
+A sparse matrix is a matrix where:
+
+* Majority of values = `0`
+* Very few values ≠ `0`
+
+So instead of storing every element (including tons of useless `0`s), we **only store the non-zero values**.
+
+---
+
+### Why `0` is treated as “useless”
+
+In most applications:
+
+* `0` does not contribute to computation (e.g., in multiplication, `x * 0 = 0`)
+* It wastes memory if stored explicitly
+* It slows down processing if we iterate over it
+
+So we **skip storing 0s completely**.
+
+---
+
+### Example
+
+#### Normal matrix (dense)
+
+```
+0 0 5
+0 0 0
+0 3 0
+```
+
+If you store this in a 2D array:
+
+```cpp
+int mat[3][3];
+```
+
+👉 You store **9 elements** (most are 0)
+
+---
+
+#### Sparse representation (efficient)
+
+We store only non-zero values like:
+
+| row | col | value |
+| --- | --- | ----- |
+| 0   | 2   | 5     |
+| 2   | 1   | 3     |
+
+In C++:
+
+```cpp
+struct Element {
+    int row, col, value;
+};
+
+std::vector<Element> sparse;
+```
+
+👉 Now only **2 elements stored instead of 9**
+
+---
+
+### Big advantage
+
+* Memory ↓
+* Faster operations ↓
+* Cleaner logic for large datasets (like graphs, matrices in ML, etc.)
+
+---
+
+### Key insight
+
+`0` is not “less” mathematically — it’s just:
+
+> **redundant in storage and computation**
+
+---
