@@ -5,3 +5,7 @@ hash_map Initializer List Assignment Operator
 hash_map Insertion Operations
 hash_map Emplace Operations
 hash_map Erase Operations
+hash_map Accessor Operations
+hash_map Bucket Operations
+Note on Sequential Containers
+SUMMARY
