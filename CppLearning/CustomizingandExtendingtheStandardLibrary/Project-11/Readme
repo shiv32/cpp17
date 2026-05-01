@@ -3,3 +3,5 @@ hash_map Iterator Range Constructor
 hash_map Initializer List Constructor
 hash_map Initializer List Assignment Operator
 hash_map Insertion Operations
+hash_map Emplace Operations
+hash_map Erase Operations

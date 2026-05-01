@@ -63,6 +63,13 @@ namespace hm
         // Initializer list assignment operator
         hash_map_type &operator=(std::initializer_list<value_type> il);
 
+        // hash_map Emplace Operations
+        template <typename... Args>
+        std::pair<iterator, bool> emplace(Args &&...args);
+
+        template <typename... Args>
+        iterator emplace_hint(const_iterator hint, Args &&...args);
+
         // Iterator methods
         iterator begin();
         iterator end();
@@ -283,5 +290,45 @@ namespace hm
         swap(mSize, other.mSize);
         swap(mEqual, other.mEqual);
         swap(mHash, other.mHash);
+    }
+
+    template <typename Key, typename T, typename KeyEqual, typename Hash>
+    typename hash_map<Key, T, KeyEqual, Hash>::size_type hash_map<Key, T, KeyEqual, Hash>::erase(const key_type &k)
+    {
+        // First, try to find the element.
+        auto [it, bucket] = findElement(k);
+        if (it != std::end(mBuckets[bucket]))
+        {
+            // The element exists -- erase it.
+            mBuckets[bucket].erase(it);
+            mSize--;
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    template <typename Key, typename T, typename KeyEqual, typename Hash>
+    typename hash_map<Key, T, KeyEqual, Hash>::iterator hash_map<Key, T, KeyEqual, Hash>::erase(iterator position)
+    {
+        iterator next = position;
+        ++next;
+        // Erase the element from its bucket.
+        mBuckets[position.mBucketIndex].erase(position.mListIterator);
+        mSize--;
+        return next;
+    }
+
+    template <typename Key, typename T, typename KeyEqual, typename Hash>
+    typename hash_map<Key, T, KeyEqual, Hash>::iterator hash_map<Key, T, KeyEqual, Hash>::erase(iterator first, iterator last)
+    {
+        // Erase all the elements in the range.
+        for (iterator next = first; next != last;)
+        {
+            next = erase(next);
+        }
+        return last;
     }
 }
