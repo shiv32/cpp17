@@ -9,3 +9,19 @@ hash_map Accessor Operations
 hash_map Bucket Operations
 Note on Sequential Containers
 SUMMARY
+    Start with the containers, maybe throw in an algorithm or two, and before you know it, you’ll be a convert!
+    (Start by using C++ containers, add a few STL algorithms, and soon you’ll naturally prefer this efficient coding style.)
+
+    Here’s the line broken down simply:
+
+    **“Start with the containers”**
+        Begin by using STL containers like `vector`, `map`, etc.
+
+    **“maybe throw in an algorithm or two”**
+        Add a few STL algorithms like `sort`, `find` when needed.
+
+    **“and before you know it”**
+        Very quickly, without much effort.
+
+    **“you’ll be a convert!”**
+        You’ll start liking and preferring this way of coding.
