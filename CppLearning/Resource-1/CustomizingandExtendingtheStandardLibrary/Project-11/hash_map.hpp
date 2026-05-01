@@ -124,7 +124,7 @@ namespace hm
     private:
         // Returns a pair containing an iterator to the found element with
         // a given key, and the index of that element's bucket.
-        std::pair<typename ListType::iterator, size_t> findElement(const key_type &k);
+        std::pair<local_iterator, size_t> findElement(const key_type &k);
 
         std::vector<ListType> mBuckets;
         size_type mSize = 0;
@@ -133,7 +133,7 @@ namespace hm
     };
 
     template <typename Key, typename T, typename KeyEqual, typename Hash>
-    std::pair<typename hash_map<Key, T, KeyEqual, Hash>::ListType::iterator, size_t> hash_map<Key, T, KeyEqual, Hash>::findElement(const key_type &k)
+    std::pair<typename hash_map<Key, T, KeyEqual, Hash>::local_iterator, size_t> hash_map<Key, T, KeyEqual, Hash>::findElement(const key_type &k)
     {
         // Hash the key to get the bucket.
         size_t bucket = mHash(k) % mBuckets.size();
