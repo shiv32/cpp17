@@ -17,12 +17,14 @@ UML 2 supports six different kinds of relationships between classes.
         A class contains and owns another class. The contained object is destroyed with the parent.
             eg. A Human has a Heart, but the Heart cannot exist without the Human.
 
-    5. Dependency (A - - - - > B)
+    5. Dependency (A - - - - > B) "uses"
         A class temporarily uses another class but does not own it permanently.
 
-    6. Association (A ────── B)
-        One class has a reference to another (e.g., composition, aggregation).
+    6. Association (A ────── B) (A ──────> B) "reference"
+        One class has a reference to another (e.g. aggregation).
 
 ---------------------------------------------------------------------------------------------
 Ref:
 https://www.drawio.com/blog/uml-class-diagrams
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
+https://github.com/takaakit/uml-diagram-for-cpp-design-pattern-examples

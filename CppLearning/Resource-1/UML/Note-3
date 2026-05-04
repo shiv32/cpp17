@@ -2,6 +2,7 @@
 1. Association ( “uses / knows about” ): One class has a reference to another. “has-a”
 
         A ────── B
+        A ──────> B
         Car ─── Engine
 
         class Engine {};
