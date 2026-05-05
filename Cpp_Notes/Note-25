@@ -1,0 +1,78 @@
+Minimal C++ framework example.
+
+Yes—building a tiny “framework” yourself is the best way to really understand it. 
+Let’s make a very small Proof of Concept (PoC) C++ framework that demonstrates:
+
+Event loop (framework controls flow)
+Registration of callbacks (your code plugs in)
+Framework calling your code (Inversion of Control)
+
+Mini C++ Framework (PoC)
+#include <iostream>
+#include <functional>
+#include <vector>
+#include <thread>
+#include <chrono>
+
+class MiniFramework {
+public:
+    using Task = std::function<void()>;
+
+    void registerTask(Task task) {
+        tasks_.push_back(task);
+    }
+
+    void run() {
+        std::cout << "Framework started...\n";
+
+        // Event loop (framework controls execution)
+        for (int i = 0; i < 3; ++i) {
+            std::cout << "Framework loop iteration: " << i << "\n";
+
+            for (auto& task : tasks_) {
+                task();  // 👈 Framework calls user code
+            }
+
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+
+        std::cout << "Framework stopped.\n";
+    }
+
+private:
+    std::vector<Task> tasks_;
+};
+
+User Code (Using the Framework)
+
+int main() {
+    MiniFramework app;
+
+    // User registers logic
+    app.registerTask([]() {
+        std::cout << "Task 1 executed\n";
+    });
+
+    app.registerTask([]() {
+        std::cout << "Task 2 executed\n";
+    });
+
+    app.run();  // 👈 Framework takes control
+
+    return 0;
+}
+
+🔍 What this demonstrates
+    Framework Responsibilities
+        Controls execution → run()
+        Provides extension point → registerTask()
+        Calls user code → task()
+    Inversion of Control
+        You don’t call tasks manually
+        Framework calls them inside its loop
+    How this relates to real frameworks
+        Like Qt → event loop + signals/slots
+        Like backend frameworks → request handling loop
+        Like game engines → update/render loop
+
+

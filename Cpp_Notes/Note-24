@@ -1,0 +1,63 @@
+What is Framwork? How it work in C++?
+
+Let’s keep it concrete and minimal. 
+Here’s a tiny example using the Qt framework to show how a framework controls the flow and calls your code.
+
+Minimal Qt Framework Example
+
+#include <QCoreApplication>
+#include <QTimer>
+#include <QObject>
+#include <QDebug>
+
+class MyApp : public QObject {
+    Q_OBJECT
+public:
+    MyApp() {
+        // Framework will call this later via event loop
+        QTimer::singleShot(1000, this, &MyApp::onTimeout);
+    }
+
+public slots:
+    void onTimeout() {
+        qDebug() << "Framework called my function!";
+        QCoreApplication::quit();
+    }
+};
+
+int main(int argc, char *argv[]) {
+    QCoreApplication app(argc, argv);
+
+    MyApp myApp;
+
+    return app.exec();  // 👈 Framework takes control here
+}
+
+🔍 What’s happening
+    app.exec() starts Qt’s event loop
+    After that, you don’t control the flow anymore
+    The framework waits for events (timers, UI, signals)
+    Then it calls your function:
+    void onTimeout()
+
+👉 You never call onTimeout() directly
+👉 Qt calls it → that’s the framework behavior
+
+⚖️ Compare with normal C++ (no framework)
+int main() {
+    std::cout << "Hello\n";
+}
+
+Here:
+
+    You control everything
+    No event loop
+    No callbacks
+    🧠 Key takeaway
+
+In a C++ framework like Qt:
+
+You write handlers (slots / callbacks)
+Framework runs the program
+Framework decides when your code runs
+
