@@ -1,1 +1,53 @@
 Professional C++, 4th Edition
+
+    INTRODUCTION TO PROFESSIONAL C++
+
+1. A Crash Course in C++ and the Standard Library 
+2. Working with Strings and String Views
+3. Coding with Style
+
+    PROFESSIONAL C++ SOFTWARE DESIGN
+
+4. Designing Professional C++ Programs
+5. Designing with Objects
+6. Designing for Reuse 
+
+    C++ CODING THE PROFESSIONAL WAY
+
+7.  Memory Management
+8.  Gaining Proficiency with Classes and Objects *
+9.  Mastering Classes and Objects *
+10. Discovering Inheritance Techniques *
+11. C++ Quirks, Oddities, and Incidentals
+12. Writing Generic Code with Templates *
+13. Demystifying C++ I/O
+14. Handling Errors
+15. Overloading C++ Operators
+16. Overview of the C++ Standard Library
+17. Understanding Containers and Iterators *
+18. Mastering Standard Library Algorithms *
+19. String Localization and Regular Expressions
+20. Additional Library Utilities
+
+    MASTERING ADVANCED FEATURES OF C++
+
+21. Customizing and Extending the Standard Library *
+22. Advanced Templates *
+23. Multithreaded Programming with C++ *
+
+    C++ SOFTWARE ENGINEERING
+
+24. Maximizing Software Engineering Methods
+25. Writing Efficient C++
+26. Becoming Adept at Testing
+27. Conquering Debugging
+28. Incorporating Design Techniques and Frameworks
+29. Applying Design Patterns
+30. Developing Cross-Platform and Cross-Language Applications
+
+    APPENDIX
+
+A. C++ Interviews
+B. Annotated Bibliography
+C. Standard Library Header Files
+D. Introduction to UML *
