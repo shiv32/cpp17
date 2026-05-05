@@ -25,7 +25,7 @@ T findMax(T a, T b)
     return (a > b) ? a : b;
 }
 
-template <>
+template <> //full specialization
 std::string findMax<std::string>(std::string a, std::string b)
 {
     std::clog << "specialization called." << std::endl;
@@ -45,7 +45,7 @@ int main()
 
     std::cout << findMax("A", "B") << std::endl; // wrong return
 
-    std::cout << findMax<std::string>("A", "B") << std::endl;
+    std::cout << findMax<std::string>("A", "B") << std::endl; //right return
 
     return 0;
 }
