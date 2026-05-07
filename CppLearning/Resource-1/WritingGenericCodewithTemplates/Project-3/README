@@ -40,3 +40,32 @@ Coding without Templates
     to avoid code duplication.
         
 */
+
+mCells
+│
+├── mCells[0] -> column 0
+│      ├── mCells[0][0]
+│      ├── mCells[0][1]
+│      ├── mCells[0][2]
+│      └── mCells[0][3]
+│
+├── mCells[1] -> column 1
+│      ├── mCells[1][0]
+│      ├── mCells[1][1]
+│      ├── mCells[1][2]
+│      └── mCells[1][3]
+│
+└── mCells[2] -> column 2
+       ├── mCells[2][0]
+       ├── mCells[2][1]
+       ├── mCells[2][2]
+       └── mCells[2][3]
+
+
+y
+3  (0,3) (1,3) (2,3)
+2  (0,2) (1,2) (2,2)
+1  (0,1) (1,1) (2,1)
+0  (0,0) (1,0) (2,0)
+
+    0      1      2   -> x

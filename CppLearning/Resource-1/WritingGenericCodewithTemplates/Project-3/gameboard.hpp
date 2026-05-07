@@ -9,8 +9,7 @@
 class GameBoard
 {
 public:
-    explicit GameBoard(size_t width = kDefaultWidth,
-                       size_t height = kDefaultHeight);
+    explicit GameBoard(size_t width = kDefaultWidth, size_t height = kDefaultHeight);
 
     GameBoard(const GameBoard &src);            // copy constructor
     GameBoard &operator=(const GameBoard &rhs); // assignment operator

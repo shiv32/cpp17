@@ -6,16 +6,15 @@ GameBoard::GameBoard(size_t width, size_t height)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-    mCells.resize(mWidth);
+    mCells.resize(mWidth);//x
 
     for (auto &column : mCells)
     {
-        column.resize(mHeight);
+        column.resize(mHeight);//y
     }
 }
 
-GameBoard::GameBoard(const GameBoard &src)
-    : GameBoard(src.mWidth, src.mHeight)
+GameBoard::GameBoard(const GameBoard &src): GameBoard(src.mWidth, src.mHeight)
 {
     // The ctor-initializer of this constructor delegates first to the
     // non-copy constructor to allocate the proper amount of memory.
