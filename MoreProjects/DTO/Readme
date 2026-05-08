@@ -1,0 +1,38 @@
+## DTO (Data Transfer Object)
+
+DTO is a design pattern used to transfer data between different layers of an application.
+
+    UI <-> Controller <-> Service <-> DTO <-> Database
+
+A DTO usually contains only data members and minimal logic. 
+It helps separate business logic from data representation and improves code organization.
+
+Benefits of DTO:
+- Reduces coupling between layers
+- Simplifies data transfer
+- Improves maintainability
+- Commonly used with Repository, Service, and MVC patterns
+
+In modern C++, DTOs are typically implemented using simple structs or lightweight classes.
+
+DTO is commonly used in
+    REST API response objects
+    JSON serialization
+    SQLite data transfer
+    Microservices
+    Game server packets
+    Network messaging
+    GUI <-> backend communication
+
+DTO helps
+    separate UI and logic
+    avoid exposing internal classes
+    simplify serialization
+    transfer data safely
+    improve architecture
+
+DTO objects usually
+    contain only data
+    have little or no business logic
+    are lightweight
+    help separate layers cleanly
