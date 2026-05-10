@@ -46,9 +46,7 @@ private:
     StudentRepository repository;
 
 public:
-    void createStudent(int id,
-                       const string &name,
-                       int age)
+    void createStudent(int id, const string &name, int age)
     {
         StudentDTO dto;
 
