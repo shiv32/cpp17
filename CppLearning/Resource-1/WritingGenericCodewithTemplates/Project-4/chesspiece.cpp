@@ -1,4 +1,5 @@
 #include "chesspiece.hpp"
+#include <iostream>
 
 std::unique_ptr<GamePiece> ChessPiece::clone() const
 {

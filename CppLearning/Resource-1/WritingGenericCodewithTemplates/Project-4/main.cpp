@@ -32,7 +32,14 @@ int main()
     chessBoard.at(0, 0) = std::make_unique<ChessPiece>();
 
     std::cout << "----------------(3)----------------------" << std::endl;
-    chessBoard.at(0, 1) = std::make_unique<TicTacToePiece>(); //issue, chessBoard not seems to accept TicTacToePiece
+    chessBoard.at(0, 1) = std::make_unique<TicTacToePiece>(); // issue, chessBoard not seems to accept TicTacToePiece
+
+    std::cout << "----------------(4)----------------------" << std::endl;
+    GameBoard chessBoard2{chessBoard};// call copy ctor
+    //GameBoard chessBoard2(chessBoard);// call copy ctor
+
+    std::cout << "----------------(5)----------------------" << std::endl;
+    chessBoard2 = chessBoard;// call copy assignment optr
 
     return 0;
 }

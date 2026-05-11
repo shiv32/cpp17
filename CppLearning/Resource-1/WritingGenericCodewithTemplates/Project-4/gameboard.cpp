@@ -1,8 +1,8 @@
 #include "gameboard.hpp"
 
 GameBoard::GameBoard(size_t width, size_t height)
-    : mWidth(width), 
-    mHeight(height)
+    : mWidth(width),
+      mHeight(height)
 {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
 
@@ -14,9 +14,10 @@ GameBoard::GameBoard(size_t width, size_t height)
     }
 }
 
-GameBoard::GameBoard(const GameBoard &src)
-    : GameBoard(src.mWidth, src.mHeight)
+GameBoard::GameBoard(const GameBoard &src) : GameBoard(src.mWidth, src.mHeight)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     // The ctor-initializer of this constructor delegates first to the
     // non-copy constructor to allocate the proper amount of memory.
     // The next step is to copy the data.
@@ -41,7 +42,7 @@ void GameBoard::verifyCoordinate(size_t x, size_t y) const
 void swap(GameBoard &first, GameBoard &second) noexcept
 {
     using std::swap;
-    
+
     swap(first.mWidth, second.mWidth);
     swap(first.mHeight, second.mHeight);
     swap(first.mCells, second.mCells);
@@ -49,6 +50,8 @@ void swap(GameBoard &first, GameBoard &second) noexcept
 
 GameBoard &GameBoard::operator=(const GameBoard &rhs)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+
     // Check for self-assignment
     if (this == &rhs)
     {

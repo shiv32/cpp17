@@ -1,7 +1,6 @@
 #pragma once
 
 #include "gamepiece.hpp"
-#include <iostream>
 
 class ChessPiece : public GamePiece
 {
