@@ -1,0 +1,144 @@
+Summary of Overloadable Operators
+    This table is a useful reference for the future when you want to write an overloaded operator.
+
+
+OPERATOR
+NAME OR CATEGORY 
+METHOD OR GLOBAL FUNCTION 
+WHEN TO OVERLOAD 
+SAMPLE PROTOTYPE
+--------------------------------------------------------
+OPERATOR	                                         
+    operator+
+    operator-                              
+    operator*
+    operator/
+    operator%
+NAME OR CATEGORY 
+    Binary arithmetic
+ METHOD OR GLOBAL FUNCTION  
+    Global function recommended   
+WHEN TO OVERLOAD    
+    Whenever you want to provide these operations for your class
+ SAMPLE PROTOTYPE
+    T operator+(const T&, const T&);
+    T operator+(const T&, const E&);
+-------------------------------------------------------
+OPERATOR
+    operator-
+    operator+
+    operator~
+NAME OR CATEGORY 
+    Unary arithmetic and bitwise operators
+METHOD OR GLOBAL FUNCTION 
+    Method recommended
+WHEN TO OVERLOAD 
+    Whenever you want to provide these operations for your class
+SAMPLE PROTOTYPE
+    T operator-() const;
+------------------------------------------------------
+OPERATOR
+    operator++
+    operator--
+NAME OR CATEGORY 
+    Pre-increment and pre-decrement
+METHOD OR GLOBAL FUNCTION 
+    Method recommended
+WHEN TO OVERLOAD 
+    Whenever you overload += and -= taking an arithmetic argument (int, long, ...)
+SAMPLE PROTOTYPE
+    T& operator++();
+-------------------------------------------------------
+OPERATOR
+    operator++
+    operator--
+NAME OR CATEGORY 
+    Post-increment and post-decrement
+METHOD OR GLOBAL FUNCTION 
+    Method recommended
+WHEN TO OVERLOAD 
+    Whenever you overload += and -= taking an arithmetic argument (int, long, ...)
+SAMPLE PROTOTYPE
+    T operator++(int);
+---------------------------------------------------
+OPERATOR
+    operator=
+NAME OR CATEGORY 
+    Assignment operator
+METHOD OR GLOBAL FUNCTION 
+    Method required
+WHEN TO OVERLOAD 
+    Whenever your class has dynamically allocated memory or resources, or members that are references
+SAMPLE PROTOTYPE
+    T& operator=(const T&);
+---------------------------------------------------
+OPERATOR
+    operator+=
+    operator-=
+    operator*=
+    operator/=
+    operator%=
+NAME OR CATEGORY 
+    Shorthand arithmetic operator assignments
+METHOD OR GLOBAL FUNCTION 
+    Method recommended
+WHEN TO OVERLOAD 
+    Whenever you overload the binary arithmetic operators and your class is not designed to be immutable
+SAMPLE PROTOTYPE
+    T& operator+=(const T&);
+    T& operator+=(const E&);
+-------------------------------------------------
+OPERATOR
+    operator<<
+    operator>>
+    operator&
+    operator|
+    operator^
+NAME OR CATEGORY 
+    Binary bitwise operators
+METHOD OR GLOBAL FUNCTION 
+    Global function recommended
+WHEN TO OVERLOAD 
+    Whenever you want to provide these operations
+SAMPLE PROTOTYPE
+    T operator<<(const T&, const T&);
+    T operator<<(const T&, const E&);
+------------------------------------------------
+OPERATOR
+    operator<<=
+    operator>>=
+    operator&=
+    operator|=
+    operator^=
+NAME OR CATEGORY 
+    Shorthand bitwise operator assignments
+METHOD OR GLOBAL FUNCTION 
+    Method recommended
+WHEN TO OVERLOAD 
+    Whenever you overload the binary bitwise operators and your class is not designed to be immutable
+SAMPLE PROTOTYPE
+    T& operator<<=(const T&);
+    T& operator<<=(const E&);
+------------------------------------------------
+OPERATOR
+    operator<
+    operator>
+    operator<=
+    operator>=
+    operator==
+    operator!=
+NAME OR CATEGORY 
+    Binary comparison operators
+METHOD OR GLOBAL FUNCTION 
+    Global function recommended
+WHEN TO OVERLOAD 
+    Whenever you want to provide these operations
+SAMPLE PROTOTYPE
+    bool operator<(const T&, const T&);
+    bool operator<(const T&, const E&);
+------------------------------------------------
+OPERATOR
+NAME OR CATEGORY 
+METHOD OR GLOBAL FUNCTION 
+WHEN TO OVERLOAD 
+SAMPLE PROTOTYPE
