@@ -1,0 +1,81 @@
+In Markdown (`.md`), a **new line** can behave differently depending on how you write it. Here are the **correct ways**:
+
+---
+
+### ✅ 1. New paragraph (most common)
+
+Just leave a blank line:
+
+```md
+Line 1
+
+Line 2
+```
+
+👉 Output:
+Line 1
+
+Line 2
+
+---
+
+### ✅ 2. Line break (same paragraph, next line)
+
+#### Option A: Two spaces at end
+
+```md
+Line 1␠␠
+Line 2
+```
+
+👉 Output:
+Line 1
+Line 2
+
+#### Option B: `<br>`
+
+```md
+Line 1<br>
+Line 2
+```
+
+👉 Output:
+Line 1
+Line 2
+
+---
+
+### ✅ 3. Inside lists
+
+```md
+- Item 1
+- Item 2
+  Continued line
+```
+
+👉 Output:
+
+* Item 1
+* Item 2
+  Continued line
+
+---
+
+### ⚠️ Common mistake
+
+```md
+Line 1
+Line 2
+```
+
+👉 This **will NOT** create a new line (Markdown merges it into one paragraph).
+
+---
+
+### 💡 Simple rule to remember
+
+* Want space → **blank line**
+* Want next line → **2 spaces or `<br>`**
+
+---
+

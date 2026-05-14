@@ -1,0 +1,72 @@
+In a **`.md` file**, leading spaces at the start of a line are tricky—Markdown normally **ignores them** unless you use a specific trick. 
+Here are the **clean, correct ways** to get space at the beginning of a line:
+
+---
+
+### ✅ 1. Use `&nbsp;` (most practical for README)
+
+```md id="1r5p1a"
+&nbsp;&nbsp;&nbsp;&nbsp;Indented line
+```
+
+👉 Works everywhere (GitHub, docs, etc.)
+👉 You control how much space by repeating `&nbsp;`
+
+---
+
+### ✅ 2. Use code block (for exact spacing)
+
+```md
+    Indented line
+```
+
+or:
+
+````md
+```txt
+    Indented line
+```
+````
+
+👉 Preserves spacing exactly
+👉 But renders as **code**, not normal text
+
+---
+
+### ✅ 3. Use blockquote (visual indent)
+
+```md id="azj7wg"
+> Indented-like text
+```
+
+👉 Not real spaces, but looks indented
+
+---
+
+### ✅ 4. Use HTML `<pre>` (full control)
+
+```md id="g5ax34"
+<pre>
+    Indented exactly
+</pre>
+```
+
+---
+
+### ⚠️ Important truth
+
+```md id="nbazea"
+    This will NOT work normally
+```
+
+👉 Plain spaces at line start are ignored unless Markdown treats it as a code block.
+
+---
+
+### 💡 What you should use (real-world)
+
+* Writing README → **`&nbsp;`**
+* Showing code → **code block**
+* Structuring content → **lists / blockquotes**
+
+---
