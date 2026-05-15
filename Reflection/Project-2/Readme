@@ -1,0 +1,46 @@
+Let’s push this a step closer to what engines like Unreal Engine actually do—still simplified, but more interesting.
+
+We’ll build a mini reflection system that can:
+    Access properties by name
+    Modify them
+    Call functions by name
+    Keep everything in a registry
+
+Idea
+    We create:
+        A base Reflectable class
+        Store:
+            properties → name → pointer
+            functions → name → callable
+
+What this demonstrates
+    Now you have:
+        Dynamic property access
+            p.set("health", 200);
+
+        Dynamic function calls
+            p.call("heal");
+
+        String-driven behavior
+
+What’s still missing (compared to real reflection)
+    This is where real engines go further:
+        Type system
+            We hardcoded int
+            Real systems support many types
+        Arguments in functions
+            Our functions take no parameters
+            Real reflection supports full signatures
+        Auto registration
+            We manually register everything
+            Unreal auto-generates metadata via macros
+        Inheritance-aware metadata
+            Real systems walk class hierarchies
+
+Key insight (important)
+    What you just built is basically:
+        Reflection = metadata + lookup + indirection
+    And engines like Unreal automate:
+        metadata creation (macros + tools)
+        safe access (type system)
+        editor integration

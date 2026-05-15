@@ -1,0 +1,18 @@
+Reflection means
+    A program can inspect and sometimes modify its own structure at runtime—things like class names, properties, functions, etc.
+
+Reality check (important)
+    Standard C++ (even up to modern standards) does NOT have full built-in reflection like Java or C#.
+
+So in pure C++:
+    You cannot ask: “what members does this class have?” at runtime
+    No native metadata system
+
+That’s why systems like Unreal Engine build their own reflection layer using macros + code generation
+
+When is reflection useful?
+    Serialization (JSON/XML)
+    Game editors (like Unreal)
+    UI binding
+    Scripting systems
+    Debug tools
