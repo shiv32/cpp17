@@ -1,4 +1,4 @@
-Where reflection useful real world exmple C++?
+Where is reflection useful? Give real world exmple in C++?
 
 in C++ you don’t get reflection “for free,” 
 so you only build it when it genuinely pays off.
