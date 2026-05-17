@@ -1,0 +1,47 @@
+Project: Console Aerospace Simulator (C++17), 1D simulation (vertical only)
+
+What you are building (keep it concrete)
+    A console-based rocket/satellite simulator that:
+        Simulates motion (altitude, velocity)
+        Applies forces (gravity, thrust, drag)
+        Uses interchangeable physics algorithms
+        Prints telemetry in real-time
+        Accepts commands (launch, pause, adjust thrust)
+
+What to experiment with (this is where learning happens)
+    Don’t just run it—play with it:
+        1. Change thrust
+            SetThrustCommand thrustCmd(5000);   // rocket may fall
+            SetThrustCommand thrustCmd(20000);  // strong lift
+        2. Change mass
+            rocket.state.mass = 500;
+        3. Break it intentionally
+            Set thrust = 0 → free fall
+            Negative thrust → force downward
+
+Next step (worth doing immediately)
+    Add drag—this is where it starts feeling real:
+        Inside computeAcceleration:
+
+            double drag = 0.01 * rocket.state.velocity * rocket.state.velocity;
+            drag *= (rocket.state.velocity > 0 ? -1 : 1);
+
+            return thrustAcc - g + drag;
+
+        Now you’ll see:
+            Rocket slows down at high speed
+            More realistic motion
+
+One honest note
+    Right now this is 1D simulation (vertical only). That’s fine.
+    But real aerospace simulation =
+        vectors (x, y, z)
+        orientation (quaternions)
+        forces in 3D
+    Don’t jump there yet—this 1D model is exactly how professionals start prototyping.
+
+Future work
+    Add Runge-Kutta integrator (huge learning jump)
+    Add fuel consumption
+    Add stage separation (event system)
+
