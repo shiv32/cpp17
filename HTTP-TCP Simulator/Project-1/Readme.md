@@ -10,8 +10,8 @@ or
 Test
     curl http://localhost:8080/hello
 
-    {"msg":"Hello World"}
+        {"msg":"Hello World"}
 
     curl -X POST http://localhost:8080/user
 
-    {"status":"User Created"}
+        {"status":"User Created"}
