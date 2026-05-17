@@ -1,5 +1,5 @@
 # Minimum required version of CMake
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 4.0)
 
 # Project name
 project(httpsimulator VERSION 1.0)

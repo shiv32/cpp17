@@ -1,17 +1,27 @@
 HTTP/TCP simulator using POCO C++ Libraries & C++17
 
+
+---------------------------------------------------------
 Run
     ./sim
 
 or
 
     ./sim 127.0.0.1:9000
-
+----------------------------------------------------------
 Test
-    curl http://localhost:8080/hello
+    get req
 
-        {"msg":"Hello World"}
+        curl http://localhost:8080/hello
 
-    curl -X POST http://localhost:8080/user
+            {"msg":"Hello World"}
 
-        {"status":"User Created"}
+    post req
+
+        curl -X POST http://localhost:8080/user
+
+            {"status":"User Created"}
+----------------------------------------------------------
+Mental model (important)
+    Polling = “Are we done yet?” (repeatedly asking)
+    Blocking = “Wake me when it’s done”

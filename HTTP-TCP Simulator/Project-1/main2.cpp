@@ -19,9 +19,10 @@
 #include <vector>
 #include <csignal>
 #include <atomic>
+#include <Poco/Event.h>
 
 // ---------------- GLOBAL RUN FLAG ----------------
-std::atomic<bool> running(true);
+Poco::Event stopEvent;
 
 // ---------------- ROUTE MODEL ----------------
 struct Route
@@ -37,7 +38,7 @@ std::vector<Route> g_routes;
 void handleSignal(int)
 {
     std::cout << "\nStopping server...\n";
-    running = false;
+    stopEvent.set(); //Event-driven synchronization
 }
 
 // ---------------- LOAD CONFIG ----------------
@@ -82,12 +83,9 @@ void loadConfig()
 class SimulatorHandler : public Poco::Net::HTTPRequestHandler
 {
 public:
-    void handleRequest(Poco::Net::HTTPServerRequest &req,
-                       Poco::Net::HTTPServerResponse &res) override
+    void handleRequest(Poco::Net::HTTPServerRequest &req, Poco::Net::HTTPServerResponse &res) override
     {
-
-        std::cout << "Incoming: " << req.getMethod()
-                  << " " << req.getURI() << "\n";
+        std::cout << "Incoming: " << req.getMethod() << " " << req.getURI() << "\n";
 
         // Read body
         std::stringstream ss;
@@ -102,10 +100,8 @@ public:
         // Route match
         for (auto &route : g_routes)
         {
-            if (route.method == req.getMethod() &&
-                route.path == req.getURI())
+            if (route.method == req.getMethod() && route.path == req.getURI())
             {
-
                 res.setContentType("application/json");
                 std::ostream &out = res.send();
                 Poco::JSON::Stringifier::stringify(route.response, out);
@@ -129,8 +125,7 @@ public:
 class HandlerFactory : public Poco::Net::HTTPRequestHandlerFactory
 {
 public:
-    Poco::Net::HTTPRequestHandler *createRequestHandler(
-        const Poco::Net::HTTPServerRequest &) override
+    Poco::Net::HTTPRequestHandler *createRequestHandler(const Poco::Net::HTTPServerRequest &) override
     {
         return new SimulatorHandler();
     }
@@ -167,11 +162,16 @@ int main(int argc, char **argv)
     std::cout << "Running at http://" << socketAddr.toString() << "\n";
     std::cout << "Press Ctrl+C to stop\n\n";
 
-    // Keep running, It’s a form of polling.
-    while (running)
-    {
-        Poco::Thread::sleep(200);
-    }
+    /*
+    Blocking wait
+        The thread:
+            goes to sleep
+            consumes zero CPU
+            is resumed only when an event occurs
+    
+        blocking, event-driven synchronization mechanism, not polling.
+    */
+    stopEvent.wait();// Blocking wait (or blocking synchronization)
 
     server.stop();
     return 0;
