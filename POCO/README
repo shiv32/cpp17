@@ -1,5 +1,20 @@
-POCO C++ Libraries examples
+What POCO actually is
+    POCO is a collection of backend/system-level C++ libraries. It focuses on:
+        Networking (HTTP, TCP, WebSocket)
+        Multithreading
+        File system & OS abstraction
+        JSON, XML
+        Logging
+        Utilities
 
+Think of it as:
+    “C++ version of backend/infrastructure toolkit”
+
+Simple mental model
+    POCO = backend + system layer
+    Qt/wxWidgets = frontend (GUI)
+--------------------------------------------
+POCO C++ Libraries examples
 
 Install in Ubuntu 18 ->
 
