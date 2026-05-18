@@ -1,0 +1,11 @@
+Headless Simulation Engine
+
+Features:
+    Entities with position, velocity
+    Update loop (fixed timestep)
+    Event system
+    Frame export (JSON / binary)
+    Socket streaming (optional)
+
+Then later:
+    Plug into a frontend (maybe even Unreal Engine or a web UI)

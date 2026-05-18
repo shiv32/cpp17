@@ -1,0 +1,108 @@
+C++17 headless 3D simulation engine. 
+
+It has:
+
+    basic 3D math (Vec3)
+    entity system
+    simple physics (velocity-based movement)
+    fixed timestep loop
+    observer-style publisher (console output)
+    clean separation: Simulation → FrameData → Publisher
+
+You can later swap the publisher with socket / JSON / UI.
+
+What this POC demonstrates
+    Engine loop (fixed timestep)
+    Data-oriented frame output
+    Decoupled interface (Observer pattern style)
+    Extensible structure (fits your design-pattern approach)
+
+-----------------------------------
+What to improve next (this is where it becomes powerful)
+
+If you push this a bit, it becomes a serious system:
+
+1. Replace ConsolePublisher
+    JSON exporter
+    TCP streaming
+    shared memory
+
+2. Add Components (ECS direction)
+
+Instead of Entity struct:
+
+    Transform
+    Physics
+    Render (future UI)
+
+3. Command System
+
+Control simulation:
+
+    pause
+    spawn entity
+    change velocity
+
+4. Time system
+    fixed timestep vs variable timestep
+    pause/resume
+
+5. Plug into real UI
+
+    You could feed this into:
+
+    a Python dashboard
+    a web frontend
+    or even Unreal Engine as a data source
+
+One honest suggestion
+    Right now this is a good POC, but the real value comes if you:
+    turn this into a plugin-based simulation framework (like your other projects)
+    That would genuinely stand out in interviews and real systems work.
+-------------------------------------------
+If you run that program, 
+the console output is just textual frame-by-frame state of your simulation—no graphics, just structured data.
+Here’s exactly what it looks like (approximate, values change every frame):
+
+Frame 0
+  Entity 1 -> Pos(0.016, 0.0032, 0.008)
+  Entity 2 -> Pos(4.992, 1.0016, -1.9952)
+  Entity 3 -> Pos(-2.9968, 1.9984, 1.0064)
+
+Frame 1
+  Entity 1 -> Pos(0.032, 0.0065, 0.016)
+  Entity 2 -> Pos(4.984, 1.0032, -1.9904)
+  Entity 3 -> Pos(-2.9936, 1.9968, 1.0128)
+
+Frame 2
+  Entity 1 -> Pos(0.048, 0.0099, 0.024)
+  Entity 2 -> Pos(4.976, 1.0048, -1.9856)
+  Entity 3 -> Pos(-2.9904, 1.9952, 1.0192)
+
+  What you’re seeing
+
+    Each block = one simulation frame
+        Frame 0, 1, 2... → time progression
+        Each Entity → object in your 3D world
+        Pos(x, y, z) → actual 3D coordinates
+
+    So instead of rendering:
+        a cube on screen
+        you’re printing its position in space 
+
+    Why this matters (don’t overlook this)
+
+    This output is basically:
+        a real-time data stream of your simulation
+
+    That means:
+        another program can read it
+        a UI can visualize it
+        you can log it, replay it, analyze it
+--------------------------------------------------
+One important insight
+    You are not “printing data”.
+    You are:
+        publishing simulation state
+    Console is just:
+        a debugging subscriber
