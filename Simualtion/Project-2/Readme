@@ -1,0 +1,16 @@
+C++17 example of a simple traffic simulation
+
+    Cars move on a 1D road
+    Maintain safe distance
+    Slow down / speed up
+    Console prints road state
+
+Concept (keep it simple but meaningful)
+    Road = fixed length (like 50 cells)
+    Each car has:
+        position
+        speed
+    Rules:
+        accelerate if space ahead
+        brake if too close
+        move forward every timestep
