@@ -1,3 +1,16 @@
+OVERVIEW OF OPERATOR OVERLOADING
+Why Overload Operators?
+Limitations to Operator Overloading
+Choices in Operator Overloading
+    Method or Global Function
+        Operators that must be methods.
+        Operators that must be global functions.
+        Operators that can be either methods or global functions.
+    Choosing Argument Types
+    Choosing Return Types
+    Choosing Behavior
+Operators You Shouldn’t Overload
+
 Summary of Overloadable Operators
     This table is a useful reference for the future when you want to write an overloaded operator.
     In this table, T is the name of the class for which the overloaded operator is written, and E is a different type. 
