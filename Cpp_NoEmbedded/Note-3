@@ -1,0 +1,166 @@
+As a backend infrastructure What project should I show In resume C++?
+
+If your goal is a **backend infrastructure C++ role**, you don’t win by listing many projects—you win by showing **one or two systems that look production-grade**. Hiring managers aren’t impressed by “features”; they look for evidence that you understand how real backend systems behave under load, failure, and scale.
+
+If I had to choose for you, I’d be very opinionated about it:
+
+---
+
+## The One Project You *Must* Have
+
+### Distributed Key-Value Store (your flagship project)
+
+Inspired by systems like Redis
+
+![Image](https://images.openai.com/static-rsc-4/V6Tesjt4Vu-H8BGV3GTHGq-rmD0EUnBZ2EWRrMo9AYD9p3G1fN6a0dL_FT8PdZE8WYj4pXtQXNJIrin6CeAJK1U4OTry0khkCkFqOz8nDGIDdey_3LoN7WWTsqd_Wo3pYhHqA1_37CRngYnfr0y89_rB8uozYAt8qnoGWrsazxrI8V88vkgHKrHlFRstFD4W?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/ApsRJtXyK1w7yVxtNjXH3Lljg0xTUzR70RlXEe5LxBoM0vHZ3XvAoZbqxxA1W-Aj5Fuv9gnV71pWjXWd_gHcRhlaZ3z54dE3pGfuvdIMFXLS26HUY86OZBu5O5ujRsXX0dGKagQ1dFfeeO-7JvHVexy4PDCN0I6ZJn1de1pZLIEKeEMVpSrjkyPwzUmapdUh?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/nkPZdvNSRa-Tx3TSNPGodxxgsfEyeeAd0wMDif-HEpgteQp3AEIs4S3WeO1ManoFUxcI-aXdzuKJRHtRpk_8rlGcBdz0XM_Dll834VHRpK_liaQvxjfrkV0VBcZb85AV-yBhz87p5ISYhRDN-ez-SKBK_Qpk0bMrJxCP-9Ha_DMzNjbfjYjxn-1Iz_BDm_1-?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/BzmKeswtH0tH5NE_ANhUTx9vW3zS8sWGoLTxRXn2sAlg8Vv94X4mZB9_Lg9myPKRYtBNha_8G3EKLtTTV0mtn5ZEDE4QBzw2WYmr6MjLdbF6er0JOGnyeH6miNA6yupfT-nY0N5mzGrtass15-zzqf0z-rdj-nViDCsF6C9SNPDzlKOi8leBay-RVfEge9el?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/7rvFv2jJOMesggbQJx4U2F4HzSyWNk0OhHvk_m7t4LD1B7w_on1A1nA4bs7GGwG8rL1So2mPaEVkHc3WNxGuZj7vPZjASqVVDQsv-9GBd9eOWTL_EqNy4RP-MAotzwVAy4y8OVtNAvOytucbf5aho_li52LvGoox3p3hRXKqjBQZuwpm7i-oJRCcfMJ2Zt56?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/KAauEgC6RYC3oJDlgaXjso6B12DKYJO3rLxy3ZAIU3lV5yQvO8isOw7rR_PyrLJhJ-qCjpFG9a9Bl1Sr1hRWSpHdAF11XwWKMzFDS37j6daIhct00xAYmZ32OEOkQT1WR5da-SFgIyvnsD0xyX48djFNYUM3aNvsaa2y3GIiTOOO_BgBVGn7yaDeiFV-mFcW?purpose=fullsize)
+
+**What it should include (minimum):**
+
+* TCP server handling multiple clients
+* Commands: `GET`, `SET`, `DELETE`
+* Thread pool or async I/O (epoll)
+* In-memory storage (hash map)
+
+**What makes it resume-worthy (this is where most people fail):**
+
+* Persistence (append-only log)
+* Replication (leader → follower)
+* Basic fault handling (node down scenario)
+* Benchmark (requests/sec)
+
+**What it signals:**
+
+> “I understand how real backend systems manage state, concurrency, and failures.”
+
+---
+
+## The Second Project (Equally Important)
+
+### High-Performance HTTP Server
+
+Inspired by NGINX
+
+![Image](https://images.openai.com/static-rsc-4/Op8Ta5PuERvM9_h-XDfTu5x0zqNulhueSK1ttFyKrMyu9saxhXyZlHTDEpnxDcG21LgpCoo9E-KG6MBxsOth-ZawcyBhhELtT-BFEUwoatZETVnZrMTryJj_WsWuEpmF2U-PXnC8qAK0BdlzI-AWmO0IPTCeUiD0DgrCRnY676LQtMIUpNc7SEGZyX_vxJlN?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/xngaZgbky1lAtdDHHT3-uVzPlAo75dUk31ZDpNBvydnJkS4bNhFtzwnACYs-icoxoE8oRUhZG2bNR68udxRP6nOluZX9UsGg35JBhi8mRldIxA5IxeC4Q56PynDm-IsFgxiN3MFX39ugxLCtYPt_ivkyyNCOpqUOLv3vm3Vt08uKGYDoUON2fT9blwzEVbuH?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/ed2CbmFsJH6Gh9y5W3jPYTMovpfweb4PV_PS5wuWDedPAHUOqEevpJlmZQzBh0ppFCu3sXC3g2lZnizD65xdMcCsHPHyDU8TqsG7AFZ-ie2z62b4Af0MkcF_cGrREBWu9bjBTuRp0CyOEwP9ueNqAUFdcL5tfU9Z_pAVGSL7fn38a3f14MGZdrMYD2TsEE0g?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/XUywqCKEuGz3kxsyLTZ0ZRUq9afkIi2xKxDs1RyD-DhoNd-WwtDbjH944UOt1bBQSuREQ8hl86xLthZAY8Bl5GMg-ZVnlxXZlcXct2LQWVoVC5_Kayp_n_5C-4Nbqx5tmrGW0U4We_B-O_-0d3bw7LkmuwU97RNfmEIcSjLstNOq1YTF9phZg13Dx0SCZFe8?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/gB3rv5_xOZfF53dOg0gfutWJyrjTRYR93LzxtP-ExX1zZiKLb4Jc_hxjsI3VI60NfPH_sMvCc58n7MCVgukxtfedmvlvrbozvqTgRLI_MXVhVCg3H0EBe3Op8tFyc476TAyqVNwAePFa3zKfHWrrUt5KexZj3vgSwphPMTTXBeAt4J-JNbrUMFHiGkMmnuTX?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/mnomNcVs5ZJ8CTR53pPCf4Ceh1A38CZ0DVitrYWLRrzt-DyQqp0NToynqcLxABAteHUnt2aCNebwmjR9Sui-rphHAvEVM-ZXaHFmHj_BatkBaejfiNh-j-hnJneWbjophTLfqxRqkN6MRIVkmRyBD986wIwzTUQppSiannpwDeHTmVmr0hWGRssDKWBchSy0?purpose=fullsize)
+
+**Core features:**
+
+* HTTP/1.1 parser
+* Non-blocking I/O (epoll)
+* Thread pool
+
+**Make it strong by adding:**
+
+* Routing system
+* Middleware (logging, auth)
+* Static file serving
+* Load testing (very important)
+
+**What it signals:**
+
+> “I can build high-throughput stateless services.”
+
+---
+
+## Optional Third (if you want to stand out more)
+
+### RPC Framework (mini gRPC)
+
+**Why this matters:**
+Modern backend = microservices → communication matters.
+
+**Core idea:**
+
+* Define service → call function remotely
+
+**What it shows:**
+
+> “I understand how services talk in real systems.”
+
+---
+
+## What Recruiters Actually Look For (honest truth)
+
+A project gets attention when it shows:
+
+### 1. Concurrency
+
+* Threads / async I/O
+* No blocking everywhere
+
+### 2. Networking
+
+* TCP/HTTP handling
+* Protocol design
+
+### 3. System Thinking
+
+* What happens when:
+
+  * Server crashes?
+  * Load increases?
+  * Data grows?
+
+### 4. Performance Awareness
+
+* Benchmarks (even simple ones)
+* Memory usage thinking
+
+---
+
+## How to Write It in Resume (this matters a lot)
+
+Don’t write:
+
+> “Built a key-value store in C++”
+
+Write like this:
+
+> Built a distributed in-memory key-value store in C++ using epoll-based asynchronous I/O, supporting concurrent clients, persistence (AOF), and leader–follower replication; achieved ~X req/sec under load testing.
+
+That line alone can carry your resume.
+
+---
+
+## What You Should NOT Do
+
+* ❌ Todo apps
+* ❌ CRUD console apps
+* ❌ Basic OOP demos
+* ❌ “Design pattern showcase projects” (without real system use)
+
+These don’t map to backend infra jobs.
+
+---
+
+## Straight Recommendation (no confusion)
+
+If you want maximum impact:
+
+👉 Build:
+
+1. **Distributed KV Store (main project)**
+2. **HTTP Server (second project)**
+
+That’s enough to be taken seriously for backend C++ roles.
+
+---

@@ -1,0 +1,232 @@
+List domain where C++ used not in embedded device.
+
+C++ absolutely isn’t confined to embedded work—in fact, 
+a large chunk of high-performance backend and infrastructure across industries runs on C++. 
+If you want a mental model, think: **“any system where latency, throughput, or resource control matters”**.
+Here are the main domains where C++ is used heavily **on servers / backend / non-embedded systems**:
+
+---
+
+## 1. High-Frequency Trading (HFT) & FinTech
+
+This is one of the strongest C++ domains.
+
+* Ultra-low latency trading systems
+* Market data feed handlers
+* Order matching engines
+* Risk engines
+
+Used by firms like:
+
+* Jane Street
+* Citadel
+* Goldman Sachs
+
+Why C++?
+
+* Microsecond-level latency matters
+* Fine control over memory and CPU
+
+---
+
+## 2. Backend Infrastructure / Distributed Systems
+
+A lot of large-scale backend systems are written partly in C++.
+
+Examples:
+
+* RPC frameworks
+* Load balancers
+* Storage systems
+* Messaging systems
+
+Used in:
+
+* Google (core systems, search infra)
+* Meta (performance-critical backend)
+* Amazon (parts of AWS infra)
+
+Why C++?
+
+* Handles massive scale efficiently
+* Better performance than Java/Python in critical paths
+
+---
+
+## 3. Databases & Storage Engines
+
+Many major databases are written in C++.
+
+Examples:
+
+* MySQL
+* MongoDB
+* RocksDB
+
+Where C++ is used:
+
+* Query execution engine
+* Indexing
+* Storage layer
+
+---
+
+## 4. Game Engines (Core Systems)
+
+Even if games have UI, the **engine itself is heavy C++ backend logic**.
+
+Examples:
+
+* Unreal Engine
+* Unity (core parts in C++)
+
+Work includes:
+
+* Physics engine
+* Rendering pipeline
+* Memory systems
+* AI systems
+
+---
+
+## 5. Simulation Systems (Non-GUI / Headless)
+
+This fits very well with your interest.
+
+Examples:
+
+* Aerospace simulations
+* Financial simulations
+* Traffic / logistics simulators
+
+Used by:
+
+* NASA
+* Boeing
+
+These often run:
+
+* On servers
+* Without GUI (CLI / data output)
+
+---
+
+## 6. Networking & Telecom Systems
+
+C++ is widely used in high-performance networking.
+
+Examples:
+
+* Packet processing systems
+* Routers / network controllers
+* Telecom core systems
+
+Related tools:
+
+* DPDK
+* PcapPlusPlus
+
+---
+
+## 7. Operating Systems & System Software
+
+Not embedded—full systems.
+
+Examples:
+
+* Linux kernel (mostly C, but ecosystem uses C++)
+* Windows (parts in C++)
+
+Also:
+
+* Compilers
+* Runtime systems
+* File systems
+
+---
+
+## 8. AI / ML Infrastructure (Not model training in Python)
+
+While Python is popular, 
+the **core engines are C++**.
+
+Examples:
+
+* TensorFlow
+* PyTorch
+
+C++ is used for:
+
+* Execution engines
+* Performance optimization
+* GPU interfacing
+
+---
+
+## 9. Browser Engines & Rendering Systems
+
+The engines behind browsers are C++.
+
+Examples:
+
+* Chromium
+* Firefox
+
+Work includes:
+
+* HTML/CSS parsing
+* Rendering engine
+* JavaScript execution
+
+---
+
+## 10. CLI Tools & Developer Infrastructure
+
+Pure console-based C++—this aligns strongly with your interest.
+
+Examples:
+
+* Build systems
+* Compilers
+* Debuggers
+
+Tools:
+
+* Clang
+* CMake
+
+---
+
+## Reality Check (Important)
+
+Your earlier assumption:
+
+> “C++ = embedded only” ❌
+
+Correct view:
+
+* Embedded = **one domain**
+* Backend / infra / trading / simulation = **huge job market**
+
+Also:
+
+* Many C++ jobs are **headless (no GUI)**
+* Run on **servers, data centers, or cloud**
+
+---
+
+## If You Want Job-Oriented Direction (based on your interest)
+
+Since you like:
+
+* Console apps
+* No GUI
+* C++
+
+Best domains for you:
+
+1. **Backend Infrastructure (highest jobs)**
+2. **FinTech / Trading (highest pay)**
+3. **Simulation Systems (great projects)**
+
+---

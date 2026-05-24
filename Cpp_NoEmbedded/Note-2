@@ -1,0 +1,295 @@
+List projects for Backend Infrastructure (highest jobs).
+
+If you’re targeting **backend infrastructure roles in C++**, the projects that actually get attention are not “apps” but **systems**—things that look like pieces of real production infrastructure. The closer your project feels to something Google or Amazon might build internally, the stronger your resume becomes.
+
+Here are solid, resume-worthy project ideas, with what they prove and how far you can take them.
+
+---
+
+## 1. High-Performance HTTP Server (from scratch)
+
+**What you build:**
+
+* Multi-threaded HTTP/1.1 server (later HTTP/2 optional)
+* Handle thousands of concurrent connections
+
+**Core concepts:**
+
+* epoll / select (Linux I/O multiplexing)
+* Thread pool
+* Connection lifecycle management
+
+**Stretch goals:**
+
+* Add routing + middleware
+* Benchmark vs nginx-lite behavior
+
+**What it proves:**
+👉 You understand **networking + concurrency + performance**
+
+---
+
+## 2. Distributed Key-Value Store (like mini Redis)
+
+**What you build:**
+
+* In-memory KV store with TCP interface
+* Commands: GET, SET, DELETE
+
+**Core concepts:**
+
+* Serialization protocol
+* Thread safety
+* Persistence (append-only file)
+
+**Stretch goals:**
+
+* Replication (leader-follower)
+* Sharding
+
+Inspired by:
+
+* Redis
+
+**What it proves:**
+👉 You can build **stateful backend systems**
+
+---
+
+## 3. RPC Framework (mini gRPC clone)
+
+**What you build:**
+
+* Client-server RPC system
+* Define services and call remote functions
+
+**Core concepts:**
+
+* Serialization (Protobuf-like or custom)
+* Networking abstraction
+* Service discovery (basic)
+
+Inspired by:
+
+* gRPC
+
+**Stretch goals:**
+
+* Async calls
+* Load balancing
+
+**What it proves:**
+👉 You understand **microservices communication**
+
+---
+
+## 4. Load Balancer (Layer 4 / Layer 7)
+
+**What you build:**
+
+* Distribute incoming traffic across backend servers
+
+**Core concepts:**
+
+* Round-robin / least connections
+* Health checks
+* Reverse proxying
+
+Inspired by:
+
+* NGINX
+
+**Stretch goals:**
+
+* Rate limiting
+* Sticky sessions
+
+**What it proves:**
+👉 You understand **real production traffic flow**
+
+---
+
+## 5. Async Task Queue System (like Celery backend)
+
+**What you build:**
+
+* Producer pushes jobs
+* Workers consume and execute
+
+**Core concepts:**
+
+* Queue design
+* Worker pool
+* Retry mechanism
+
+**Stretch goals:**
+
+* Priority queues
+* Distributed workers
+
+Inspired by:
+
+* RabbitMQ
+
+**What it proves:**
+👉 You can design **background job systems**
+
+---
+
+## 6. Log Aggregation System
+
+**What you build:**
+
+* Collect logs from multiple services
+* Store + query logs
+
+**Core concepts:**
+
+* File streaming
+* Indexing
+* Search
+
+Inspired by:
+
+* Elasticsearch
+
+**Stretch goals:**
+
+* Real-time log dashboard (CLI is fine)
+* Filtering & querying
+
+**What it proves:**
+👉 You understand **observability systems**
+
+---
+
+## 7. Rate Limiter Service
+
+**What you build:**
+
+* API rate limiting service (token bucket / leaky bucket)
+
+**Core concepts:**
+
+* Time-based algorithms
+* Distributed counters
+
+**Stretch goals:**
+
+* Redis-backed limiter
+* Per-user/IP limits
+
+**What it proves:**
+👉 You understand **production safeguards**
+
+---
+
+## 8. Distributed File Storage (mini S3)
+
+**What you build:**
+
+* Upload/download files over network
+* Store across nodes
+
+**Core concepts:**
+
+* Chunking
+* Replication
+* Metadata management
+
+Inspired by:
+
+* Amazon S3
+
+**Stretch goals:**
+
+* Fault tolerance
+* Consistency models
+
+**What it proves:**
+👉 You can design **large-scale storage systems**
+
+---
+
+## 9. Metrics Monitoring System (mini Prometheus)
+
+**What you build:**
+
+* Collect metrics from services
+* Store time-series data
+
+**Core concepts:**
+
+* Time-series storage
+* Pull vs push model
+
+Inspired by:
+
+* Prometheus
+
+**Stretch goals:**
+
+* Alerting system
+* Query language
+
+**What it proves:**
+👉 You understand **system monitoring**
+
+---
+
+## 10. Plugin-Based CLI Tool Framework
+
+(This matches your current interest strongly)
+
+**What you build:**
+
+* CLI tool where features are loaded as plugins
+
+**Core concepts:**
+
+* Dynamic loading (.so files)
+* Command pattern
+* Modular architecture
+
+**Stretch goals:**
+
+* Package manager for plugins
+* Config system
+
+**What it proves:**
+👉 You understand **extensible system design**
+
+---
+
+## What Actually Gets You Hired (Important)
+
+Don’t build 10 weak projects.
+Instead:
+
+* Build **2–3 strong systems**
+* Each should have:
+
+  * Clean architecture (design patterns)
+  * README with architecture diagram
+  * Benchmarks (very important)
+  * Proper logging
+
+---
+
+## Best Combo (if you want maximum impact)
+
+If I were in your place, I’d pick:
+
+1. **HTTP Server**
+2. **Distributed KV Store**
+3. **RPC Framework**
+
+This combination shows:
+
+* Networking
+* Concurrency
+* Distributed systems
+
+That’s exactly what backend infra teams look for.
+
+---
