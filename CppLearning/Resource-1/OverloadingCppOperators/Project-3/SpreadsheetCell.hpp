@@ -29,11 +29,14 @@ public:
   void setString(std::string_view inString);
   std::string getString() const;
 
-  // Overloading Unary Minus
+  // Overloading Unary Minus and Unary Plus
   SpreadsheetCell operator-() const;
-  // Overloading Increment
+  SpreadsheetCell operator+() const;
+  // Overloading Increment and Decrement
   SpreadsheetCell &operator++();   // Prefix
   SpreadsheetCell operator++(int); // Postfix
+  SpreadsheetCell &operator--();   // Prefix
+  SpreadsheetCell operator--(int); // Postfix
 
 private:
   std::string doubleToString(double inValue) const;

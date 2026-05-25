@@ -89,6 +89,11 @@ SpreadsheetCell SpreadsheetCell::operator-() const
   return SpreadsheetCell(-getValue());
 }
 
+SpreadsheetCell SpreadsheetCell::operator+() const
+{
+   return *this; // return copy (identity)
+}
+
 SpreadsheetCell &SpreadsheetCell::operator++()
 {
   setValue(getValue() + 1);
@@ -99,5 +104,18 @@ SpreadsheetCell SpreadsheetCell::operator++(int)
 {
   auto oldCell(*this); // Save current value
   ++(*this);           // Increment using prefix ++
+  return oldCell;      // Return the old value
+}
+
+SpreadsheetCell &SpreadsheetCell::operator--()
+{
+  setValue(getValue() - 1);
+  return *this;
+}
+
+SpreadsheetCell SpreadsheetCell::operator--(int)
+{
+  auto oldCell(*this); // Save current value
+  --(*this);           // Decrement using prefix --
   return oldCell;      // Return the old value
 }
