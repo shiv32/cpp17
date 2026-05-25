@@ -1,8 +1,3 @@
-/*
-    DYNAMIC MEMORY ALLOCATION IN OBJECTS
-    Freeing Memory with Destructors
-*/
-
 #include <iostream>
 #include "Spreadsheet.hpp"
 

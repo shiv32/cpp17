@@ -1,0 +1,16 @@
+
+    BUILDING STABLE INTERFACES
+
+        Classes are the main unit of abstraction in C++.
+
+        You should apply the principles of abstraction to your classes to separate the interface
+        from the implementation as much as possible.
+
+        You should make all data members private and provide getter and setter methods for them.
+        This is how the SpreadsheetCell class is implemented.
+
+    Using Interface and Implementation Classes
+
+        An alternative to separating the implementation from the interface is to use an abstract interface.
+           An interface with only pure virtual methods and then have an implementation class that implements
+           that interface
