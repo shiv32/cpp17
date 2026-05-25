@@ -1,0 +1,162 @@
+Backend Infrastructure C++ job project.
+
+Yes—**C++17 + POCO + NGINX + Redis** is a perfectly valid **backend infrastructure stack**, and it has nothing to do with embedded systems. 
+It’s the kind of stack you’d see in server-side, high-performance services.
+
+But it helps to be precise about what each piece is doing, because that’s what interviewers will probe.
+
+---
+
+## How this stack actually fits together
+
+Think in layers:
+
+```
+Client → NGINX → Your C++ (POCO) Service → Redis → (other services/db)
+```
+
+### 1. NGINX (edge layer)
+
+* Entry point for all traffic
+* Handles:
+
+  * TLS/HTTPS
+  * Load balancing
+  * Static files
+
+👉 You typically **don’t replace NGINX**, you work behind it
+
+---
+
+### 2. Your C++ Service (C++17 + POCO C++ Libraries)
+
+* Business logic OR gateway logic
+* Handles:
+
+  * Routing
+  * Processing requests
+  * Calling other services
+
+👉 This is where your **main backend engineering work** is
+
+---
+
+### 3. Redis (data / caching layer)
+
+* Used for:
+
+  * Caching
+  * Rate limiting
+  * Sessions
+  * Fast lookups
+
+👉 Critical for performance in real systems
+
+---
+
+## Is this used in real companies?
+
+Yes. Variations of this stack exist in companies like:
+
+* Amazon
+* Netflix
+* Uber
+
+They may swap pieces (Envoy instead of NGINX, etc.), but the **architecture idea is identical**.
+
+---
+
+## What role does this map to?
+
+This stack prepares you for:
+
+### Backend Infrastructure Engineer
+
+* Builds services
+* Designs APIs
+* Handles performance + scaling
+
+### Systems / Platform Engineer
+
+* Works on gateways, proxies, infra components
+
+### NOT:
+
+* Embedded engineer ❌
+* GUI developer ❌
+
+---
+
+## Important nuance (this is where most people get confused)
+
+Just *using* this stack is not enough.
+
+### Weak project:
+
+* Simple REST API using POCO
+* Redis just for storing data
+* NGINX just sitting there
+
+👉 Looks like basic backend (not infra)
+
+---
+
+### Strong backend infra project (what you should aim for)
+
+Use all components meaningfully:
+
+* NGINX → load balancing + reverse proxy
+* C++ service → gateway / high-performance service
+* Redis → rate limiting / caching / distributed state
+
+Example:
+
+* API Gateway in C++
+* Redis-backed rate limiter
+* NGINX handling traffic distribution
+
+👉 This screams **infrastructure engineering**
+
+---
+
+## Real Example Project Idea (using your stack)
+
+**“High-Performance API Gateway with Rate Limiting”**
+
+* NGINX:
+
+  * Accepts traffic
+  * Forwards to your C++ service
+
+* C++ (POCO):
+
+  * Routes requests
+  * Implements middleware
+  * Calls backend services
+
+* Redis:
+
+  * Stores request counters
+  * Enforces rate limits
+
+---
+
+## Resume Line (very strong)
+
+> Built a high-performance API Gateway in C++17 using POCO, deployed behind NGINX, with Redis-based distributed rate limiting and caching; designed for concurrent request handling and scalable backend service routing.
+
+---
+
+## Final Answer
+
+✔ Yes, this stack is:
+
+* Backend infrastructure
+* Server-side
+* Industry relevant
+
+❌ Not embedded
+❌ Not GUI
+
+---
+

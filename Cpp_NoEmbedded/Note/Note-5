@@ -1,0 +1,82 @@
+C++ on Desktop/Server field.
+
+Yes. Most of the fields I mentioned are primarily desktop, workstation, cloud, or server-side C++ — not traditional embedded firmware work.
+
+Roughly:
+
+* Desktop/PC applications
+  Qt apps, CAD software, IDEs, media tools, engineering software
+  → Windows/Linux/macOS desktop
+
+* Server/backend systems
+  Trading systems, databases, distributed systems, networking services
+  → Linux servers/cloud/datacenters
+
+* Infrastructure/software platforms
+  Browsers, compilers, storage engines, virtualization software
+  → Mostly PC/server environments
+
+* Game engines/graphics
+  PC/console development
+
+* Scientific/simulation software
+  HPC clusters, Linux workstations, servers
+
+Embedded C++ is different in daily work style. It usually involves:
+
+* microcontrollers
+* device drivers
+* RTOS
+* hardware protocols
+* memory constraints
+* board bring-up
+* firmware flashing
+* oscilloscopes/JTAG
+
+Your current experience actually looks closer to:
+
+* Linux application development
+* Qt desktop UI
+* backend/service logic
+* systems programming
+
+than bare-metal embedded.
+
+For example:
+
+* QML + QAbstractListModel + controllers + async tasks
+* Linux tooling
+* Docker
+* networking
+* JSON parsing
+* architecture discussions
+
+These are much more common in desktop/server-side C++ engineering than in low-level firmware jobs.
+
+There is also a middle area called “embedded Linux application development”:
+
+* medical devices
+* industrial machines
+* automotive HMIs
+* instruments
+* kiosks
+
+There people still use:
+
+* Linux
+* Qt
+* C++
+* networking
+* multithreading
+
+But the application layer feels very similar to desktop/server C++ development.
+
+So you are not locked into embedded at all. Your current skill direction can transition naturally into:
+
+* Qt desktop engineer
+* Linux C++ engineer
+* backend C++ developer
+* systems software engineer
+* platform/tooling engineer
+
+without needing microcontroller firmware expertise.

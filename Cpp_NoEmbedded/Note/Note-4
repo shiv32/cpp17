@@ -1,0 +1,82 @@
+C++ Domain outside embedded systems. 
+
+You can absolutely build a strong career in C++ outside embedded systems. 
+In fact, a lot of high-performance and infrastructure-heavy software still depends on C++ because of speed, memory control, and low-level access.
+
+Given your background — 
+Qt/QML, modern C++17, models, backend logic, Linux, debugging — you already align better with “systems/application C++” than pure embedded firmware.
+
+Some major C++ domains outside embedded:
+
+* Desktop application development
+  Heavy use of Qt. Examples: CAD tools, IDEs, trading terminals, engineering software, medical imaging apps.
+  Companies:    [Qt Group](https://www.qt.io?utm_source=chatgpt.com), 
+                [Autodesk](https://www.autodesk.com?utm_source=chatgpt.com), 
+                [Siemens](https://www.siemens.com?utm_source=chatgpt.com)
+
+* Finance / low-latency systems
+  Trading engines, risk systems, market data processing. Very strong C++ demand because latency matters.
+
+* Game engines & graphics
+  Engines, rendering pipelines, physics systems.
+  Examples: Epic Games with Unreal Engine, graphics middleware, simulation software.
+
+* Browser / database / infrastructure software
+  Browsers, databases, compilers, storage engines, distributed systems.
+  Examples: Google Chrome, MySQL, parts of LLVM.
+
+* Robotics / simulation / autonomy
+  Not necessarily embedded firmware. Often Linux + networking + real-time-ish applications + visualization.
+
+* Cybersecurity & networking
+  VPNs, packet processing, protocol stacks, performance tooling.
+
+* Audio/video/media software
+  Streaming engines, codecs, video editing, media processing.
+
+* Scientific / engineering software
+  Simulation, numerical computing, imaging, instrumentation tools.
+
+For you specifically, these paths fit naturally:
+
+1. Qt/C++ desktop engineer
+   You already work with:
+
+* QML
+* models/views
+* backend integration
+* threading
+* Linux
+* debugging
+
+That stack is valuable in industrial software companies.
+
+2. Systems/backend C++ engineer
+   Move deeper into:
+
+* multithreading
+* networking
+* async systems
+* IPC
+* performance optimization
+* Linux internals
+
+3. Tools/platform engineer
+   Developer tools, frameworks, SDKs, middleware, infrastructure libraries.
+
+A practical reality:
+Pure “modern C++ application development” jobs are fewer than Java/web jobs, but the engineers are also fewer. Good C++ engineers remain hard to replace.
+
+If your goal is long-term stability plus interesting engineering work, I’d focus on:
+
+* Modern C++17/20
+* Linux
+* debugging/profiling
+* concurrency
+* networking
+* architecture/design
+* Qt only as a UI layer, not your entire identity
+
+That combination opens far more doors than staying narrowly “Qt developer” or “embedded only.”
+
+You do not need to move into embedded to have a serious C++ career.
