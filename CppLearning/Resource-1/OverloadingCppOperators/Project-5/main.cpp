@@ -55,6 +55,7 @@ void test2()
 void test3()
 {
     Array<int> myArray;
+    
     for (size_t i = 0; i < 10; i++)
     {
         myArray[i] = 100; // Calls the non-const operator[] because myArray is a non-const object.
