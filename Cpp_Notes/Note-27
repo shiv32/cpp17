@@ -1,0 +1,190 @@
+static in C and C++.
+
+In both **C** and **C++**, 
+`static` is a keyword used to change the **lifetime**, **visibility**, or **sharing behavior** of variables and functions.
+
+The meaning depends on **where it is used**.
+
+---
+
+# 1. Static Local Variable
+
+A local variable declared as `static` keeps its value between function calls.
+
+## Example in C/C++
+
+```c
+#include <stdio.h>
+
+void counter() {
+    static int count = 0;
+    count++;
+    printf("%d\n", count);
+}
+
+int main() {
+    counter();
+    counter();
+    counter();
+}
+```
+
+### Output
+
+```text
+1
+2
+3
+```
+
+### Explanation
+
+Normally, local variables are recreated every time the function runs.
+
+But `static`:
+
+* Creates the variable only once
+* Stores it in static memory
+* Preserves its value between calls
+
+---
+
+# 2. Static Global Variable (File Scope)
+
+When a global variable is declared `static`, it becomes visible only inside that file.
+
+## Example
+
+### file1.c
+
+```c
+static int x = 10;
+```
+
+`x` cannot be accessed from another file.
+
+### Purpose
+
+* Encapsulation
+* Prevent name conflicts
+* Internal linkage
+
+---
+
+# 3. Static Function
+
+A function declared `static` can only be used inside that source file.
+
+## Example
+
+```c
+static void helper() {
+    printf("Helper function");
+}
+```
+
+Used for:
+
+* Hiding internal functions
+* Modular programming
+
+---
+
+# 4. Static Class Members (C++ Only)
+
+C++ adds another meaning for `static` inside classes.
+
+A static member belongs to the **class itself**, not to objects.
+
+## Static Data Member
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    static int count;
+
+    Student() {
+        count++;
+    }
+};
+
+int Student::count = 0;
+
+int main() {
+    Student s1, s2, s3;
+
+    cout << Student::count;
+}
+```
+
+### Output
+
+```text
+3
+```
+
+### Explanation
+
+* Only one copy of `count` exists
+* Shared by all objects
+
+---
+
+## Static Member Function
+
+```cpp
+class Test {
+public:
+    static void show() {
+        cout << "Hello";
+    }
+};
+```
+
+Called without object:
+
+```cpp
+Test::show();
+```
+
+### Rules
+
+Static member functions:
+
+* Can access only static members
+* Do not use `this` pointer
+
+---
+
+# Memory Behavior
+
+| Type                   | Lifetime           | Scope     |
+| ---------------------- | ------------------ | --------- |
+| Normal local variable  | Function call only | Local     |
+| Static local variable  | Entire program     | Local     |
+| Global variable        | Entire program     | Global    |
+| Static global variable | Entire program     | File only |
+
+---
+
+# Key Differences Between C and C++
+
+| Feature                | C   | C++ |
+| ---------------------- | --- | --- |
+| Static local variable  | Yes | Yes |
+| Static global variable | Yes | Yes |
+| Static function        | Yes | Yes |
+| Static class member    | No  | Yes |
+
+---
+
+# Quick Summary
+
+`static` mainly means:
+
+1. **Preserve value for entire program**
+2. **Restrict visibility to current file**
+3. **Share data among class objects (C++)**
