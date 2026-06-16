@@ -48,7 +48,7 @@ public:
 
   // conversion operator to convert SpreadsheetCells to string.
   operator std::string() const;
-
+  
 private:
   std::string doubleToString(double inValue) const;
   double stringToDouble(std::string_view inString) const;

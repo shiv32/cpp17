@@ -26,17 +26,17 @@ namespace project2
         Pointer(T *ptr);
         virtual ~Pointer();
 
+        // Prevent assignment and pass by value.
+        Pointer(const Pointer<T> &src) = delete;
+        Pointer<T> &operator=(const Pointer<T> &rhs) = delete;
+
+        // Dereferencing operators will go here.
         // OVERLOADING THE DEREFERENCING OPERATORS
         T &operator*();
         const T &operator*() const;
         T *operator->();
         const T *operator->() const;
 
-        // Prevent assignment and pass by value.
-        Pointer(const Pointer<T> &src) = delete;
-        Pointer<T> &operator=(const Pointer<T> &rhs) = delete;
-
-        // Dereferencing operators will go here.
     private:
         T *mPtr = nullptr;
     };
