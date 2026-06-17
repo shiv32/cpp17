@@ -14,7 +14,7 @@ namespace example1
 
         // cout << "d1: " << d1 << endl;
 
-        string str = cell;
+        string str = cell; // Works as expected after overload string() without explicit
         cout << "str: " << str << endl;
     }
 
@@ -68,7 +68,8 @@ namespace example2
         //--------------------------------------------
         // The usual pointer type for the conversion operator is void*
         // because that’s a pointer type with which you cannot do much except test it in Boolean expressions.
-        // operator void *() const;//many programmers prefer operator void*() instead of operator bool().
+        // operator void *() const; //many programmers prefer operator void*() instead of operator bool().
+
         operator bool() const; // alternative of void*
 
         template <typename P>
