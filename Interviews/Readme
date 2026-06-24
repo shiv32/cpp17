@@ -19,4 +19,10 @@ C++(11/14/17) interview questions:
 
                 Behavioral (how objects send messages to each other)
                         Chain of responsibility, Observer, Iterator, State
+------------------------------------------
+Index
+Destructors and virtual destructors     -> p13
+callback demo                           -> p17
+stack unwinding demo                    -> p18
+
    
