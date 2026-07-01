@@ -27,6 +27,7 @@ namespace example2
 
             void* operator new(size_t size);
             void* operator new[](size_t size);
+            
             void* operator new(size_t size, const std::nothrow_t&) noexcept;
             void* operator new[](size_t size, const std::nothrow_t&) noexcept;
 
@@ -50,8 +51,10 @@ namespace example2
 
             void operator delete(void* ptr) noexcept;
             void operator delete[](void* ptr) noexcept;
+
             void operator delete(void* ptr, const std::nothrow_t&) noexcept;
             void operator delete[](void* ptr, const std::nothrow_t&) noexcept;
+
             void operator delete(void* p, void*) noexcept;
             void operator delete[](void* p, void*) noexcept;
         */
