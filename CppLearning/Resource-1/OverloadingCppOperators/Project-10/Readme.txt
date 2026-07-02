@@ -12,3 +12,5 @@ Overloading operator new and operator delete
     Overload all forms of operator new, or explicitly delete forms that you don’t want to get used, 
     to prevent inconsistencies in the memory allocations.
 
+Explicitly Deleting/Defaulting operator new and operator delete
+

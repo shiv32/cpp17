@@ -7,6 +7,8 @@ using namespace std;
 namespace example1
 {
     /*
+        Overloading operator new and operator delete
+
         These implementations of operator new and operator delete are
         obviously trivial and not particularly useful.
         They are intended only to give you an idea of the syntax in case
@@ -95,11 +97,30 @@ namespace example1
     }
 }
 
+namespace example2
+{
+    //Explicitly Deleting/Defaulting operator new and operator delete
+
+    class MyClass
+    {
+    public:
+        void *operator new(size_t size) = delete;
+        void *operator new[](size_t size) = delete;
+    };
+
+    void test1()
+    {
+        //  results in compilation errors
+        //  MyClass *p1 = new MyClass;
+        //  MyClass *pArray = new MyClass[2];
+    }
+}
+
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    example1::test1();
+    //example1::test1();
 
     return 0;
 }
