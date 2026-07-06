@@ -165,7 +165,7 @@ METHOD OR GLOBAL FUNCTION
 
 WHEN TO OVERLOAD 
     Whenever you overload the binary bitwise operators and your class is not designed to be immutable
-    
+
 SAMPLE PROTOTYPE
     T& operator<<=(const T&);
     T& operator<<=(const E&);
@@ -178,12 +178,16 @@ OPERATOR
     operator>=
     operator==
     operator!=
+
 NAME OR CATEGORY 
     Binary comparison operators
+
 METHOD OR GLOBAL FUNCTION 
     Global function recommended
+
 WHEN TO OVERLOAD 
     Whenever you want to provide these operations
+
 SAMPLE PROTOTYPE
     bool operator<(const T&, const T&);
     bool operator<(const T&, const E&);
@@ -192,12 +196,16 @@ SAMPLE PROTOTYPE
 OPERATOR
     operator<<
     operator>>
+
 NAME OR CATEGORY 
     I/O stream operators (insertion and extraction)
+
 METHOD OR GLOBAL FUNCTION 
     Global function required
+
 WHEN TO OVERLOAD 
     Whenever you want to provide these operations
+
 SAMPLE PROTOTYPE
     ostream& operator<<(ostream&, const T&);
     istream& operator>>(istream&, T&);
@@ -205,12 +213,16 @@ SAMPLE PROTOTYPE
 11.
 OPERATOR
     operator!
+
 NAME OR CATEGORY 
     Boolean negation operator
+
 METHOD OR GLOBAL FUNCTION 
     Member function recommended
+
 WHEN TO OVERLOAD 
     Rarely; use bool or void* conversion instead.
+    
 SAMPLE PROTOTYPE
     bool operator!() const;
 ---------------------------------------------
