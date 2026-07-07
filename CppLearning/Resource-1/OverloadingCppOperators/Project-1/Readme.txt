@@ -230,25 +230,33 @@ SAMPLE PROTOTYPE
 OPERATOR
     operator&&
     operator||
+
 NAME OR CATEGORY 
     Binary Boolean operators
+
 METHOD OR GLOBAL FUNCTION 
     Global function recommended
+
 WHEN TO OVERLOAD 
     Rarely, if ever, because you lose short-circuiting; 
     it’s better to overload & and | instead, as these never short-circuit.
+
 SAMPLE PROTOTYPE
     bool operator&&(const T&, const T&);
 --------------------------------------------
 13.
 OPERATOR
     operator[]
+
 NAME OR CATEGORY 
     Subscripting (array index) operator
+
 METHOD OR GLOBAL FUNCTION 
     Method required
+
 WHEN TO OVERLOAD 
     When you want to support subscripting
+
 SAMPLE PROTOTYPE
     E& operator[](size_t);
     const E& operator[](size_t) const;
@@ -256,25 +264,33 @@ SAMPLE PROTOTYPE
 14.
 OPERATOR
     operator()
+
 NAME OR CATEGORY 
     Function call operator
+
 METHOD OR GLOBAL FUNCTION 
     Method required
+
 WHEN TO OVERLOAD 
     When you want objects to behave like function pointers, 
     or for multi-dimensional array access, since [] can only have one index
+
 SAMPLE PROTOTYPE
     Return type and parameters can vary; see examples.
 ----------------------------------------------
 15.
 OPERATOR
     operator type()
+
 NAME OR CATEGORY 
     Conversion, or cast, operators (separate operator for each type)
+
 METHOD OR GLOBAL FUNCTION 
     Method required
+
 WHEN TO OVERLOAD 
     When you want to provide conversions from your class to other types
+
 SAMPLE PROTOTYPE
     operator double() const;
 ----------------------------------------------
@@ -282,12 +298,16 @@ SAMPLE PROTOTYPE
 OPERATOR
     operator new
     operator new[]
+
 NAME OR CATEGORY 
     Memory allocation routines
+
 METHOD OR GLOBAL FUNCTION 
     Method recommended
+
 WHEN TO OVERLOAD 
     When you want to control memory allocation for your classes (rarely)
+
 SAMPLE PROTOTYPE
     void* operator new(size_t size);
     void* operator new[](size_t size);
@@ -296,12 +316,16 @@ SAMPLE PROTOTYPE
 OPERATOR
     operator delete
     operator delete[]
+
 NAME OR CATEGORY 
     Memory deallocation routines
+
 METHOD OR GLOBAL FUNCTION 
     Method recommended
+
 WHEN TO OVERLOAD 
     Whenever you overload the memory allocation routines (rarely)
+
 SAMPLE PROTOTYPE
     void operator delete(void* ptr) noexcept;
     void operator delete[](void* ptr) noexcept;
@@ -310,13 +334,17 @@ SAMPLE PROTOTYPE
 OPERATOR
     operator*
     operator->
+
 NAME OR CATEGORY 
     Dereferencing operators
+
 METHOD OR GLOBAL FUNCTION 
     Method recommended for operator*
     Method required for operator->
+
 WHEN TO OVERLOAD 
     Useful for smart pointers
+
 SAMPLE PROTOTYPE
     E& operator*() const;
     E* operator->() const;
@@ -324,36 +352,48 @@ SAMPLE PROTOTYPE
 19.
 OPERATOR
     operator&
+
 NAME OR CATEGORY 
     Address-of operator
+
 METHOD OR GLOBAL FUNCTION 
     N/A
+
 WHEN TO OVERLOAD 
     Never
+
 SAMPLE PROTOTYPE
     N/A
 -----------------------------------------------
 20.
 OPERATOR
     operator->*
+
 NAME OR CATEGORY 
     Dereference pointer-to-member
+
 METHOD OR GLOBAL FUNCTION 
     N/A
+
 WHEN TO OVERLOAD 
     Never
+
 SAMPLE PROTOTYPE
     N/A
 -----------------------------------------------
 21.
 OPERATOR
     operator,
+
 NAME OR CATEGORY 
     Comma operator
+
 METHOD OR GLOBAL FUNCTION 
     N/A
+
 WHEN TO OVERLOAD 
     Never
+    
 SAMPLE PROTOTYPE
     N/A
 ------------------------------------------------
