@@ -11,8 +11,8 @@ void unaryMinusEx()
     s1.setCellAt(2, 1, c1);
     s1.setCellAt(2, 0, c3);
 
-    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl;
-    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl;
+    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl; // output: 4
+    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl; // output: -4
 }
 
 void unaryPlusEx()
@@ -25,8 +25,8 @@ void unaryPlusEx()
     s1.setCellAt(2, 1, c1);
     s1.setCellAt(2, 0, c3);
 
-    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl;
-    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl;
+    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl; // output: 4
+    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl; // output: 4
 }
 
 void incrementEx()
@@ -38,11 +38,11 @@ void incrementEx()
 
     // c1++; Postfix
     s1.setCellAt(2, 1, c1++);
-    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl;
+    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl; // output: 4
 
     //++c2; Prefix
     s1.setCellAt(2, 0, ++c2);
-    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl;
+    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl; // output: 5
 }
 
 void decrementEx()
@@ -54,11 +54,11 @@ void decrementEx()
 
     // c1--; Postfix
     s1.setCellAt(2, 1, c1--);
-    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl;
+    std::cout << "Cell value at (2,1): " << s1.getCellAt(2, 1).getValue() << std::endl; // output: 4
 
     //--c2; Prefix
     s1.setCellAt(2, 0, --c2);
-    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl;
+    std::cout << "Cell value at (2,0): " << s1.getCellAt(2, 0).getValue() << std::endl; // output: 3
 }
 
 int main()

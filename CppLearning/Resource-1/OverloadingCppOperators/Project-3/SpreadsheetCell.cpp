@@ -84,6 +84,8 @@ double SpreadsheetCell::stringToDouble(string_view inString) const
   return strtod(inString.data(), nullptr);
 }
 
+//OVERLOADING THE ARITHMETIC OPERATORS
+
 SpreadsheetCell SpreadsheetCell::operator-() const
 {
   return SpreadsheetCell(-getValue());
