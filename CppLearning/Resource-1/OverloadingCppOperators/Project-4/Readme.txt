@@ -1,4 +1,5 @@
 OVERLOADING THE BITWISE AND BINARY LOGICAL OPERATORS
+    Project-1 “Summary of Overloadable Operators” shows sample prototypes.
 
 OVERLOADING THE INSERTION AND EXTRACTION OPERATORS
 
