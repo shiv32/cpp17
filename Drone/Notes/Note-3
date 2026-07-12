@@ -1,0 +1,130 @@
+Brief description about PX4 + Gazebo.
+
+## What is PX4 + Gazebo?
+
+**PX4 + Gazebo** is a complete software simulation environment for developing, testing, and debugging drone software **without needing a real drone**.
+
+Think of it like this:
+
+* **PX4** = the drone's **brain (autopilot software)**
+* **Gazebo** = the **virtual world** where the drone flies
+
+Together, they let you write and test C++ code in a realistic simulated environment.
+
+---
+
+## PX4
+
+PX4 Autopilot is an open-source flight control software that runs on drones and other autonomous vehicles.
+
+It is responsible for:
+
+* Stabilizing the drone
+* Reading sensors (GPS, IMU, barometer, etc.)
+* Controlling motors
+* Executing flight modes
+* Following waypoints
+* Returning home automatically
+* Handling failsafe conditions
+
+PX4 can run:
+
+* On real flight controllers (hardware)
+* On your PC in simulation (Software-In-The-Loop, or SITL)
+
+---
+
+## Gazebo
+
+Gazebo is a robotics simulator that creates a realistic virtual environment.
+
+It simulates:
+
+* Drone physics
+* Gravity
+* Wind
+* Buildings
+* Trees
+* Terrain
+* Cameras
+* GPS
+* IMU
+* LiDAR
+* Collision detection
+
+Instead of flying a physical drone, you fly a virtual one.
+
+---
+
+## How they work together
+
+```text
+              Your C++ Program
+                     │
+                MAVSDK / MAVLink
+                     │
+               ------------------
+               |      PX4       |
+               | Autopilot      |
+               ------------------
+                     │
+            Simulated Motors
+                     │
+               ------------------
+               |    Gazebo      |
+               | Physics World  |
+               ------------------
+                     │
+         GPS • Camera • IMU • LiDAR
+```
+
+1. Your C++ application sends commands (e.g., "take off" or "fly to this waypoint").
+2. PX4 interprets those commands and computes the required motor outputs.
+3. Gazebo simulates how the drone moves in response.
+4. Gazebo generates simulated sensor data.
+5. PX4 uses that sensor data to continue controlling the drone.
+
+---
+
+## What you can develop
+
+With PX4 + Gazebo, you can build:
+
+* Autonomous flight missions
+* Waypoint navigation
+* Obstacle avoidance
+* Drone swarm coordination
+* Camera-based tracking
+* SLAM (Simultaneous Localization and Mapping)
+* Computer vision applications
+* Flight control algorithms
+* Custom flight modes
+
+---
+
+## Why use simulation?
+
+Simulation lets you:
+
+* Test safely without risking expensive hardware
+* Debug software more easily
+* Repeat the same scenarios consistently
+* Develop before owning a drone
+* Simulate difficult conditions like wind or GPS loss
+
+---
+
+## Typical C++ workflow
+
+1. Build and run PX4 in SITL mode.
+2. Start Gazebo with a virtual drone.
+3. Write a C++ application using MAVSDK or extend PX4 itself.
+4. Send commands such as:
+
+   * Arm
+   * Take off
+   * Fly to coordinates
+   * Land
+5. Observe and refine the drone's behavior in the simulator.
+
+In short, **PX4 provides the autonomous flight control logic, while Gazebo provides a realistic virtual environment and physics simulation**. Together, they form one of the most widely used platforms for developing and testing drone software in C++.

@@ -1,0 +1,39 @@
+Full form of PX4 + Gazebo.
+
+The names don't expand into a combined acronym, but here's what each means:
+
+### PX4
+
+PX4 Autopilot
+
+* **PX** = Originally derived from the **Pixhawk** project/ecosystem.
+* **4** = Refers to the **four primary control axes** of a multicopter/aircraft:
+
+  * Roll
+  * Pitch
+  * Yaw
+  * Thrust (or altitude control)
+
+So, **PX4** is the name of an open-source **flight control (autopilot) software**. It is not officially an acronym with a fully expanded phrase like "Platform X 4."
+
+### Gazebo
+
+Gazebo
+
+**Gazebo** is simply the project's name. It is **not an acronym** and does not have a full form.
+
+It is an open-source robotics simulator that provides:
+
+* 3D environments
+* Physics simulation
+* Virtual sensors
+* Robot and drone simulation
+
+### Together
+
+**PX4 + Gazebo** means:
+
+* **PX4** → Drone autopilot (the "brain")
+* **Gazebo** → 3D simulation environment (the "virtual world")
+
+Together, they let you develop and test drone software in simulation before deploying it to real hardware.

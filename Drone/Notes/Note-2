@@ -1,0 +1,51 @@
+Is there doc for PX4 + Gazebo to start?
+
+Yes. **PX4 has one of the best open-source documentation sets** for getting started with drone simulation. You can learn everything from installation to writing your own C++ flight applications.
+
+Here are the most useful resources:
+
+1. **Official PX4 User Guide**
+
+   * [PX4 Documentation](https://docs.px4.io/?utm_source=chatgpt.com)
+   * Covers installation, flight stack, simulation, sensors, tuning, and development.
+
+2. **Simulation with Gazebo**
+
+   * [PX4 Gazebo Simulation Guide](https://docs.px4.io/main/en/sim_gazebo_gz/?utm_source=chatgpt.com)
+   * Explains how to install Gazebo, launch simulated drones, and customize simulation worlds.
+
+3. **PX4 Development Guide**
+
+   * [PX4 Development Guide](https://docs.px4.io/main/en/dev_setup/dev_env.html?utm_source=chatgpt.com)
+   * Shows how to set up a Linux development environment, build PX4, and run Software-in-the-Loop (SITL).
+
+4. **MAVSDK (C++)**
+
+   * [MAVSDK Documentation](https://mavsdk.mavlink.io/main/en/?utm_source=chatgpt.com)
+   * Learn to write C++ applications that connect to PX4 to arm, take off, navigate, and land a drone.
+
+5. **Gazebo Documentation**
+
+   * [Gazebo Documentation](https://gazebosim.org/docs?utm_source=chatgpt.com)
+   * Learn about worlds, models, sensors, plugins, and physics simulation.
+
+## Suggested learning order
+
+1. Install Ubuntu (recommended by PX4) or use Docker if you prefer.
+2. Install the PX4 development environment.
+3. Build PX4 and run the default drone in Gazebo.
+4. Fly the drone using the simulated controller or keyboard.
+5. Learn the PX4 architecture (modules, uORB, parameters).
+6. Write a simple C++ program with MAVSDK to:
+
+   * Connect to the simulator
+   * Arm the drone
+   * Take off
+   * Fly to a waypoint
+   * Land
+7. Move on to more advanced topics like custom flight modes, obstacle avoidance, and autonomous missions.
+
+you can focus primarily on the C++ APIs rather than starting from scratch with programming.
+
+A practical learning path could take you from "Hello Drone" to autonomous navigation in about **8–10 progressively more advanced projects**. 
+

@@ -1,0 +1,126 @@
+Lists C++ drone programming simualtor.
+
+If your goal is **C++ drone software development**, these are the simulators you should know:
+
+| Simulator         | C++ Support | Best For                               | Difficulty |
+| ----------------- | ----------- | -------------------------------------- | ---------- |
+| **PX4 + Gazebo**  | ⭐⭐⭐⭐⭐       | Professional drone development         | High       |
+| **PX4 + jMAVSim** | ⭐⭐⭐⭐        | Learning autopilot algorithms          | Medium     |
+| **AirSim**        | ⭐⭐⭐⭐        | Computer vision, AI, autonomous drones | High       |
+| **Webots**        | ⭐⭐⭐⭐        | Robotics and drones                    | Medium     |
+| **CoppeliaSim**   | ⭐⭐⭐         | Robotics research                      | Medium     |
+
+### 1. PX4 + Gazebo (Recommended)
+
+This is the industry standard for autonomous drone development.
+
+Features:
+
+* Flight physics
+* GPS
+* IMU
+* Camera
+* LiDAR
+* Wind simulation
+* Obstacle avoidance
+* Multi-drone simulation
+* MAVLink support
+
+You can write C++ programs that:
+
+* Control drone movement
+* Read sensors
+* Implement path planning
+* Perform obstacle avoidance
+* Execute autonomous missions
+
+PX4 officially recommends Gazebo as its primary simulator. ([docs.px4.io][1])
+
+---
+
+### 2. PX4 + jMAVSim
+
+A lightweight simulator suitable for learning.
+
+Good for:
+
+* PID controller development
+* Autopilot logic
+* MAVSDK practice
+* Flight testing
+
+Supports Software-In-The-Loop (SITL), allowing PX4 firmware to run directly on your PC. ([docs.px4.io][2])
+
+---
+
+### 3. AirSim
+
+Originally developed by Microsoft.
+
+Good for:
+
+* Computer vision
+* AI
+* SLAM
+* Reinforcement learning
+* Camera-based navigation
+
+Supports:
+
+* RGB cameras
+* Depth cameras
+* LiDAR
+* GPS
+* IMU
+
+It can also integrate with Gazebo for advanced physics. ([microsoft.github.io][3])
+
+---
+
+## C++ APIs
+
+Most drone software is written in C++ using:
+
+* **MAVSDK C++** – high-level drone control
+* **MAVLink** – communication protocol
+* **PX4 modules** – autopilot algorithms
+* **ROS 2 (C++)** – robotics applications
+* **Gazebo plugins (C++)** – custom sensors and environments
+
+---
+
+## Projects you can build
+
+Since you've mentioned before that you enjoy **pure C++ projects**, these are excellent portfolio ideas:
+
+1. PID flight controller
+2. Autonomous waypoint navigation
+3. Drone mission planner
+4. Obstacle avoidance system
+5. Vision-based landing
+6. Drone swarm coordination
+7. LiDAR mapping
+8. GPS-denied navigation
+9. Follow-me drone
+10. Indoor SLAM
+
+---
+
+## Learning roadmap
+
+1. Modern C++ (C++17/20)
+2. Drone dynamics and PID control
+3. MAVLink
+4. MAVSDK (C++)
+5. PX4
+6. Gazebo
+7. ROS 2 (C++)
+8. Computer vision (OpenCV)
+9. SLAM
+10. Autonomous navigation
+
+For someone aiming to become a **C++ drone software engineer**, the strongest combination is:
+
+> **C++ + PX4 + Gazebo + MAVSDK + ROS 2**
+
+This stack is widely used in research and industry for developing autonomous drones, flight controllers, and navigation software.
