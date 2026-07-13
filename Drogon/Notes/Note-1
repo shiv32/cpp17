@@ -1,0 +1,139 @@
+Drogon framework
+
+Similer to **Java Spring Boot** and **C++ backend**, **Drogon** is one of the best frameworks to learn if you want to build modern web backends in C++. 
+It is designed for **high-performance REST APIs and web services**. 
+
+## What is Drogon?
+
+Drogon is an **asynchronous C++17/20 web framework** for building:
+
+* REST APIs
+* HTTP/HTTPS servers
+* WebSocket servers
+* Microservices
+* Database-backed web applications
+* Authentication services
+
+It is cross-platform and supports Linux, Windows, macOS, and BSD systems. 
+
+## Key Features
+
+* ✅ C++17/20 support
+* ✅ Very high performance
+* ✅ Asynchronous I/O
+* ✅ Coroutine support (C++20)
+* ✅ REST API routing
+* ✅ WebSocket
+* ✅ HTTPS (OpenSSL)
+* ✅ JSON support
+* ✅ File upload/download
+* ✅ PostgreSQL, MySQL, SQLite
+* ✅ Redis client
+* ✅ ORM
+* ✅ Middleware (filters)
+* ✅ Plugin system
+* ✅ Session and cookies support 
+
+## Architecture
+
+```
+Client
+   │
+HTTP/HTTPS
+   │
+Router
+   │
+Controller
+   │
+Service Layer
+   │
+Repository / ORM
+   │
+Database
+```
+
+This is similar to Spring Boot:
+
+| Spring Boot     | Drogon               |
+| --------------- | -------------------- |
+| Controller      | HttpController       |
+| Service         | Service class        |
+| Repository      | ORM/DbClient         |
+| Filter          | Filter               |
+| Configuration   | config.json          |
+| Embedded Tomcat | Embedded HTTP server |
+
+## Example
+
+```cpp
+app().registerHandler(
+    "/hello",
+    [](const HttpRequestPtr& req,
+       std::function<void(const HttpResponsePtr&)>&& callback)
+    {
+        auto resp = HttpResponse::newHttpResponse();
+        resp->setBody("Hello World");
+        callback(resp);
+    });
+```
+
+## Database Support
+
+Drogon supports:
+
+* PostgreSQL
+* MySQL / MariaDB
+* SQLite
+
+Features include:
+
+* Async queries
+* Connection pooling
+* Transactions
+* ORM model generation
+* Prepared statements 
+
+## Performance
+
+Drogon is widely recognized as one of the fastest C++ web frameworks. It uses non-blocking event loops (`epoll` on Linux, `kqueue` on BSD/macOS) and has performed very well in TechEmpower benchmarks.
+
+## Typical Project Structure
+
+```
+my_project/
+├── controllers/
+├── filters/
+├── plugins/
+├── models/
+├── views/
+├── config.json
+├── main.cc
+└── CMakeLists.txt
+```
+
+## Best Use Cases
+
+* REST APIs
+* Trading platforms
+* High-performance backend services
+* Authentication servers
+* IoT backends
+* Game servers
+* Chat servers
+* Internal enterprise services
+
+## Is it worth learning?
+
+Based on your previous questions, your interests are:
+
+* C++ development
+* Backend systems
+* Trading/HFT
+* Linux
+* PostgreSQL
+
+Drogon aligns well with those interests. 
+It lets you stay in the C++ ecosystem while building production-grade web services. 
+If your goal is general web development jobs, Spring Boot or ASP.NET typically have a larger job market, but if you want high-performance C++ backend development, Drogon is a strong choice.
+
+
