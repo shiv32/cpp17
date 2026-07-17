@@ -17,7 +17,7 @@ namespace example2
 {
     void *allocateMemorySomehow()
     {
-        return nullptr;
+        return ::operator new(sizeof(SpreadsheetCell)); // raw, properly aligned storage
     }
 
     void test1()
@@ -27,7 +27,7 @@ namespace example2
 
             void* operator new(size_t size);
             void* operator new[](size_t size);
-            
+
             void* operator new(size_t size, const std::nothrow_t&) noexcept;
             void* operator new[](size_t size, const std::nothrow_t&) noexcept;
 
@@ -37,10 +37,16 @@ namespace example2
             void* operator new[](size_t size, void* p) noexcept;
         */
 
+        //Correct pattern for placement new
         void *ptr = allocateMemorySomehow();
         SpreadsheetCell *cell = new (ptr) SpreadsheetCell(); // placement new operator
         // do your work using cell then delete cell
-        delete cell;
+
+        // delete cell; //Do not use delete cell for an object created with placement new.
+        cell->~SpreadsheetCell();   // explicitly run destructor, destroy object only
+        cell = nullptr;             // Set the pointer variable to nullptr after delete to avoid accidental reuse
+        ::operator delete(ptr);     // free raw storage only if it was allocated by ::operator new
+        ptr = nullptr;              // Set the pointer variable to nullptr after delete to avoid accidental reuse
     }
 
     void test2()
@@ -64,6 +70,9 @@ namespace example2
 int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
+
+    //example1::test1();
+    example2::test1();
 
     return 0;
 }

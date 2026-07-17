@@ -65,7 +65,7 @@ SpreadsheetCell &SpreadsheetCell::operator=(const SpreadsheetCell &rhs)
 
 SpreadsheetCell::~SpreadsheetCell()
 {
-  // std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
+  std::cout << __PRETTY_FUNCTION__ << " mValue : " << mValue << std::endl;
 }
 
 void SpreadsheetCell::setValue(double mValue) { this->mValue = mValue; }

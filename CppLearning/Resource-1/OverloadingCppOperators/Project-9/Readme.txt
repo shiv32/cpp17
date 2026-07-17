@@ -13,5 +13,5 @@ The New-Expression and operator new
 
 The Delete-Expression and operator delete
     There are only two different forms of the delete-expression that you can call: 
-    delete, and delete[]; 
+    delete, and delete[]
     there are no nothrow or placement forms.
