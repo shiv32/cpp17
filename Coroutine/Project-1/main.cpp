@@ -15,6 +15,8 @@ namespace normalFunction
 
 namespace coroutineExample1
 {
+    //This example only shows co_return. 
+    //It doesn't pause, so it's not very interesting.
     struct Task
     {
         struct promise_type
@@ -39,7 +41,9 @@ namespace coroutineExample1
 namespace coroutineExample2
 {
     /*
-    This is the classic use of coroutines: generate one value at a time while automatically remembering where execution stopped.
+        Small Example with Pause (co_yield)
+        This is the classic use of coroutines: 
+        generate one value at a time while automatically remembering where execution stopped.
     */
     class Generator
     {
@@ -110,6 +114,8 @@ namespace coroutineExample2
 
 int main()
 {
+
+    system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
     // normalFunction::printNumbers();
     // coroutineExample1::hello();
