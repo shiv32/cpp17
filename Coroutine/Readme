@@ -1,0 +1,31 @@
+What is a Coroutine?
+
+A coroutine is a special type of function that can pause its execution, 
+save its current state, and resume later from where it left off.
+
+Unlike a normal function:
+
+A normal function runs from start to finish in one call.
+A coroutine can stop in the middle, return control to the caller, and continue later.
+
+Think of it like reading a book:
+
+Normal function: Read the whole book in one sitting.
+Coroutine: Read one chapter, place a bookmark, do something else, then continue from the bookmark later.
+
+Three Coroutine Keywords
+    Keyword	    Purpose
+    co_return	Finish the coroutine and optionally return a value.
+    co_yield	Produce a value and suspend execution.
+    co_await	Suspend until another asynchronous operation is ready.
+
+Common Use Cases
+    Generators (produce values one by one)
+    Asynchronous I/O (networking, file operations)
+    Game loops (scripted sequences, animations)
+    Streaming large datasets
+    Task schedulers
+    High-performance servers
+
+Coroutines let you write code that looks sequential while still allowing execution to pause and resume efficiently, 
+without blocking the thread.
