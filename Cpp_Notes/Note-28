@@ -1,0 +1,69 @@
+Coding is important or HLD/LLD?
+
+It depends on your goal, but for a **professional C++ backend/infrastructure engineer**, both are important. 
+The priority changes as your career progresses.
+
+### Beginner (0–2 years)
+
+* **80% Coding**
+* **20% HLD/LLD**
+
+Focus on:
+
+* C++17/20
+* STL
+* DSA
+* Debugging
+* Multithreading
+* Writing clean code
+
+### Mid-level (2–5 years)
+
+* **60% Coding**
+* **40% HLD/LLD**
+
+Learn:
+
+* SOLID principles
+* Design patterns
+* Low-Level Design (classes, interfaces, APIs)
+* Basic High-Level Design (services, databases, caching)
+
+### Senior (5+ years)
+
+* **40% Coding**
+* **60% HLD/LLD**
+
+Responsibilities include:
+
+* Designing systems
+* Choosing architectures
+* Performance optimization
+* Scalability
+* Mentoring engineers
+
+### For trading/HFT C++ roles
+
+The emphasis is slightly different:
+
+* **Coding:** ⭐⭐⭐⭐⭐ (most important)
+* **C++ internals:** ⭐⭐⭐⭐⭐
+* **Concurrency:** ⭐⭐⭐⭐⭐
+* **Performance optimization:** ⭐⭐⭐⭐⭐
+* **LLD:** ⭐⭐⭐⭐☆
+* **HLD:** ⭐⭐⭐☆☆
+
+These roles expect you to write highly optimized code first, but you also need to design maintainable components.
+
+### Recommendation
+
+If you have **2 hours per day**:
+
+* **1 hour 30 min:** Coding (implement features, solve problems, build projects)
+* **30 min:** LLD/HLD (design patterns, UML, architecture, system design)
+
+The best way to learn LLD is by applying it in your own projects. 
+For example, instead of just writing a CLI application, design it with clear modules, interfaces, and extensibility.
+
+For someone aiming to become a strong C++ engineer, **excellent coding skills are the foundation**. 
+HLD and LLD become much easier to learn once you can consistently build clean, reliable software.
