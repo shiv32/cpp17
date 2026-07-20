@@ -1,3 +1,6 @@
+/*
+    Convert your wifi adapter into Access point if adapter has AP module.
+*/
 #include <cstdlib>
 #include <iostream>
 #include <string>
