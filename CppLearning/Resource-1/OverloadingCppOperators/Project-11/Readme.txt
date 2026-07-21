@@ -6,6 +6,8 @@ Overloading operator delete with Size of Memory as Parameter
 
 
 ---------------------------------------
+See MemoryDemo class in example.
+
 What is sizeof(MemoryDemo)?
 
 The class contains:

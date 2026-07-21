@@ -141,5 +141,6 @@
     "typeinfo": "cpp",
     "valarray": "cpp",
     "variant": "cpp"
-  }
+  },
+  "cmake.sourceDirectory": "/home/shiv/Projects/ProfessionalCpp/AlgoTradingCpp/Project-11"
 }

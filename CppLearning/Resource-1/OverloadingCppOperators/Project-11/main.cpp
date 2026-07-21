@@ -97,7 +97,7 @@ namespace example1
     void MemoryDemo::operator delete(void *ptr, int extra) noexcept
     {
         cout << "operator delete with extra int: " << extra << endl;
-        return ::operator delete(ptr);
+        ::operator delete(ptr);
     }
 
     void test1()
@@ -151,7 +151,7 @@ int main()
 {
     system("clear && printf '\e[3J'"); // clean the terminal before output in linux
 
-    // example1::test1();
+    //example1::test1();
     example2::test1();
 
     return 0;
