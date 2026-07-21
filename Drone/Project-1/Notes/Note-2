@@ -1,0 +1,108 @@
+MAVSDK (C++), MAVLink  both are same or diff?
+
+They are **different**, but closely related.
+
+Think of it like this:
+
+* **MAVLink** = the **language/protocol** drones use to communicate.
+* **MAVSDK** = a **C++ library** (or SDK) that speaks MAVLink for you.
+
+### Relationship
+
+```text
+Your C++ Code
+      │
+      ▼
+   MAVSDK
+      │
+      ▼
+   MAVLink Protocol
+      │
+      ▼
+      PX4
+```
+
+## MAVLink
+
+MAVLink is a **communication protocol**.
+
+It defines messages such as:
+
+* HEARTBEAT
+* COMMAND_LONG
+* GPS_RAW_INT
+* ATTITUDE
+* BATTERY_STATUS
+
+A MAVLink message is a binary packet exchanged between systems.
+
+If you use MAVLink directly, you have to construct and parse these messages yourself.
+
+Example (conceptually):
+
+```cpp
+mavlink_msg_command_long_pack(...);
+send(packet);
+```
+
+This is lower-level and more complex.
+
+---
+
+## MAVSDK (C++)
+
+MAVSDK is a library built **on top of MAVLink**.
+
+Instead of creating MAVLink packets manually, you call simple functions.
+
+Example:
+
+```cpp
+Action action(system);
+
+action.arm();
+action.takeoff();
+action.land();
+```
+
+Internally, MAVSDK converts those function calls into the appropriate MAVLink messages.
+
+---
+
+## Analogy
+
+Imagine sending a letter:
+
+* **MAVLink** = the postal service format (envelope, address, stamps, rules).
+* **MAVSDK** = a courier assistant who fills out the envelope and sends it for you.
+
+You tell the assistant:
+
+> "Send this letter."
+
+You don't worry about the postal rules.
+
+---
+
+## Comparison
+
+| Feature                 | MAVLink                         | MAVSDK                         |
+| ----------------------- | ------------------------------- | ------------------------------ |
+| What is it?             | Communication protocol          | SDK/library                    |
+| Level                   | Low-level                       | High-level                     |
+| Write packets manually? | Yes                             | No                             |
+| Easier to use?          | No                              | Yes                            |
+| Language                | Protocol (language-independent) | C++, Python, Java, Swift, etc. |
+| Used by                 | PX4, ArduPilot, GCS, SDKs       | Your application               |
+
+---
+
+## Which should you use?
+
+For most C++ drone applications:
+
+* ✅ Use **MAVSDK**.
+* Learn **MAVLink** conceptually so you understand what happens under the hood.
+* Use raw MAVLink only if you need functionality that MAVSDK doesn't expose or you're developing custom protocol features.
+
+For your goal of building **C++ applications that control PX4 drones**, **MAVSDK is the recommended starting point** because it lets you focus on application logic rather than low-level message handling.

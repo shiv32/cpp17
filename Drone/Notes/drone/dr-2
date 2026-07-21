@@ -1,0 +1,85 @@
+Thanks — that confirms the diagnosis. Since `gz sim shapes.sdf` also opens a black window and has to be force-quit, the issue is Gazebo rendering inside VirtualBox, not PX4 itself.
+
+Your PX4 log already showed that the drone model `x500_0` was spawned successfully. The Gazebo GUI just cannot render the scene correctly with VirtualBox’s `SVGA3D` virtual GPU.
+
+### What this means
+
+* PX4 is installed correctly. The simulator starts, the world loads, and the drone model is spawned.
+
+* Gazebo Harmonic is the problem. It uses modern OpenGL/Ogre2 rendering, which VirtualBox often does not support reliably.
+
+* Qt/QML and MAVSDK are not the issue. Your `libmavsdk-dev` installation is working correctly.
+
+### Try these tests first
+
+Run these commands in the Ubuntu VM:
+
+### Force software rendering
+
+Bash
+
+```
+LIBGL_ALWAYS_SOFTWARE=1 gz sim shapes.sdf
+```
+
+If this shows the shapes, then the problem is definitely VirtualBox’s 3D acceleration driver.
+
+### Try the older Gazebo renderer
+
+Bash
+
+```
+export GZ_RENDER_ENGINE=ogre
+gz sim shapes.sdf
+```
+
+If that works, you can try PX4 with the same renderer:
+
+Bash
+
+```
+cd ~/PX4/PX4-Autopilot
+export GZ_RENDER_ENGINE=ogre
+make px4_sitl gz_x500
+```
+
+### If the tests still show a black window
+
+Then this is a VirtualBox graphics limitation. For PX4 + Gazebo development, the recommended options are:
+
+* Best option: Install Ubuntu 24.04 directly on your hardware.
+
+* Linux host: Use KVM/QEMU with a virtio GPU.
+
+* Windows host: Use VMware Workstation, which generally has better 3D support than VirtualBox.
+
+### What I recommend for your setup
+
+Since your goal is PX4 + Gazebo + C++ + Qt/QML, I recommend:
+
+* Use Ubuntu directly on your machine if possible.
+
+* Keep using your current PX4 and MAVSDK installation.
+
+* Develop the Qt/QML ground station in the VM if you want, because that does not require Gazebo rendering.
+
+* Run PX4 + Gazebo SITL on bare metal or a VM with better GPU virtualization.
+
+### Next step
+
+Please run these two commands and tell me what happens:
+
+Bash
+
+```
+LIBGL_ALWAYS_SOFTWARE=1 gz sim shapes.sdf
+```
+
+Bash
+
+```
+export GZ_RENDER_ENGINE=ogre
+gz sim shapes.sdf
+```
+
+If either one displays the shapes, we can use that as a workaround. If both still show a black window, the reliable solution is to run Ubuntu on bare metal or switch to KVM/QEMU or VMware for Gazebo.

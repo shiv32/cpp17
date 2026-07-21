@@ -1,0 +1,18 @@
+Drone C++ simulation app
+-----------------------------------------
+app start command
+
+mkdir build
+rm -rf * 
+cd build
+cmake ..
+make
+./px4
+
+---------------------------------------------
+simulator start command
+
+cd /home/vboxuser/PX4/PX4-Autopilot
+export LIBGL_ALWAYS_SOFTWARE=1
+make px4_sitl gz_x500
+---------------------------------------------

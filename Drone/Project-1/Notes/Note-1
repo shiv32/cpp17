@@ -1,0 +1,247 @@
+What is mavsdk px4 gazebo?
+
+These three tools work together to let you **develop, test, and control drones without needing real hardware**.
+
+```text
+Your C++ Program
+       │
+       ▼
+    MAVSDK
+       │ MAVLink
+       ▼
+      PX4
+       │
+       ▼
+    Gazebo Simulator
+```
+
+## 1. MAVSDK
+
+**MAVSDK** is a high-level SDK (library) for controlling drones.
+
+Instead of sending raw MAVLink messages, you write simple code.
+
+Example:
+
+```cpp
+Action action(system);
+action.arm();
+action.takeoff();
+action.land();
+```
+
+instead of manually creating MAVLink packets.
+
+It provides APIs for:
+
+* Connect to drone
+* Arm/disarm
+* Takeoff/Land
+* Upload missions
+* Read GPS
+* Read battery
+* Camera control
+* Telemetry
+
+Supported languages:
+
+* C++
+* Python
+* Swift
+* Java
+* Others
+
+---
+
+## 2. PX4
+
+**PX4** is the drone's **flight controller software (autopilot)**.
+
+Think of it as the drone's operating system.
+
+It controls:
+
+* Motors
+* GPS
+* IMU
+* Compass
+* Altitude
+* Flight modes
+* Navigation
+* Stabilization
+* Safety
+
+It can run on
+
+* Real drones
+* Flight controllers (Pixhawk)
+* Simulator (Gazebo)
+
+Example flight modes:
+
+* Manual
+* Position
+* Altitude
+* Mission
+* RTL (Return to Launch)
+* Offboard
+
+---
+
+## 3. Gazebo
+
+**Gazebo** is a robotics simulator.
+
+It simulates
+
+* Drone physics
+* Gravity
+* Wind
+* Cameras
+* Lidar
+* GPS
+* Obstacles
+* Buildings
+* Terrain
+
+Instead of buying a real drone, Gazebo creates a virtual one.
+
+Example world:
+
+```
++------------------------+
+|        Sky             |
+|                        |
+|     Drone              |
+|        ▲               |
+|        |               |
+|   Building             |
+|                        |
+|   Trees                |
++------------------------+
+```
+
+---
+
+# How they communicate
+
+```
+C++ Program
+      │
+      │ MAVSDK
+      ▼
+ PX4 Autopilot
+      │
+      │ Physics
+      ▼
+ Gazebo
+```
+
+When you call
+
+```cpp
+action.takeoff();
+```
+
+Flow:
+
+```
+C++ Program
+      │
+      ▼
+ MAVSDK sends MAVLink
+      │
+      ▼
+ PX4 receives command
+      │
+      ▼
+ PX4 spins motors
+      │
+      ▼
+ Gazebo simulates flying
+```
+
+---
+
+# Example
+
+Your code
+
+```cpp
+Action action(system);
+
+action.arm();
+action.takeoff();
+```
+
+Output
+
+```
+Drone Armed
+
+Taking off...
+
+Altitude = 2m
+
+Altitude = 5m
+
+Hovering...
+```
+
+No real drone is involved.
+
+---
+
+# Why use all three?
+
+| Tool   | Responsibility                                               |
+| ------ | ------------------------------------------------------------ |
+| Gazebo | Simulates the world and drone physics                        |
+| PX4    | Runs the autopilot and flight control algorithms             |
+| MAVSDK | Lets your application control the drone through a simple API |
+
+---
+
+# Real Drone vs Simulation
+
+### Simulation
+
+```
+C++ App
+   │
+MAVSDK
+   │
+PX4
+   │
+Gazebo
+```
+
+No hardware required.
+
+---
+
+### Real Drone
+
+```
+C++ App
+   │
+MAVSDK
+   │
+Wi-Fi / Radio / USB
+   │
+PX4
+   │
+Motors
+```
+
+The same MAVSDK application often works with a simulated drone and a real PX4-powered drone—typically you just change the connection (for example, from a local UDP endpoint used by the simulator to the drone's telemetry link).
+
+---
+
+## Why this stack is popular
+
+* **MAVSDK**: simplifies drone programming with high-level APIs.
+* **PX4**: provides a mature, open-source autopilot.
+* **Gazebo**: enables safe testing in realistic simulated environments.
+
+working with **C++ + PX4 + Gazebo + MAVSDK**, you're using the same architecture that many robotics, autonomous systems, and drone development teams use for developing and testing flight software before deploying it to real hardware.

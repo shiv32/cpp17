@@ -1,0 +1,134 @@
+A great first project is to **connect to PX4 and display the connection status**. No maps, no controls, just proving that **Qt/QML ↔ C++ ↔ MAVSDK ↔ PX4** works.
+
+## Project structure
+
+```text
+PX4Hello/
+
+├── CMakeLists.txt
+├── main.cpp
+├── Main.qml
+├── backend/
+│   ├── Drone.h
+│   └── Drone.cpp
+└── resources.qrc
+```
+
+## What it does
+
+1. Start PX4:
+
+```bash
+export LIBGL_ALWAYS_SOFTWARE=1
+cd ~/PX4/PX4-Autopilot
+make px4_sitl gz_x500
+```
+
+2. Run your Qt app.
+
+3. The Qt window displays:
+
+```text
+PX4 Ground Station
+
+Status: Connected
+```
+
+If PX4 isn't running:
+
+```text
+Status: Waiting for PX4...
+```
+
+---
+
+## Architecture
+
+```text
+Qt/QML UI
+      │
+      ▼
+Drone (C++)
+      │
+      ▼
+MAVSDK
+      │
+UDP 14540
+      │
+      ▼
+PX4 SITL
+      │
+      ▼
+Gazebo
+```
+
+---
+
+## Skills you'll learn
+
+* Qt Quick (QML)
+* Exposing a C++ object to QML
+* CMake with Qt 6
+* MAVSDK connection
+* Reading telemetry
+
+---
+
+## Next versions
+
+Once this works, extend it step by step:
+
+### Version 2
+
+```text
+Status: Connected
+
+Latitude
+Longitude
+Altitude
+Battery %
+```
+
+### Version 3
+
+Buttons:
+
+```text
+[ Connect ]
+
+[ Arm ]
+
+[ Disarm ]
+
+[ Takeoff ]
+
+[ Land ]
+```
+
+### Version 4
+
+Display:
+
+* Roll
+* Pitch
+* Yaw
+* Speed
+* Flight mode
+
+### Version 5
+
+A complete QML dashboard with gauges and indicators, similar to a lightweight ground control station.
+
+---
+
+## Why this project?
+
+It's small enough to finish in a day or two, but it establishes the complete workflow you'll use in larger applications:
+
+* Qt/QML frontend
+* C++ backend
+* MAVSDK communication
+* PX4 SITL
+* Gazebo simulation
+
+From there, every new feature (telemetry, commands, missions, camera feeds, etc.) builds on the same architecture.

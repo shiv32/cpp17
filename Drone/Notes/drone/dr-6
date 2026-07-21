@@ -1,0 +1,83 @@
+Excellent—your C++ code is now running. The remaining problem is **missing Qt Quick Controls runtime packages**.
+
+The key error is:
+
+```text
+module "QtQuick.Templates" plugin "qtquicktemplates2plugin" not found
+```
+
+This is **not** a MAVSDK or PX4 issue.
+
+## Install the missing Qt packages
+
+Run:
+
+```bash
+sudo apt update
+
+sudo apt install \
+qml6-module-qtquick-controls \
+qml6-module-qtquick-templates \
+qml6-module-qtquick-layouts \
+qml6-module-qtquick-window \
+qml6-module-qtqml \
+qml6-module-qtquick
+```
+
+If one of those package names doesn't exist, run:
+
+```bash
+apt-cache search qml6-module-qtquick
+```
+
+and paste the output.
+
+---
+
+## Check that the plugin is installed
+
+Run:
+
+```bash
+find /usr -name qtquicktemplates2plugin\*
+```
+
+You should find something like:
+
+```text
+/usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Templates/qtquicktemplates2plugin.so
+```
+
+---
+
+## Quick workaround
+
+If you don't want to install Qt Quick Controls yet, replace your `Main.qml` with this minimal QML that uses only `QtQuick`:
+
+```qml
+import QtQuick 2.15
+
+Rectangle {
+    width: 600
+    height: 400
+    color: "white"
+
+    Text {
+        anchors.centerIn: parent
+        text: drone.connected ? "Connected" : "Waiting for PX4..."
+        font.pixelSize: 28
+    }
+}
+```
+
+This avoids `ApplicationWindow` and `QtQuick.Controls` entirely and should let you verify the rest of the application.
+
+---
+
+### Please paste the output of:
+
+```bash
+apt-cache search qml6-module-qtquick
+```
+
+That will let me tell you exactly which Qt 6 runtime packages are available on your Ubuntu 24.04 installation.

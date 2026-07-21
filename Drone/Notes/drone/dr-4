@@ -1,0 +1,89 @@
+Your Qt installation is **correct**:
+
+* ✅ Qt 6.4.2 installed
+* ✅ `qmake6` found
+* ✅ `qtpaths6` found
+
+So the issue is **Qt Creator isn't finding or creating a Kit**.
+
+## First, check if a kit already exists
+
+In **Qt Creator**:
+
+**Edit → Preferences → Kits**
+
+Look under **Kits**.
+
+Do you see something like:
+
+* `Desktop Qt 6.4.2 GCC 64-bit`
+* `Desktop`
+* Or is the list completely empty?
+
+---
+
+## If the list is empty
+
+Go to **Preferences → Qt Versions**.
+
+You should see Qt at a path similar to:
+
+```text
+/usr/lib/qt6/bin/qmake
+```
+
+or
+
+```text
+/usr/bin/qmake6
+```
+
+If it's not there:
+
+1. Click **Add**.
+2. Select:
+
+```text
+/usr/bin/qmake6
+```
+
+Qt Creator should detect Qt 6.4.2 automatically.
+
+---
+
+## Then create a Kit
+
+Go back to **Kits**.
+
+Click **Add** and configure:
+
+* **Name:** Desktop Qt 6.4.2
+* **Device type:** Desktop
+* **Compiler (C):** GCC
+* **Compiler (C++):** G++
+* **Qt Version:** Qt 6.4.2
+* **Debugger:** GDB
+* **CMake Tool:** Default
+
+Click **Apply**.
+
+---
+
+## I need one screenshot or one command output
+
+Please run:
+
+```bash
+qtcreator --version
+```
+
+and tell me:
+
+**When you go to `Preferences → Kits`, do you see:**
+
+* **A)** "No Kits available"
+* **B)** An empty Kits page
+* **C)** A warning like **"Cannot create kit"**
+* **D)** Something else
+
+A screenshot of the **Kits** page would also let me tell you exactly what needs to be fixed.

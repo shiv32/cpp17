@@ -1,0 +1,118 @@
+The log reveals a different problem now.
+
+This line is the key:
+
+```text
+INFO [init] gazebo already running world: shapes
+```
+
+Then:
+
+```text
+Error Code 14:
+Unable to find uri[file:///x500/model.sdf]
+```
+
+### What happened?
+
+You still had **`gz sim shapes.sdf` running**.
+
+So PX4 tried to spawn the drone into the **`shapes`** world instead of the **`default`** world, and the `x500` model couldn't be found there. That's why all the sensors failed.
+
+---
+
+## Fix
+
+### 1. Close every Gazebo instance
+
+```bash
+pkill -f gz
+```
+
+Verify:
+
+```bash
+ps -ef | grep gz
+```
+
+Only the `grep` line should remain.
+
+---
+
+### 2. Clean PX4 build (optional but recommended)
+
+```bash
+cd ~/PX4/PX4-Autopilot
+
+make clean
+```
+
+---
+
+### 3. Start PX4 again
+
+```bash
+export LIBGL_ALWAYS_SOFTWARE=1
+
+cd ~/PX4/PX4-Autopilot
+
+make px4_sitl gz_x500
+```
+
+Now you should see:
+
+```
+Starting gazebo with world:
+.../worlds/default.sdf
+```
+
+**NOT**
+
+```
+gazebo already running world: shapes
+```
+
+---
+
+## If the window is still black
+
+Run Gazebo directly with software rendering:
+
+```bash
+pkill -f gz
+
+export LIBGL_ALWAYS_SOFTWARE=1
+
+gz sim
+```
+
+If it is still black, then Ubuntu is still selecting the VirtualBox hardware renderer despite the environment variable. The warning you saw:
+
+```
+libEGL warning:
+Not allowed to force software rendering when API explicitly selects a hardware device.
+```
+
+indicates exactly that.
+
+---
+
+## One more thing to test
+
+Please run:
+
+```bash
+echo $XDG_SESSION_TYPE
+```
+
+and
+
+```bash
+echo $QT_QPA_PLATFORM
+```
+
+Also tell me:
+
+* Are you using **X11** or **Wayland**? (The first command will tell us.)
+
+This matters because **Gazebo Harmonic + VirtualBox + Wayland** is known to have rendering issues, while **X11** tends to work better.

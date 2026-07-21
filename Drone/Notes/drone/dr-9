@@ -1,0 +1,328 @@
+Since you've already set up **Ubuntu 24 + PX4 SITL + Gazebo + MAVSDK**, let's start with the **smallest working C++ program**.
+
+We'll build this progression:
+
+```
+C++ Console App
+        │
+        ▼
+Connect to PX4
+        │
+        ▼
+Read Health
+        │
+        ▼
+Read Position
+        │
+        ▼
+Arm
+        │
+        ▼
+Takeoff
+        │
+        ▼
+Land
+```
+
+---
+
+# Step 1. Start PX4 + Gazebo
+
+Terminal 1
+
+```bash
+cd ~/PX4-Autopilot
+make px4_sitl gz_x500
+```
+
+Wait until you see something like
+
+```
+INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
+INFO  [commander] Ready for takeoff!
+```
+
+Keep this terminal running.
+
+---
+
+# Step 2. Create project
+
+```
+PX4Hello/
+│
+├── CMakeLists.txt
+└── main.cpp
+```
+
+---
+
+# Step 3. CMakeLists.txt
+
+```cmake
+cmake_minimum_required(VERSION 3.16)
+
+project(PX4Hello)
+
+set(CMAKE_CXX_STANDARD 17)
+
+find_package(MAVSDK REQUIRED)
+
+add_executable(px4
+    main.cpp
+)
+
+target_link_libraries(px4
+    MAVSDK::mavsdk
+    MAVSDK::mavsdk_action
+    MAVSDK::mavsdk_telemetry
+)
+```
+
+---
+
+# Step 4. main.cpp
+
+```cpp
+#include <iostream>
+
+#include <mavsdk/mavsdk.h>
+#include <mavsdk/plugins/action/action.h>
+#include <mavsdk/plugins/telemetry/telemetry.h>
+
+using namespace mavsdk;
+
+int main()
+{
+    Mavsdk mavsdk;
+
+    auto result = mavsdk.add_any_connection("udpin://0.0.0.0:14540");
+
+    if (result != ConnectionResult::Success)
+    {
+        std::cout << "Connection failed\n";
+        return 1;
+    }
+
+    std::cout << "Waiting for PX4...\n";
+
+    while (mavsdk.systems().empty())
+    {
+    }
+
+    auto system = mavsdk.systems().front();
+
+    if (!system->is_connected())
+    {
+        std::cout << "Not connected\n";
+        return 1;
+    }
+
+    std::cout << "Connected!\n";
+
+    Telemetry telemetry(system);
+
+    while (!telemetry.health_all_ok())
+    {
+        std::cout << "Waiting for GPS/Sensors...\n";
+    }
+
+    std::cout << "Vehicle Ready\n";
+}
+```
+
+---
+
+# Step 5. Build
+
+```bash
+mkdir build
+cd build
+
+cmake ..
+
+make
+```
+
+---
+
+# Step 6. Run
+
+```bash
+./px4
+```
+
+Expected output
+
+```
+Waiting for PX4...
+
+Connected!
+
+Waiting for GPS/Sensors...
+
+Vehicle Ready
+```
+
+Congratulations!
+
+Your C++ program is now talking to PX4.
+
+---
+
+# Step 7. Read Position
+
+Add
+
+```cpp
+Telemetry::Position position = telemetry.position();
+
+std::cout
+    << position.latitude_deg
+    << " "
+    << position.longitude_deg
+    << " "
+    << position.absolute_altitude_m
+    << std::endl;
+```
+
+Output
+
+```
+47.3977419
+8.5455936
+488.2
+```
+
+---
+
+# Step 8. Read Battery
+
+```cpp
+auto battery = telemetry.battery();
+
+std::cout
+<< battery.remaining_percent * 100
+<< "%"
+<< std::endl;
+```
+
+Output
+
+```
+100%
+```
+
+---
+
+# Step 9. Read Flight Mode
+
+```cpp
+std::cout
+<< telemetry.flight_mode()
+<< std::endl;
+```
+
+---
+
+# Step 10. Arm
+
+```cpp
+Action action(system);
+
+auto arm = action.arm();
+
+if (arm == Action::Result::Success)
+{
+    std::cout << "Armed\n";
+}
+```
+
+---
+
+# Step 11. Takeoff
+
+```cpp
+action.takeoff();
+```
+
+Drone rises in Gazebo.
+
+---
+
+# Step 12. Land
+
+```cpp
+action.land();
+```
+
+Drone lands.
+
+---
+
+## Complete sequence
+
+```
+Start PX4
+
+↓
+
+Connect
+
+↓
+
+Wait Health
+
+↓
+
+Read GPS
+
+↓
+
+Read Battery
+
+↓
+
+Arm
+
+↓
+
+Takeoff
+
+↓
+
+Hover
+
+↓
+
+Land
+```
+
+---
+
+## Next project
+
+Once this basic example works, we can build a **menu-driven CLI** in standard C++:
+
+```
+==============================
+ PX4 Console
+==============================
+
+1. Connect
+2. Vehicle Info
+3. GPS
+4. Battery
+5. Arm
+6. Disarm
+7. Takeoff
+8. Land
+9. RTL
+10. Telemetry
+11. Mission
+12. Exit
+
+Choice >
+```
+
+This will be a clean C++17 console application that interacts with PX4 and Gazebo entirely from the terminal, with no GUI.

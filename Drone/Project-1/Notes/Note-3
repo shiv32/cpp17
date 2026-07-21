@@ -1,0 +1,46 @@
+fullform of each
+
+Here are the full forms and meanings of each term:
+
+| Abbreviation | Full Form                                      | Purpose                                                                                                                                       |
+| ------------ | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **MAV**      | **Micro Air Vehicle**                          | Refers to small unmanned aerial vehicles (drones).                                                                                            |
+| **MAVLink**  | **Micro Air Vehicle Link**                     | A lightweight communication protocol for drones and ground stations.                                                                          |
+| **MAVSDK**   | **Micro Air Vehicle Software Development Kit** | A library/SDK that lets developers control MAVLink-compatible drones using C++, Python, Java, Swift, etc.                                     |
+| **PX4**      | **Pixhawk 4** *(historical origin)*            | The name of an open-source autopilot software project. Today, "PX4" refers to the autopilot software itself, not just the Pixhawk 4 hardware. |
+| **SDK**      | **Software Development Kit**                   | A collection of libraries, APIs, and tools for building applications.                                                                         |
+| **GCS**      | **Ground Control Station**                     | Software used to monitor and control a drone (e.g., QGroundControl).                                                                          |
+| **UAV**      | **Unmanned Aerial Vehicle**                    | Another term for a drone.                                                                                                                     |
+| **SITL**     | **Software In The Loop**                       | Runs the autopilot software in a simulator on your computer.                                                                                  |
+| **HITL**     | **Hardware In The Loop**                       | Runs the autopilot on real flight-controller hardware while simulating the environment.                                                       |
+
+### How they fit together
+
+```text
+Your C++ App
+      │
+      ▼
+MAVSDK (Micro Air Vehicle Software Development Kit)
+      │
+      ▼
+MAVLink (Micro Air Vehicle Link)
+      │
+      ▼
+PX4 Autopilot
+      │
+      ▼
+Gazebo Simulator
+```
+
+So, when you write:
+
+```cpp
+action.takeoff();
+```
+
+the flow is:
+
+1. **MAVSDK** converts it into...
+2. **MAVLink** messages...
+3. **PX4** executes the command...
+4. **Gazebo** simulates the drone flying.
