@@ -1,0 +1,18 @@
+Memory Management
+
+    WORKING WITH DYNAMIC MEMORY
+    How to Picture Memory
+
+        As a rule of thumb, every time you declare a pointer variable, 
+        you should immediately initialize it with either a proper pointer or nullptr. 
+        Don’t leave it uninitialized!
+
+    Allocation and Deallocation
+    Using new and delete
+
+        As a rule of thumb, every line of code that allocates memory with new, 
+        and that uses a raw pointer instead of storing the pointer in a smart pointer, 
+        should correspond to another line of code that releases the same memory with delete.
+
+        It is recommended to set a pointer back to nullptr after having freed its memory. 
+        That way, you do not accidentally use a pointer to memory that has already been deallocated.
